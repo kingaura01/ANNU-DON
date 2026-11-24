@@ -1,6 +1,6 @@
 // ============================================
 // 📁 plugins/tourl.js - IMAGE TO URL (WITH CAPTION)
-// 👑 Developer: ANNU DON ANNU DON-ᴍᴅ
+// 👑 Developer: 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡-ᴍᴅ
 // 🔥 Reply System + Caption Support
 // ============================================
 

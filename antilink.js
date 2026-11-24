@@ -1,5 +1,5 @@
 // ============================================
-// 🌸 ANTI-LINK - §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 (FIXED)
+// 🌸 ANTI-LINK - §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 (FIXED)
 // 👑 Developer: ANNU DON-ᴍᴅ
 // 🔥 Delete Links Only - No Remove
 // ============================================
@@ -59,7 +59,7 @@ function BoyMessage(title, value, status) {
 │♡⪼  ${status}
 ╰────────────────────○
 
-> 🦋⃟ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
+> 🦋⃟ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
 `;
 }
 
@@ -185,7 +185,7 @@ async (conn, mek, m, { from, body, sender, isGroup, isAdmins, isBotAdmins, reply
 │  ✿ 💡 Please avoid sending links
 ╰────────────────────○
 
-> 🦋⃟ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐`,
+> 🦋⃟ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐`,
             mentions: [senderJid]
         });
 
@@ -239,7 +239,7 @@ async (conn, mek, m, { from, reply, isGroup, isAdmins, isOwner, isCreator, sende
 │  ✿ ✅ Warnings cleared
 ╰────────────────────○
 
-> 🦋⃟ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐`,
+> 🦋⃟ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐`,
                 mentions: [targetUser]
             });
         } else {
@@ -280,7 +280,7 @@ async (conn, mek, m, { from, reply, isGroup, isAdmins, isOwner, isCreator }) => 
         }
 
         reply(`╭────────────────────◇
-│ 💕⃝🕊️ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
+│ 💕⃝🕊️ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ ${status}
 │  ✿ ⚠️ Active Warnings: ${warnCount}
@@ -288,7 +288,7 @@ async (conn, mek, m, { from, reply, isGroup, isAdmins, isOwner, isCreator }) => 
 │  ✿ 🚫 Remove: DISABLED (Only Warnings)
 ╰────────────────────○
 
-> 🦋⃟ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐`);
+> 🦋⃟ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐`);
 
     } catch (error) {
         console.error("🌸 Anti-Link Status Error:", error);

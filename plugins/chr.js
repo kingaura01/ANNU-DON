@@ -1,5 +1,5 @@
 // ============================================
-// 🌸 CHANNEL REACT - §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶
+// 🌸 CHANNEL REACT - §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶
 // 👑 Developer: ANNU DON-ᴍᴅ
 // 🔥 React to WhatsApp channel posts
 // ============================================
@@ -56,7 +56,7 @@ waqar({
                 return reply(girlHelp('❌ Eᴍᴏᴊɪ Rᴇǫᴜɪʀᴇᴅ', [
                     ['📌', 'Please provide', 'Emojis separated by comma'],
                     ['💖', 'Example', '👍,😍,❤️'],
-                    ['👑', 'By', '§࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶']
+                    ['👑', 'By', '§࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶']
                 ]));
             }
         }
@@ -65,7 +65,7 @@ waqar({
             return reply(girlHelp('❌ Lɪɴᴋ Rᴇǫᴜɪʀᴇᴅ', [
                 ['📌', 'Please provide', 'WhatsApp channel link'],
                 ['💖', 'Example', 'https://whatsapp.com/channel/xxxx/123'],
-                ['👑', 'By', '§࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶']
+                ['👑', 'By', '§࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶']
             ]));
         }
 

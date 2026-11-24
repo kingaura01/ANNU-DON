@@ -1,5 +1,5 @@
 // ============================================
-// 🌸 GET PP - §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 (FIXED)
+// 🌸 GET PP - §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 (FIXED)
 // 👑 Developer: ANNU DON-ᴍᴅ
 // 💖 BOYS Power Mode: ON
 // 🔥 Reply System Working
@@ -125,7 +125,7 @@ ${displayNumber ? `│  ✿ 📱 *Number:* ${displayNumber}` : ''}
 │  ✿ 👑 Saved by ANNU DON
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖`;
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖`;
 
         // ── Send PP ──
         await conn.sendMessage(from, {
@@ -137,7 +137,7 @@ ${displayNumber ? `│  ✿ 📱 *Number:* ${displayNumber}` : ''}
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
                     newsletterJid: '120363431096532056@newsletter',
-                    newsletterName: '🌸 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸',
+                    newsletterName: '🌸 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸',
                     serverMessageId: 143
                 }
             }
@@ -210,7 +210,7 @@ async (conn, mek, m, { from, reply, isGroup, groupName, participants, isOwner })
 │  ✿ 👑 Saved by ANNU DON
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖`;
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖`;
 
         const ppText = `🌸 GROUP PPs - ${groupName || 'Group'}\n\n${ppList}`;
         
@@ -281,10 +281,10 @@ async (conn, mek, m, { from, reply, text, sender, isOwner, isCreator, isReply, q
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ 💾 Saved to gallery
 │  ✿ 👤 ${displayName}
-│  ✿ 👑 By ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶
+│  ✿ 👑 By 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖`;
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖`;
 
         await conn.sendMessage(from, {
             image: { url: ppUrl },

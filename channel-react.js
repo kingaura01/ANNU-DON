@@ -1,5 +1,5 @@
 // ============================================
-// 🌸 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 - CHANNEL REACTS PLUGIN
+// 🌸 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 - CHANNEL REACTS PLUGIN
 // 👑 Developer: ANNU DON-ᴍᴅ
 // 🔥 Channel React + Auto React + API
 // ============================================

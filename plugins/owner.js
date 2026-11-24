@@ -1,5 +1,5 @@
 // ============================================
-// 👑 OWNER - §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶
+// 👑 OWNER - §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶
 // 👑 Developer: ANNU DON-ᴍᴅ
 // 💖 Boys Power Mode: ON
 // 📌 Owner info + Developer commands
@@ -36,7 +36,7 @@ waqar({
 }, async (conn, mek, m, { from, reply }) => {
     try {
         const uptime = runtime(process.uptime());
-        const botName = config.BOT_NAME || "🌸 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸";
+        const botName = config.BOT_NAME || "🌸 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸";
 
         const text = `
 ╭═══✿══════════════╗
@@ -61,7 +61,7 @@ ${DEV_INFO.github}
 💖 *Website:*
 ${DEV_INFO.website}
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖
         `.trim();
 
         // ── Send with Buttons ──

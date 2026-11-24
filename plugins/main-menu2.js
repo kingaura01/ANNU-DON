@@ -1,5 +1,5 @@
 // ============================================
-// 🌸 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 FULL MENU
+// 🌸 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 FULL MENU
 // 👑 Developer: ANNU DON-ᴍᴅ
 // 🔥 Gifted-btns + Whisky Baileys Carousel
 // 💖 Public - Everyone Can Use
@@ -168,7 +168,7 @@ waqar({
         const uptime = process.uptime();
         const memory = process.memoryUsage();
         const prefix = config.PREFIX || '.';
-        const botName = config.BOT_NAME || '🌸§࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶🌸';
+        const botName = config.BOT_NAME || '🌸§࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶🌸';
         const ownerName = config.OWNER_NAME || 'ANNU DON';
         const pakTime = moment().tz('Asia/Karachi').format('hh:mm:ss A');
         const pakDate = moment().tz('Asia/Karachi').format('DD/MM/YYYY');
@@ -292,7 +292,7 @@ waqar({
         try {
             const totalCommands = commands ? commands.length : 0;
             const prefix = config.PREFIX || '.';
-            const botName = config.BOT_NAME || '🌸§࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶🌸';
+            const botName = config.BOT_NAME || '🌸§࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶🌸';
             const ownerName = config.OWNER_NAME || 'ANNU DON';
 
             // ── Get categories ──
@@ -340,7 +340,7 @@ waqar({
     try {
         const totalCommands = commands ? commands.length : 0;
         const prefix = config.PREFIX || '.';
-        const botName = config.BOT_NAME || '🌸§࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶🌸';
+        const botName = config.BOT_NAME || '🌸§࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶🌸';
         const ownerName = config.OWNER_NAME || 'ANNU DON';
 
         // ── Get categories ──
@@ -427,7 +427,7 @@ for (const cmd of commands) {
 for (const [category, cmds] of categoryMap) {
     const emoji = getCategoryIcon(category);
     const prefix = config.PREFIX || '.';
-    const botName = config.BOT_NAME || '🌸§࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶🌸';
+    const botName = config.BOT_NAME || '🌸§࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶🌸';
 
     // ── Skip if already has pattern ──
     const existing = commands.find(c => c.pattern === category);

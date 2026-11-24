@@ -4,7 +4,7 @@ const config = require('../config');
 // ANNU DON style formatter
 function waqarStyle(title, value, status) {
     return `
-*╭─────💕⃝🕊️ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️──────◇*
+*╭─────💕⃝🕊️ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️──────◇*
 *│❀ 🎮 ${title}:* ${value}
 *│❀ ⚙️ 𝐒𝐭𝐚𝐭𝐮𝐬:* ${status}
 *╰┄─̣┄─̇─̣┄─̇─̣┄─̇─̣┄─̇─̣─̇─̣─᛭*

@@ -38,14 +38,14 @@ waqar({
     const initialMsg = await conn.sendMessage(from, { 
       image: { url: imageUrl },
       caption: `╭────────────────────◇
-│ 💕⃝🕊️ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
+│ 💕⃝🕊️ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ ⏳ ᴛɪᴍᴇ: 0s
 │  ✿ ⚡ ᴍꜱ: 0ms
 │  ✿ 🔁 ᴛᴇꜱᴛɪɴɢ...
 ╰────────────────────○
 
-🦋⃟ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐` 
+🦋⃟ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐` 
     }, { quoted: m });
     
     // 🔄 UPDATE INTERVAL
@@ -69,7 +69,7 @@ waqar({
       const statusText = elapsedTime < 25 ? statusEmojis[Math.floor(elapsedTime / 5) % statusEmojis.length] : "🌟 ᴄᴏᴍᴘʟᴇᴛɪɴɢ...";
       
       const updatedCaption = `╭────────────────────◇
-│ 💕⃝🕊️ §࿐ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
+│ 💕⃝🕊️ §࿐𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ ⏳ ᴛɪᴍᴇ: ${elapsedTime}s
 │  ✿ ⚡ ᴍꜱ: ${currentPing}ms
@@ -80,7 +80,7 @@ waqar({
    elapsedTime < 20 ? "✨ 𝗔𝗹𝗺𝗼𝘀𝘁 𝘁𝗵𝗲𝗿𝗲... 💕" : 
    "🌟 𝗝𝘂𝘀𝘁 𝗮 𝗳𝗲𝘄 𝘀𝗲𝗰𝗼𝗻𝗱𝘀... 🎀"}
 
-🦋⃟ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐`;
+🦋⃟ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐`;
       
       try {
         // Edit the image caption
@@ -124,7 +124,7 @@ waqar({
       }
       
       const finalCaption = `╭────────────────────◇
-│ 💕⃝🕊️ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
+│ 💕⃝🕊️ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ ⏳ ᴛᴏᴛᴀʟ ᴛɪᴍᴇ: 30ꜱ
 │  ✿ ⚡ ꜰɪɴᴀʟ ᴍꜱ: ${finalPing}ms
@@ -135,7 +135,7 @@ waqar({
 🌸 𝗕𝗼𝘁 𝗶𝘀 ${performanceText} 💖
 🎀 𝗧𝗵𝗮𝗻𝗸 𝘆𝗼𝘂 𝗳𝗼𝗿 𝘁𝗲𝘀𝘁𝗶𝗻𝗴! ✨
 
-🦋⃟ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
+🦋⃟ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
 
 📍 ᴜꜱᴇ .ᴍᴇɴᴜ ꜰᴏʀ ᴄᴏᴍᴍᴀɴᴅꜱ 💕`;
       
@@ -185,7 +185,7 @@ waqar({
     const msg = await conn.sendMessage(from, { 
       image: { url: imageUrl },
       caption: `╭────────────────────◇
-│ 💕⃝🕊️ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
+│ 💕⃝🕊️ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ ⏳ ᴛɪᴍᴇ: 0s
 │  ✿ ⚡ ᴍꜱ: 0ms
@@ -211,7 +211,7 @@ waqar({
       await conn.sendMessage(from, {
         image: { url: imageUrl },
         caption: `╭────────────────────◇
-│ 💕⃝🕊️ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
+│ 💕⃝🕊️ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ ⏳ ᴛɪᴍᴇ: ${i}s
 │  ✿ ⚡ ᴍꜱ: ${ping}ms
@@ -230,7 +230,7 @@ waqar({
     await conn.sendMessage(from, {
       image: { url: imageUrl },
       caption: `╭────────────────────◇
-│ 💕⃝🕊️ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
+│ 💕⃝🕊️ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ ✅ ᴄᴏᴍᴘʟᴇᴛᴇ! ✨
 │  ✿ ⚡ ꜰɪɴᴀʟ: ${finalPing}ms
@@ -270,7 +270,7 @@ waqar({
     const msg = await conn.sendMessage(from, { 
       image: { url: imageUrl },
       caption: `╭────────────────────◇
-│ 💕⃝🕊️ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
+│ 💕⃝🕊️ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ ⚡ ᴛᴇꜱᴛɪɴɢ...
 ╰────────────────────○
@@ -286,7 +286,7 @@ waqar({
       await conn.sendMessage(from, {
         image: { url: imageUrl },
         caption: `╭────────────────────◇
-│ 💕⃝🕊️ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
+│ 💕⃝🕊️ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ ⏳ ${i}/3
 │  ✿ ⚡ ${ping}ms
@@ -306,7 +306,7 @@ waqar({
     await conn.sendMessage(from, {
       image: { url: imageUrl },
       caption: `╭────────────────────◇
-│ 💕⃝🕊️ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
+│ 💕⃝🕊️ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ ✅ ᴄᴏᴍᴘʟᴇᴛᴇ! ✨
 │  ✿ ⚡ ${finalPing}ms
