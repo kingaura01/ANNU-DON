@@ -169,7 +169,7 @@ waqar({
         const memory = process.memoryUsage();
         const prefix = config.PREFIX || '.';
         const botName = config.BOT_NAME || '🌸§࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶🌸';
-        const ownerName = config.OWNER_NAME || 'MARCO MALIK-ᴍᴅ';
+        const ownerName = config.OWNER_NAME || 'ANNU DON';
         const pakTime = moment().tz('Asia/Karachi').format('hh:mm:ss A');
         const pakDate = moment().tz('Asia/Karachi').format('DD/MM/YYYY');
 
@@ -293,7 +293,7 @@ waqar({
             const totalCommands = commands ? commands.length : 0;
             const prefix = config.PREFIX || '.';
             const botName = config.BOT_NAME || '🌸§࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶🌸';
-            const ownerName = config.OWNER_NAME || 'MARCO MALIK-MD';
+            const ownerName = config.OWNER_NAME || 'ANNU DON';
 
             // ── Get categories ──
             const categoryMap = new Map();
@@ -341,7 +341,7 @@ waqar({
         const totalCommands = commands ? commands.length : 0;
         const prefix = config.PREFIX || '.';
         const botName = config.BOT_NAME || '🌸§࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶🌸';
-        const ownerName = config.OWNER_NAME || 'MARCO MALIK-MD';
+        const ownerName = config.OWNER_NAME || 'ANNU DON';
 
         // ── Get categories ──
         const categoryMap = new Map();

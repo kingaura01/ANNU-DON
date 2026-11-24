@@ -95,8 +95,8 @@ if (!GITHUB_TOKEN || !GITHUB_REPO) {
 const prefix = config.PREFIX || '.';
 const mode = config.MODE || config.WORK_TYPE || 'public';
 const BOT_NAME = config.BOT_NAME || '💕⃝🕊️ §࿐ 𝗛𝗔𝗙𝗜𝗭 𝗪𝗔𝗤𝗔𝗥 𝗔𝗧𝗧𝗔𝗥𝗜 𝗤𝗔𝗗𝗥𝗜 ♞ᴮᴼˢˢ 𝗠𝗗 💕⃝🕊️';
-const OWNER_NAME = config.OWNER_NAME || 'MARCO & WAQAR-ᴍᴅ';
-const OWNER_NUMBER = config.OWNER_NUMBER || ['923293245445'];
+const OWNER_NAME = config.OWNER_NAME || 'ANNU DON';
+const OWNER_NUMBER = config.OWNER_NUMBER || ['923235605702'];
 
 // ========== CHANNEL SETTINGS ==========
 const CHANNEL_IDS = config.CHANNEL_IDS || [];

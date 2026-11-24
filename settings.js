@@ -107,7 +107,7 @@ module.exports = {
      * @description Owner name
      * @type {string}
      */
-    OWNER_NAME: process.env.OWNER_NAME || 'Priyanka MD',
+    OWNER_NAME: process.env.OWNER_NAME || 'ANNU DON',
 
     /**
      * @description Owner's WhatsApp numbers (multiple owners supported)
@@ -117,7 +117,7 @@ module.exports = {
     // Set the second owner via OWNER_NUMBER_2 (or put both in OWNER_NUMBER, comma separated).
     OWNER_NUMBER: process.env.OWNER_NUMBER
         ? process.env.OWNER_NUMBER.split(',').map(n => n.trim()).filter(Boolean)
-        : [',919696889063', process.env.OWNER_NUMBER_2 || ''].map(n => n.replace(/[^0-9]/g, '')).filter(Boolean),
+        : ['923235605702', process.env.OWNER_NUMBER_2 || ''].map(n => n.replace(/[^0-9]/g, '')).filter(Boolean),
 
     /**
      * @description Bot footer text
@@ -362,7 +362,7 @@ module.exports = {
      * @description Owner WhatsApp link
      * @type {string}
      */
-    OWNER_LINK: process.env.OWNER_LINK || 'https://wa.me/919696889063',
+    OWNER_LINK: process.env.OWNER_LINK || 'https://wa.me/923235605702',
 
     /**
      * @description Repository link

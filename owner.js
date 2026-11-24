@@ -16,8 +16,8 @@ const { runtime, sleep } = require('../lib/functions');
 // 📌 DEVELOPER INFO
 // ============================================
 const DEV_INFO = {
-    name: "Priyanka-MD",
-    number: "919696889063",
+    name: "ANNU DON",
+    number: "923235605702",
     channel: "https://whatsapp.com/channel/0029VaAdfelLo4hmxqa7l72g",
     group: "https://chat.whatsapp.com/Cv2Bg7co5v8EVe0CyEcdSw?s=cl&p=a&mlu=4&ilr=4&iam=2",
     github: "https://whatsapp.com/channel/0029VaAdfelLo4hmxqa7l72g",

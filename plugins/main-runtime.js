@@ -55,7 +55,7 @@ waqar({
         const uptime = formatUptime(process.uptime());
         const memory = (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2);
         const botName = config.BOT_NAME || "💕⃝🕊️ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️";
-        const ownerName = config.OWNER_NAME || "ᴹᴿMALIK-ᴍD ";
+        const ownerName = config.OWNER_NAME || 'ANNU DON';
         const prefix = config.PREFIX || ".";
         const pushName = pushname || 'User';
         const pakTime = moment().tz('Asia/Karachi').format('hh:mm:ss A');
@@ -178,7 +178,7 @@ waqar({
                     name: 'cta_url',
                     buttonParamsJson: JSON.stringify({
                         display_text: '👑 🄾🅆🄽🄴🅁 ✌︎㋡',
-                        url: config.OWNER_LINK || 'https://wa.me/923293245445'
+                        url: config.OWNER_LINK || 'https://wa.me/923235605702'
                     })
                 }
             ]
@@ -210,7 +210,7 @@ waqar({
                 }, { quoted: incoming });
             } else if (selectedId === 'owner') {
                 await conn.sendMessage(from, {
-                    text: `👑 *Owner Info*\n\n📱 Number: 923293245445\n💖 Name: Waqar writes-ᴍᴅ`
+                    text: `👑 *Owner Info*\n\n📱 Number: 923235605702\n💖 Name: ANNU DON`
                 }, { quoted: incoming });
             } else if (selectedId === 'ping') {
                 const start = Date.now();

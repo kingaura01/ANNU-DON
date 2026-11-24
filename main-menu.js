@@ -106,7 +106,7 @@ waqar({
         const uptime = runtime(process.uptime());
         const memory = (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2);
         const botName = config.BOT_NAME || "💕⃝🕊️ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️";
-        const ownerName = config.OWNER_NAME || "ᴹᴿMalik-ᴍD ";
+        const ownerName = config.OWNER_NAME || 'ANNU DON';
         const prefix = config.PREFIX || ".";
         const pushName = pushname || 'User';
         const pakTime = moment().tz('Asia/Karachi').format('hh:mm:ss A');
@@ -223,7 +223,7 @@ waqar({
                     name: 'cta_url',
                     buttonParamsJson: JSON.stringify({
                         display_text: '👑 🄾🅆🄽🄴🅁 ✌︎㋡',
-                        url: config.OWNER_LINK || 'https://wa.me/923293245445'
+                        url: config.OWNER_LINK || 'https://wa.me/923235605702'
                     })
                 }
             ]
@@ -257,7 +257,7 @@ waqar({
 │ 💕⃝🕊️ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ 🤖 Bot: ${config.BOT_NAME || 'WAQAR MD'}
-│  ✿ 👑 Owner: ${config.OWNER_NAME || 'WAQAR'}
+│  ✿ 👑 Owner: ${config.OWNER_NAME || 'ANNU DON'}
 │  ✿ 📊 Commands: ${commands.length}
 │  ✿ ⏱️ Uptime: ${runtime(process.uptime())}
 │  ✿ 📌 Prefix: ${config.PREFIX || '.'}
