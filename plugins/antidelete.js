@@ -1,5 +1,5 @@
 // ============================================
-// 🌸 ANTI-DELETE - §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 (FULLY FIXED)
+// 🌸 ANTI-DELETE - ANNU DON (FULLY FIXED)
 // 👑 Developer: ANNU DON-ᴍᴅ
 // 🔥 Complete Working with Main.js Integration
 // ============================================
@@ -75,7 +75,7 @@ function girlBox(title, rows) {
 ${body}
 ╰────────────────────○
 
-> 🦋⃟ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝙄 🦋⃟‌💙࿐
+> 🦋⃟ ANNU DON𝙄 🦋⃟‌💙࿐
 `;
 }
 
@@ -213,7 +213,7 @@ async function handleAntiDelete(conn, updates, store, botNumber) {
                         try {
                             const notifMsg = `
 ╭────────────────────◇
-│ 💕⃝🕊️ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
+│ ANNU DON
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ 👤 Sender: ${senderName}
 │  ✿ 📝 Content: ${content.substring(0, 100)}${content.length > 100 ? '...' : ''}
@@ -221,7 +221,7 @@ async function handleAntiDelete(conn, updates, store, botNumber) {
 │  ✿ 👥 Group: ${isGroup ? groupName : 'Private Chat'}
 │  ✿ 🕐 Time: ${new Date().toLocaleString()}
 │  ✿ ━━━━━━━━━━━━━━━✿
-│🦋⃟ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙
+│🦋⃟ ANNU DON 🦋⃟‌💙
 ╰────────────────────○`;
                             
                             await conn.sendMessage(groupJid, { text: notifMsg });
@@ -240,7 +240,7 @@ async function handleAntiDelete(conn, updates, store, botNumber) {
                             
                             if (ownerJid) {
                                 const ownerMsg = `╭────────────────────◇
-│ 💕⃝🕊️ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
+│ ANNU DON
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ 👤 Sender: ${senderName}
 │  ✿ 📝 Content: ${content}
@@ -249,7 +249,7 @@ async function handleAntiDelete(conn, updates, store, botNumber) {
 │  ✿ 🆔 ID: ${deletedMsgId}
 │  ✿ 🕐 Time: ${new Date().toLocaleString()}
 │  ✿ ━━━━━━━━━━━━━━━✿
-│🦋⃟ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙
+│🦋⃟ ANNU DON 🦋⃟‌💙
 ╰────────────────────○`;
                                 
                                 await conn.sendMessage(ownerJid, { text: ownerMsg });

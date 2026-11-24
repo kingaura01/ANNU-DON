@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="assets/banner.jpg" alt="ANNU DON XD MINI BOT" width="320"/>
+<img src="assets/banner.jpg" alt="ANNU DON" width="320"/>
 
-# ANNU DON XD MINI BOT
+# ANNU DON
 
 **Smart • Fast • Powerful** — a WhatsApp group assistant for classes and communities.
 
@@ -17,7 +17,7 @@
 
 ## About
 
-ANNU DON XD MINI BOT is a lightweight multi-device WhatsApp bot built on
+ANNU DON is a lightweight multi-device WhatsApp bot built on
 [Baileys](https://github.com/WhiskeySockets/Baileys). It keeps classes and
 groups organised with moderation tools, auto replies and a simple menu system.
 

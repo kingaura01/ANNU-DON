@@ -1,5 +1,5 @@
 // ============================================
-// 🌸 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 - GROUP COMMANDS (FIXED)
+// ANNU DON - GROUP COMMANDS (FIXED)
 // 👑 Developer: ANNU DON-ᴍᴅ
 // 💖 BOYS Power Mode: ON
 // 🔧 FIXED: Bot self-kick prevention
@@ -279,7 +279,7 @@ waqar({
 
     try {
       await conn.groupParticipantsUpdate(from, [conn.user.id], "promote");
-      reply(`✅ *Bot ko admin banaya gaya!*\n\n🌸 Ab aap use kar sakte hain:\n• .promote @user\n• .demote @admin\n• .kick @user\n• .add @user\n\n💖 Powered by §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶`);
+      reply(`✅ *Bot ko admin banaya gaya!*\n\n🌸 Ab aap use kar sakte hain:\n• .promote @user\n• .demote @admin\n• .kick @user\n• .add @user\n\n💖 Powered by ANNU DON`);
     } catch (err) {
       if (err.message.includes("not authorized")) {
         reply(`🌸 Bot ko admin nahi bana paaye.\n\n✳️ *Karan:* Aapke paas permission nahi hai bot ko admin banane ka.\n\n✳️ *Manual tarika:*\n1. Group settings mein jao\n2. "Group permissions" par click karo\n3. "Add members" mein jao\n4. Bot ko dhundo aur manually admin banao 💕`);
@@ -467,7 +467,7 @@ waqar({
 │  ✿ 👤 You Admin: ${isAdmins ? '✅ YES' : '❌ NO'}
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖`;
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ANNU DON 💖`;
 
     await conn.sendMessage(from, {
       text: message,
@@ -786,7 +786,7 @@ waqar({
 
         // Send welcome message
         await conn.sendMessage(group.id, { 
-            text: `🌸 Welcome to ${groupName}! 💖\n👑 Created by §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶`
+            text: `🌸 Welcome to ${groupName}! 💖\n👑 Created by ANNU DON`
         });
 
         reply(`✅ Group created successfully!\n\n📛 *Name:* ${groupName}\n🔗 *Invite Link:* https://chat.whatsapp.com/${inviteLink}\n\n🌸 Welcome message sent to the group!`);
@@ -1058,7 +1058,7 @@ waqar({
         // Accept the group invite
         await conn.groupAcceptInvite(groupLink);
         await conn.sendMessage(from, { 
-            text: `🌸 Successfully Joined the group! 💖\n\n👑 Powered by §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶`
+            text: `🌸 Successfully Joined the group! 💖\n\n👑 Powered by ANNU DON`
         }, { quoted: mek });
 
     } catch (e) {
@@ -1121,7 +1121,7 @@ async (conn, mek, m, {
 ${groupAdmins.map(v => `│  ✿ 👤 @${v.id.split('@')[0]}`).join('\n')}
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖`;
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ANNU DON 💖`;
 
         await conn.sendMessage(from, {
             image: { url: ppUrl },
@@ -1406,4 +1406,4 @@ async (conn, mek, m, {
     }
 });
 
-console.log('🌸 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 - Group commands loaded! 💖');
+console.log('ANNU DON - Group commands loaded! 💖');

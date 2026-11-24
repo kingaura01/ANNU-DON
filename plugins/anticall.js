@@ -1,6 +1,6 @@
 // ============================================
-// 🌸 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻I ANTI-CALL
-// 👑 Developer: ANNU DON-MD
+// ANNU DONI ANTI-CALL
+// 👑 Developer: ANNU DON
 // 🔥 Enable/Disable auto call rejection
 // ============================================
 

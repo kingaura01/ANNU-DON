@@ -1,5 +1,5 @@
 // ============================================
-// 🌸 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 - SPOTIFY SONG DOWNLOADER
+// ANNU DON - SPOTIFY SONG DOWNLOADER
 // 👑 Developer: ANNU DON-ᴍᴅ
 // 💖 BOYS Power Mode: ON
 // 📌 Converted from your friend's bot
@@ -51,7 +51,7 @@ async (conn, mek, m, { from, reply, text }) => {
 │ ♡⪼. 📥 Processing...
 ╰────────────────────○
 
-> 🦋⃟ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
+> ANNU DON
         `;
 
         await conn.sendMessage(from, {

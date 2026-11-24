@@ -1,5 +1,5 @@
 // ============================================
-// 🌸 JID - §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶
+// 🌸 JID - ANNU DON
 // 👑 Developer: ANNU DON-ᴍᴅ
 // 💖 Boys Power Mode: ON
 // ============================================
@@ -31,4 +31,4 @@ waqar({
     }
 });
 
-console.log('🌸 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 - JID plugin loaded! 💖');
+console.log('ANNU DON - JID plugin loaded! 💖');

@@ -1,5 +1,5 @@
 // ============================================
-// 🌸 AUTO REACT - §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶
+// 🌸 AUTO REACT - ANNU DON
 // 👑 Developer: ANNU DON-ᴍᴅ
 // 💖 BOYS Power Mode: ON
 // ============================================
@@ -20,7 +20,7 @@ function girlBox(title, rows) {
 ${body}
 ╰────────────────────○
 
-> 🦋⃟ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
+> ANNU DON
 `;
 }
 
@@ -108,4 +108,4 @@ waqar({
     }
 });
 
-console.log('🌸 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 - Auto React plugin loaded! 💖');
+console.log('ANNU DON - Auto React plugin loaded! 💖');

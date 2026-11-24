@@ -1,5 +1,5 @@
 // ============================================
-// 🌸 VIEW ONCE PLUGIN - §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 (FINAL)
+// 🌸 VIEW ONCE PLUGIN - ANNU DON (FINAL)
 // 👑 Developer: ᴍᴀʀᴄᴏ ᴍᴀʟɪᴋ-ᴍᴅ
 // 🔥 Fixed: Unsupported media type error
 // ============================================
@@ -146,7 +146,7 @@ async function handleViewOnce(conn, mek, m, context) {
         // ── Send processing reaction ──
         await conn.sendMessage(from, { react: { text: '🌸', key: mek.key } });
 
-        const DESCRIPTION = config.DESCRIPTION || "🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖";
+        const DESCRIPTION = config.DESCRIPTION || "🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ANNU DON 💖";
 
         // ── Build caption ──
         let captionText = `🌸 *View Once Retrieved*\n\n`;
@@ -171,7 +171,7 @@ async function handleViewOnce(conn, mek, m, context) {
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
                         newsletterJid: '120363182522453683@newsletter',
-                        newsletterName: '🌸 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸',
+                        newsletterName: 'ANNU DON',
                         serverMessageId: 143
                     }
                 }
@@ -186,7 +186,7 @@ async function handleViewOnce(conn, mek, m, context) {
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
                         newsletterJid: '120363182522453683@newsletter',
-                        newsletterName: '🌸 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸',
+                        newsletterName: 'ANNU DON',
                         serverMessageId: 143
                     }
                 }
@@ -296,7 +296,7 @@ waqar({
 🌸 Example:
 .vv (reply to view once)
 
-💖 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸
+💖 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ANNU DON 🌸
       `;
       return reply(helpMsg);
     }
@@ -383,7 +383,7 @@ waqar({
 │  ✿ ${keywordsList}
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ANNU DON 💖
 
 📌 Usage:
 • Reply to view once with keyword
@@ -484,4 +484,4 @@ waqar({
   }
 });
 
-console.log('🌸 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡- View Once plugin loaded! 💖');
+console.log('ANNU DON- View Once plugin loaded! 💖');

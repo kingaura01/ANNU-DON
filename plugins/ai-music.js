@@ -1,5 +1,5 @@
 // ============================================
-// 🌸 AI MUSIC GENERATOR - §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻
+// 🌸 AI MUSIC GENERATOR - ANNU DON
 // 👑 Developer: ᴍᴀʀᴄᴏ ᴍᴀʟɪᴋ-ᴍᴅ
 // 🔥 Generate AI Music from Prompt
 // ============================================
@@ -31,7 +31,7 @@ function girlBox(title, rows) {
 ${body}
 ╰────────────────────○
 
-> 🦋⃟ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻 🦋⃟‌💙࿐`;
+> ANNU DON`;
 }
 
 // ============================================
@@ -129,7 +129,7 @@ waqar({
         // ── Send with buttons ──
         await sendInteractiveMessage(conn, from, {
             text: caption,
-            footer: `💖 ${config.BOT_NAME || '§࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻'}`,
+            footer: `💖 ${config.BOT_NAME || 'ANNU DON'}`,
             interactiveButtons: [
                 {
                     name: 'cta_url',
@@ -160,7 +160,7 @@ waqar({
             audio: fs.readFileSync(tempPath),
             mimetype: 'audio/mpeg',
             ptt: false,
-            caption: `🎵 ${music.title || 'AI Music'}\n💖 Powered by §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻`
+            caption: `🎵 ${music.title || 'AI Music'}\n💖 Powered by ANNU DON`
         }, { quoted: mek });
 
         // ── Clean up ──
@@ -334,7 +334,7 @@ waqar({
 │ ✿ .aimusiclyrics [lyrics]
 ╰────────────────────○
 
-> 🦋⃟ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝙄 🦋⃟‌💙࿐
+> 🦋⃟ ANNU DON𝙄 🦋⃟‌💙࿐
         `;
 
         reply(styles);

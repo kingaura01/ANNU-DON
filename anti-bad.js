@@ -1,5 +1,5 @@
 // ============================================
-// 🌸 ANTI-BAD WORD - §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻I (FIXED)
+// 🌸 ANTI-BAD WORD - ANNU DONI (FIXED)
 // 👑 Developer: ANNU DON-ᴍᴅ
 // 🔥 Simple Detection - No userConfig
 // ============================================
@@ -36,7 +36,7 @@ function girlBox(title, rows) {
 ${body}
 ╰────────────────────○
 
-> 🦋⃟ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝙄 🦋⃟‌💙࿐
+> 🦋⃟ ANNU DON𝙄 🦋⃟‌💙࿐
 `;
 }
 

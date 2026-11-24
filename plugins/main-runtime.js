@@ -1,5 +1,5 @@
 // ============================================
-// 🕐 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 MINI - RUNTIME WITH BUTTONS
+// 🕐 ANNU DON - RUNTIME WITH BUTTONS
 // 👑 Developer: ANNU DON-ᴍᴅ
 // 🔥 EXACT SAME STYLE AS MENU
 // 💖 Interactive Buttons + Single Select
@@ -54,7 +54,7 @@ waqar({
         const totalCommands = commands ? commands.length : 0;
         const uptime = formatUptime(process.uptime());
         const memory = (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2);
-        const botName = config.BOT_NAME || "💕⃝🕊️ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️";
+        const botName = config.BOT_NAME || "ANNU DON";
         const ownerName = config.OWNER_NAME || 'ANNU DON';
         const prefix = config.PREFIX || ".";
         const pushName = pushname || 'User';
@@ -65,7 +65,7 @@ waqar({
         // ── Build Text ─────────────────────────────────────────
         const text = `
 ╭────────────────────◇
-│ 💕⃝🕊️ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
+│ ANNU DON
 │  ㋡━━━━━━━━━━━━━━━㋡
 │ ❦ 👤 User: ${pushName}
 │ ❦ 👑 Owner: ${ownerName}
@@ -88,7 +88,7 @@ waqar({
             isForwarded: true,
             forwardedNewsletterMessageInfo: {
                 newsletterJid: '120363431096532056@newsletter',
-                newsletterName: '🦋⃟ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐',
+                newsletterName: 'ANNU DON',
                 serverMessageId: 143
             }
         };
@@ -228,11 +228,11 @@ waqar({
         try {
             const uptime = formatUptime(process.uptime());
             const pakTime = moment().tz('Asia/Karachi').format('hh:mm:ss A');
-            const botName = config.BOT_NAME || "🌸 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸";
+            const botName = config.BOT_NAME || "ANNU DON";
             
             const fallbackText = `
 ╭────────────────────◇
-│ 💕⃝🕊️ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
+│ ANNU DON
 │  ㋡━━━━━━━━━━━━━━━㋡
 │  ✿ ⏳ Uptime: ${uptime}
 │  ✿ 🕰️ Time: ${pakTime}
@@ -240,7 +240,7 @@ waqar({
 │  ✿ 📌 Prefix: ${config.PREFIX || '.'}
 ╰────────────────────○
 
-> 🦋⃟ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐`;
+> ANNU DON`;
             await reply(fallbackText);
         } catch (fallbackError) {
             await reply(`🕐 Error loading runtime: ${error.message} 💕`);
@@ -248,4 +248,4 @@ waqar({
     }
 });
 
-console.log('🕐 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶- Runtime with Gifted Buttons Loaded! 💖');
+console.log('🕐 ANNU DON- Runtime with Gifted Buttons Loaded! 💖');

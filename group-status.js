@@ -1,5 +1,5 @@
 // ============================================
-// 🌸 GROUP STATUS - §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶
+// 🌸 GROUP STATUS - ANNU DON
 // 👑 Developer: ANNU DON-ᴍᴅ
 // 🔥 Post status updates to group story
 // ============================================
@@ -41,7 +41,7 @@ function girlBox(title, rows) {
 ${body}
 ╰────────────────────○
 
-> 🦋⃟ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐`;
+> ANNU DON`;
 }
 
 // ============================================
@@ -215,7 +215,7 @@ waqar({
                     ['📌', 'Reply to media', '.groupstatus [caption]'],
                     ['📌', 'Text status', '.groupstatus Your text here'],
                     ['💖', 'Supported', 'Image, Video, Audio, Sticker'],
-                    ['👑', 'By', '§࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶']
+                    ['👑', 'By', 'ANNU DON']
                 ]));
             }
 

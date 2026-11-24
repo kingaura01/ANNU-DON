@@ -1,5 +1,5 @@
 // ============================================
-// 🌸 MEDIA COMMANDS - §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 (FIXED)
+// 🌸 MEDIA COMMANDS - ANNU DON (FIXED)
 // 👑 Developer: ANNU DON-ᴍᴅ
 // 🔥 Reply System Fixed - Audio Editor Style
 // ============================================
@@ -24,7 +24,7 @@ function girlBox(title, rows) {
 ${body}
 ╰────────────────────○
 
-> 🦋⃟ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
+> ANNU DON
 `;
 }
 
@@ -86,7 +86,7 @@ waqar({
             image: imageBuffer,
             caption: girlBox('🖼️ STICKER CONVERTED', [
                 ['✅', 'Status', 'Converted successfully'],
-                ['👑', 'By', '𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶']
+                ['👑', 'By', 'ANNU DON']
             ]),
             mimetype: 'image/png'
         }, { quoted: fakevCard });
@@ -271,4 +271,4 @@ waqar({
     }
 });
 
-console.log('🌸 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 - Media plugins loaded! 💖');
+console.log('ANNU DON - Media plugins loaded! 💖');

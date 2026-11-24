@@ -1,5 +1,5 @@
 // ============================================
-// 🌸 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 - POLL COMMAND
+// ANNU DON - POLL COMMAND
 // 👑 Developer: ANNU DON-ᴍᴅ
 // 💖 Boys Power Mode: ON
 // 📌 Converted from your friend's bot

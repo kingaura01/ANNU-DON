@@ -1,5 +1,5 @@
 // ============================================
-// 🌸 MSG INSPECT - §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶
+// 🌸 MSG INSPECT - ANNU DON
 // 👑 Developer: ANNU DON-ᴍᴅ
 // 🔍 Inspect quoted message structure
 // ============================================
@@ -22,7 +22,7 @@ function girlBox(title, rows) {
 ${body}
 ╰────────────────────○
 
-> 🦋⃟ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
+> ANNU DON
 `;
 }
 
@@ -61,7 +61,7 @@ waqar({
                 ['💖', 'Example', 'Reply to any message with .inspect'],
                 ['📋', 'Shows', 'Message structure, type, sender'],
                 ['🔍', 'Use', 'Debugging message objects'],
-                ['👑', 'By', '§࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶']
+                ['👑', 'By', 'ANNU DON']
             ]));
         }
 

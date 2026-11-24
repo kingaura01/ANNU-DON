@@ -1,5 +1,5 @@
 // ============================================
-// 🌸 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 - TAP TO SELECT MENU
+// ANNU DON - TAP TO SELECT MENU
 // 👑 Single Select + Image + Text
 // 💖 Boys Power Mode: ON
 // ============================================
@@ -105,7 +105,7 @@ waqar({
         const totalCommands = commands.length;
         const uptime = runtime(process.uptime());
         const memory = (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2);
-        const botName = config.BOT_NAME || "💕⃝🕊️ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️";
+        const botName = config.BOT_NAME || "ANNU DON";
         const ownerName = config.OWNER_NAME || 'ANNU DON';
         const prefix = config.PREFIX || ".";
         const pushName = pushname || 'User';
@@ -120,7 +120,7 @@ waqar({
         // ── Build Menu Text ────────────────────────────────────
         const headerText = `
 ╭───────────────────◇
-│ 💕⃝🕊️ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
+│ ANNU DON
 │㋡━━━━━━━━━━━━━━━━㋡
 ││♡⪼ 👤 User: ${pushName}
 ││♡⪼ 👑 Owner: ${ownerName}
@@ -144,7 +144,7 @@ waqar({
             isForwarded: true,
             forwardedNewsletterMessageInfo: {
                 newsletterJid: '120363431096532056@newsletter',
-                newsletterName: '🦋⃟ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐',
+                newsletterName: 'ANNU DON',
                 serverMessageId: 143
             }
         };
@@ -247,16 +247,16 @@ waqar({
         try {
             const fallbackMenu = `
 ╭────────────────────◇
-│ 💕⃝🕊️ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
+│ ANNU DON
 │  ✿━━━━━━━━━━━━━━━✿
-│  ✿ 🤖 Bot: ${config.BOT_NAME || 'ANNU DON MD'}
+│  ✿ 🤖 Bot: ${config.BOT_NAME || 'ANNU DON'}
 │  ✿ 👑 Owner: ${config.OWNER_NAME || 'ANNU DON'}
 │  ✿ 📊 Commands: ${commands.length}
 │  ✿ ⏱️ Uptime: ${runtime(process.uptime())}
 │  ✿ 📌 Prefix: ${config.PREFIX || '.'}
 ╰────────────────────○
 
-> 🦋⃟ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐`;
+> ANNU DON`;
             await reply(fallbackMenu);
         } catch (fallbackError) {
             reply(`🌸 Error loading menu: ${error.message} 💕`);
@@ -292,7 +292,7 @@ waqar({
 │  ✿ .setprefix [char]
 │  ✿ .setmenupic [url/reply]
 ╰────────────────────○
-> 🦋⃟ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
+> ANNU DON
     `.trim();
     
     await conn.sendMessage(from, {
@@ -337,7 +337,7 @@ waqar({
 │  ✿ .antilink on/off
 │  ✿ .antitag on/kick/off
 ╰────────────────────○
-> 🦋⃟ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
+> ANNU DON
     `.trim();
     
     await conn.sendMessage(from, {
@@ -366,7 +366,7 @@ waqar({
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ .asmaulhusna [1-20]
 ╰────────────────────○
-> 🦋⃟ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
+> ANNU DON
     `.trim();
     
     await conn.sendMessage(from, {
@@ -397,7 +397,7 @@ waqar({
 │  ✿ .1917 [text]
 │  ✿ .fancy [text]
 ╰────────────────────○
-> 🦋⃟ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
+> ANNU DON
     `.trim();
     
     await conn.sendMessage(from, {
@@ -444,7 +444,7 @@ waqar({
 │  ✿ .weather [city]
 │  ✿ .sticker (reply to image)
 ╰────────────────────○
-> 🦋⃟ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
+> ANNU DON
     `.trim();
     
     await conn.sendMessage(from, {
@@ -481,7 +481,7 @@ waqar({
 │  ✿ .calc [expression]
 │  ✿ .enc [javascript code]
 ╰────────────────────○
-> 🦋⃟ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
+> ANNU DON
     `.trim();
     
     await conn.sendMessage(from, {
@@ -519,7 +519,7 @@ waqar({
 │  ✿ .alwaysonline on/off
 │  ✿ .autoread on/off
 ╰────────────────────○
-> 🦋⃟ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
+> ANNU DON
     `.trim();
     
     await conn.sendMessage(from, {
@@ -552,7 +552,7 @@ waqar({
 │  ✿ .left (leave group)
 │  ✿ .alive2
 ╰────────────────────○
-> 🦋⃟ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
+> ANNU DON
     `.trim();
     
     await conn.sendMessage(from, {
@@ -587,7 +587,7 @@ waqar({
 │  ✿ .aiart [prompt]
 │  ✿ .text2img [prompt]
 ╰────────────────────○
-> 🦋⃟ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
+> ANNU DON
     `.trim();
     
     await conn.sendMessage(from, {
@@ -620,7 +620,7 @@ waqar({
 │  ✿ .nowa [number]
 │  ✿ .truecaller [number]
 ╰────────────────────○
-> 🦋⃟ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
+> ANNU DON
     `.trim();
     
     await conn.sendMessage(from, {
@@ -634,6 +634,6 @@ waqar({
     }, { quoted: mek });
 });
 
-console.log('🌸 ANNU DON - Tap to Select Menu with Image + Text Loaded! 💖');
+console.log('ANNU DON - Tap to Select Menu with Image + Text Loaded! 💖');
 console.log('📌 Video URLs: ${VIDEO_URLS.length} | Audio URLs: ${AUDIO_URLS.length}');
 console.log('📌 Category images: ${Object.keys(CATEGORY_IMAGES).length}');

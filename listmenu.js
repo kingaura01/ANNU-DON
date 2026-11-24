@@ -1,5 +1,5 @@
 // ============================================
-// 🌸 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 - LIST MENU WITH QUICK REPLY
+// ANNU DON - LIST MENU WITH QUICK REPLY
 // 👑 Developer: ANNU DON-ᴍᴅ
 // 💖 BOYS Power Mode: ON
 // 📌 Using Gifted-btns quick_reply buttons
@@ -21,19 +21,19 @@ async (conn, mek, m, { from, reply, pushname }) => {
         // 🎀 Girl Style Welcome
         const welcomeText = `
 ╭═══✿══════════════╗
-│  ✿ 🌸 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸 ✿
+│  ✿ ANNU DON ✿
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ 👋 Hello ${pushname || 'king'}! 🫅🦁
-│  ✿ 💖 Welcome to ANNU DON ♞ᴮᴼˢˢ 
+│  ✿ 💖 Welcome to ANNU DON 
 │  ✿ 🎀 Click a button below to explore
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ANNU DON 💖
         `;
 
         // 🔥 SEND BUTTONS WITH QUICK REPLY
         await sendButtons(conn, from, {
-            title: "🌸 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 MENU 🌸",
+            title: "ANNU DON MENU 🌸",
             text: welcomeText,
             footer: "💖 Tap a button to explore commands",
             image: {
@@ -92,7 +92,7 @@ async (conn, mek, m, { from, reply, pushname }) => {
         try {
             const fallbackMenu = `
 ╭═══✿══════════════╗
-│  ✿ 🌸 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸 ✿
+│  ✿ ANNU DON ✿
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ 📋 𝗖𝗔𝗧𝗘𝗚𝗢𝗥𝗜𝗘𝗦 ✿
 │  ✿━━━━━━━━━━━━━━━✿
@@ -105,7 +105,7 @@ async (conn, mek, m, { from, reply, pushname }) => {
 ╰═══✿══════════════╝
 
 🌸 *Use .menu for full commands list*
-💖 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸
+💖 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ANNU DON 🌸
             `;
             await reply(fallbackMenu);
         } catch (fallbackError) {
@@ -142,7 +142,7 @@ async (conn, mek, m, { from, reply }) => {
 │  ✿ 🎧 .ringtone - Ringtone
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖`;
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ANNU DON 💖`;
 
     await sendButtons(conn, from, {
         title: "🌸 DOWNLOAD MENU 🌸",
@@ -187,7 +187,7 @@ async (conn, mek, m, { from, reply }) => {
 │  ✿ 🖼️ .s2i - Sticker to Image
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖`;
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ANNU DON 💖`;
 
     await sendButtons(conn, from, {
         title: "🌸 MEDIA TOOLS 🌸",
@@ -237,7 +237,7 @@ async (conn, mek, m, { from, reply }) => {
 │  ✿ 🎀 .emix - Emoji Mix
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖`;
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ANNU DON 💖`;
 
     await sendButtons(conn, from, {
         title: "🌸 FUN & GAMES 🌸",
@@ -293,7 +293,7 @@ async (conn, mek, m, { from, reply }) => {
 │  ✿ ❌ .rejectall - Reject All
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖`;
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ANNU DON 💖`;
 
     await sendButtons(conn, from, {
         title: "🌸 GROUP TOOLS 🌸",
@@ -342,7 +342,7 @@ async (conn, mek, m, { from, reply }) => {
 │  ✿ 🔑 .pair - Pairing Code
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖`;
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ANNU DON 💖`;
 
     await sendButtons(conn, from, {
         title: "🌸 UTILITY MENU 🌸",
@@ -394,7 +394,7 @@ async (conn, mek, m, { from, reply }) => {
 │  ✿ 🚫 .removeall2 - Remove All
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖`;
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ANNU DON 💖`;
 
     await sendButtons(conn, from, {
         title: "🌸 OWNER MENU 🌸",

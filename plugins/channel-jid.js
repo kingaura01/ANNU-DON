@@ -1,5 +1,5 @@
 // ============================================
-// 🌸 CHANNEL COMMANDS - §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶
+// 🌸 CHANNEL COMMANDS - ANNU DON
 // 👑 Developer: ANNU DON-ᴍᴅ
 // 💖 Boys Power Mode: ON
 // ============================================
@@ -17,7 +17,7 @@ function boyBox(title, rows) {
 ${body}
 ╰────────────────────○
 
-> 🦋⃟ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
+> ANNU DON
 `;
 }
 
@@ -111,4 +111,4 @@ waqar({
     }
 });
 
-console.log('🌸 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 - Channel plugins loaded! 💖');
+console.log('ANNU DON - Channel plugins loaded! 💖');

@@ -1,5 +1,5 @@
 // ============================================
-// 🌸 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 - BOT COMMANDS
+// ANNU DON - BOT COMMANDS
 // 👑 Settings + Group Management
 // 💖 Boys Power Mode: ON
 // ============================================
@@ -362,9 +362,9 @@ waqar({
 ╰────────────────────○
 
 🌸 *To change: .<command> on/off*
-> 🦋⃟ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐`;
+> ANNU DON`;
 
     return reply(list);
 });
 
-console.log('🌸 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 - Bot Commands Loaded! 💖');
+console.log('ANNU DON - Bot Commands Loaded! 💖');

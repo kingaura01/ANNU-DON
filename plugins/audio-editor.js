@@ -1,5 +1,5 @@
 // ============================================
-// 🌸 AUDIO EFFECTS - §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 (FULLY FIXED)
+// 🌸 AUDIO EFFECTS - ANNU DON (FULLY FIXED)
 // 👑 Developer: ANNU DON-ᴍᴅ
 // ============================================
 
@@ -83,7 +83,7 @@ async function handleAudioEffect(conn, mek, m, { from, reply, effect, emoji, nam
 │  ✿ 🎵 Audio processed
 ╰━━━━━━━━━━━━━━━━━━⊷
 
-> 🦋⃟ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
+> ANNU DON
         `;
 
         await conn.sendMessage(from, {
@@ -95,7 +95,7 @@ async function handleAudioEffect(conn, mek, m, { from, reply, effect, emoji, nam
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
                     newsletterJid: '120363431096532056@newsletter',
-                    newsletterName: '💕⃝🕊️ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️',
+                    newsletterName: 'ANNU DON',
                     serverMessageId: 143
                 }
             }
@@ -326,7 +326,7 @@ waqar({
 🌸 *Usage:*
 • Reply to audio/video: \`.effect\`
 
-> 🦋⃟ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
+> ANNU DON
     `;
     reply(effectsList);
 });

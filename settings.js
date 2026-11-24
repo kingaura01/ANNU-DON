@@ -6,11 +6,11 @@
 // ██║  ██║██║  ██║███████║███████╗██║  ██║██║  ████║     ██║ ╚═╝ ██║██████╔╝
 // ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═══╝    ╚═╝     ╚═╝╚═════╝ 
 // ═══════════════════════════════════════════════════════════════════════════
-//                    §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ MD - BOT CONFIGURATION
+//                    ANNU DON - BOT CONFIGURATION
 // ═══════════════════════════════════════════════════════════════════════════
 
 // ============================================
-// 🔥 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ-MD MINI - COMPLETE SETTINGS
+// 🔥 ANNU DON - COMPLETE SETTINGS
 // 👑 Developer: ANNU DON-ᴍᴅ
 // 🔥 GitHub Session System + All Features
 // ============================================
@@ -101,7 +101,7 @@ module.exports = {
      * @description Display name of the bot
      * @type {string}
      */
-    BOT_NAME: process.env.BOT_NAME || '💕⃝🕊️ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️',
+    BOT_NAME: process.env.BOT_NAME || 'ANNU DON',
 
     /**
      * @description Owner name
@@ -443,7 +443,7 @@ module.exports = {
 
 /**
  * @module settings
- * @description §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻
+ * @description ANNU DON
  Configuration Module
  * @version 2.0.0
  * @author ANNU DON-ᴍᴅ

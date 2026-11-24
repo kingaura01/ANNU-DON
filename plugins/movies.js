@@ -101,7 +101,7 @@ waqar({
 
         await sendInteractiveMessage(conn, from, {
             text: searchText,
-            footer: `🎬 ${results.length} movies found | 💖 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶`,
+            footer: `🎬 ${results.length} movies found | 💖 ANNU DON`,
             interactiveButtons: [
                 {
                     name: 'single_select',
