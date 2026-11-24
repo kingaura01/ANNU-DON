@@ -1,6 +1,6 @@
 // ============================================
 // 🌸 ANTI-LINK - ANNU DON (FIXED)
-// 👑 Developer: ANNU DON-ᴍᴅ
+// 👑 Developer: ANNU DON
 // 🔥 Delete Links Only - No Remove
 // ============================================
 

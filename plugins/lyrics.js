@@ -1,6 +1,6 @@
 // ============================================
 // 🌸 LYRICS - ANNU DON
-// 👑 Developer: ANNU DON-ᴍᴅ
+// 👑 Developer: ANNU DON
 // 💖 BOYS Power Mode: ON
 // 📌 Category: Music
 // ============================================
@@ -246,7 +246,7 @@ ${lyrics}
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 💖 Powered by ANNU DON
-👑 Developer: ANNU DON-ᴍᴅ
+👑 Developer: ANNU DON
         `.trim();
 
         const caption = `

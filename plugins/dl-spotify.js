@@ -1,6 +1,6 @@
 // ============================================
 // ANNU DON - SPOTIFY SONG DOWNLOADER
-// 👑 Developer: ANNU DON-ᴍᴅ
+// 👑 Developer: ANNU DON
 // 💖 BOYS Power Mode: ON
 // 📌 Converted from your friend's bot
 // ============================================

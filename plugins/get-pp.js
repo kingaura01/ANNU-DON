@@ -1,6 +1,6 @@
 // ============================================
 // 🌸 GET PP - ANNU DON (FIXED)
-// 👑 Developer: ANNU DON-ᴍᴅ
+// 👑 Developer: ANNU DON
 // 💖 BOYS Power Mode: ON
 // 🔥 Reply System Working
 // ============================================

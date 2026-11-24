@@ -1,6 +1,6 @@
 // ============================================
 // 👑 OWNER - ANNU DON
-// 👑 Developer: ANNU DON-ᴍᴅ
+// 👑 Developer: ANNU DON
 // 💖 Boys Power Mode: ON
 // 📌 Owner info + Developer commands
 // ============================================

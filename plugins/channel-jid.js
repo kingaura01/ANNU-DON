@@ -1,6 +1,6 @@
 // ============================================
 // 🌸 CHANNEL COMMANDS - ANNU DON
-// 👑 Developer: ANNU DON-ᴍᴅ
+// 👑 Developer: ANNU DON
 // 💖 Boys Power Mode: ON
 // ============================================
 

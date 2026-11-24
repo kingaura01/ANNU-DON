@@ -1,6 +1,6 @@
 // ============================================
 // 🌸 AUTO REACT - ANNU DON
-// 👑 Developer: ANNU DON-ᴍᴅ
+// 👑 Developer: ANNU DON
 // 💖 BOYS Power Mode: ON
 // ============================================
 

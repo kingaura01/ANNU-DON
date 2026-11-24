@@ -1,6 +1,6 @@
 // ============================================
 // 🌸 MSG INSPECT - ANNU DON
-// 👑 Developer: ANNU DON-ᴍᴅ
+// 👑 Developer: ANNU DON
 // 🔍 Inspect quoted message structure
 // ============================================
 

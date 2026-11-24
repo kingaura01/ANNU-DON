@@ -1,6 +1,6 @@
 // ============================================
 // 🌸 GROUP STATUS - ANNU DON
-// 👑 Developer: ANNU DON-ᴍᴅ
+// 👑 Developer: ANNU DON
 // 🔥 Post status updates to group story
 // ============================================
 

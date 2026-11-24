@@ -1,6 +1,6 @@
 // ============================================
 // 🌸 ANTI-DELETE - ANNU DON (FULLY FIXED)
-// 👑 Developer: ANNU DON-ᴍᴅ
+// 👑 Developer: ANNU DON
 // 🔥 Complete Working with Main.js Integration
 // ============================================
 

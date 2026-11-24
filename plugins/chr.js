@@ -1,6 +1,6 @@
 // ============================================
 // 🌸 CHANNEL REACT - ANNU DON
-// 👑 Developer: ANNU DON-ᴍᴅ
+// 👑 Developer: ANNU DON
 // 🔥 React to WhatsApp channel posts
 // ============================================
 

@@ -1,6 +1,6 @@
 // ============================================
 // ANNU DON - MOVIE DOWNLOADER (API BASED)
-// 👑 Developer: ANNU DON-ᴍᴅ
+// 👑 Developer: ANNU DON
 // 💖 Boys Power Mode: ON
 // 🔧 NO PUPPETEER - Uses simple API
 // ============================================

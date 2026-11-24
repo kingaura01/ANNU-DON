@@ -1,6 +1,6 @@
 // ============================================
 // ANNU DON - GROUP COMMANDS (FIXED)
-// 👑 Developer: ANNU DON-ᴍᴅ
+// 👑 Developer: ANNU DON
 // 💖 BOYS Power Mode: ON
 // 🔧 FIXED: Bot self-kick prevention
 // ============================================

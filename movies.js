@@ -1,6 +1,6 @@
 // ============================================
 // 🎬 MP4MOVIEZ - TAP TO SELECT WITH INTERACTIVE BUTTONS
-// 👑 Developer: ANNU DON-ᴍᴅ
+// 👑 Developer: ANNU DON
 // 🔥 FIXED: LIST RESPONSE HANDLER
 // 💖 Search → Single Select → Details → Download
 // ============================================

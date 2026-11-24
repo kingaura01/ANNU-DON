@@ -1,6 +1,6 @@
 // ============================================
 // ANNU DON - LIST MENU WITH QUICK REPLY
-// 👑 Developer: ANNU DON-ᴍᴅ
+// 👑 Developer: ANNU DON
 // 💖 BOYS Power Mode: ON
 // 📌 Using Gifted-btns quick_reply buttons
 // ============================================

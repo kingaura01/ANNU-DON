@@ -1,6 +1,6 @@
 // ============================================
 // 🌸 ANTI-BAD WORD - ANNU DONI (FIXED)
-// 👑 Developer: ANNU DON-ᴍᴅ
+// 👑 Developer: ANNU DON
 // 🔥 Simple Detection - No userConfig
 // ============================================
 

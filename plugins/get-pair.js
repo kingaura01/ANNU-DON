@@ -1,6 +1,6 @@
 // ============================================
 // ANNU DON - PAIRING COMMAND
-// 👑 Developer: ANNU DON-ᴍᴅ
+// 👑 Developer: ANNU DON
 // 🔥 Working with your API + Image + Buttons
 // ============================================
 

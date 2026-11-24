@@ -43,7 +43,7 @@ const {
 
 // ============================================
 // ANNU DON MAIN.JS
-// 👑 Developer: Marco ANNU DON-ᴍᴅ
+// 👑 Developer: Marco ANNU DON
 // ============================================
 
 // ── Import anti-call handler ──

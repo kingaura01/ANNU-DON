@@ -1,6 +1,6 @@
 // ============================================
 // 🌸 AUDIO EFFECTS - ANNU DON (FULLY FIXED)
-// 👑 Developer: ANNU DON-ᴍᴅ
+// 👑 Developer: ANNU DON
 // ============================================
 
 const { fakevCard } = require('../lib/fakevCard');

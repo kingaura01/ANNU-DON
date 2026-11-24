@@ -11,7 +11,7 @@
 
 // ============================================
 // 🔥 ANNU DON - COMPLETE SETTINGS
-// 👑 Developer: ANNU DON-ᴍᴅ
+// 👑 Developer: ANNU DON
 // 🔥 GitHub Session System + All Features
 // ============================================
 
@@ -123,7 +123,7 @@ module.exports = {
      * @description Bot footer text
      * @type {string}
      */
-    BOT_FOOTER: process.env.BOT_FOOTER || '© ᴘᴏᴡᴇʀᴇᴅ ʙʏ ANNU DON-ᴍᴅ',
+    BOT_FOOTER: process.env.BOT_FOOTER || '© ᴘᴏᴡᴇʀᴇᴅ ʙʏ ANNU DON',
 
  // ============================================
     // 📵 ANTI-CALL SETTINGS
@@ -446,6 +446,6 @@ module.exports = {
  * @description ANNU DON
  Configuration Module
  * @version 2.0.0
- * @author ANNU DON-ᴍᴅ
+ * @author ANNU DON
  * @license MIT
  */

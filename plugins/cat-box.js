@@ -1,6 +1,6 @@
 // ============================================
 // 🌸 CATBOX UPLOADER - ANNU DON
-// 👑 Developer: ANNU DON-ᴍᴅ
+// 👑 Developer: ANNU DON
 // 🔥 Upload media to Catbox.moe
 // ============================================
 

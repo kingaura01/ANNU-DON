@@ -1,6 +1,6 @@
 // ============================================
 // 🌸 MEDIA COMMANDS - ANNU DON (FIXED)
-// 👑 Developer: ANNU DON-ᴍᴅ
+// 👑 Developer: ANNU DON
 // 🔥 Reply System Fixed - Audio Editor Style
 // ============================================
 

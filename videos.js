@@ -1,6 +1,6 @@
 // ============================================
 // ANNU DON - VIDEO DOWNLOADER
-// 👑 Developer: ANNU DON-ᴍᴅ
+// 👑 Developer: ANNU DON
 // 💖 Boys Power Mode: ON
 // 📌 Multi-API video downloader with trim support
 // ============================================

@@ -1,6 +1,6 @@
 // ============================================
 // ANNU DON FULL MENU
-// 👑 Developer: ANNU DON-ᴍᴅ
+// 👑 Developer: ANNU DON
 // 🔥 Gifted-btns + Whisky Baileys Carousel
 // 💖 Public - Everyone Can Use
 // ============================================

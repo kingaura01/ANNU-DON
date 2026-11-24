@@ -1,6 +1,6 @@
 // ============================================
 // 🕐 ANNU DON - RUNTIME WITH BUTTONS
-// 👑 Developer: ANNU DON-ᴍᴅ
+// 👑 Developer: ANNU DON
 // 🔥 EXACT SAME STYLE AS MENU
 // 💖 Interactive Buttons + Single Select
 // ============================================
