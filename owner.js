@@ -1,6 +1,6 @@
 // ============================================
-// 👑 OWNER - §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶
-// 👑 Developer: MARCO MALIK-ᴍᴅ
+// 👑 OWNER - §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶
+// 👑 Developer: ANNU DON-ᴍᴅ
 // 💖 Boys Power Mode: ON
 // 📌 Owner info + Developer commands
 // ============================================
@@ -18,9 +18,8 @@ const { runtime, sleep } = require('../lib/functions');
 const DEV_INFO = {
     name: "ANNU DON",
     number: "923235605702",
-    channel: "https://whatsapp.com/channel/0029VaAdfelLo4hmxqa7l72g",
-    group: "https://chat.whatsapp.com/Cv2Bg7co5v8EVe0CyEcdSw?s=cl&p=a&mlu=4&ilr=4&iam=2",
-    github: "https://whatsapp.com/channel/0029VaAdfelLo4hmxqa7l72g",
+    channel: "https://whatsapp.com/channel/0029VbEHpir6mYPSxtiCRs2q",
+    github: "https://github.com/kingaura01/ANNU-DON",
     telegram: "https://t.me/sp.king9839",
 };
 
@@ -37,7 +36,7 @@ waqar({
 }, async (conn, mek, m, { from, reply }) => {
     try {
         const uptime = runtime(process.uptime());
-        const botName = config.BOT_NAME || "🌸 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸";
+        const botName = config.BOT_NAME || "🌸 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸";
 
         const text = `
 ╭═══✿══════════════╗
@@ -55,8 +54,6 @@ wa.me/${DEV_INFO.number}
 💖 *Join Channel:*
 ${DEV_INFO.channel}
 
-💖 *Join Group:*
-${DEV_INFO.group}
 
 💖 *GitHub:*
 ${DEV_INFO.github}
@@ -64,7 +61,7 @@ ${DEV_INFO.github}
 💖 *Website:*
 ${DEV_INFO.website}
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖
         `.trim();
 
         // ── Send with Buttons ──
@@ -84,13 +81,6 @@ ${DEV_INFO.website}
                     buttonParamsJson: JSON.stringify({
                         display_text: '🎀 CHANNEL',
                         url: DEV_INFO.channel
-                    })
-                },
-                {
-                    name: 'cta_url',
-                    buttonParamsJson: JSON.stringify({
-                        display_text: '👥 GROUP',
-                        url: DEV_INFO.group
                     })
                 },
                 {

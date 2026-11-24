@@ -1,6 +1,6 @@
 // ============================================
 // 📁 plugins/tourl.js - IMAGE TO URL (WITH CAPTION)
-// 👑 Developer: MARCO Priyanka-ᴍᴅ
+// 👑 Developer: ANNU DON ANNU DON-ᴍᴅ
 // 🔥 Reply System + Caption Support
 // ============================================
 

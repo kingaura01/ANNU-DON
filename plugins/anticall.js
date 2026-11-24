@@ -1,6 +1,6 @@
 // ============================================
 // 🌸 §࿐ 𝗛𝗔𝗙𝗜𝗭 𝗪𝗔𝗤𝗔𝗥 𝗔𝗧𝗧𝗔𝗥𝗜 𝗤𝗔𝗗𝗥𝗜 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻I ANTI-CALL
-// 👑 Developer: MARCO MALIK-MD
+// 👑 Developer: ANNU DON-MD
 // 🔥 Enable/Disable auto call rejection
 // ============================================
 
@@ -23,7 +23,7 @@ waqar({
     try {
         // ── Only Owner ──
         if (!isOwner && !isCreator) {
-            return reply(`🌸 Only my Waqar Warits can use this!👑💖`);
+            return reply(`🌸 Only my ANNU DON Warits can use this!👑💖`);
         }
 
         const status = args[0]?.toLowerCase();
@@ -36,7 +36,7 @@ waqar({
                 ['📌', 'To Enable', '.anticall on'],
                 ['📌', 'To Disable', '.anticall off'],
                 ['💡', 'Note', 'All incoming calls will be rejected'],
-                ['👑', 'By', 'WAQAR WRITES']
+                ['👑', 'By', 'ANNU DON']
             ]));
         }
 
@@ -86,7 +86,7 @@ waqar({
             ['💖', 'Enable', '.anticall on'],
             ['💖', 'Disable', '.anticall off'],
             ['📊', 'Status', '.anticall status'],
-            ['👑', 'By', 'WAQAR WRITES']
+            ['👑', 'By', 'ANNU DON']
         ]));
 
     } catch (error) {

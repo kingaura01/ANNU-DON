@@ -1,6 +1,6 @@
 // ============================================
-// 🌸 MEDIA COMMANDS - §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 (FIXED)
-// 👑 Developer: MARCO MALIK-ᴍᴅ
+// 🌸 MEDIA COMMANDS - §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 (FIXED)
+// 👑 Developer: ANNU DON-ᴍᴅ
 // 🔥 Reply System Fixed - Audio Editor Style
 // ============================================
 
@@ -24,7 +24,7 @@ function girlBox(title, rows) {
 ${body}
 ╰────────────────────○
 
-> 🦋⃟ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
+> 🦋⃟ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
 `;
 }
 
@@ -86,7 +86,7 @@ waqar({
             image: imageBuffer,
             caption: girlBox('🖼️ STICKER CONVERTED', [
                 ['✅', 'Status', 'Converted successfully'],
-                ['👑', 'By', 'PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶']
+                ['👑', 'By', 'ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶']
             ]),
             mimetype: 'image/png'
         }, { quoted: fakevCard });
@@ -271,4 +271,4 @@ waqar({
     }
 });
 
-console.log('🌸 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 - Media plugins loaded! 💖');
+console.log('🌸 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 - Media plugins loaded! 💖');

@@ -1,6 +1,6 @@
 // ============================================
-// 🌸 CHANNEL COMMANDS - §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶
-// 👑 Developer: MARCO MALIK-ᴍᴅ
+// 🌸 CHANNEL COMMANDS - §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶
+// 👑 Developer: ANNU DON-ᴍᴅ
 // 💖 Boys Power Mode: ON
 // ============================================
 
@@ -17,7 +17,7 @@ function boyBox(title, rows) {
 ${body}
 ╰────────────────────○
 
-> 🦋⃟ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
+> 🦋⃟ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
 `;
 }
 
@@ -111,4 +111,4 @@ waqar({
     }
 });
 
-console.log('🌸 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 - Channel plugins loaded! 💖');
+console.log('🌸 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 - Channel plugins loaded! 💖');

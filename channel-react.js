@@ -1,6 +1,6 @@
 // ============================================
-// 🌸 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 - CHANNEL REACTS PLUGIN
-// 👑 Developer: MARCO MALIK-ᴍᴅ
+// 🌸 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 - CHANNEL REACTS PLUGIN
+// 👑 Developer: ANNU DON-ᴍᴅ
 // 🔥 Channel React + Auto React + API
 // ============================================
 

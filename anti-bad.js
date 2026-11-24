@@ -1,6 +1,6 @@
 // ============================================
-// 🌸 ANTI-BAD WORD - §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻I (FIXED)
-// 👑 Developer: MARCO MALIK-ᴍᴅ
+// 🌸 ANTI-BAD WORD - §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻I (FIXED)
+// 👑 Developer: ANNU DON-ᴍᴅ
 // 🔥 Simple Detection - No userConfig
 // ============================================
 
@@ -36,7 +36,7 @@ function girlBox(title, rows) {
 ${body}
 ╰────────────────────○
 
-> 🦋⃟ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝙄 🦋⃟‌💙࿐
+> 🦋⃟ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝙄 🦋⃟‌💙࿐
 `;
 }
 

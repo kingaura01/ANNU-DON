@@ -1,6 +1,6 @@
 // ============================================
-// 🌸 CHANNEL REACT - §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶
-// 👑 Developer: MARCO MALIK-ᴍᴅ
+// 🌸 CHANNEL REACT - §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶
+// 👑 Developer: ANNU DON-ᴍᴅ
 // 🔥 React to WhatsApp channel posts
 // ============================================
 
@@ -29,7 +29,7 @@ waqar({
                 ['💖', 'Example', '.chr https://whatsapp.com/channel/xxxx/137 👍,😍,❤️'],
                 ['💖', 'Example 2', '.chr https://whatsapp.com/channel/xxxx/123 ❤️,😂,🔥'],
                 ['📌', 'Options', 'count: all (default) or number'],
-                ['👑', 'By', 'Waqar']
+                ['👑', 'By', 'ANNU DON']
             ]));
         }
 
@@ -56,7 +56,7 @@ waqar({
                 return reply(girlHelp('❌ Eᴍᴏᴊɪ Rᴇǫᴜɪʀᴇᴅ', [
                     ['📌', 'Please provide', 'Emojis separated by comma'],
                     ['💖', 'Example', '👍,😍,❤️'],
-                    ['👑', 'By', '§࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶']
+                    ['👑', 'By', '§࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶']
                 ]));
             }
         }
@@ -65,7 +65,7 @@ waqar({
             return reply(girlHelp('❌ Lɪɴᴋ Rᴇǫᴜɪʀᴇᴅ', [
                 ['📌', 'Please provide', 'WhatsApp channel link'],
                 ['💖', 'Example', 'https://whatsapp.com/channel/xxxx/123'],
-                ['👑', 'By', '§࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶']
+                ['👑', 'By', '§࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶']
             ]));
         }
 

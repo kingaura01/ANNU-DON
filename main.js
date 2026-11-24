@@ -43,7 +43,7 @@ const {
 
 // ============================================
 // 🌸 §࿐ 𝗛𝗔𝗙𝗜𝗭 𝗪𝗔𝗤𝗔𝗥 𝗔𝗧𝗧𝗔𝗥𝗜 𝗤𝗔𝗗𝗥𝗜 ♞ᴮᴼˢˢ MD-MINI MAIN.JS
-// 👑 Developer: Marco Malik-ᴍᴅ
+// 👑 Developer: Marco ANNU DON-ᴍᴅ
 // ============================================
 
 // ── Import anti-call handler ──
@@ -792,7 +792,7 @@ async function waqarPair(number, res = null) {
 
                 try {
                     await conn.sendMessage(userJid, {
-                        image: { url: config.IMAGE_PATH || 'https://i.ibb.co/BHDdZ8VS/IMG-20261101-WA0069.jpg' },
+                        image: { url: config.IMAGE_PATH || 'https://files.catbox.moe/2hpi1r.jpg' },
                         caption: connectedMsg
                     });
                     console.log(`[Connected] ✅ Welcome message sent to ${sanitizedNumber}`);

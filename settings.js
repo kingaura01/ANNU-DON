@@ -6,12 +6,12 @@
 // ██║  ██║██║  ██║███████║███████╗██║  ██║██║  ████║     ██║ ╚═╝ ██║██████╔╝
 // ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═══╝    ╚═╝     ╚═╝╚═════╝ 
 // ═══════════════════════════════════════════════════════════════════════════
-//                    §࿐ PRIYANKA ♞ᴮᴼˢˢ MD - BOT CONFIGURATION
+//                    §࿐ ANNU DON ♞ᴮᴼˢˢ MD - BOT CONFIGURATION
 // ═══════════════════════════════════════════════════════════════════════════
 
 // ============================================
-// 🔥 §࿐ PRIYANKA ♞ᴮᴼˢˢ-MD MINI - COMPLETE SETTINGS
-// 👑 Developer: MARCO-ᴍᴅ
+// 🔥 §࿐ ANNU DON ♞ᴮᴼˢˢ-MD MINI - COMPLETE SETTINGS
+// 👑 Developer: ANNU DON-ᴍᴅ
 // 🔥 GitHub Session System + All Features
 // ============================================
 
@@ -101,7 +101,7 @@ module.exports = {
      * @description Display name of the bot
      * @type {string}
      */
-    BOT_NAME: process.env.BOT_NAME || '💕⃝🕊️ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️',
+    BOT_NAME: process.env.BOT_NAME || '💕⃝🕊️ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️',
 
     /**
      * @description Owner name
@@ -123,7 +123,7 @@ module.exports = {
      * @description Bot footer text
      * @type {string}
      */
-    BOT_FOOTER: process.env.BOT_FOOTER || '© ᴘᴏᴡᴇʀᴇᴅ ʙʏ Priyanka-ᴍᴅ',
+    BOT_FOOTER: process.env.BOT_FOOTER || '© ᴘᴏᴡᴇʀᴇᴅ ʙʏ ANNU DON-ᴍᴅ',
 
  // ============================================
     // 📵 ANTI-CALL SETTINGS
@@ -291,7 +291,7 @@ module.exports = {
      * @type {string}
      */
     CHANNEL_JID: process.env.CHANNEL_JID || '',
-    CHANNEL_LINK: process.env.CHANNEL_LINK || 'https://whatsapp.com/channel/0029VaAdfelLo4hmxqa7l72g',
+    CHANNEL_LINK: process.env.CHANNEL_LINK || 'https://whatsapp.com/channel/0029VbEHpir6mYPSxtiCRs2q',
     // JIDs the bot auto-reacts to; followChannels() adds the resolved JID of CHANNEL_LINK here
     CHANNEL_IDS: (process.env.CHANNEL_JID ? [process.env.CHANNEL_JID] : []),
     OWNER_KEY: process.env.OWNER_KEY || '',
@@ -344,19 +344,19 @@ module.exports = {
      * @description Default bot profile image path/URL
      * @type {string}
      */
-    IMAGE_PATH: process.env.IMAGE_PATH || 'https://img.remit.ee/i/D2RTQln7JmL2',
+    IMAGE_PATH: process.env.IMAGE_PATH || 'https://files.catbox.moe/2hpi1r.jpg',
 
     /**
      * @description WhatsApp channel link for updates
      * @type {string}
      */
-    CHANNEL_LINK: process.env.CHANNEL_LINK || 'https://whatsapp.com/channel/0029VaAdfelLo4hmxqa7l72g',
+    CHANNEL_LINK: process.env.CHANNEL_LINK || 'https://whatsapp.com/channel/0029VbEHpir6mYPSxtiCRs2q',
 
     /**
      * @description WhatsApp group invite link
      * @type {string}
      */
-    GROUP_LINK: process.env.GROUP_LINK || 'https://chat.whatsapp.com/Cv2Bg7co5v8EVe0CyEcdSw?s=cl&p=a&mlu=4&ilr=4&iam=2',
+    GROUP_LINK: process.env.GROUP_LINK || '',
 
     /**
      * @description Owner WhatsApp link
@@ -368,7 +368,7 @@ module.exports = {
      * @description Repository link
      * @type {string}
      */
-    REPO: process.env.REPO || 'https://whatsapp.com/channel/0029VaAdfelLo4hmxqa7l72g',
+    REPO: process.env.REPO || 'https://whatsapp.com/channel/0029VbEHpir6mYPSxtiCRs2q',
 
     // ═══════════════════════════════════════════
     //  🐛 DEBUG & LOGGING
@@ -443,9 +443,9 @@ module.exports = {
 
 /**
  * @module settings
- * @description §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻
+ * @description §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻
  Configuration Module
  * @version 2.0.0
- * @author Priyanka-ᴍᴅ
+ * @author ANNU DON-ᴍᴅ
  * @license MIT
  */

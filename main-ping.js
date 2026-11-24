@@ -10,13 +10,13 @@ const getRandomImage = () => {
     try {
         // Girly theme images
         const girlyImages = [
-            'https://i.ibb.co/MxvkhCpC/IMG-20261107-WA0115.jpg'
+            'https://files.catbox.moe/2hpi1r.jpg'
         ];
         
         return girlyImages[Math.floor(Math.random() * girlyImages.length)];
     } catch (e) {
         console.log('🌸 Error getting image:', e);
-        return 'https://i.ibb.co/MxvkhCpC/IMG-20261107-WA0115.jpg';
+        return 'https://files.catbox.moe/2hpi1r.jpg';
     }
 };
 
@@ -38,14 +38,14 @@ waqar({
     const initialMsg = await conn.sendMessage(from, { 
       image: { url: imageUrl },
       caption: `╭────────────────────◇
-│ 💕⃝🕊️ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
+│ 💕⃝🕊️ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ ⏳ ᴛɪᴍᴇ: 0s
 │  ✿ ⚡ ᴍꜱ: 0ms
 │  ✿ 🔁 ᴛᴇꜱᴛɪɴɢ...
 ╰────────────────────○
 
-🦋⃟ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐` 
+🦋⃟ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐` 
     }, { quoted: m });
     
     // 🔄 UPDATE INTERVAL
@@ -69,7 +69,7 @@ waqar({
       const statusText = elapsedTime < 25 ? statusEmojis[Math.floor(elapsedTime / 5) % statusEmojis.length] : "🌟 ᴄᴏᴍᴘʟᴇᴛɪɴɢ...";
       
       const updatedCaption = `╭────────────────────◇
-│ 💕⃝🕊️ §࿐PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
+│ 💕⃝🕊️ §࿐ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ ⏳ ᴛɪᴍᴇ: ${elapsedTime}s
 │  ✿ ⚡ ᴍꜱ: ${currentPing}ms
@@ -80,7 +80,7 @@ waqar({
    elapsedTime < 20 ? "✨ 𝗔𝗹𝗺𝗼𝘀𝘁 𝘁𝗵𝗲𝗿𝗲... 💕" : 
    "🌟 𝗝𝘂𝘀𝘁 𝗮 𝗳𝗲𝘄 𝘀𝗲𝗰𝗼𝗻𝗱𝘀... 🎀"}
 
-🦋⃟ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐`;
+🦋⃟ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐`;
       
       try {
         // Edit the image caption
@@ -124,7 +124,7 @@ waqar({
       }
       
       const finalCaption = `╭────────────────────◇
-│ 💕⃝🕊️ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
+│ 💕⃝🕊️ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ ⏳ ᴛᴏᴛᴀʟ ᴛɪᴍᴇ: 30ꜱ
 │  ✿ ⚡ ꜰɪɴᴀʟ ᴍꜱ: ${finalPing}ms
@@ -135,7 +135,7 @@ waqar({
 🌸 𝗕𝗼𝘁 𝗶𝘀 ${performanceText} 💖
 🎀 𝗧𝗵𝗮𝗻𝗸 𝘆𝗼𝘂 𝗳𝗼𝗿 𝘁𝗲𝘀𝘁𝗶𝗻𝗴! ✨
 
-🦋⃟ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
+🦋⃟ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
 
 📍 ᴜꜱᴇ .ᴍᴇɴᴜ ꜰᴏʀ ᴄᴏᴍᴍᴀɴᴅꜱ 💕`;
       
@@ -185,7 +185,7 @@ waqar({
     const msg = await conn.sendMessage(from, { 
       image: { url: imageUrl },
       caption: `╭────────────────────◇
-│ 💕⃝🕊️ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
+│ 💕⃝🕊️ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ ⏳ ᴛɪᴍᴇ: 0s
 │  ✿ ⚡ ᴍꜱ: 0ms
@@ -211,14 +211,14 @@ waqar({
       await conn.sendMessage(from, {
         image: { url: imageUrl },
         caption: `╭────────────────────◇
-│ 💕⃝🕊️ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
+│ 💕⃝🕊️ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ ⏳ ᴛɪᴍᴇ: ${i}s
 │  ✿ ⚡ ᴍꜱ: ${ping}ms
 │  ✿ ${statusMsgs[statusIndex]}
 ╰────────────────────○
 
-🌸 ᴘᴏᴡᴇʀᴇᴅ ʙʏ MARCO MALIK-MD 💖`,
+🌸 ᴘᴏᴡᴇʀᴇᴅ ʙʏ ANNU DON-MD 💖`,
         edit: msg.key
       });
     }
@@ -230,7 +230,7 @@ waqar({
     await conn.sendMessage(from, {
       image: { url: imageUrl },
       caption: `╭────────────────────◇
-│ 💕⃝🕊️ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
+│ 💕⃝🕊️ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ ✅ ᴄᴏᴍᴘʟᴇᴛᴇ! ✨
 │  ✿ ⚡ ꜰɪɴᴀʟ: ${finalPing}ms
@@ -270,7 +270,7 @@ waqar({
     const msg = await conn.sendMessage(from, { 
       image: { url: imageUrl },
       caption: `╭────────────────────◇
-│ 💕⃝🕊️ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
+│ 💕⃝🕊️ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ ⚡ ᴛᴇꜱᴛɪɴɢ...
 ╰────────────────────○
@@ -286,7 +286,7 @@ waqar({
       await conn.sendMessage(from, {
         image: { url: imageUrl },
         caption: `╭────────────────────◇
-│ 💕⃝🕊️ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
+│ 💕⃝🕊️ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ ⏳ ${i}/3
 │  ✿ ⚡ ${ping}ms
@@ -295,7 +295,7 @@ waqar({
        "🎀 𝗗𝗼𝗻𝗲! 💕"}
 ╰────────────────────○
 
-🌸 ᴘᴏᴡᴇʀᴇᴅ ʙʏ Priyanka-MD 💖`,
+🌸 ᴘᴏᴡᴇʀᴇᴅ ʙʏ ANNU DON-MD 💖`,
         edit: msg.key
       });
     }
@@ -306,7 +306,7 @@ waqar({
     await conn.sendMessage(from, {
       image: { url: imageUrl },
       caption: `╭────────────────────◇
-│ 💕⃝🕊️ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
+│ 💕⃝🕊️ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ ✅ ᴄᴏᴍᴘʟᴇᴛᴇ! ✨
 │  ✿ ⚡ ${finalPing}ms

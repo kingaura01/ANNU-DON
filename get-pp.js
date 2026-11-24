@@ -1,6 +1,6 @@
 // ============================================
-// 🌸 GET PP - §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 (FIXED)
-// 👑 Developer: MARCO MALIK-ᴍᴅ
+// 🌸 GET PP - §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 (FIXED)
+// 👑 Developer: ANNU DON-ᴍᴅ
 // 💖 BOYS Power Mode: ON
 // 🔥 Reply System Working
 // ============================================
@@ -122,10 +122,10 @@ async (conn, mek, m, { from, reply, text, isGroup, sender, args, pushname, isRep
 │  ✿━━━━━━━━━━━━━━━✿
 ${displayName && displayName !== 'Unknown' ? `│  ✿ 👤 *Name:* ${displayName}` : ''}
 ${displayNumber ? `│  ✿ 📱 *Number:* ${displayNumber}` : ''}
-│  ✿ 👑 Saved by Waqar Writes
+│  ✿ 👑 Saved by ANNU DON
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖`;
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖`;
 
         // ── Send PP ──
         await conn.sendMessage(from, {
@@ -137,7 +137,7 @@ ${displayNumber ? `│  ✿ 📱 *Number:* ${displayNumber}` : ''}
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
                     newsletterJid: '120363431096532056@newsletter',
-                    newsletterName: '🌸 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸',
+                    newsletterName: '🌸 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸',
                     serverMessageId: 143
                 }
             }
@@ -207,10 +207,10 @@ async (conn, mek, m, { from, reply, isGroup, groupName, participants, isOwner })
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ 👥 ${groupName || 'Group'}
 │  ✿ 📸 ${count}/${total} members
-│  ✿ 👑 Saved by Waqar Writes
+│  ✿ 👑 Saved by ANNU DON
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖`;
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖`;
 
         const ppText = `🌸 GROUP PPs - ${groupName || 'Group'}\n\n${ppList}`;
         
@@ -281,10 +281,10 @@ async (conn, mek, m, { from, reply, text, sender, isOwner, isCreator, isReply, q
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ 💾 Saved to gallery
 │  ✿ 👤 ${displayName}
-│  ✿ 👑 By PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶
+│  ✿ 👑 By ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖`;
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖`;
 
         await conn.sendMessage(from, {
             image: { url: ppUrl },

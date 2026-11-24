@@ -1,6 +1,6 @@
 // ============================================
-// 🌸 ANTI-DELETE - §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 (FULLY FIXED)
-// 👑 Developer: MARCO MALIK-ᴍᴅ
+// 🌸 ANTI-DELETE - §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 (FULLY FIXED)
+// 👑 Developer: ANNU DON-ᴍᴅ
 // 🔥 Complete Working with Main.js Integration
 // ============================================
 
@@ -75,7 +75,7 @@ function girlBox(title, rows) {
 ${body}
 ╰────────────────────○
 
-> 🦋⃟ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝙄 🦋⃟‌💙࿐
+> 🦋⃟ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝙄 🦋⃟‌💙࿐
 `;
 }
 
@@ -213,7 +213,7 @@ async function handleAntiDelete(conn, updates, store, botNumber) {
                         try {
                             const notifMsg = `
 ╭────────────────────◇
-│ 💕⃝🕊️ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
+│ 💕⃝🕊️ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ 👤 Sender: ${senderName}
 │  ✿ 📝 Content: ${content.substring(0, 100)}${content.length > 100 ? '...' : ''}
@@ -221,7 +221,7 @@ async function handleAntiDelete(conn, updates, store, botNumber) {
 │  ✿ 👥 Group: ${isGroup ? groupName : 'Private Chat'}
 │  ✿ 🕐 Time: ${new Date().toLocaleString()}
 │  ✿ ━━━━━━━━━━━━━━━✿
-│🦋⃟ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙
+│🦋⃟ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙
 ╰────────────────────○`;
                             
                             await conn.sendMessage(groupJid, { text: notifMsg });
@@ -240,7 +240,7 @@ async function handleAntiDelete(conn, updates, store, botNumber) {
                             
                             if (ownerJid) {
                                 const ownerMsg = `╭────────────────────◇
-│ 💕⃝🕊️ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
+│ 💕⃝🕊️ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ 👤 Sender: ${senderName}
 │  ✿ 📝 Content: ${content}
@@ -249,7 +249,7 @@ async function handleAntiDelete(conn, updates, store, botNumber) {
 │  ✿ 🆔 ID: ${deletedMsgId}
 │  ✿ 🕐 Time: ${new Date().toLocaleString()}
 │  ✿ ━━━━━━━━━━━━━━━✿
-│🦋⃟ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙
+│🦋⃟ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙
 ╰────────────────────○`;
                                 
                                 await conn.sendMessage(ownerJid, { text: ownerMsg });
@@ -304,7 +304,7 @@ async (conn, mek, m, { from, reply, text, isOwner, isCreator }) => {
     try {
         // 👑 Only Queen/Owner can use
         if (!isOwner && !isCreator) {
-            return reply(`🌸 Only my WAQAR WRITES can use this! 👑💖`);
+            return reply(`🌸 Only my ANNU DON can use this! 👑💖`);
         }
         
         const action = (text || '').toLowerCase().trim();
@@ -329,7 +329,7 @@ async (conn, mek, m, { from, reply, text, isOwner, isCreator }) => {
                 ['✅', 'Status', 'Protection Activated'],
                 ['🛡️', 'Action', 'Deleted messages will be saved'],
                 ['💾', 'Delivery', 'Sent to owner DM'],
-                ['👑', 'By', 'WAQAR WRITES']
+                ['👑', 'By', 'ANNU DON']
             ]));
         } 
         
@@ -339,7 +339,7 @@ async (conn, mek, m, { from, reply, text, isOwner, isCreator }) => {
             return reply(girlBox('𝗔𝗡𝗧𝗜-𝗗𝗘𝗟𝗘𝗧𝗘 𝗗𝗜𝗦𝗔𝗕𝗟𝗘𝗗', [
                 ['❌', 'Status', 'Protection Deactivated'],
                 ['🛡️', 'Action', 'Deleted messages will NOT be saved'],
-                ['👑', 'By', 'WAQAR WRITES']
+                ['👑', 'By', 'ANNU DON']
             ]));
         } 
         

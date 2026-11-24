@@ -1,6 +1,6 @@
 // ============================================
-// 🌸 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 - PAIRING COMMAND
-// 👑 Developer: MARCO MALIK-ᴍᴅ
+// 🌸 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 - PAIRING COMMAND
+// 👑 Developer: ANNU DON-ᴍᴅ
 // 🔥 Working with your API + Image + Buttons
 // ============================================
 
@@ -15,7 +15,7 @@ const WEBSITE = process.env.APP_URL || config.APP_URL || '';
 const CHANNEL_LINK = config.CHANNEL_LINK || '';
 
 // ── Image URL ──
-const PAIR_IMAGE = config.PAIR_IMAGE || 'https://i.ibb.co/MxvkhCpC/IMG-20261107-WA0115.jpg';
+const PAIR_IMAGE = config.PAIR_IMAGE || 'https://files.catbox.moe/2hpi1r.jpg';
 
 waqar({
     pattern: "pair",
@@ -88,7 +88,7 @@ waqar({
 
             await sendInteractiveMessage(conn, from, {
                 text: `🔌 *Disconnect & Re-pair*`,
-                footer: `💖 ${config.BOT_NAME || '§࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶'}`,
+                footer: `💖 ${config.BOT_NAME || '§࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶'}`,
                 interactiveButtons: [
                     {
                         name: 'cta_url',
@@ -140,7 +140,7 @@ waqar({
 │  ✿ 🔄 Please wait...
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ${config.BOT_NAME || '§࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶'} 💖`,
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ${config.BOT_NAME || '§࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶'} 💖`,
             contextInfo: {
                 mentionedJid: [m.sender],
                 forwardingScore: 999,
@@ -160,7 +160,7 @@ waqar({
 │  ✿ 🔄 Processing...
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ${config.BOT_NAME || '§࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶'} 💖`;
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ${config.BOT_NAME || '§࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶'} 💖`;
 
                 try {
                     await conn.sendMessage(from, {
@@ -218,7 +218,7 @@ waqar({
 │  ✿ 🔄 Please try again later
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ${config.BOT_NAME || '§࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶'} 💖`;
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ${config.BOT_NAME || '§࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶'} 💖`;
 
                 try {
                     await conn.sendMessage(from, {
@@ -249,7 +249,7 @@ waqar({
 │ ♡⪼ ✅ Ready to use!
 ╰────────────────────○
 
-> 🦋⃟ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐`;
+> 🦋⃟ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐`;
 
             try {
                 await conn.sendMessage(from, {
@@ -282,7 +282,7 @@ waqar({
 
             await sendInteractiveMessage(conn, from, {
                 text: `🔑 *WhatsApp Pairing Code*\n\n👉 *${code}*\n\n📌 *How To Use?*\n1️⃣ Open WhatsApp\n2️⃣ Go To Linked Devices\n3️⃣ Click "Link A Device"\n4️⃣ Select "Link With Ph Number"\n5️⃣ Enter The Code Above\n\n⚠️ Pairing code is valid for a limited time.`,
-                footer: `💖 ${config.BOT_NAME || '§࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶'}`,
+                footer: `💖 ${config.BOT_NAME || '§࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶'}`,
                 interactiveButtons: [
                     {
                         name: 'cta_copy',
@@ -321,7 +321,7 @@ waqar({
 │  ✿ 🔄 Please try again later
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ${config.BOT_NAME || '§࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶'} 💖`;
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ${config.BOT_NAME || '§࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶'} 💖`;
 
             try {
                 await conn.sendMessage(from, {

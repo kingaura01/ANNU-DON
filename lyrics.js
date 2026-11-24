@@ -1,6 +1,6 @@
 // ============================================
-// 🌸 LYRICS - §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶
-// 👑 Developer: MARCO MALIK-ᴍᴅ
+// 🌸 LYRICS - §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶
+// 👑 Developer: ANNU DON-ᴍᴅ
 // 💖 BOYS Power Mode: ON
 // 📌 Category: Music
 // ============================================
@@ -40,7 +40,7 @@ async (conn, mek, m, { from, reply, text }) => {
 • \`.lyrics Blinding Lights\`
 • \`.lyrics Pasoori\`
 
-💖 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸
+💖 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸
             `;
             return reply(helpMsg);
         }
@@ -79,7 +79,7 @@ async (conn, mek, m, { from, reply, text }) => {
 │  ✿ ${lyricsOutput}
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖
         `.trim();
 
         // ✅ STEP 4: Send with image if available
@@ -93,7 +93,7 @@ async (conn, mek, m, { from, reply, text }) => {
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
                         newsletterJid: '120363431096532056@newsletter',
-                        newsletterName: '🌸 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸',
+                        newsletterName: '🌸 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸',
                         serverMessageId: 143
                     }
                 }
@@ -107,7 +107,7 @@ async (conn, mek, m, { from, reply, text }) => {
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
                         newsletterJid: '120363431096532056@newsletter',
-                        newsletterName: '🌸 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸',
+                        newsletterName: '🌸 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸',
                         serverMessageId: 143
                     }
                 }
@@ -179,7 +179,7 @@ async (conn, mek, m, { from, reply, text }) => {
 
 📝 ${lyricsOutput}
 
-💖 Powered by §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶
+💖 Powered by §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶
         `.trim();
 
         if (image) {
@@ -245,8 +245,8 @@ ${lyrics}
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-💖 Powered by §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶
-👑 Developer: MARCO MALIK-ᴍᴅ
+💖 Powered by §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶
+👑 Developer: ANNU DON-ᴍᴅ
         `.trim();
 
         const caption = `
@@ -256,10 +256,10 @@ ${lyrics}
 │  ✿ 🎵 ${title || 'Unknown Song'}
 │  ✿ 👩‍🎤 ${artist || 'Unknown Artist'}
 │  ✿ 📄 Saved as document
-│  ✿ 👑 By PRIYANKA ♞ᴮᴼˢˢ
+│  ✿ 👑 By ANNU DON ♞ᴮᴼˢˢ
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖
         `;
 
         await conn.sendMessage(from, {
@@ -272,7 +272,7 @@ ${lyrics}
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
                     newsletterJid: '120363431096532056@newsletter',
-                    newsletterName: '🌸 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸',
+                    newsletterName: '🌸 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸',
                     serverMessageId: 143
                 }
             }

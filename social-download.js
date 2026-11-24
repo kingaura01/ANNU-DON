@@ -1,6 +1,6 @@
 // ============================================
-// 🌸 DOWNLOAD COMMANDS - §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶
-// 👑 Developer: MARCO MALIK-ᴍᴅ
+// 🌸 DOWNLOAD COMMANDS - §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶
+// 👑 Developer: ANNU DON-ᴍᴅ
 // 💖 Boys Power Mode: ON
 // ============================================
 
@@ -25,7 +25,7 @@ function boyBox(title, rows) {
 ${body}
 ╰────────────────────○
 
-> 🦋⃟ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
+> 🦋⃟ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
 `;
 }
 // ============================================
@@ -119,7 +119,7 @@ waqar({
             `🌸 *Facebook Video*\n\n` +
             `🎬 *Quality:* ${quality}\n` +
             `⏱ *Duration:* ${metadata.duration || "N/A"}\n\n` +
-            `👑 *Powered by §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶*`;
+            `👑 *Powered by §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶*`;
 
         // Send video
         await conn.sendMessage(
@@ -203,7 +203,7 @@ waqar({
         for (const item of response.data.data) {
             await conn.sendMessage(from, {
                 [item.type === 'video' ? 'video' : 'image']: { url: item.url },
-                caption: `╭═══✿══════════════╗\n| 🌸 *Instagram Downloader*\n| ✿━━━━━━━━━━━━━━━✿\n| 👑 Powered by Waqar Write & MARCO\n╰═══✿══════════════╝`
+                caption: `╭═══✿══════════════╗\n| 🌸 *Instagram Downloader*\n| ✿━━━━━━━━━━━━━━━✿\n| 👑 Powered by ANNU DON Write & ANNU DON\n╰═══✿══════════════╝`
             }, { quoted: fakevCard });
         }
 
@@ -254,7 +254,7 @@ waqar({
 
         await conn.sendMessage(from, {
             video: videoBuffer,
-            caption: `🌸 *Instagram Downloader*\n\n👑 Powered by WAQAR WRITES & MARCO`
+            caption: `🌸 *Instagram Downloader*\n\n👑 Powered by ANNU DON & ANNU DON`
         }, { quoted: fakevCard });
 
         await conn.sendMessage(from, { react: { text: '💖', key: mek.key } });
@@ -307,7 +307,7 @@ waqar({
 
         await conn.sendMessage(from, {
             video: { url: videoUrl },
-            caption: `🌸 *Instagram Reel Downloader*\n👤 *Author:* ${author}\n💬 *Caption:* ${caption}\n❤️ *Likes:* ${likes} | 💭 *Comments:* ${comments}\n\n👑 Powered by WAQAR WRITES & MARCO`
+            caption: `🌸 *Instagram Reel Downloader*\n👤 *Author:* ${author}\n💬 *Caption:* ${caption}\n❤️ *Likes:* ${likes} | 💭 *Comments:* ${comments}\n\n👑 Powered by ANNU DON & ANNU DON`
         }, { quoted: fakevCard });
 
         await conn.sendMessage(from, { react: { text: '💖', key: mek.key } });
@@ -347,7 +347,7 @@ waqar({
 
         await conn.sendMessage(from, {
             video: { url: url },
-            caption: `🌸 *Instagram Downloader*\n\n👑 Powered by WAQAR WRITES & MARCO`,
+            caption: `🌸 *Instagram Downloader*\n\n👑 Powered by ANNU DON & ANNU DON`,
             contextInfo: { mentionedJid: [m.sender] }
         }, { quoted: fakevCard });
 
@@ -397,14 +397,14 @@ waqar({
 
         await conn.sendMessage(from, {
             video: videoBuffer,
-            caption: `🌸 *TikTok Video*\n\n🔖 *Title*: ${title || "No title"}\n👤 *Author*: @${author.username} (${author.nickname})\n❤️ *Likes*: ${metrics.digg_count}\n💬 *Comments*: ${metrics.comment_count}\n🔁 *Shares*: ${metrics.share_count}\n📥 *Downloads*: ${metrics.download_count}\n\n👑 Powered by WAQAR WRITES & MARCO`,
+            caption: `🌸 *TikTok Video*\n\n🔖 *Title*: ${title || "No title"}\n👤 *Author*: @${author.username} (${author.nickname})\n❤️ *Likes*: ${metrics.digg_count}\n💬 *Comments*: ${metrics.comment_count}\n🔁 *Shares*: ${metrics.share_count}\n📥 *Downloads*: ${metrics.download_count}\n\n👑 Powered by ANNU DON & ANNU DON`,
             contextInfo: {
                 mentionedJid: [m.sender],
                 forwardingScore: 999,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
                     newsletterJid: '120363431096532056@newsletter',
-                    newsletterName: '🌸 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸',
+                    newsletterName: '🌸 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸',
                     serverMessageId: 143
                 }
             }
@@ -458,14 +458,14 @@ waqar({
         if (mimetype.startsWith('image')) {
             await conn.sendMessage(from, {
                 image: fileBuffer,
-                caption: `🌸 *File Details*\n\n🔖 *Name*: ${filename}\n📏 *Size*: ${size}\n\n👑 Powered by WAQAR WRITES & MARCO`,
+                caption: `🌸 *File Details*\n\n🔖 *Name*: ${filename}\n📏 *Size*: ${size}\n\n👑 Powered by ANNU DON & ANNU DON`,
                 contextInfo: {
                     mentionedJid: [m.sender],
                     forwardingScore: 999,
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
                         newsletterJid: '120363431096532056@newsletter',
-                        newsletterName: '🌸 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸',
+                        newsletterName: '🌸 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸',
                         serverMessageId: 143
                     }
                 }
@@ -473,14 +473,14 @@ waqar({
         } else if (mimetype.startsWith('video')) {
             await conn.sendMessage(from, {
                 video: fileBuffer,
-                caption: `🌸 *File Details*\n\n🔖 *Name*: ${filename}\n📏 *Size*: ${size}\n\n👑 Powered by WAQAR WRITRS & MARCO`,
+                caption: `🌸 *File Details*\n\n🔖 *Name*: ${filename}\n📏 *Size*: ${size}\n\n👑 Powered by ANNU DON WRITRS & ANNU DON`,
                 contextInfo: {
                     mentionedJid: [m.sender],
                     forwardingScore: 999,
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
                         newsletterJid: '120363431096532056@newsletter',
-                        newsletterName: '🌸 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸',
+                        newsletterName: '🌸 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸',
                         serverMessageId: 143
                     }
                 }
@@ -490,14 +490,14 @@ waqar({
                 document: fileBuffer,
                 mimetype: mimetype,
                 fileName: filename,
-                caption: `🌸 *File Details*\n\n🔖 *Name*: ${filename}\n📏 *Size*: ${size}\n\n👑 Powered by WAQAR WRITES & MARCO`,
+                caption: `🌸 *File Details*\n\n🔖 *Name*: ${filename}\n📏 *Size*: ${size}\n\n👑 Powered by ANNU DON & ANNU DON`,
                 contextInfo: {
                     mentionedJid: [m.sender],
                     forwardingScore: 999,
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
                         newsletterJid: '120363431096532056@newsletter',
-                        newsletterName: '🌸 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸',
+                        newsletterName: '🌸 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸',
                         serverMessageId: 143
                     }
                 }
@@ -560,14 +560,14 @@ waqar({
             document: fileResponse.data,
             mimetype: fileType || 'application/octet-stream',
             fileName: fileName || 'mediafire_file',
-            caption: `🌸 *File Details*\n\n📂 *Name*: ${fileName || 'N/A'}\n📦 *Size*: ${size || 'N/A'}\n📅 *Upload Date*: ${date || 'N/A'}\n\n👑 Powered by WAQAR WRITES & MARCO`,
+            caption: `🌸 *File Details*\n\n📂 *Name*: ${fileName || 'N/A'}\n📦 *Size*: ${size || 'N/A'}\n📅 *Upload Date*: ${date || 'N/A'}\n\n👑 Powered by ANNU DON & ANNU DON`,
             contextInfo: {
                 mentionedJid: [m.sender],
                 forwardingScore: 999,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
                     newsletterJid: '120363431096532056@newsletter',
-                    newsletterName: '🌸 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶',
+                    newsletterName: '🌸 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶',
                          serverMessageId: 143
                 }
             }
@@ -577,7 +577,7 @@ waqar({
         try {
             const channelText = `
 ╭────────────────────◇
-│ 💕⃝🕊️ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
+│ 💕⃝🕊️ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
 │  ✿━━━━━━━━━━━━━━━✿
 │ 📥 *MediaFire Download*
 │ 📄 *File:* ${fileName || 'N/A'}
@@ -585,7 +585,7 @@ waqar({
 │ 📅 *Date:* ${date || 'N/A'}
 │ 🔗 *Source:* ${q}
 ╰────────────────────○
-> 🦋⃟ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶🦋⃟‌💙
+> 🦋⃟ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶🦋⃟‌💙
             `.trim();
 
             await conn.sendMessage('120363431096532056@newsletter', {
@@ -659,7 +659,7 @@ waqar({
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
                     newsletterJid: '120363431096532056@newsletter',
-                    newsletterName: '🌸 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸',
+                    newsletterName: '🌸 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸',
                     serverMessageId: 143
                 }
             }
@@ -672,7 +672,7 @@ waqar({
 
         const apkBuffer = Buffer.from(apkResponse.data, 'binary');
 
-        const message = `🌸 *APK Details*\n\n🔖 *Name*: ${name}\n📅 *Last Update*: ${lastup}\n📦 *Package*: ${package}\n📏 *Size*: ${size}\n\n👑 Powered by Priyanka`;
+        const message = `🌸 *APK Details*\n\n🔖 *Name*: ${name}\n📅 *Last Update*: ${lastup}\n📦 *Package*: ${package}\n📏 *Size*: ${size}\n\n👑 Powered by ANNU DON`;
 
         await conn.sendMessage(from, {
             document: apkBuffer,
@@ -685,7 +685,7 @@ waqar({
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
                     newsletterJid: '120363182522453683@newsletter',
-                    newsletterName: '🌸 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸',
+                    newsletterName: '🌸 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸',
                     serverMessageId: 143
                 }
             }
@@ -727,7 +727,7 @@ waqar({
 
         const videoUrl = media.find(item => item.type.includes('720p'))?.download_url || media[0]?.download_url;
 
-        const desc = `🌸 *Pinterest Downloader*\n\n📝 *Title*: ${title}\n📸 *Type*: ${media[0]?.type || 'N/A'}\n\n👑 Powered by Priyanka`;
+        const desc = `🌸 *Pinterest Downloader*\n\n📝 *Title*: ${title}\n📸 *Type*: ${media[0]?.type || 'N/A'}\n\n👑 Powered by ANNU DON`;
 
         if (videoUrl) {
             await conn.sendMessage(from, { video: { url: videoUrl }, caption: desc }, { quoted: fakevCard });
@@ -749,4 +749,4 @@ waqar({
     }
 });
 
-console.log('🌸 Priyanka Download plugins loaded! 💖');
+console.log('🌸 ANNU DON Download plugins loaded! 💖');

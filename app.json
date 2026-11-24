@@ -1,9 +1,9 @@
 {
-  "name": "♥️ §࿐ PRIYANKA ♞ᴮᴼˢˢ MD  PAIR♥️",
+  "name": "♥️ §࿐ ANNU DON ♞ᴮᴼˢˢ MD  PAIR♥️",
   "description": "SESSION ID GENERATOR FOR WHATSAPP BOTS",
   "logo": "https://files.catbox.moe/prkkzj.png",
-  "repository": "https://whatsapp.com/channel/0029VbE1PSOGzzKS8DCvLM32",
-  "keywords": ["@ §࿐ PRIYANKA ♞ᴮᴼˢˢ MD "],
+  "repository": "https://whatsapp.com/channel/0029VbEHpir6mYPSxtiCRs2q",
+  "keywords": ["@ §࿐ ANNU DON ♞ᴮᴼˢˢ MD "],
   "success_url": "/", 
   "buildpacks": [
     { "url": "https://github.com/heroku/heroku-buildpack-nodejs#latest" }
@@ -11,7 +11,7 @@
   "env": {      
     "MESSAGE": {
       "description": "Msg Attached With Session ID",
-      "value": "🔰 BY ||  §࿐ PRIYANKA ♞ᴮᴼˢˢ MD  OFFICIAL 🔰",
+      "value": "🔰 BY ||  §࿐ ANNU DON ♞ᴮᴼˢˢ MD  OFFICIAL 🔰",
       "required": false 
     }
   }

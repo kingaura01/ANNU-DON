@@ -1,6 +1,6 @@
 // ============================================
-// 🌸 CATBOX UPLOADER - §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶
-// 👑 Developer: MARCO MALIK-ᴍᴅ
+// 🌸 CATBOX UPLOADER - §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶
+// 👑 Developer: ANNU DON-ᴍᴅ
 // 🔥 Upload media to Catbox.moe
 // ============================================
 
@@ -32,7 +32,7 @@ function girlBox(title, rows) {
 ${body}
 ╰────────────────────○
 
-> 🦋⃟ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙`;
+> 🦋⃟ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙`;
 }
 
 // ============================================
@@ -63,7 +63,7 @@ waqar({
                 ['📌', 'With Name', '.upload filename.jpg'],
                 ['💖', 'Supports', 'Images, Videos, Audio, Documents'],
                 ['📤', 'Host', 'catbox.moe'],
-                ['👑', 'By', '§࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶']
+                ['👑', 'By', '§࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶']
             ]));
         }
 
@@ -187,7 +187,7 @@ waqar({
 
             await sendInteractiveMessage(conn, from, {
                 text: caption,
-                footer: `💖 ${config.BOT_NAME || '§࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶'}`,
+                footer: `💖 ${config.BOT_NAME || '§࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶'}`,
                 interactiveButtons: [
                     {
                         name: 'cta_copy',
@@ -326,7 +326,7 @@ waqar({
                 ['🔗', 'URL', uploadUrl],
                 ['📤', 'Host', data.provider || 'catbox.moe']
             ]),
-            footer: `💖 ${config.BOT_NAME || '§࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶'}`,
+            footer: `💖 ${config.BOT_NAME || '§࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶'}`,
             interactiveButtons: [
                 {
                     name: 'cta_copy',

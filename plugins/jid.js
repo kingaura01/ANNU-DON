@@ -1,6 +1,6 @@
 // ============================================
-// 🌸 JID - §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶
-// 👑 Developer: MARCO MALIK-ᴍᴅ
+// 🌸 JID - §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶
+// 👑 Developer: ANNU DON-ᴍᴅ
 // 💖 Boys Power Mode: ON
 // ============================================
 
@@ -9,14 +9,14 @@ const { waqar } = require('../waqar');
 waqar({
     pattern: "jid",
     alias: ["id", "chatid", "gjid"],
-    desc: "🌸 Get full JID of current chat (Waqar writes Only)",
+    desc: "🌸 Get full JID of current chat (ANNU DON writes Only)",
     category: "owner",
     react: "🌸",
     filename: __filename
 }, async (conn, mek, m, { from, isGroup, isOwner, isCreator, reply, sender }) => {
     try {
         if (!isOwner && !isCreator) {
-            return reply(`🌸 Only my Priyanka can use this! 🦁💖`);
+            return reply(`🌸 Only my ANNU DON can use this! 🦁💖`);
         }
 
         if (isGroup) {
@@ -31,4 +31,4 @@ waqar({
     }
 });
 
-console.log('🌸 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 - JID plugin loaded! 💖');
+console.log('🌸 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 - JID plugin loaded! 💖');

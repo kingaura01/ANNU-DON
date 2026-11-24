@@ -1,5 +1,5 @@
 // ============================================
-// 🌸 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 - BOT COMMANDS
+// 🌸 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 - BOT COMMANDS
 // 👑 Settings + Group Management
 // 💖 Boys Power Mode: ON
 // ============================================
@@ -362,9 +362,9 @@ waqar({
 ╰────────────────────○
 
 🌸 *To change: .<command> on/off*
-> 🦋⃟ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐`;
+> 🦋⃟ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐`;
 
     return reply(list);
 });
 
-console.log('🌸 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 - Bot Commands Loaded! 💖');
+console.log('🌸 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 - Bot Commands Loaded! 💖');

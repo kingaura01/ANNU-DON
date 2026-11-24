@@ -1,6 +1,6 @@
 // ============================================
-// 🌸 GROUP STATUS - §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶
-// 👑 Developer: MARCO MALIK-ᴍᴅ
+// 🌸 GROUP STATUS - §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶
+// 👑 Developer: ANNU DON-ᴍᴅ
 // 🔥 Post status updates to group story
 // ============================================
 
@@ -41,7 +41,7 @@ function girlBox(title, rows) {
 ${body}
 ╰────────────────────○
 
-> 🦋⃟ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐`;
+> 🦋⃟ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐`;
 }
 
 // ============================================
@@ -197,7 +197,7 @@ waqar({
 
         // ── Admin only ──
         if (!isAdmins && !isOwner && !isCreator) {
-            return reply(`🌸 Only admins and Waqar writes can use this! 🦁💖`);
+            return reply(`🌸 Only admins and ANNU DON writes can use this! 🦁💖`);
         }
 
         // ── Bot must be admin ──
@@ -215,7 +215,7 @@ waqar({
                     ['📌', 'Reply to media', '.groupstatus [caption]'],
                     ['📌', 'Text status', '.groupstatus Your text here'],
                     ['💖', 'Supported', 'Image, Video, Audio, Sticker'],
-                    ['👑', 'By', '§࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶']
+                    ['👑', 'By', '§࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶']
                 ]));
             }
 

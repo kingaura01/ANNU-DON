@@ -1,5 +1,5 @@
 // ============================================
-// 🌸 VIEW ONCE PLUGIN - §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 (FINAL)
+// 🌸 VIEW ONCE PLUGIN - §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 (FINAL)
 // 👑 Developer: ᴍᴀʀᴄᴏ ᴍᴀʟɪᴋ-ᴍᴅ
 // 🔥 Fixed: Unsupported media type error
 // ============================================
@@ -14,7 +14,7 @@ const config = require('../settings');
 const positiveKeywords = [
   "🌸", "💖", "✨", "🎀", "💕", "💝", "🌺", "🦋", "🫅", "💗",
   "nice", "good", "cute", "beautiful", "gorgeous", "lovely",
-  "wow", "super", "amazing", "WAQAR", "MARCO", "😍", "🥰",
+  "wow", "super", "amazing", "ANNU DON", "ANNU DON", "😍", "🥰",
   "🌝", "🥵", "💋", "👍", "🌚", "😩"
 ];
 
@@ -146,7 +146,7 @@ async function handleViewOnce(conn, mek, m, context) {
         // ── Send processing reaction ──
         await conn.sendMessage(from, { react: { text: '🌸', key: mek.key } });
 
-        const DESCRIPTION = config.DESCRIPTION || "🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖";
+        const DESCRIPTION = config.DESCRIPTION || "🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖";
 
         // ── Build caption ──
         let captionText = `🌸 *View Once Retrieved*\n\n`;
@@ -171,7 +171,7 @@ async function handleViewOnce(conn, mek, m, context) {
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
                         newsletterJid: '120363182522453683@newsletter',
-                        newsletterName: '🌸 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸',
+                        newsletterName: '🌸 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸',
                         serverMessageId: 143
                     }
                 }
@@ -186,7 +186,7 @@ async function handleViewOnce(conn, mek, m, context) {
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
                         newsletterJid: '120363182522453683@newsletter',
-                        newsletterName: '🌸 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸',
+                        newsletterName: '🌸 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸',
                         serverMessageId: 143
                     }
                 }
@@ -296,7 +296,7 @@ waqar({
 🌸 Example:
 .vv (reply to view once)
 
-💖 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸
+💖 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸
       `;
       return reply(helpMsg);
     }
@@ -334,7 +334,7 @@ waqar({
 }) => {
   try {
     if (!isOwner && !isCreator) {
-      return reply(`🌸 Only my PRIYANKA can use this! 🦁💖`);
+      return reply(`🌸 Only my ANNU DON can use this! 🦁💖`);
     }
 
     if (!isReply) {
@@ -369,7 +369,7 @@ waqar({
 }) => {
   try {
     if (!isOwner && !isCreator) {
-      return reply(`🌸 Only my Priyanka can use this! 👸💖`);
+      return reply(`🌸 Only my ANNU DON can use this! 👸💖`);
     }
 
     const keywordsList = positiveKeywords.join(', ');
@@ -383,7 +383,7 @@ waqar({
 │  ✿ ${keywordsList}
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖
 
 📌 Usage:
 • Reply to view once with keyword
@@ -418,7 +418,7 @@ waqar({
 }) => {
   try {
     if (!isOwner && !isCreator) {
-      return reply(`🌸 Only my Priyanka can use this! 🦁💖`);
+      return reply(`🌸 Only my ANNU DON can use this! 🦁💖`);
     }
 
     if (!text) {
@@ -484,4 +484,4 @@ waqar({
   }
 });
 
-console.log('🌸 WAQAR WRITES & MARCO MALIK- View Once plugin loaded! 💖');
+console.log('🌸 ANNU DON & ANNU DON- View Once plugin loaded! 💖');

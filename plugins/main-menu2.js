@@ -1,6 +1,6 @@
 // ============================================
-// 🌸 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 FULL MENU
-// 👑 Developer: MARCO MALIK-ᴍᴅ
+// 🌸 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 FULL MENU
+// 👑 Developer: ANNU DON-ᴍᴅ
 // 🔥 Gifted-btns + Whisky Baileys Carousel
 // 💖 Public - Everyone Can Use
 // ============================================
@@ -168,7 +168,7 @@ waqar({
         const uptime = process.uptime();
         const memory = process.memoryUsage();
         const prefix = config.PREFIX || '.';
-        const botName = config.BOT_NAME || '🌸§࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶🌸';
+        const botName = config.BOT_NAME || '🌸§࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶🌸';
         const ownerName = config.OWNER_NAME || 'ANNU DON';
         const pakTime = moment().tz('Asia/Karachi').format('hh:mm:ss A');
         const pakDate = moment().tz('Asia/Karachi').format('DD/MM/YYYY');
@@ -187,7 +187,7 @@ waqar({
         const sortedCategories = Array.from(categoryMap.keys()).sort();
 
         // ── Image URL ──
-        const imageUrl = config.IMAGE_PATH || 'https://i.ibb.co/MxvkhCpC/IMG-20261107-WA0115.jpg';
+        const imageUrl = config.IMAGE_PATH || 'https://files.catbox.moe/2hpi1r.jpg';
 
         // ── Build Cards ──
         const cardsData = [];
@@ -292,7 +292,7 @@ waqar({
         try {
             const totalCommands = commands ? commands.length : 0;
             const prefix = config.PREFIX || '.';
-            const botName = config.BOT_NAME || '🌸§࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶🌸';
+            const botName = config.BOT_NAME || '🌸§࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶🌸';
             const ownerName = config.OWNER_NAME || 'ANNU DON';
 
             // ── Get categories ──
@@ -340,7 +340,7 @@ waqar({
     try {
         const totalCommands = commands ? commands.length : 0;
         const prefix = config.PREFIX || '.';
-        const botName = config.BOT_NAME || '🌸§࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶🌸';
+        const botName = config.BOT_NAME || '🌸§࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶🌸';
         const ownerName = config.OWNER_NAME || 'ANNU DON';
 
         // ── Get categories ──
@@ -427,7 +427,7 @@ for (const cmd of commands) {
 for (const [category, cmds] of categoryMap) {
     const emoji = getCategoryIcon(category);
     const prefix = config.PREFIX || '.';
-    const botName = config.BOT_NAME || '🌸§࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶🌸';
+    const botName = config.BOT_NAME || '🌸§࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶🌸';
 
     // ── Skip if already has pattern ──
     const existing = commands.find(c => c.pattern === category);

@@ -66,7 +66,7 @@ async (conn, mek, m, { from, reply, text, pushname }) => {
         // ✨ STEP 1: Send ONLY Thumbnail with Details (NO extra message)
         const caption = `
 ╭────────────────────◇
-│ 💕⃝🕊️§࿐PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶💕⃝🕊️
+│ 💕⃝🕊️§࿐ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶💕⃝🕊️
 │  ✿━━━━━━━━━━━━━━━✿
 │ ♡⪼ 🎵 ${title.slice(0, 30)}${title.length > 30 ? '...' : ''}
 │ ♡⪼ 👩‍🎤 ${artist}
@@ -74,12 +74,12 @@ async (conn, mek, m, { from, reply, text, pushname }) => {
 │ ♡⪼ 👁️ ${views || 'N/A'} views
 │ ♡⪼ 📥 Processing...
 ╰────────────────────○
-> 🦋⃟ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
+> 🦋⃟ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
         `;
 
         // Send ONLY the thumbnail with caption - NO buttons, NO extra messages
         await conn.sendMessage(from, {
-            image: { url: thumbnail || 'https://i.ibb.co/MxvkhCpC/IMG-20261107-WA0115.jpg' },
+            image: { url: thumbnail || 'https://files.catbox.moe/2hpi1r.jpg' },
             caption: caption
         }, { quoted: fakevCard });
 

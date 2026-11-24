@@ -1,6 +1,6 @@
 // ============================================
-// 🌸 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 - POLL COMMAND
-// 👑 Developer: MARCO MALIK-ᴍᴅ
+// 🌸 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 - POLL COMMAND
+// 👑 Developer: ANNU DON-ᴍᴅ
 // 💖 Boys Power Mode: ON
 // 📌 Converted from your friend's bot
 // ============================================
@@ -26,7 +26,7 @@ waqar({
 }) => {
     try {
         if (!isGroup) return reply("🌸 This command only works in groups! 💕");
-        if (!isAdmins && !isOwner && !isCreator) return reply("🌸 Only admins and Priyanka can create polls! 🦁💖");
+        if (!isAdmins && !isOwner && !isCreator) return reply("🌸 Only admins and ANNU DON can create polls! 🦁💖");
 
         if (!text) {
             return reply(`🌸 Usage: .poll question;option1,option2,option3...\n\nExample: .poll Best Color?;Red,Blue,Green 💕`);

@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="assets/banner.jpg" alt="WAQAR XD MINI BOT" width="320"/>
+<img src="assets/banner.jpg" alt="ANNU DON XD MINI BOT" width="320"/>
 
-# WAQAR XD MINI BOT
+# ANNU DON XD MINI BOT
 
 **Smart • Fast • Powerful** — a WhatsApp group assistant for classes and communities.
 
@@ -17,7 +17,7 @@
 
 ## About
 
-WAQAR XD MINI BOT is a lightweight multi-device WhatsApp bot built on
+ANNU DON XD MINI BOT is a lightweight multi-device WhatsApp bot built on
 [Baileys](https://github.com/WhiskeySockets/Baileys). It keeps classes and
 groups organised with moderation tools, auto replies and a simple menu system.
 
@@ -38,7 +38,7 @@ groups organised with moderation tools, auto replies and a simple menu system.
 
 | # | Name | Contact |
 |---|------|---------|
-| 1 | Waqar XD | [wa.me/923293245445](https://wa.me/923293245445) |
+| 1 | ANNU DON | [wa.me/923235605702](https://wa.me/923235605702) |
 | 2 | Co-owner | set `OWNER_NUMBER_2` |
 
 ## Quick Start

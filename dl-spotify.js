@@ -1,6 +1,6 @@
 // ============================================
-// 🌸 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 - SPOTIFY SONG DOWNLOADER
-// 👑 Developer: MARCO MALIK-ᴍᴅ
+// 🌸 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 - SPOTIFY SONG DOWNLOADER
+// 👑 Developer: ANNU DON-ᴍᴅ
 // 💖 BOYS Power Mode: ON
 // 📌 Converted from your friend's bot
 // ============================================
@@ -51,7 +51,7 @@ async (conn, mek, m, { from, reply, text }) => {
 │ ♡⪼. 📥 Processing...
 ╰────────────────────○
 
-> 🦋⃟ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
+> 🦋⃟ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
         `;
 
         await conn.sendMessage(from, {

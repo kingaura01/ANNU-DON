@@ -1,6 +1,6 @@
 // ============================================
-// 🌸 MSG INSPECT - §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶
-// 👑 Developer: MARCO MALIK-ᴍᴅ
+// 🌸 MSG INSPECT - §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶
+// 👑 Developer: ANNU DON-ᴍᴅ
 // 🔍 Inspect quoted message structure
 // ============================================
 
@@ -22,7 +22,7 @@ function girlBox(title, rows) {
 ${body}
 ╰────────────────────○
 
-> 🦋⃟ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
+> 🦋⃟ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
 `;
 }
 
@@ -51,7 +51,7 @@ waqar({
     try {
         // 👑 Only Owner can use
         if (!isOwner && !isCreator) {
-            return reply(`🌸 Only my Priyanka can use this! 🦁💖`);
+            return reply(`🌸 Only my ANNU DON can use this! 🦁💖`);
         }
 
         // ── Check if replying ──
@@ -61,7 +61,7 @@ waqar({
                 ['💖', 'Example', 'Reply to any message with .inspect'],
                 ['📋', 'Shows', 'Message structure, type, sender'],
                 ['🔍', 'Use', 'Debugging message objects'],
-                ['👑', 'By', '§࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶']
+                ['👑', 'By', '§࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶']
             ]));
         }
 
@@ -188,7 +188,7 @@ waqar({
 }) => {
     try {
         if (!isOwner && !isCreator) {
-            return reply(`🌸 Only my Waqar writes can use this! 🦁💖`);
+            return reply(`🌸 Only my ANNU DON writes can use this! 🦁💖`);
         }
 
         if (!isReply || !quoted) {

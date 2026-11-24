@@ -1,5 +1,5 @@
 // ============================================
-// 🌸 AI MUSIC GENERATOR - §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻
+// 🌸 AI MUSIC GENERATOR - §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻
 // 👑 Developer: ᴍᴀʀᴄᴏ ᴍᴀʟɪᴋ-ᴍᴅ
 // 🔥 Generate AI Music from Prompt
 // ============================================
@@ -31,7 +31,7 @@ function girlBox(title, rows) {
 ${body}
 ╰────────────────────○
 
-> 🦋⃟ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻 🦋⃟‌💙࿐`;
+> 🦋⃟ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻 🦋⃟‌💙࿐`;
 }
 
 // ============================================
@@ -129,7 +129,7 @@ waqar({
         // ── Send with buttons ──
         await sendInteractiveMessage(conn, from, {
             text: caption,
-            footer: `💖 ${config.BOT_NAME || '§࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻'}`,
+            footer: `💖 ${config.BOT_NAME || '§࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻'}`,
             interactiveButtons: [
                 {
                     name: 'cta_url',
@@ -160,7 +160,7 @@ waqar({
             audio: fs.readFileSync(tempPath),
             mimetype: 'audio/mpeg',
             ptt: false,
-            caption: `🎵 ${music.title || 'AI Music'}\n💖 Powered by §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻`
+            caption: `🎵 ${music.title || 'AI Music'}\n💖 Powered by §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻`
         }, { quoted: mek });
 
         // ── Clean up ──
@@ -316,7 +316,7 @@ waqar({
     try {
         const styles = `
 ╭────────────────────◇
-│ 💕⃝🕊️ PRIYANKA💕⃝🕊️
+│ 💕⃝🕊️ ANNU DON💕⃝🕊️
 │  ✌︎㋡━━━━━━━━━✌︎㋡
 │ ✿ 🎸 Rock - Heavy beats
 │ ✿ 🎤 Rap - Hip hop flow
@@ -334,7 +334,7 @@ waqar({
 │ ✿ .aimusiclyrics [lyrics]
 ╰────────────────────○
 
-> 🦋⃟ §࿐ Priyanka ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝙄 🦋⃟‌💙࿐
+> 🦋⃟ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝙄 🦋⃟‌💙࿐
         `;
 
         reply(styles);

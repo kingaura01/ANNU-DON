@@ -1,5 +1,5 @@
 // ============================================
-// 🌸 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 - TAP TO SELECT MENU
+// 🌸 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 - TAP TO SELECT MENU
 // 👑 Single Select + Image + Text
 // 💖 Boys Power Mode: ON
 // ============================================
@@ -45,16 +45,16 @@ const AUDIO_URLS = [
 // 📌 CATEGORY IMAGES
 // ============================================
 const CATEGORY_IMAGES = {
-    menu_settings: 'https://i.ibb.co/MxvkhCpC/IMG-20261107-WA0115.jpg',
-    menu_group: 'https://i.ibb.co/MxvkhCpC/IMG-20261107-WA0115.jpg',
-    menu_islamic: 'https://i.ibb.co/MxvkhCpC/IMG-20261107-WA0115.jpg',
-    menu_text: 'https://i.ibb.co/MxvkhCpC/IMG-20261107-WA0115.jpg',
-    menu_download: 'https://i.ibb.co/MxvkhCpC/IMG-20261107-WA0115.jpg',
-    menu_utility: 'https://i.ibb.co/MxvkhCpC/IMG-20261107-WA0115.jpg',
-    menu_owner: 'https://i.ibb.co/MxvkhCpC/IMG-20261107-WA0115.jpg',
-    menu_extra: 'https://i.ibb.co/MxvkhCpC/IMG-20261107-WA0115.jpg',
-    menu_ai: 'https://i.ibb.co/MxvkhCpC/IMG-20261107-WA0115.jpg',
-    menu_stalk: 'https://i.ibb.co/MxvkhCpC/IMG-20261107-WA0115.jpg'
+    menu_settings: 'https://files.catbox.moe/2hpi1r.jpg',
+    menu_group: 'https://files.catbox.moe/2hpi1r.jpg',
+    menu_islamic: 'https://files.catbox.moe/2hpi1r.jpg',
+    menu_text: 'https://files.catbox.moe/2hpi1r.jpg',
+    menu_download: 'https://files.catbox.moe/2hpi1r.jpg',
+    menu_utility: 'https://files.catbox.moe/2hpi1r.jpg',
+    menu_owner: 'https://files.catbox.moe/2hpi1r.jpg',
+    menu_extra: 'https://files.catbox.moe/2hpi1r.jpg',
+    menu_ai: 'https://files.catbox.moe/2hpi1r.jpg',
+    menu_stalk: 'https://files.catbox.moe/2hpi1r.jpg'
 };
 
 // ============================================
@@ -105,7 +105,7 @@ waqar({
         const totalCommands = commands.length;
         const uptime = runtime(process.uptime());
         const memory = (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2);
-        const botName = config.BOT_NAME || "💕⃝🕊️ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️";
+        const botName = config.BOT_NAME || "💕⃝🕊️ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️";
         const ownerName = config.OWNER_NAME || 'ANNU DON';
         const prefix = config.PREFIX || ".";
         const pushName = pushname || 'User';
@@ -120,7 +120,7 @@ waqar({
         // ── Build Menu Text ────────────────────────────────────
         const headerText = `
 ╭───────────────────◇
-│ 💕⃝🕊️ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
+│ 💕⃝🕊️ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
 │㋡━━━━━━━━━━━━━━━━㋡
 ││♡⪼ 👤 User: ${pushName}
 ││♡⪼ 👑 Owner: ${ownerName}
@@ -144,7 +144,7 @@ waqar({
             isForwarded: true,
             forwardedNewsletterMessageInfo: {
                 newsletterJid: '120363431096532056@newsletter',
-                newsletterName: '🦋⃟ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐',
+                newsletterName: '🦋⃟ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐',
                 serverMessageId: 143
             }
         };
@@ -167,7 +167,7 @@ waqar({
         }
 
         // ── STEP 2: Send Image + Tap to Select ────────────────
-        const imageUrl = config.MENU_IMAGE_URL || 'https://i.ibb.co/MxvkhCpC/IMG-20261107-WA0115.jpg';
+        const imageUrl = config.MENU_IMAGE_URL || 'https://files.catbox.moe/2hpi1r.jpg';
 
         // ── Categories ─────────────────────────────────────────
         const categories = [
@@ -208,15 +208,8 @@ waqar({
                 {
                     name: 'cta_url',
                     buttonParamsJson: JSON.stringify({
-                        display_text: '💖 🄶🅁🄾🅄🄿 ✌︎㋡',
-                        url: config.GROUP_LINK || 'https://chat.whatsapp.com/K2UzShZXPbcFXPvoREhArD?s=cl&p=a&iam=2'
-                    })
-                },
-                {
-                    name: 'cta_url',
-                    buttonParamsJson: JSON.stringify({
                         display_text: '🎀 🄲🄷🄰🄽🄽🄴🄻 ✌︎㋡',
-                        url: config.CHANNEL_LINK || 'https://whatsapp.com/channel/0029VbE1PSOGzzKS8DCvLM32'
+                        url: config.CHANNEL_LINK || 'https://whatsapp.com/channel/0029VbEHpir6mYPSxtiCRs2q'
                     })
                 },
                 {
@@ -254,16 +247,16 @@ waqar({
         try {
             const fallbackMenu = `
 ╭────────────────────◇
-│ 💕⃝🕊️ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
+│ 💕⃝🕊️ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
 │  ✿━━━━━━━━━━━━━━━✿
-│  ✿ 🤖 Bot: ${config.BOT_NAME || 'WAQAR MD'}
+│  ✿ 🤖 Bot: ${config.BOT_NAME || 'ANNU DON MD'}
 │  ✿ 👑 Owner: ${config.OWNER_NAME || 'ANNU DON'}
 │  ✿ 📊 Commands: ${commands.length}
 │  ✿ ⏱️ Uptime: ${runtime(process.uptime())}
 │  ✿ 📌 Prefix: ${config.PREFIX || '.'}
 ╰────────────────────○
 
-> 🦋⃟ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐`;
+> 🦋⃟ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐`;
             await reply(fallbackMenu);
         } catch (fallbackError) {
             reply(`🌸 Error loading menu: ${error.message} 💕`);
@@ -299,7 +292,7 @@ waqar({
 │  ✿ .setprefix [char]
 │  ✿ .setmenupic [url/reply]
 ╰────────────────────○
-> 🦋⃟ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
+> 🦋⃟ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
     `.trim();
     
     await conn.sendMessage(from, {
@@ -344,7 +337,7 @@ waqar({
 │  ✿ .antilink on/off
 │  ✿ .antitag on/kick/off
 ╰────────────────────○
-> 🦋⃟ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
+> 🦋⃟ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
     `.trim();
     
     await conn.sendMessage(from, {
@@ -373,7 +366,7 @@ waqar({
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ .asmaulhusna [1-20]
 ╰────────────────────○
-> 🦋⃟ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
+> 🦋⃟ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
     `.trim();
     
     await conn.sendMessage(from, {
@@ -404,7 +397,7 @@ waqar({
 │  ✿ .1917 [text]
 │  ✿ .fancy [text]
 ╰────────────────────○
-> 🦋⃟ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
+> 🦋⃟ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
     `.trim();
     
     await conn.sendMessage(from, {
@@ -451,7 +444,7 @@ waqar({
 │  ✿ .weather [city]
 │  ✿ .sticker (reply to image)
 ╰────────────────────○
-> 🦋⃟ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
+> 🦋⃟ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
     `.trim();
     
     await conn.sendMessage(from, {
@@ -488,7 +481,7 @@ waqar({
 │  ✿ .calc [expression]
 │  ✿ .enc [javascript code]
 ╰────────────────────○
-> 🦋⃟ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
+> 🦋⃟ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
     `.trim();
     
     await conn.sendMessage(from, {
@@ -526,7 +519,7 @@ waqar({
 │  ✿ .alwaysonline on/off
 │  ✿ .autoread on/off
 ╰────────────────────○
-> 🦋⃟ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
+> 🦋⃟ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
     `.trim();
     
     await conn.sendMessage(from, {
@@ -559,7 +552,7 @@ waqar({
 │  ✿ .left (leave group)
 │  ✿ .alive2
 ╰────────────────────○
-> 🦋⃟ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
+> 🦋⃟ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
     `.trim();
     
     await conn.sendMessage(from, {
@@ -594,7 +587,7 @@ waqar({
 │  ✿ .aiart [prompt]
 │  ✿ .text2img [prompt]
 ╰────────────────────○
-> 🦋⃟ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
+> 🦋⃟ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
     `.trim();
     
     await conn.sendMessage(from, {
@@ -627,7 +620,7 @@ waqar({
 │  ✿ .nowa [number]
 │  ✿ .truecaller [number]
 ╰────────────────────○
-> 🦋⃟ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
+> 🦋⃟ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
     `.trim();
     
     await conn.sendMessage(from, {
@@ -641,6 +634,6 @@ waqar({
     }, { quoted: mek });
 });
 
-console.log('🌸 WAQAR WRITES - Tap to Select Menu with Image + Text Loaded! 💖');
+console.log('🌸 ANNU DON - Tap to Select Menu with Image + Text Loaded! 💖');
 console.log('📌 Video URLs: ${VIDEO_URLS.length} | Audio URLs: ${AUDIO_URLS.length}');
 console.log('📌 Category images: ${Object.keys(CATEGORY_IMAGES).length}');

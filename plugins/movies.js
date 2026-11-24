@@ -1,6 +1,6 @@
 // ============================================
 // 🎬 MP4MOVIEZ - TAP TO SELECT WITH INTERACTIVE BUTTONS
-// 👑 Developer: MARCO MALIK-ᴍᴅ
+// 👑 Developer: ANNU DON-ᴍᴅ
 // 🔥 FIXED: LIST RESPONSE HANDLER
 // 💖 Search → Single Select → Details → Download
 // ============================================
@@ -101,7 +101,7 @@ waqar({
 
         await sendInteractiveMessage(conn, from, {
             text: searchText,
-            footer: `🎬 ${results.length} movies found | 💖 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶`,
+            footer: `🎬 ${results.length} movies found | 💖 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶`,
             interactiveButtons: [
                 {
                     name: 'single_select',
@@ -127,15 +127,8 @@ waqar({
                 {
                     name: 'cta_url',
                     buttonParamsJson: JSON.stringify({
-                        display_text: '💖 GROUP',
-                        url: config.GROUP_LINK || 'https://chat.whatsapp.com/K2UzShZXPbcFXPvoREhArD?s=cl&p=a&iam=2'
-                    })
-                },
-                {
-                    name: 'cta_url',
-                    buttonParamsJson: JSON.stringify({
                         display_text: '🎀 CHANNEL',
-                        url: config.CHANNEL_LINK || 'https://whatsapp.com/channel/0029VbE1PSOGzzKS8DCvLM32'
+                        url: config.CHANNEL_LINK || 'https://whatsapp.com/channel/0029VbEHpir6mYPSxtiCRs2q'
                     })
                 }
             ]
@@ -253,7 +246,7 @@ waqar({
 
                 // ── 9. SEND MOVIE DETAILS WITH POSTER ──
                 await conn.sendMessage(from, {
-                    image: { url: movie.poster || "https://i.ibb.co/MxvkhCpC/IMG-20261107-WA0115.jpg" },
+                    image: { url: movie.poster || "https://files.catbox.moe/2hpi1r.jpg" },
                     caption: infoCap,
                     contextInfo: {
                         mentionedJid: [m.sender],
@@ -291,15 +284,8 @@ waqar({
                         {
                             name: 'cta_url',
                             buttonParamsJson: JSON.stringify({
-                                display_text: '💖 GROUP',
-                                url: config.GROUP_LINK || 'https://chat.whatsapp.com/K2UzShZXPbcFXPvoREhArD?s=cl&p=a&iam=2'
-                            })
-                        },
-                        {
-                            name: 'cta_url',
-                            buttonParamsJson: JSON.stringify({
                                 display_text: '🎀 CHANNEL',
-                                url: config.CHANNEL_LINK || 'https://whatsapp.com/channel/0029VbE1PSOGzzKS8DCvLM32'
+                                url: config.CHANNEL_LINK || 'https://whatsapp.com/channel/0029VbEHpir6mYPSxtiCRs2q'
                             })
                         }
                     ]
@@ -363,7 +349,7 @@ waqar({
                                 mimetype: "video/mp4",
                                 fileName: `${movie.title || 'movie'}.mp4`,
                                 jpegThumbnail: thumbnail,
-                                caption: `✅ *${movie.title || 'Movie'}*\n📦 Size: ${target.size || 'Unknown'}\n\n💖 Powered by WAQAR`,
+                                caption: `✅ *${movie.title || 'Movie'}*\n📦 Size: ${target.size || 'Unknown'}\n\n💖 Powered by ANNU DON`,
                                 contextInfo: {
                                     mentionedJid: [m.sender],
                                     forwardingScore: 999,
@@ -407,4 +393,4 @@ waqar({
     }
 });
 
-console.log('🎬 WAQAR - MP4Moviez Interactive Plugin Loaded! 💖');
+console.log('🎬 ANNU DON - MP4Moviez Interactive Plugin Loaded! 💖');

@@ -1,6 +1,6 @@
 // ============================================
-// 🌸 AUDIO EFFECTS - §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 (FULLY FIXED)
-// 👑 Developer: MARCO MALIK-ᴍᴅ
+// 🌸 AUDIO EFFECTS - §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 (FULLY FIXED)
+// 👑 Developer: ANNU DON-ᴍᴅ
 // ============================================
 
 const { fakevCard } = require('../lib/fakevCard');
@@ -83,7 +83,7 @@ async function handleAudioEffect(conn, mek, m, { from, reply, effect, emoji, nam
 │  ✿ 🎵 Audio processed
 ╰━━━━━━━━━━━━━━━━━━⊷
 
-> 🦋⃟ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
+> 🦋⃟ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
         `;
 
         await conn.sendMessage(from, {
@@ -95,7 +95,7 @@ async function handleAudioEffect(conn, mek, m, { from, reply, effect, emoji, nam
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
                     newsletterJid: '120363431096532056@newsletter',
-                    newsletterName: '💕⃝🕊️ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️',
+                    newsletterName: '💕⃝🕊️ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️',
                     serverMessageId: 143
                 }
             }
@@ -326,7 +326,7 @@ waqar({
 🌸 *Usage:*
 • Reply to audio/video: \`.effect\`
 
-> 🦋⃟ §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
+> 🦋⃟ §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🦋⃟‌💙࿐
     `;
     reply(effectsList);
 });

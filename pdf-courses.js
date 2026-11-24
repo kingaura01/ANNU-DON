@@ -1,6 +1,6 @@
 // ============================================
 // 📚 PDF COURSES - lookup course links from data/courses.json
-// 👑 Developer: MARCO MALIK MD | Bot made for WAQAR
+// 👑 Developer: ANNU DON MD | Bot made for ANNU DON
 // Commands: pdfsettings, pdfurl <name>, pdflist [page], metaverify
 // ============================================
 const path = require('path');
@@ -14,7 +14,7 @@ try { courses = JSON.parse(fs.readFileSync(DATA, 'utf8')); }
 catch (e) { console.log('[PDF] courses.json load error:', e.message); }
 
 const norm = s => String(s || '').toLowerCase().replace(/[^a-z0-9\u0600-\u06ff ]+/g, ' ').replace(/\s+/g, ' ').trim();
-const BRAND = `> Priyanka| ${config.OWNER_NAME || 'Priyanka MD'}`;
+const BRAND = `> ANNU DON| ${config.OWNER_NAME || 'ANNU DON MD'}`;
 
 function search(q) {
     const words = norm(q).split(' ').filter(Boolean);

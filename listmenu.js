@@ -1,6 +1,6 @@
 // ============================================
-// 🌸 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 - LIST MENU WITH QUICK REPLY
-// 👑 Developer: MARCO MALIK-ᴍᴅ
+// 🌸 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 - LIST MENU WITH QUICK REPLY
+// 👑 Developer: ANNU DON-ᴍᴅ
 // 💖 BOYS Power Mode: ON
 // 📌 Using Gifted-btns quick_reply buttons
 // ============================================
@@ -21,23 +21,23 @@ async (conn, mek, m, { from, reply, pushname }) => {
         // 🎀 Girl Style Welcome
         const welcomeText = `
 ╭═══✿══════════════╗
-│  ✿ 🌸 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸 ✿
+│  ✿ 🌸 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸 ✿
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ 👋 Hello ${pushname || 'king'}! 🫅🦁
-│  ✿ 💖 Welcome toPRIYANKA ♞ᴮᴼˢˢ 
+│  ✿ 💖 Welcome toANNU DON ♞ᴮᴼˢˢ 
 │  ✿ 🎀 Click a button below to explore
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖
         `;
 
         // 🔥 SEND BUTTONS WITH QUICK REPLY
         await sendButtons(conn, from, {
-            title: "🌸 PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 MENU 🌸",
+            title: "🌸 ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 MENU 🌸",
             text: welcomeText,
             footer: "💖 Tap a button to explore commands",
             image: {
-                url: "https://i.ibb.co/MxvkhCpC/IMG-20261107-WA0115.jpg"
+                url: "https://files.catbox.moe/2hpi1r.jpg"
             },
             buttons: [
                 {
@@ -92,7 +92,7 @@ async (conn, mek, m, { from, reply, pushname }) => {
         try {
             const fallbackMenu = `
 ╭═══✿══════════════╗
-│  ✿ 🌸 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸 ✿
+│  ✿ 🌸 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸 ✿
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ 📋 𝗖𝗔𝗧𝗘𝗚𝗢𝗥𝗜𝗘𝗦 ✿
 │  ✿━━━━━━━━━━━━━━━✿
@@ -105,7 +105,7 @@ async (conn, mek, m, { from, reply, pushname }) => {
 ╰═══✿══════════════╝
 
 🌸 *Use .menu for full commands list*
-💖 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸
+💖 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🌸
             `;
             await reply(fallbackMenu);
         } catch (fallbackError) {
@@ -142,14 +142,14 @@ async (conn, mek, m, { from, reply }) => {
 │  ✿ 🎧 .ringtone - Ringtone
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖`;
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖`;
 
     await sendButtons(conn, from, {
         title: "🌸 DOWNLOAD MENU 🌸",
         text: menu,
         footer: "💖 Tap to go back",
         image: {
-            url: "https://i.ibb.co/MxvkhCpC/IMG-20261107-WA0115.jpg"
+            url: "https://files.catbox.moe/2hpi1r.jpg"
         },
         buttons: [
             {
@@ -187,14 +187,14 @@ async (conn, mek, m, { from, reply }) => {
 │  ✿ 🖼️ .s2i - Sticker to Image
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖`;
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖`;
 
     await sendButtons(conn, from, {
         title: "🌸 MEDIA TOOLS 🌸",
         text: menu,
         footer: "💖 Tap to go back",
         image: {
-            url: "https://i.ibb.co/MxvkhCpC/IMG-20261107-WA0115.jpg"
+            url: "https://files.catbox.moe/2hpi1r.jpg"
         },
         buttons: [
             {
@@ -237,14 +237,14 @@ async (conn, mek, m, { from, reply }) => {
 │  ✿ 🎀 .emix - Emoji Mix
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖`;
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖`;
 
     await sendButtons(conn, from, {
         title: "🌸 FUN & GAMES 🌸",
         text: menu,
         footer: "💖 Tap to go back",
         image: {
-            url: "https://i.ibb.co/MxvkhCpC/IMG-20261107-WA0115.jpg"
+            url: "https://files.catbox.moe/2hpi1r.jpg"
         },
         buttons: [
             {
@@ -293,14 +293,14 @@ async (conn, mek, m, { from, reply }) => {
 │  ✿ ❌ .rejectall - Reject All
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖`;
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖`;
 
     await sendButtons(conn, from, {
         title: "🌸 GROUP TOOLS 🌸",
         text: menu,
         footer: "💖 Tap to go back",
         image: {
-            url: "https://i.ibb.co/MxvkhCpC/IMG-20261107-WA0115.jpg"
+            url: "https://files.catbox.moe/2hpi1r.jpg"
         },
         buttons: [
             {
@@ -342,14 +342,14 @@ async (conn, mek, m, { from, reply }) => {
 │  ✿ 🔑 .pair - Pairing Code
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖`;
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖`;
 
     await sendButtons(conn, from, {
         title: "🌸 UTILITY MENU 🌸",
         text: menu,
         footer: "💖 Tap to go back",
         image: {
-            url: "https://i.ibb.co/MxvkhCpC/IMG-20261107-WA0115.jpg"
+            url: "https://files.catbox.moe/2hpi1r.jpg"
         },
         buttons: [
             {
@@ -394,14 +394,14 @@ async (conn, mek, m, { from, reply }) => {
 │  ✿ 🚫 .removeall2 - Remove All
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ PRIYANKA ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖`;
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖`;
 
     await sendButtons(conn, from, {
         title: "🌸 OWNER MENU 🌸",
         text: menu,
         footer: "💖 Tap to go back",
         image: {
-            url: "https://i.ibb.co/MxvkhCpC/IMG-20261107-WA0115.jpg"
+            url: "https://files.catbox.moe/2hpi1r.jpg"
         },
         buttons: [
             {
