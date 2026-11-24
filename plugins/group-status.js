@@ -1,6 +1,6 @@
 // ============================================
-// 🌸 GROUP STATUS - ANNU DON
-// 👑 Developer: ANNU DON
+// 🌸 GROUP STATUS - 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
+// 👑 Developer: 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 // 🔥 Post status updates to group story
 // ============================================
 
@@ -41,7 +41,7 @@ function girlBox(title, rows) {
 ${body}
 ╰────────────────────○
 
-> ANNU DON`;
+> 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍`;
 }
 
 // ============================================
@@ -197,7 +197,7 @@ waqar({
 
         // ── Admin only ──
         if (!isAdmins && !isOwner && !isCreator) {
-            return reply(`🌸 Only admins and ANNU DON writes can use this! 🦁💖`);
+            return reply(`🌸 Only admins and 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 writes can use this! 🦁💖`);
         }
 
         // ── Bot must be admin ──
@@ -215,7 +215,7 @@ waqar({
                     ['📌', 'Reply to media', '.groupstatus [caption]'],
                     ['📌', 'Text status', '.groupstatus Your text here'],
                     ['💖', 'Supported', 'Image, Video, Audio, Sticker'],
-                    ['👑', 'By', 'ANNU DON']
+                    ['👑', 'By', '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍']
                 ]));
             }
 

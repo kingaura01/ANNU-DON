@@ -1,6 +1,6 @@
 // ============================================
-// 🌸 CATBOX UPLOADER - ANNU DON
-// 👑 Developer: ANNU DON
+// 🌸 CATBOX UPLOADER - 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
+// 👑 Developer: 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 // 🔥 Upload media to Catbox.moe
 // ============================================
 
@@ -32,7 +32,7 @@ function girlBox(title, rows) {
 ${body}
 ╰────────────────────○
 
-> 🦋⃟ ANNU DON 🦋⃟‌💙`;
+> 🦋⃟ 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 🦋⃟‌💙`;
 }
 
 // ============================================
@@ -63,7 +63,7 @@ waqar({
                 ['📌', 'With Name', '.upload filename.jpg'],
                 ['💖', 'Supports', 'Images, Videos, Audio, Documents'],
                 ['📤', 'Host', 'catbox.moe'],
-                ['👑', 'By', 'ANNU DON']
+                ['👑', 'By', '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍']
             ]));
         }
 
@@ -187,7 +187,7 @@ waqar({
 
             await sendInteractiveMessage(conn, from, {
                 text: caption,
-                footer: `💖 ${config.BOT_NAME || 'ANNU DON'}`,
+                footer: `💖 ${config.BOT_NAME || '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍'}`,
                 interactiveButtons: [
                     {
                         name: 'cta_copy',
@@ -326,7 +326,7 @@ waqar({
                 ['🔗', 'URL', uploadUrl],
                 ['📤', 'Host', data.provider || 'catbox.moe']
             ]),
-            footer: `💖 ${config.BOT_NAME || 'ANNU DON'}`,
+            footer: `💖 ${config.BOT_NAME || '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍'}`,
             interactiveButtons: [
                 {
                     name: 'cta_copy',

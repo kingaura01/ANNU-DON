@@ -1,6 +1,6 @@
 // ============================================
-// ANNU DON - SPOTIFY SONG DOWNLOADER
-// 👑 Developer: ANNU DON
+// 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 - SPOTIFY SONG DOWNLOADER
+// 👑 Developer: 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 // 💖 BOYS Power Mode: ON
 // 📌 Converted from your friend's bot
 // ============================================
@@ -51,7 +51,7 @@ async (conn, mek, m, { from, reply, text }) => {
 │ ♡⪼. 📥 Processing...
 ╰────────────────────○
 
-> ANNU DON
+> 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
         `;
 
         await conn.sendMessage(from, {

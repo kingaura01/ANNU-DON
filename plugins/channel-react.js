@@ -1,6 +1,6 @@
 // ============================================
-// ANNU DON - CHANNEL REACTS PLUGIN
-// 👑 Developer: ANNU DON
+// 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 - CHANNEL REACTS PLUGIN
+// 👑 Developer: 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 // 🔥 Channel React + Auto React + API
 // ============================================
 

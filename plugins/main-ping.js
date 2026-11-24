@@ -38,14 +38,14 @@ waqar({
     const initialMsg = await conn.sendMessage(from, { 
       image: { url: imageUrl },
       caption: `╭────────────────────◇
-│ ANNU DON
+│ 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ ⏳ ᴛɪᴍᴇ: 0s
 │  ✿ ⚡ ᴍꜱ: 0ms
 │  ✿ 🔁 ᴛᴇꜱᴛɪɴɢ...
 ╰────────────────────○
 
-ANNU DON` 
+𝐀𝐍𝐍𝐔 𝐃𝐎𝐍` 
     }, { quoted: m });
     
     // 🔄 UPDATE INTERVAL
@@ -69,7 +69,7 @@ ANNU DON`
       const statusText = elapsedTime < 25 ? statusEmojis[Math.floor(elapsedTime / 5) % statusEmojis.length] : "🌟 ᴄᴏᴍᴘʟᴇᴛɪɴɢ...";
       
       const updatedCaption = `╭────────────────────◇
-│ 💕⃝🕊️ ANNU DON 💕⃝🕊️
+│ 💕⃝🕊️ 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 💕⃝🕊️
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ ⏳ ᴛɪᴍᴇ: ${elapsedTime}s
 │  ✿ ⚡ ᴍꜱ: ${currentPing}ms
@@ -80,7 +80,7 @@ ANNU DON`
    elapsedTime < 20 ? "✨ 𝗔𝗹𝗺𝗼𝘀𝘁 𝘁𝗵𝗲𝗿𝗲... 💕" : 
    "🌟 𝗝𝘂𝘀𝘁 𝗮 𝗳𝗲𝘄 𝘀𝗲𝗰𝗼𝗻𝗱𝘀... 🎀"}
 
-ANNU DON`;
+𝐀𝐍𝐍𝐔 𝐃𝐎𝐍`;
       
       try {
         // Edit the image caption
@@ -124,7 +124,7 @@ ANNU DON`;
       }
       
       const finalCaption = `╭────────────────────◇
-│ ANNU DON
+│ 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ ⏳ ᴛᴏᴛᴀʟ ᴛɪᴍᴇ: 30ꜱ
 │  ✿ ⚡ ꜰɪɴᴀʟ ᴍꜱ: ${finalPing}ms
@@ -135,7 +135,7 @@ ANNU DON`;
 🌸 𝗕𝗼𝘁 𝗶𝘀 ${performanceText} 💖
 🎀 𝗧𝗵𝗮𝗻𝗸 𝘆𝗼𝘂 𝗳𝗼𝗿 𝘁𝗲𝘀𝘁𝗶𝗻𝗴! ✨
 
-ANNU DON
+𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 
 📍 ᴜꜱᴇ .ᴍᴇɴᴜ ꜰᴏʀ ᴄᴏᴍᴍᴀɴᴅꜱ 💕`;
       
@@ -185,7 +185,7 @@ waqar({
     const msg = await conn.sendMessage(from, { 
       image: { url: imageUrl },
       caption: `╭────────────────────◇
-│ ANNU DON
+│ 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ ⏳ ᴛɪᴍᴇ: 0s
 │  ✿ ⚡ ᴍꜱ: 0ms
@@ -211,14 +211,14 @@ waqar({
       await conn.sendMessage(from, {
         image: { url: imageUrl },
         caption: `╭────────────────────◇
-│ ANNU DON
+│ 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ ⏳ ᴛɪᴍᴇ: ${i}s
 │  ✿ ⚡ ᴍꜱ: ${ping}ms
 │  ✿ ${statusMsgs[statusIndex]}
 ╰────────────────────○
 
-🌸 ᴘᴏᴡᴇʀᴇᴅ ʙʏ ANNU DON 💖`,
+🌸 ᴘᴏᴡᴇʀᴇᴅ ʙʏ 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 💖`,
         edit: msg.key
       });
     }
@@ -230,7 +230,7 @@ waqar({
     await conn.sendMessage(from, {
       image: { url: imageUrl },
       caption: `╭────────────────────◇
-│ ANNU DON
+│ 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ ✅ ᴄᴏᴍᴘʟᴇᴛᴇ! ✨
 │  ✿ ⚡ ꜰɪɴᴀʟ: ${finalPing}ms
@@ -270,7 +270,7 @@ waqar({
     const msg = await conn.sendMessage(from, { 
       image: { url: imageUrl },
       caption: `╭────────────────────◇
-│ ANNU DON
+│ 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ ⚡ ᴛᴇꜱᴛɪɴɢ...
 ╰────────────────────○
@@ -286,7 +286,7 @@ waqar({
       await conn.sendMessage(from, {
         image: { url: imageUrl },
         caption: `╭────────────────────◇
-│ ANNU DON
+│ 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ ⏳ ${i}/3
 │  ✿ ⚡ ${ping}ms
@@ -295,7 +295,7 @@ waqar({
        "🎀 𝗗𝗼𝗻𝗲! 💕"}
 ╰────────────────────○
 
-🌸 ᴘᴏᴡᴇʀᴇᴅ ʙʏ ANNU DON 💖`,
+🌸 ᴘᴏᴡᴇʀᴇᴅ ʙʏ 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 💖`,
         edit: msg.key
       });
     }
@@ -306,7 +306,7 @@ waqar({
     await conn.sendMessage(from, {
       image: { url: imageUrl },
       caption: `╭────────────────────◇
-│ ANNU DON
+│ 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ ✅ ᴄᴏᴍᴘʟᴇᴛᴇ! ✨
 │  ✿ ⚡ ${finalPing}ms

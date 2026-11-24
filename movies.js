@@ -1,6 +1,6 @@
 // ============================================
 // 🎬 MP4MOVIEZ - TAP TO SELECT WITH INTERACTIVE BUTTONS
-// 👑 Developer: ANNU DON
+// 👑 Developer: 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 // 🔥 FIXED: LIST RESPONSE HANDLER
 // 💖 Search → Single Select → Details → Download
 // ============================================
@@ -101,7 +101,7 @@ waqar({
 
         await sendInteractiveMessage(conn, from, {
             text: searchText,
-            footer: `🎬 ${results.length} movies found | 💖 ANNU DON`,
+            footer: `🎬 ${results.length} movies found | 💖 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍`,
             interactiveButtons: [
                 {
                     name: 'single_select',
@@ -349,7 +349,7 @@ waqar({
                                 mimetype: "video/mp4",
                                 fileName: `${movie.title || 'movie'}.mp4`,
                                 jpegThumbnail: thumbnail,
-                                caption: `✅ *${movie.title || 'Movie'}*\n📦 Size: ${target.size || 'Unknown'}\n\n💖 Powered by ANNU DON`,
+                                caption: `✅ *${movie.title || 'Movie'}*\n📦 Size: ${target.size || 'Unknown'}\n\n💖 Powered by 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍`,
                                 contextInfo: {
                                     mentionedJid: [m.sender],
                                     forwardingScore: 999,
@@ -393,4 +393,4 @@ waqar({
     }
 });
 
-console.log('🎬 ANNU DON - MP4Moviez Interactive Plugin Loaded! 💖');
+console.log('🎬 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 - MP4Moviez Interactive Plugin Loaded! 💖');

@@ -1,6 +1,6 @@
 // ============================================
-// 🌸 GET PP - ANNU DON (FIXED)
-// 👑 Developer: ANNU DON
+// 🌸 GET PP - 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 (FIXED)
+// 👑 Developer: 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 // 💖 BOYS Power Mode: ON
 // 🔥 Reply System Working
 // ============================================
@@ -122,10 +122,10 @@ async (conn, mek, m, { from, reply, text, isGroup, sender, args, pushname, isRep
 │  ✿━━━━━━━━━━━━━━━✿
 ${displayName && displayName !== 'Unknown' ? `│  ✿ 👤 *Name:* ${displayName}` : ''}
 ${displayNumber ? `│  ✿ 📱 *Number:* ${displayNumber}` : ''}
-│  ✿ 👑 Saved by ANNU DON
+│  ✿ 👑 Saved by 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ANNU DON 💖`;
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 💖`;
 
         // ── Send PP ──
         await conn.sendMessage(from, {
@@ -137,7 +137,7 @@ ${displayNumber ? `│  ✿ 📱 *Number:* ${displayNumber}` : ''}
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
                     newsletterJid: '120363431096532056@newsletter',
-                    newsletterName: 'ANNU DON',
+                    newsletterName: '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍',
                     serverMessageId: 143
                 }
             }
@@ -207,10 +207,10 @@ async (conn, mek, m, { from, reply, isGroup, groupName, participants, isOwner })
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ 👥 ${groupName || 'Group'}
 │  ✿ 📸 ${count}/${total} members
-│  ✿ 👑 Saved by ANNU DON
+│  ✿ 👑 Saved by 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ANNU DON 💖`;
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 💖`;
 
         const ppText = `🌸 GROUP PPs - ${groupName || 'Group'}\n\n${ppList}`;
         
@@ -281,10 +281,10 @@ async (conn, mek, m, { from, reply, text, sender, isOwner, isCreator, isReply, q
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ 💾 Saved to gallery
 │  ✿ 👤 ${displayName}
-│  ✿ 👑 By ANNU DON
+│  ✿ 👑 By 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ANNU DON 💖`;
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 💖`;
 
         await conn.sendMessage(from, {
             image: { url: ppUrl },

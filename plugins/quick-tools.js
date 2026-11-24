@@ -1,4 +1,4 @@
-// ANNU DON - Quick Tools
+// 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 - Quick Tools
 // 12 dependable commands with no external API dependency.
 const { waqar, commands } = require('../waqar');
 const config = require('../settings');
@@ -7,7 +7,7 @@ const box = (title, lines) => [
   `╭────────── ${title} ──────────╮`,
   ...lines.map(line => `│ ${line}`),
   '╰──────────────────────────────╯',
-  '> ANNU DON'
+  '> 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍'
 ].join('\n');
 
 waqar({ pattern: 'health', alias: ['checkbot', 'statusbot'], desc: 'Show bot health and connection status', category: 'utility', react: '✅', filename: __filename }, async (conn, mek, m, { reply }) => {
@@ -31,7 +31,7 @@ waqar({ pattern: 'chatid', alias: ['cid2', 'remoteid'], desc: 'Show current chat
 
 waqar({ pattern: 'ownerinfo', alias: ['owner2', 'contactowner'], desc: 'Show owner contact details', category: 'owner', react: '👑', filename: __filename }, async (conn, mek, m, { reply }) => {
   const number = Array.isArray(config.OWNER_NUMBER) ? config.OWNER_NUMBER[0] : String(config.OWNER_NUMBER || '923235605702');
-  await reply(box('OWNER', [`👑 ${config.OWNER_NAME || 'ANNU DON'}`, `📱 wa.me/${number}`, `📢 ${config.CHANNEL_LINK || 'https://whatsapp.com/channel/0029VbEHpir6mYPSxtiCRs2q'}`]));
+  await reply(box('OWNER', [`👑 ${config.OWNER_NAME || '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍'}`, `📱 wa.me/${number}`, `📢 ${config.CHANNEL_LINK || 'https://whatsapp.com/channel/0029VbEHpir6mYPSxtiCRs2q'}`]));
 });
 
 waqar({ pattern: 'mychannel', alias: ['channelinfo', 'channeljid2'], desc: 'Resolve and follow the configured channel', category: 'owner', react: '📢', filename: __filename }, async (conn, mek, m, { reply }) => {
@@ -42,7 +42,7 @@ waqar({ pattern: 'mychannel', alias: ['channelinfo', 'channeljid2'], desc: 'Reso
     const meta = await conn.newsletterMetadata('invite', match[1]);
     if (!meta || !meta.id) return reply('❌ Channel metadata/JID resolve nahi ho saki.');
     try { if (typeof conn.newsletterFollow === 'function') await conn.newsletterFollow(meta.id); } catch (_) {}
-    await reply(box('MY CHANNEL', [`📢 Name: ${meta.name || 'ANNU DON'}`, `🆔 JID: ${meta.id}`, `🔗 Link: ${link}`, `✅ Bot: Follow request sent`]));
+    await reply(box('MY CHANNEL', [`📢 Name: ${meta.name || '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍'}`, `🆔 JID: ${meta.id}`, `🔗 Link: ${link}`, `✅ Bot: Follow request sent`]));
   } catch (error) {
     await reply(`❌ Channel error: ${error.message}`);
   }
@@ -62,21 +62,21 @@ waqar({ pattern: 'now', alias: ['time2', 'date2'], desc: 'Show Pakistan date and
 
 waqar({ pattern: 'say', alias: ['echo'], desc: 'Repeat supplied text', category: 'fun', react: '💬', filename: __filename }, async (conn, mek, m, { text, reply }) => {
   if (!text) return reply('Usage: .say your text');
-  await reply(`💬 ${text}\n\n> ANNU DON`);
+  await reply(`💬 ${text}\n\n> 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍`);
 });
 
 waqar({ pattern: 'choose', alias: ['pick'], desc: 'Choose one option randomly', category: 'fun', react: '🎯', filename: __filename }, async (conn, mek, m, { text, reply }) => {
   const options = String(text || '').split('|').map(x => x.trim()).filter(Boolean);
   if (options.length < 2) return reply('Usage: .choose option 1 | option 2 | option 3');
-  await reply(`🎯 Choice: *${options[Math.floor(Math.random() * options.length)]}*\n\n> ANNU DON`);
+  await reply(`🎯 Choice: *${options[Math.floor(Math.random() * options.length)]}*\n\n> 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍`);
 });
 
 waqar({ pattern: 'coin', alias: ['flipcoin'], desc: 'Flip a coin', category: 'fun', react: '🪙', filename: __filename }, async (conn, mek, m, { reply }) => {
-  await reply(`🪙 Coin: *${Math.random() < 0.5 ? 'Heads' : 'Tails'}*\n\n> ANNU DON`);
+  await reply(`🪙 Coin: *${Math.random() < 0.5 ? 'Heads' : 'Tails'}*\n\n> 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍`);
 });
 
 waqar({ pattern: 'roll', alias: ['dice2'], desc: 'Roll a six-sided dice', category: 'fun', react: '🎲', filename: __filename }, async (conn, mek, m, { reply }) => {
-  await reply(`🎲 Dice: *${Math.floor(Math.random() * 6) + 1}*\n\n> ANNU DON`);
+  await reply(`🎲 Dice: *${Math.floor(Math.random() * 6) + 1}*\n\n> 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍`);
 });
 
 waqar({ pattern: 'allcmds', alias: ['allcommands', 'commandlist'], desc: 'Show all available commands', category: 'main', react: '📚', filename: __filename }, async (conn, mek, m, { reply }) => {
@@ -91,4 +91,4 @@ waqar({ pattern: 'menu_pdf', alias: ['pdfmenu'], desc: 'Show PDF tools', categor
   await reply(box('PDF TOOLS', ['📚 .pdflist', '🔗 .pdfurl <url>', '⚙️ .pdfsettings', '📖 .lyricsdoc <song>', '', 'Use .allcmds for every command']));
 });
 
-console.log('[ANNU DON] Quick tools loaded: 12 commands');
+console.log('[𝐀𝐍𝐍𝐔 𝐃𝐎𝐍] Quick tools loaded: 12 commands');

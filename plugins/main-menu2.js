@@ -1,6 +1,6 @@
 // ============================================
-// ANNU DON FULL MENU
-// 👑 Developer: ANNU DON
+// 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 FULL MENU
+// 👑 Developer: 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 // 🔥 Gifted-btns + Whisky Baileys Carousel
 // 💖 Public - Everyone Can Use
 // ============================================
@@ -168,8 +168,8 @@ waqar({
         const uptime = process.uptime();
         const memory = process.memoryUsage();
         const prefix = config.PREFIX || '.';
-        const botName = config.BOT_NAME || 'ANNU DON';
-        const ownerName = config.OWNER_NAME || 'ANNU DON';
+        const botName = config.BOT_NAME || '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍';
+        const ownerName = config.OWNER_NAME || '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍';
         const pakTime = moment().tz('Asia/Karachi').format('hh:mm:ss A');
         const pakDate = moment().tz('Asia/Karachi').format('DD/MM/YYYY');
 
@@ -292,8 +292,8 @@ waqar({
         try {
             const totalCommands = commands ? commands.length : 0;
             const prefix = config.PREFIX || '.';
-            const botName = config.BOT_NAME || 'ANNU DON';
-            const ownerName = config.OWNER_NAME || 'ANNU DON';
+            const botName = config.BOT_NAME || '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍';
+            const ownerName = config.OWNER_NAME || '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍';
 
             // ── Get categories ──
             const categoryMap = new Map();
@@ -340,8 +340,8 @@ waqar({
     try {
         const totalCommands = commands ? commands.length : 0;
         const prefix = config.PREFIX || '.';
-        const botName = config.BOT_NAME || 'ANNU DON';
-        const ownerName = config.OWNER_NAME || 'ANNU DON';
+        const botName = config.BOT_NAME || '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍';
+        const ownerName = config.OWNER_NAME || '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍';
 
         // ── Get categories ──
         const categoryMap = new Map();
@@ -427,7 +427,7 @@ for (const cmd of commands) {
 for (const [category, cmds] of categoryMap) {
     const emoji = getCategoryIcon(category);
     const prefix = config.PREFIX || '.';
-    const botName = config.BOT_NAME || 'ANNU DON';
+    const botName = config.BOT_NAME || '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍';
 
     // ── Skip if already has pattern ──
     const existing = commands.find(c => c.pattern === category);

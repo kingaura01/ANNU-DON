@@ -1,6 +1,6 @@
 // ============================================
-// ANNU DON - VIDEO DOWNLOADER
-// 👑 Developer: ANNU DON
+// 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 - VIDEO DOWNLOADER
+// 👑 Developer: 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 // 💖 Boys Power Mode: ON
 // 📌 Multi-API video downloader with trim support
 // ============================================
@@ -36,7 +36,7 @@ function girlBox(title, rows) {
 ${body}
 ╰────────────────────○
 
-> ANNU DON
+> 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 `;
 }
 
@@ -147,7 +147,7 @@ waqar({
 │  ✿ ✂️ Trim: .video <link> trim 00:00:10 00:00:30
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ANNU DON 💖
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 💖
             `;
             return reply(helpMsg);
         }
@@ -361,4 +361,4 @@ waqar({
     }
 });
 
-console.log('ANNU DON- Video plugin loaded! 💖');
+console.log('𝐀𝐍𝐍𝐔 𝐃𝐎𝐍- Video plugin loaded! 💖');

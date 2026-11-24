@@ -1,6 +1,6 @@
 // ============================================
-// 🌸 LYRICS - ANNU DON
-// 👑 Developer: ANNU DON
+// 🌸 LYRICS - 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
+// 👑 Developer: 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 // 💖 BOYS Power Mode: ON
 // 📌 Category: Music
 // ============================================
@@ -40,7 +40,7 @@ async (conn, mek, m, { from, reply, text }) => {
 • \`.lyrics Blinding Lights\`
 • \`.lyrics Pasoori\`
 
-💖 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ANNU DON 🌸
+💖 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 🌸
             `;
             return reply(helpMsg);
         }
@@ -79,7 +79,7 @@ async (conn, mek, m, { from, reply, text }) => {
 │  ✿ ${lyricsOutput}
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ANNU DON 💖
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 💖
         `.trim();
 
         // ✅ STEP 4: Send with image if available
@@ -93,7 +93,7 @@ async (conn, mek, m, { from, reply, text }) => {
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
                         newsletterJid: '120363431096532056@newsletter',
-                        newsletterName: 'ANNU DON',
+                        newsletterName: '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍',
                         serverMessageId: 143
                     }
                 }
@@ -107,7 +107,7 @@ async (conn, mek, m, { from, reply, text }) => {
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
                         newsletterJid: '120363431096532056@newsletter',
-                        newsletterName: 'ANNU DON',
+                        newsletterName: '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍',
                         serverMessageId: 143
                     }
                 }
@@ -179,7 +179,7 @@ async (conn, mek, m, { from, reply, text }) => {
 
 📝 ${lyricsOutput}
 
-💖 Powered by ANNU DON
+💖 Powered by 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
         `.trim();
 
         if (image) {
@@ -245,8 +245,8 @@ ${lyrics}
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-💖 Powered by ANNU DON
-👑 Developer: ANNU DON
+💖 Powered by 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
+👑 Developer: 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
         `.trim();
 
         const caption = `
@@ -256,10 +256,10 @@ ${lyrics}
 │  ✿ 🎵 ${title || 'Unknown Song'}
 │  ✿ 👩‍🎤 ${artist || 'Unknown Artist'}
 │  ✿ 📄 Saved as document
-│  ✿ 👑 By ANNU DON
+│  ✿ 👑 By 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ANNU DON 💖
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 💖
         `;
 
         await conn.sendMessage(from, {
@@ -272,7 +272,7 @@ ${lyrics}
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
                     newsletterJid: '120363431096532056@newsletter',
-                    newsletterName: 'ANNU DON',
+                    newsletterName: '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍',
                     serverMessageId: 143
                 }
             }

@@ -1,5 +1,5 @@
 // ============================================
-// 🌸 AI MUSIC GENERATOR - ANNU DON
+// 🌸 AI MUSIC GENERATOR - 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 // 👑 Developer: ᴍᴀʀᴄᴏ ᴍᴀʟɪᴋ-ᴍᴅ
 // 🔥 Generate AI Music from Prompt
 // ============================================
@@ -31,7 +31,7 @@ function girlBox(title, rows) {
 ${body}
 ╰────────────────────○
 
-> ANNU DON`;
+> 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍`;
 }
 
 // ============================================
@@ -129,7 +129,7 @@ waqar({
         // ── Send with buttons ──
         await sendInteractiveMessage(conn, from, {
             text: caption,
-            footer: `💖 ${config.BOT_NAME || 'ANNU DON'}`,
+            footer: `💖 ${config.BOT_NAME || '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍'}`,
             interactiveButtons: [
                 {
                     name: 'cta_url',
@@ -160,7 +160,7 @@ waqar({
             audio: fs.readFileSync(tempPath),
             mimetype: 'audio/mpeg',
             ptt: false,
-            caption: `🎵 ${music.title || 'AI Music'}\n💖 Powered by ANNU DON`
+            caption: `🎵 ${music.title || 'AI Music'}\n💖 Powered by 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍`
         }, { quoted: mek });
 
         // ── Clean up ──
@@ -316,7 +316,7 @@ waqar({
     try {
         const styles = `
 ╭────────────────────◇
-│ 💕⃝🕊️ ANNU DON💕⃝🕊️
+│ 💕⃝🕊️ 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍💕⃝🕊️
 │  ✌︎㋡━━━━━━━━━✌︎㋡
 │ ✿ 🎸 Rock - Heavy beats
 │ ✿ 🎤 Rap - Hip hop flow
@@ -334,7 +334,7 @@ waqar({
 │ ✿ .aimusiclyrics [lyrics]
 ╰────────────────────○
 
-> 🦋⃟ ANNU DON𝙄 🦋⃟‌💙࿐
+> 🦋⃟ 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍𝙄 🦋⃟‌💙࿐
         `;
 
         reply(styles);

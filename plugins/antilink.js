@@ -1,6 +1,6 @@
 // ============================================
-// 🌸 ANTI-LINK - ANNU DON (FIXED)
-// 👑 Developer: ANNU DON
+// 🌸 ANTI-LINK - 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 (FIXED)
+// 👑 Developer: 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 // 🔥 Delete Links Only - No Remove
 // ============================================
 
@@ -59,7 +59,7 @@ function BoyMessage(title, value, status) {
 │♡⪼  ${status}
 ╰────────────────────○
 
-> ANNU DON
+> 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 `;
 }
 
@@ -185,7 +185,7 @@ async (conn, mek, m, { from, body, sender, isGroup, isAdmins, isBotAdmins, reply
 │  ✿ 💡 Please avoid sending links
 ╰────────────────────○
 
-> ANNU DON`,
+> 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍`,
             mentions: [senderJid]
         });
 
@@ -239,7 +239,7 @@ async (conn, mek, m, { from, reply, isGroup, isAdmins, isOwner, isCreator, sende
 │  ✿ ✅ Warnings cleared
 ╰────────────────────○
 
-> ANNU DON`,
+> 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍`,
                 mentions: [targetUser]
             });
         } else {
@@ -280,7 +280,7 @@ async (conn, mek, m, { from, reply, isGroup, isAdmins, isOwner, isCreator }) => 
         }
 
         reply(`╭────────────────────◇
-│ ANNU DON
+│ 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ ${status}
 │  ✿ ⚠️ Active Warnings: ${warnCount}
@@ -288,7 +288,7 @@ async (conn, mek, m, { from, reply, isGroup, isAdmins, isOwner, isCreator }) => 
 │  ✿ 🚫 Remove: DISABLED (Only Warnings)
 ╰────────────────────○
 
-> ANNU DON`);
+> 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍`);
 
     } catch (error) {
         console.error("🌸 Anti-Link Status Error:", error);

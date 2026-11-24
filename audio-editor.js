@@ -1,6 +1,6 @@
 // ============================================
-// 🌸 AUDIO EFFECTS - ANNU DON (FULLY FIXED)
-// 👑 Developer: ANNU DON
+// 🌸 AUDIO EFFECTS - 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 (FULLY FIXED)
+// 👑 Developer: 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 // ============================================
 
 const { fakevCard } = require('../lib/fakevCard');
@@ -83,7 +83,7 @@ async function handleAudioEffect(conn, mek, m, { from, reply, effect, emoji, nam
 │  ✿ 🎵 Audio processed
 ╰━━━━━━━━━━━━━━━━━━⊷
 
-> ANNU DON
+> 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
         `;
 
         await conn.sendMessage(from, {
@@ -95,7 +95,7 @@ async function handleAudioEffect(conn, mek, m, { from, reply, effect, emoji, nam
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
                     newsletterJid: '120363431096532056@newsletter',
-                    newsletterName: 'ANNU DON',
+                    newsletterName: '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍',
                     serverMessageId: 143
                 }
             }
@@ -326,7 +326,7 @@ waqar({
 🌸 *Usage:*
 • Reply to audio/video: \`.effect\`
 
-> ANNU DON
+> 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
     `;
     reply(effectsList);
 });

@@ -1,5 +1,5 @@
 // ============================================
-// ANNU DON - FULL FIXED MAIN.JS
+// 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 - FULL FIXED MAIN.JS
 // 👑 Developer: ᴍᴀʀᴄᴏ ᴍᴀʟɪᴋ-ᴍᴅ
 // 🔥 Reply System + React API + All Features
 // ============================================
@@ -42,8 +42,8 @@ const {
 } = require('./lib/autoReactVote');
 
 // ============================================
-// ANNU DON MAIN.JS
-// 👑 Developer: Marco ANNU DON
+// 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 MAIN.JS
+// 👑 Developer: Marco 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 // ============================================
 
 // ── Import anti-call handler ──
@@ -76,7 +76,7 @@ const axios = require('axios');
 const moment = require('moment-timezone');
 const chalk = require('chalk');
 
-// ========== IMPORT ANNU DON FEATURES ==========
+// ========== IMPORT 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 FEATURES ==========
 const GroupEvents = require('./lib/groupevents');
 const { PresenceControl, BotActivityFilter } = require('./data/presence');
 const { getPrefix } = require('./lib/prefix');
@@ -94,8 +94,8 @@ if (!GITHUB_TOKEN || !GITHUB_REPO) {
 // ========== SETTINGS.JS SE VALUES ==========
 const prefix = config.PREFIX || '.';
 const mode = config.MODE || config.WORK_TYPE || 'public';
-const BOT_NAME = config.BOT_NAME || '💕⃝🕊️ ANNU DON 💕⃝🕊️';
-const OWNER_NAME = config.OWNER_NAME || 'ANNU DON';
+const BOT_NAME = config.BOT_NAME || '💕⃝🕊️ 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 💕⃝🕊️';
+const OWNER_NAME = config.OWNER_NAME || '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍';
 const OWNER_NUMBER = config.OWNER_NUMBER || ['923235605702'];
 
 // ========== CHANNEL SETTINGS ==========
@@ -300,7 +300,7 @@ function getConnectionStatus(number) {
 
 function waqarLog(message, type = 'info') {
     const icons = { info: '📝', success: '✅', error: '❌', warning: '⚠️', debug: '🐛' };
-    console.log(`${icons[type] || '📝'} [ANNU DON] ${new Date().toISOString()}: ${message}`);
+    console.log(`${icons[type] || '📝'} [𝐀𝐍𝐍𝐔 𝐃𝐎𝐍] ${new Date().toISOString()}: ${message}`);
 }
 //=======ANTICALL-SYSTEM=======
 async function setupCallHandlers(socket, number) {
@@ -778,7 +778,7 @@ async function waqarPair(number, res = null) {
                 }
                 
                 const connectedMsg = `╭────────────────────◇
-│ ANNU DON
+│ 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 │  ✿━━━━━━━━━━━━━━━✿
 │✦ *${BOT_NAME}*
 │✦ *${prefix}menu* to see all commands 💫
@@ -788,7 +788,7 @@ async function waqarPair(number, res = null) {
 │✦ 📢 Dev: Aʀꜱʟᴀɴ-ᴍD
 │✦ ${new Date().toLocaleString('en-PK', { timeZone: 'Asia/Karachi' })}
 ╰────────────────────○
-> *ANNU DON*`;
+> *𝐀𝐍𝐍𝐔 𝐃𝐎𝐍*`;
 
                 try {
                     await conn.sendMessage(userJid, {
@@ -1201,7 +1201,7 @@ async function waqarPair(number, res = null) {
             }
         });
     } catch (err) {
-        waqarLog(`ANNU DON Pair error: ${err.message}`, 'error');
+        waqarLog(`𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 Pair error: ${err.message}`, 'error');
         if (res && !res.headersSent) return res.json({ error: 'Internal Server Error', details: err.message });
     } finally {
         if (connectionLockKey) global[connectionLockKey] = false;

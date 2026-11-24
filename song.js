@@ -66,7 +66,7 @@ async (conn, mek, m, { from, reply, text, pushname }) => {
         // ✨ STEP 1: Send ONLY Thumbnail with Details (NO extra message)
         const caption = `
 ╭────────────────────◇
-│ 💕⃝🕊️ANNU DON💕⃝🕊️
+│ 💕⃝🕊️𝐀𝐍𝐍𝐔 𝐃𝐎𝐍💕⃝🕊️
 │  ✿━━━━━━━━━━━━━━━✿
 │ ♡⪼ 🎵 ${title.slice(0, 30)}${title.length > 30 ? '...' : ''}
 │ ♡⪼ 👩‍🎤 ${artist}
@@ -74,7 +74,7 @@ async (conn, mek, m, { from, reply, text, pushname }) => {
 │ ♡⪼ 👁️ ${views || 'N/A'} views
 │ ♡⪼ 📥 Processing...
 ╰────────────────────○
-> ANNU DON
+> 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
         `;
 
         // Send ONLY the thumbnail with caption - NO buttons, NO extra messages

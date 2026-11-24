@@ -1,6 +1,6 @@
 // ============================================
-// ANNU DON - GROUP COMMANDS (FIXED)
-// 👑 Developer: ANNU DON
+// 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 - GROUP COMMANDS (FIXED)
+// 👑 Developer: 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 // 💖 BOYS Power Mode: ON
 // 🔧 FIXED: Bot self-kick prevention
 // ============================================
@@ -209,7 +209,7 @@ waqar({
 }) => {
   try {
     if (!isGroup) return reply("🌸 This command only works in groups! 💕");
-    if (!isAdmins && !isOwner && !isCreator) return reply("🌸 Only admins and ANNU DON writes can use this! 🦁💖");
+    if (!isAdmins && !isOwner && !isCreator) return reply("🌸 Only admins and 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 writes can use this! 🦁💖");
     if (!isBotAdmins) return reply("🌸 Please make me admin first! 👑💖");
 
     let users = getTargetUsers(mek, m, mentionedJid);
@@ -265,7 +265,7 @@ waqar({
 }) => {
   try {
     if (!isGroup) return reply("🌸 This command only works in groups! 💕");
-    if (!isAdmins && !isOwner && !isCreator) return reply("🌸 Only admins and ANNU DON writes can use this! 🦁💖");
+    if (!isAdmins && !isOwner && !isCreator) return reply("🌸 Only admins and 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 writes can use this! 🦁💖");
 
     try {
       const groupMetadata = await conn.groupMetadata(from);
@@ -279,7 +279,7 @@ waqar({
 
     try {
       await conn.groupParticipantsUpdate(from, [conn.user.id], "promote");
-      reply(`✅ *Bot ko admin banaya gaya!*\n\n🌸 Ab aap use kar sakte hain:\n• .promote @user\n• .demote @admin\n• .kick @user\n• .add @user\n\n💖 Powered by ANNU DON`);
+      reply(`✅ *Bot ko admin banaya gaya!*\n\n🌸 Ab aap use kar sakte hain:\n• .promote @user\n• .demote @admin\n• .kick @user\n• .add @user\n\n💖 Powered by 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍`);
     } catch (err) {
       if (err.message.includes("not authorized")) {
         reply(`🌸 Bot ko admin nahi bana paaye.\n\n✳️ *Karan:* Aapke paas permission nahi hai bot ko admin banane ka.\n\n✳️ *Manual tarika:*\n1. Group settings mein jao\n2. "Group permissions" par click karo\n3. "Add members" mein jao\n4. Bot ko dhundo aur manually admin banao 💕`);
@@ -319,7 +319,7 @@ waqar({
 }) => {
   try {
     if (!isGroup) return reply("🌸 This command only works in groups! 💕");
-    if (!isAdmins && !isOwner && !isCreator) return reply("🌸 Only admins and ANNU DON writes can use this! 🦁💖");
+    if (!isAdmins && !isOwner && !isCreator) return reply("🌸 Only admins and 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 writes can use this! 🦁💖");
     if (!isBotAdmins) return reply("🌸 Please make me admin first! 👑💖");
 
     let users = getTargetUsers(mek, m, mentionedJid);
@@ -467,7 +467,7 @@ waqar({
 │  ✿ 👤 You Admin: ${isAdmins ? '✅ YES' : '❌ NO'}
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ANNU DON 💖`;
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 💖`;
 
     await conn.sendMessage(from, {
       text: message,
@@ -503,7 +503,7 @@ async (conn, mek, m, {
 }) => {
     try {
         if (!isGroup) return reply("🌸 This command only works in groups! 💕");
-        if (!isOwner && !isCreator) return reply("🌸 Only my ANNU DON writes can use this! 🦁💖");
+        if (!isOwner && !isCreator) return reply("🌸 Only my 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 writes can use this! 🦁💖");
         if (!isBotAdmins) return reply("🌸 Please make me admin first! 👑💖");
 
         const allParticipants = groupMetadata.participants || [];
@@ -557,7 +557,7 @@ async (conn, mek, m, {
 }) => {
     try {
         if (!isGroup) return reply("🌸 This command only works in groups! 💕");
-        if (!isOwner && !isCreator) return reply("🌸 Only my ANNU DON writes can use this! 🦁💖");
+        if (!isOwner && !isCreator) return reply("🌸 Only my 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 writes can use this! 🦁💖");
         if (!isBotAdmins) return reply("🌸 Please make me admin first! 👑💖");
 
         const botOwner = conn.user.id.split(":")[0];
@@ -616,7 +616,7 @@ async (conn, mek, m, {
 }) => {
     try {
         if (!isGroup) return reply("🌸 This command only works in groups! 💕");
-        if (!isOwner && !isCreator) return reply("🌸 Only my ANNU DON writes can use this! 🦁💖");
+        if (!isOwner && !isCreator) return reply("🌸 Only my 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 writes can use this! 🦁💖");
         if (!isBotAdmins) return reply("🌸 Please make me admin first! 👑💖");
 
         const botOwner = conn.user.id.split(":")[0];
@@ -712,7 +712,7 @@ async (conn, mek, m, {
 }) => {
     try {
         if (!isGroup) return reply("🌸 This command only works in groups! 💕");
-        if (!isOwner && !isCreator) return reply("🌸 Only my ANNU DON writes can use this! 🦁💖");
+        if (!isOwner && !isCreator) return reply("🌸 Only my 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 writes can use this! 🦁💖");
         if (!isBotAdmins) return reply("🌸 Please make me admin first! 👑💖");
 
         if (!q) return reply("🌸 Please provide a country code.\nExample: .out 92 💕");
@@ -763,7 +763,7 @@ waqar({
 }) => {
     try {
         if (!isOwner && !isCreator) {
-            return reply(`🌸 Only my ANNU DON writers can use this! 🦁💖`);
+            return reply(`🌸 Only my 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 writers can use this! 🦁💖`);
         }
 
         if (!text) {
@@ -786,7 +786,7 @@ waqar({
 
         // Send welcome message
         await conn.sendMessage(group.id, { 
-            text: `🌸 Welcome to ${groupName}! 💖\n👑 Created by ANNU DON`
+            text: `🌸 Welcome to ${groupName}! 💖\n👑 Created by 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍`
         });
 
         reply(`✅ Group created successfully!\n\n📛 *Name:* ${groupName}\n🔗 *Invite Link:* https://chat.whatsapp.com/${inviteLink}\n\n🌸 Welcome message sent to the group!`);
@@ -819,7 +819,7 @@ async (conn, mek, m, {
 }) => {
     try {
         if (!isGroup) return reply("🌸 This command only works in groups! 💕");
-        if (!isAdmins && !isOwner && !isCreator) return reply("🌸 Only admins and ANNU DON writers can use this! 🦁💖");
+        if (!isAdmins && !isOwner && !isCreator) return reply("🌸 Only admins and 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 writers can use this! 🦁💖");
         if (!isBotAdmins) return reply("🌸 Please make me admin first! 👑💖");
 
         await conn.groupSettingUpdate(from, "announcement");
@@ -858,7 +858,7 @@ async (conn, mek, m, {
 }) => {
     try {
         if (!isGroup) return reply("🌸 This command only works in groups! 💕");
-        if (!isAdmins && !isOwner && !isCreator) return reply("🌸 Only admins and ANNU DON writes can use this! 🦁💖");
+        if (!isAdmins && !isOwner && !isCreator) return reply("🌸 Only admins and 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 writes can use this! 🦁💖");
         if (!isBotAdmins) return reply("🌸 Please make me admin first! 👑💖");
 
         await conn.groupSettingUpdate(from, "not_announcement");
@@ -897,7 +897,7 @@ async (conn, mek, m, {
 }) => {
     try {
         if (!isGroup) return reply("🌸 This command only works in groups! 💕");
-        if (!isAdmins && !isOwner && !isCreator) return reply("🌸 Only admins and ANNU DON writes can use this! 🦁💖");
+        if (!isAdmins && !isOwner && !isCreator) return reply("🌸 Only admins and 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 writes can use this! 🦁💖");
         if (!isBotAdmins) return reply("🌸 Please make me admin first! 👑💖");
 
         await conn.groupSettingUpdate(from, "locked");
@@ -931,7 +931,7 @@ async (conn, mek, m, {
 }) => {
     try {
         if (!isGroup) return reply("🌸 This command only works in groups! 💕");
-        if (!isAdmins && !isOwner && !isCreator) return reply("🌸 Only admins and ANNU DON writes can use this! 🦁💖");
+        if (!isAdmins && !isOwner && !isCreator) return reply("🌸 Only admins and 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 writes can use this! 🦁💖");
         if (!isBotAdmins) return reply("🌸 Please make me admin first! 👑💖");
 
         await conn.groupSettingUpdate(from, "unlocked");
@@ -964,7 +964,7 @@ waqar({
 }) => {
     try {
         if (!isGroup) return reply("🌸 This feature is only for groups! 💕");
-        if (!isAdmins && !isOwner && !isCreator) return reply("🌸 Only admins and ANNU DON writes can use this! 🦁💖");
+        if (!isAdmins && !isOwner && !isCreator) return reply("🌸 Only admins and 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 writes can use this! 🦁💖");
         if (!isBotAdmins) return reply("🌸 Please make me admin first! 👑💖");
 
         const inviteCode = await conn.groupInviteCode(from);
@@ -1003,7 +1003,7 @@ async (conn, mek, m, {
         }
 
         if (!isOwner && !isCreator) {
-            return reply(`🌸 Only my ANNU DON writes can use this! 🦁💖`);
+            return reply(`🌸 Only my 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 writes can use this! 🦁💖`);
         }
 
         await reply("👋 Leaving group...\n🌸 Goodbye everyone! 💖");
@@ -1037,7 +1037,7 @@ waqar({
     try {
         // Only allow the creator/owner to use the command
         if (!isOwner && !isCreator) {
-            return reply(`🌸 Only my ANNU DON writes can use this! 🦁💖`);
+            return reply(`🌸 Only my 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 writes can use this! 🦁💖`);
         }
 
         // If there's no input, check if the message is a reply with a link
@@ -1058,7 +1058,7 @@ waqar({
         // Accept the group invite
         await conn.groupAcceptInvite(groupLink);
         await conn.sendMessage(from, { 
-            text: `🌸 Successfully Joined the group! 💖\n\n👑 Powered by ANNU DON`
+            text: `🌸 Successfully Joined the group! 💖\n\n👑 Powered by 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍`
         }, { quoted: mek });
 
     } catch (e) {
@@ -1121,7 +1121,7 @@ async (conn, mek, m, {
 ${groupAdmins.map(v => `│  ✿ 👤 @${v.id.split('@')[0]}`).join('\n')}
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ANNU DON 💖`;
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 💖`;
 
         await conn.sendMessage(from, {
             image: { url: ppUrl },
@@ -1159,7 +1159,7 @@ async (conn, mek, m, {
 }) => {
     try {
         if (!isGroup) return reply("🌸 This command only works in groups! 💕");
-        if (!isAdmins && !isOwner && !isCreator) return reply("🌸 Only admins and ANNU DON writes can use this! 🦁💖");
+        if (!isAdmins && !isOwner && !isCreator) return reply("🌸 Only admins and 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 writes can use this! 🦁💖");
         if (!isBotAdmins) return reply("🌸 Please make me admin first! 👑💖");
         if (!q) return reply("🌸 Please provide a new group name! 💕");
 
@@ -1195,7 +1195,7 @@ async (conn, mek, m, {
 }) => {
     try {
         if (!isGroup) return reply("🌸 This command only works in groups! 💕");
-        if (!isAdmins && !isOwner && !isCreator) return reply("🌸 Only admins and ANNU DON writes can use this! 🦁💖");
+        if (!isAdmins && !isOwner && !isCreator) return reply("🌸 Only admins and 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 writes can use this! 🦁💖");
         if (!isBotAdmins) return reply("🌸 Please make me admin first! 👑💖");
         if (!q) return reply("🌸 Please provide a new group description! 💕");
 
@@ -1236,7 +1236,7 @@ async (conn, mek, m, {
         }
         if (!isAdmins && !isOwner && !isCreator) {
             await conn.sendMessage(from, { react: { text: '❌', key: m.key } });
-            return reply("🌸 Only admins and ANNU DON writes can use this! 🦁💖");
+            return reply("🌸 Only admins and 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 writes can use this! 🦁💖");
         }
         if (!isBotAdmins) {
             await conn.sendMessage(from, { react: { text: '❌', key: m.key } });
@@ -1292,7 +1292,7 @@ async (conn, mek, m, {
         }
         if (!isAdmins && !isOwner && !isCreator) {
             await conn.sendMessage(from, { react: { text: '❌', key: m.key } });
-            return reply("🌸 Only admins and ANNU DON writes can use this! 🦁💖");
+            return reply("🌸 Only admins and 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 writes can use this! 🦁💖");
         }
         if (!isBotAdmins) {
             await conn.sendMessage(from, { react: { text: '❌', key: m.key } });
@@ -1346,7 +1346,7 @@ async (conn, mek, m, {
         }
         if (!isAdmins && !isOwner && !isCreator) {
             await conn.sendMessage(from, { react: { text: '❌', key: m.key } });
-            return reply("🌸 Only admins and ANNU DON writes can use this! 🦁💖");
+            return reply("🌸 Only admins and 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 writes can use this! 🦁💖");
         }
         if (!isBotAdmins) {
             await conn.sendMessage(from, { react: { text: '❌', key: m.key } });
@@ -1394,7 +1394,7 @@ async (conn, mek, m, {
 }) => {
     try {
         if (!isGroup) return reply("🌸 This command only works in groups! 💕");
-        if (!isAdmins && !isOwner && !isCreator) return reply("🌸 Only admins and ANNU DON writes can use this! 🦁💖");
+        if (!isAdmins && !isOwner && !isCreator) return reply("🌸 Only admins and 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 writes can use this! 🦁💖");
         if (!isBotAdmins) return reply("🌸 Please make me admin first! 👑💖");
 
         await conn.groupSettingUpdate(from, "unlocked");
@@ -1406,4 +1406,4 @@ async (conn, mek, m, {
     }
 });
 
-console.log('ANNU DON - Group commands loaded! 💖');
+console.log('𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 - Group commands loaded! 💖');

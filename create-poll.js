@@ -1,6 +1,6 @@
 // ============================================
-// ANNU DON - POLL COMMAND
-// 👑 Developer: ANNU DON
+// 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 - POLL COMMAND
+// 👑 Developer: 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 // 💖 BOY Power Mode: ON
 // 📌 Converted from your friend's bot
 // ============================================

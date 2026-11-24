@@ -1,6 +1,6 @@
 // ============================================
-// 🌸 MEDIA COMMANDS - ANNU DON (FIXED)
-// 👑 Developer: ANNU DON
+// 🌸 MEDIA COMMANDS - 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 (FIXED)
+// 👑 Developer: 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 // 🔥 Reply System Fixed - Audio Editor Style
 // ============================================
 
@@ -24,7 +24,7 @@ function girlBox(title, rows) {
 ${body}
 ╰────────────────────○
 
-> ANNU DON
+> 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 `;
 }
 
@@ -86,7 +86,7 @@ waqar({
             image: imageBuffer,
             caption: girlBox('🖼️ STICKER CONVERTED', [
                 ['✅', 'Status', 'Converted successfully'],
-                ['👑', 'By', 'ANNU DON']
+                ['👑', 'By', '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍']
             ]),
             mimetype: 'image/png'
         }, { quoted: fakevCard });
@@ -271,4 +271,4 @@ waqar({
     }
 });
 
-console.log('ANNU DON - Media plugins loaded! 💖');
+console.log('𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 - Media plugins loaded! 💖');

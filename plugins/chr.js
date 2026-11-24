@@ -1,6 +1,6 @@
 // ============================================
-// 🌸 CHANNEL REACT - ANNU DON
-// 👑 Developer: ANNU DON
+// 🌸 CHANNEL REACT - 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
+// 👑 Developer: 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 // 🔥 React to WhatsApp channel posts
 // ============================================
 
@@ -29,7 +29,7 @@ waqar({
                 ['💖', 'Example', '.chr https://whatsapp.com/channel/xxxx/137 👍,😍,❤️'],
                 ['💖', 'Example 2', '.chr https://whatsapp.com/channel/xxxx/123 ❤️,😂,🔥'],
                 ['📌', 'Options', 'count: all (default) or number'],
-                ['👑', 'By', 'ANNU DON']
+                ['👑', 'By', '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍']
             ]));
         }
 
@@ -56,7 +56,7 @@ waqar({
                 return reply(girlHelp('❌ Eᴍᴏᴊɪ Rᴇǫᴜɪʀᴇᴅ', [
                     ['📌', 'Please provide', 'Emojis separated by comma'],
                     ['💖', 'Example', '👍,😍,❤️'],
-                    ['👑', 'By', 'ANNU DON']
+                    ['👑', 'By', '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍']
                 ]));
             }
         }
@@ -65,7 +65,7 @@ waqar({
             return reply(girlHelp('❌ Lɪɴᴋ Rᴇǫᴜɪʀᴇᴅ', [
                 ['📌', 'Please provide', 'WhatsApp channel link'],
                 ['💖', 'Example', 'https://whatsapp.com/channel/xxxx/123'],
-                ['👑', 'By', 'ANNU DON']
+                ['👑', 'By', '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍']
             ]));
         }
 

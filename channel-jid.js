@@ -1,6 +1,6 @@
 // ============================================
-// 🌸 CHANNEL COMMANDS - ANNU DON
-// 👑 Developer: ANNU DON
+// 🌸 CHANNEL COMMANDS - 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
+// 👑 Developer: 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 // 💖 Boys Power Mode: ON
 // ============================================
 
@@ -17,7 +17,7 @@ function boyBox(title, rows) {
 ${body}
 ╰────────────────────○
 
-> ANNU DON
+> 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 `;
 }
 
@@ -111,4 +111,4 @@ waqar({
     }
 });
 
-console.log('ANNU DON - Channel plugins loaded! 💖');
+console.log('𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 - Channel plugins loaded! 💖');

@@ -1,6 +1,6 @@
 // ============================================
-// ANNU DON - PAIRING COMMAND
-// 👑 Developer: ANNU DON
+// 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 - PAIRING COMMAND
+// 👑 Developer: 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 // 🔥 Working with your API + Image + Buttons
 // ============================================
 
@@ -88,7 +88,7 @@ waqar({
 
             await sendInteractiveMessage(conn, from, {
                 text: `🔌 *Disconnect & Re-pair*`,
-                footer: `💖 ${config.BOT_NAME || 'ANNU DON'}`,
+                footer: `💖 ${config.BOT_NAME || '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍'}`,
                 interactiveButtons: [
                     {
                         name: 'cta_url',
@@ -140,7 +140,7 @@ waqar({
 │  ✿ 🔄 Please wait...
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ${config.BOT_NAME || 'ANNU DON'} 💖`,
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ${config.BOT_NAME || '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍'} 💖`,
             contextInfo: {
                 mentionedJid: [m.sender],
                 forwardingScore: 999,
@@ -160,7 +160,7 @@ waqar({
 │  ✿ 🔄 Processing...
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ${config.BOT_NAME || 'ANNU DON'} 💖`;
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ${config.BOT_NAME || '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍'} 💖`;
 
                 try {
                     await conn.sendMessage(from, {
@@ -218,7 +218,7 @@ waqar({
 │  ✿ 🔄 Please try again later
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ${config.BOT_NAME || 'ANNU DON'} 💖`;
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ${config.BOT_NAME || '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍'} 💖`;
 
                 try {
                     await conn.sendMessage(from, {
@@ -249,7 +249,7 @@ waqar({
 │ ♡⪼ ✅ Ready to use!
 ╰────────────────────○
 
-> ANNU DON`;
+> 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍`;
 
             try {
                 await conn.sendMessage(from, {
@@ -282,7 +282,7 @@ waqar({
 
             await sendInteractiveMessage(conn, from, {
                 text: `🔑 *WhatsApp Pairing Code*\n\n👉 *${code}*\n\n📌 *How To Use?*\n1️⃣ Open WhatsApp\n2️⃣ Go To Linked Devices\n3️⃣ Click "Link A Device"\n4️⃣ Select "Link With Ph Number"\n5️⃣ Enter The Code Above\n\n⚠️ Pairing code is valid for a limited time.`,
-                footer: `💖 ${config.BOT_NAME || 'ANNU DON'}`,
+                footer: `💖 ${config.BOT_NAME || '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍'}`,
                 interactiveButtons: [
                     {
                         name: 'cta_copy',
@@ -321,7 +321,7 @@ waqar({
 │  ✿ 🔄 Please try again later
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ${config.BOT_NAME || 'ANNU DON'} 💖`;
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ${config.BOT_NAME || '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍'} 💖`;
 
             try {
                 await conn.sendMessage(from, {

@@ -1,6 +1,6 @@
 // ============================================
-// 🌸 AUTO REACT - ANNU DON
-// 👑 Developer: ANNU DON
+// 🌸 AUTO REACT - 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
+// 👑 Developer: 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 // 💖 BOYS Power Mode: ON
 // ============================================
 
@@ -20,7 +20,7 @@ function girlBox(title, rows) {
 ${body}
 ╰────────────────────○
 
-> ANNU DON
+> 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 `;
 }
 
@@ -108,4 +108,4 @@ waqar({
     }
 });
 
-console.log('ANNU DON - Auto React plugin loaded! 💖');
+console.log('𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 - Auto React plugin loaded! 💖');

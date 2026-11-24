@@ -1,6 +1,6 @@
 // ============================================
-// 🕐 ANNU DON - RUNTIME WITH BUTTONS
-// 👑 Developer: ANNU DON
+// 🕐 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 - RUNTIME WITH BUTTONS
+// 👑 Developer: 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 // 🔥 EXACT SAME STYLE AS MENU
 // 💖 Interactive Buttons + Single Select
 // ============================================
@@ -54,8 +54,8 @@ waqar({
         const totalCommands = commands ? commands.length : 0;
         const uptime = formatUptime(process.uptime());
         const memory = (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2);
-        const botName = config.BOT_NAME || "ANNU DON";
-        const ownerName = config.OWNER_NAME || 'ANNU DON';
+        const botName = config.BOT_NAME || "𝐀𝐍𝐍𝐔 𝐃𝐎𝐍";
+        const ownerName = config.OWNER_NAME || '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍';
         const prefix = config.PREFIX || ".";
         const pushName = pushname || 'User';
         const pakTime = moment().tz('Asia/Karachi').format('hh:mm:ss A');
@@ -65,7 +65,7 @@ waqar({
         // ── Build Text ─────────────────────────────────────────
         const text = `
 ╭────────────────────◇
-│ ANNU DON
+│ 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 │  ㋡━━━━━━━━━━━━━━━㋡
 │ ❦ 👤 User: ${pushName}
 │ ❦ 👑 Owner: ${ownerName}
@@ -88,7 +88,7 @@ waqar({
             isForwarded: true,
             forwardedNewsletterMessageInfo: {
                 newsletterJid: '120363431096532056@newsletter',
-                newsletterName: 'ANNU DON',
+                newsletterName: '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍',
                 serverMessageId: 143
             }
         };
@@ -203,7 +203,7 @@ waqar({
                 }, { quoted: incoming });
             } else if (selectedId === 'owner') {
                 await conn.sendMessage(from, {
-                    text: `👑 *Owner Info*\n\n📱 Number: 923235605702\n💖 Name: ANNU DON`
+                    text: `👑 *Owner Info*\n\n📱 Number: 923235605702\n💖 Name: 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍`
                 }, { quoted: incoming });
             } else if (selectedId === 'ping') {
                 const start = Date.now();
@@ -228,11 +228,11 @@ waqar({
         try {
             const uptime = formatUptime(process.uptime());
             const pakTime = moment().tz('Asia/Karachi').format('hh:mm:ss A');
-            const botName = config.BOT_NAME || "ANNU DON";
+            const botName = config.BOT_NAME || "𝐀𝐍𝐍𝐔 𝐃𝐎𝐍";
             
             const fallbackText = `
 ╭────────────────────◇
-│ ANNU DON
+│ 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 │  ㋡━━━━━━━━━━━━━━━㋡
 │  ✿ ⏳ Uptime: ${uptime}
 │  ✿ 🕰️ Time: ${pakTime}
@@ -240,7 +240,7 @@ waqar({
 │  ✿ 📌 Prefix: ${config.PREFIX || '.'}
 ╰────────────────────○
 
-> ANNU DON`;
+> 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍`;
             await reply(fallbackText);
         } catch (fallbackError) {
             await reply(`🕐 Error loading runtime: ${error.message} 💕`);
@@ -248,4 +248,4 @@ waqar({
     }
 });
 
-console.log('🕐 ANNU DON- Runtime with Gifted Buttons Loaded! 💖');
+console.log('🕐 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍- Runtime with Gifted Buttons Loaded! 💖');

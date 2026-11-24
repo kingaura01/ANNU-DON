@@ -1,6 +1,6 @@
 // ============================================
-// 👑 OWNER - ANNU DON
-// 👑 Developer: ANNU DON
+// 👑 OWNER - 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
+// 👑 Developer: 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 // 💖 Boys Power Mode: ON
 // 📌 Owner info + Developer commands
 // ============================================
@@ -16,7 +16,7 @@ const { runtime, sleep } = require('../lib/functions');
 // 📌 DEVELOPER INFO
 // ============================================
 const DEV_INFO = {
-    name: "ANNU DON",
+    name: "𝐀𝐍𝐍𝐔 𝐃𝐎𝐍",
     number: "923235605702",
     channel: "https://whatsapp.com/channel/0029VbEHpir6mYPSxtiCRs2q",
     github: "https://github.com/kingaura01/ANNU-DON",
@@ -36,7 +36,7 @@ waqar({
 }, async (conn, mek, m, { from, reply }) => {
     try {
         const uptime = runtime(process.uptime());
-        const botName = config.BOT_NAME || "ANNU DON";
+        const botName = config.BOT_NAME || "𝐀𝐍𝐍𝐔 𝐃𝐎𝐍";
 
         const text = `
 ╭═══✿══════════════╗
@@ -61,7 +61,7 @@ ${DEV_INFO.github}
 💖 *Website:*
 ${DEV_INFO.website}
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ANNU DON 💖
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 💖
         `.trim();
 
         // ── Send with Buttons ──

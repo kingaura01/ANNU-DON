@@ -1,5 +1,5 @@
 // ============================================
-// 🌸 VIEW ONCE PLUGIN - ANNU DON (FINAL)
+// 🌸 VIEW ONCE PLUGIN - 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 (FINAL)
 // 👑 Developer: ᴍᴀʀᴄᴏ ᴍᴀʟɪᴋ-ᴍᴅ
 // 🔥 Fixed: Unsupported media type error
 // ============================================
@@ -14,7 +14,7 @@ const config = require('../settings');
 const positiveKeywords = [
   "🌸", "💖", "✨", "🎀", "💕", "💝", "🌺", "🦋", "🫅", "💗",
   "nice", "good", "cute", "beautiful", "gorgeous", "lovely",
-  "wow", "super", "amazing", "ANNU DON", "ANNU DON", "😍", "🥰",
+  "wow", "super", "amazing", "𝐀𝐍𝐍𝐔 𝐃𝐎𝐍", "𝐀𝐍𝐍𝐔 𝐃𝐎𝐍", "😍", "🥰",
   "🌝", "🥵", "💋", "👍", "🌚", "😩"
 ];
 
@@ -146,7 +146,7 @@ async function handleViewOnce(conn, mek, m, context) {
         // ── Send processing reaction ──
         await conn.sendMessage(from, { react: { text: '🌸', key: mek.key } });
 
-        const DESCRIPTION = config.DESCRIPTION || "🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ANNU DON 💖";
+        const DESCRIPTION = config.DESCRIPTION || "🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 💖";
 
         // ── Build caption ──
         let captionText = `🌸 *View Once Retrieved*\n\n`;
@@ -171,7 +171,7 @@ async function handleViewOnce(conn, mek, m, context) {
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
                         newsletterJid: '120363182522453683@newsletter',
-                        newsletterName: 'ANNU DON',
+                        newsletterName: '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍',
                         serverMessageId: 143
                     }
                 }
@@ -186,7 +186,7 @@ async function handleViewOnce(conn, mek, m, context) {
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
                         newsletterJid: '120363182522453683@newsletter',
-                        newsletterName: 'ANNU DON',
+                        newsletterName: '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍',
                         serverMessageId: 143
                     }
                 }
@@ -296,7 +296,7 @@ waqar({
 🌸 Example:
 .vv (reply to view once)
 
-💖 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ANNU DON 🌸
+💖 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 🌸
       `;
       return reply(helpMsg);
     }
@@ -334,7 +334,7 @@ waqar({
 }) => {
   try {
     if (!isOwner && !isCreator) {
-      return reply(`🌸 Only my ANNU DON can use this! 🦁💖`);
+      return reply(`🌸 Only my 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 can use this! 🦁💖`);
     }
 
     if (!isReply) {
@@ -369,7 +369,7 @@ waqar({
 }) => {
   try {
     if (!isOwner && !isCreator) {
-      return reply(`🌸 Only my ANNU DON can use this! 👸💖`);
+      return reply(`🌸 Only my 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 can use this! 👸💖`);
     }
 
     const keywordsList = positiveKeywords.join(', ');
@@ -383,7 +383,7 @@ waqar({
 │  ✿ ${keywordsList}
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ANNU DON 💖
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 💖
 
 📌 Usage:
 • Reply to view once with keyword
@@ -418,7 +418,7 @@ waqar({
 }) => {
   try {
     if (!isOwner && !isCreator) {
-      return reply(`🌸 Only my ANNU DON can use this! 🦁💖`);
+      return reply(`🌸 Only my 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 can use this! 🦁💖`);
     }
 
     if (!text) {
@@ -484,4 +484,4 @@ waqar({
   }
 });
 
-console.log('ANNU DON- View Once plugin loaded! 💖');
+console.log('𝐀𝐍𝐍𝐔 𝐃𝐎𝐍- View Once plugin loaded! 💖');

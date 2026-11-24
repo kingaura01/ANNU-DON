@@ -1,6 +1,6 @@
 // ============================================
 // 📁 plugins/tourl.js - IMAGE TO URL (WITH CAPTION)
-// 👑 Developer: ANNU DON
+// 👑 Developer: 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 // 🔥 Reply System + Caption Support
 // ============================================
 
@@ -185,7 +185,7 @@ waqar({
         captionText += `📁 *File:* ${fileName}\n`;
         captionText += `📦 *Size:* ${formatBytes(result.size || 0)}\n`;
         captionText += `🔗 *URL:* ${resultUrl}\n\n`;
-        captionText += `> *© Uploaded by ANNU DON 🍸*`;
+        captionText += `> *© Uploaded by 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 🍸*`;
 
         // ── Send with buttons ──
         await sendButtons(conn, from, {

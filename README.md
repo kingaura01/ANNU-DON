@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="assets/banner.jpg" alt="ANNU DON" width="320"/>
+<img src="assets/banner.jpg" alt="𝐀𝐍𝐍𝐔 𝐃𝐎𝐍" width="320"/>
 
-# ANNU DON
+# 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 
 **Smart • Fast • Powerful** — a WhatsApp group assistant for classes and communities.
 
@@ -17,7 +17,7 @@
 
 ## About
 
-ANNU DON is a lightweight multi-device WhatsApp bot built on
+𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 is a lightweight multi-device WhatsApp bot built on
 [Baileys](https://github.com/WhiskeySockets/Baileys). It keeps classes and
 groups organised with moderation tools, auto replies and a simple menu system.
 
@@ -38,7 +38,7 @@ groups organised with moderation tools, auto replies and a simple menu system.
 
 | # | Name | Contact |
 |---|------|---------|
-| 1 | ANNU DON | [wa.me/923235605702](https://wa.me/923235605702) |
+| 1 | 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 | [wa.me/923235605702](https://wa.me/923235605702) |
 | 2 | Co-owner | set `OWNER_NUMBER_2` |
 
 ## Quick Start

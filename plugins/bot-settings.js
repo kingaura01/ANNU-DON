@@ -1,5 +1,5 @@
 // ============================================
-// ANNU DON - BOT COMMANDS
+// 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 - BOT COMMANDS
 // 👑 Settings + Group Management
 // 💖 Boys Power Mode: ON
 // ============================================
@@ -362,9 +362,9 @@ waqar({
 ╰────────────────────○
 
 🌸 *To change: .<command> on/off*
-> ANNU DON`;
+> 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍`;
 
     return reply(list);
 });
 
-console.log('ANNU DON - Bot Commands Loaded! 💖');
+console.log('𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 - Bot Commands Loaded! 💖');

@@ -1,6 +1,6 @@
 // ============================================
-// ANNU DON - MOVIE DOWNLOADER (API BASED)
-// 👑 Developer: ANNU DON
+// 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 - MOVIE DOWNLOADER (API BASED)
+// 👑 Developer: 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 // 💖 Boys Power Mode: ON
 // 🔧 NO PUPPETEER - Uses simple API
 // ============================================
@@ -75,7 +75,7 @@ async (conn, mek, m, { from, reply, text, pushname }) => {
 │  ✿ 📌 Movie will be sent as *DOCUMENT*
 ╰═══✿══════════════╝
 
-💖 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ANNU DON 🌸`);
+💖 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 🌸`);
         }
 
         await conn.sendMessage(from, { react: { text: '🌸', key: mek.key } });
@@ -102,7 +102,7 @@ async (conn, mek, m, { from, reply, text, pushname }) => {
 
 🌸 Reply with a *number* (1-${Math.min(movieList.length, 10)}) to download as DOCUMENT!
 
-💖 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ANNU DON 🌸`;
+💖 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 🌸`;
 
         const sentMsg = await conn.sendMessage(from, {
             image: { url: 'https://files.catbox.moe/2hpi1r.jpg' },
@@ -140,7 +140,7 @@ async (conn, mek, m, { from, reply, text, pushname }) => {
 │  ✿ ⏳ Processing...
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ANNU DON 💖`
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 💖`
         }, { quoted: replyMsg });
 
         const { data } = await axios.get(apiUrl, { timeout: 60000 });
@@ -185,10 +185,10 @@ async (conn, mek, m, { from, reply, text, pushname }) => {
 │  ✿ 🎬 ${selectedMovie.title.substring(0, 40)}
 │  ✿ 💾 ${fileSize} MB
 │  ✿ 📄 Sent as Document
-│  ✿ 👑 By ANNU DON 
+│  ✿ 👑 By 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 ANNU DON 💖`;
+🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 💖`;
 
         await conn.sendMessage(from, {
             document: fileBuffer,
@@ -201,7 +201,7 @@ async (conn, mek, m, { from, reply, text, pushname }) => {
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
                     newsletterJid: '120363182522453683@newsletter',
-                    newsletterName: 'ANNU DON',
+                    newsletterName: '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍',
                     serverMessageId: 143
                 }
             }
@@ -220,4 +220,4 @@ async (conn, mek, m, { from, reply, text, pushname }) => {
     }
 });
 
-console.log('ANNU DON- Movie Downloader (API Based) loaded! 💖');
+console.log('𝐀𝐍𝐍𝐔 𝐃𝐎𝐍- Movie Downloader (API Based) loaded! 💖');

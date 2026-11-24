@@ -1,6 +1,6 @@
 // ============================================
 // 📚 PDF COURSES - lookup course links from data/courses.json
-// 👑 Developer: ANNU DON | Bot made for ANNU DON
+// 👑 Developer: 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 | Bot made for 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 // Commands: pdfsettings, pdfurl <name>, pdflist [page], metaverify
 // ============================================
 const path = require('path');
@@ -14,7 +14,7 @@ try { courses = JSON.parse(fs.readFileSync(DATA, 'utf8')); }
 catch (e) { console.log('[PDF] courses.json load error:', e.message); }
 
 const norm = s => String(s || '').toLowerCase().replace(/[^a-z0-9\u0600-\u06ff ]+/g, ' ').replace(/\s+/g, ' ').trim();
-const BRAND = `> ANNU DON ${config.OWNER_NAME || 'ANNU DON'}`;
+const BRAND = `> 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 ${config.OWNER_NAME || '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍'}`;
 
 function search(q) {
     const words = norm(q).split(' ').filter(Boolean);

@@ -6,12 +6,12 @@
 // ██║  ██║██║  ██║███████║███████╗██║  ██║██║  ████║     ██║ ╚═╝ ██║██████╔╝
 // ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═══╝    ╚═╝     ╚═╝╚═════╝ 
 // ═══════════════════════════════════════════════════════════════════════════
-//                    ANNU DON - BOT CONFIGURATION
+//                    𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 - BOT CONFIGURATION
 // ═══════════════════════════════════════════════════════════════════════════
 
 // ============================================
-// 🔥 ANNU DON - COMPLETE SETTINGS
-// 👑 Developer: ANNU DON
+// 🔥 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 - COMPLETE SETTINGS
+// 👑 Developer: 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 // 🔥 GitHub Session System + All Features
 // ============================================
 
@@ -101,13 +101,13 @@ module.exports = {
      * @description Display name of the bot
      * @type {string}
      */
-    BOT_NAME: process.env.BOT_NAME || 'ANNU DON',
+    BOT_NAME: process.env.BOT_NAME || '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍',
 
     /**
      * @description Owner name
      * @type {string}
      */
-    OWNER_NAME: process.env.OWNER_NAME || 'ANNU DON',
+    OWNER_NAME: process.env.OWNER_NAME || '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍',
 
     /**
      * @description Owner's WhatsApp numbers (multiple owners supported)
@@ -123,7 +123,7 @@ module.exports = {
      * @description Bot footer text
      * @type {string}
      */
-    BOT_FOOTER: process.env.BOT_FOOTER || '© ᴘᴏᴡᴇʀᴇᴅ ʙʏ ANNU DON',
+    BOT_FOOTER: process.env.BOT_FOOTER || '© ᴘᴏᴡᴇʀᴇᴅ ʙʏ 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍',
 
  // ============================================
     // 📵 ANTI-CALL SETTINGS
@@ -445,9 +445,9 @@ module.exports = {
 
 /**
  * @module settings
- * @description ANNU DON
+ * @description 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
  Configuration Module
  * @version 2.0.0
- * @author ANNU DON
+ * @author 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
  * @license MIT
  */

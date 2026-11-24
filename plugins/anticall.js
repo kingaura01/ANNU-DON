@@ -1,6 +1,6 @@
 // ============================================
-// ANNU DONI ANTI-CALL
-// 👑 Developer: ANNU DON
+// 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍I ANTI-CALL
+// 👑 Developer: 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 // 🔥 Enable/Disable auto call rejection
 // ============================================
 
@@ -23,7 +23,7 @@ waqar({
     try {
         // ── Only Owner ──
         if (!isOwner && !isCreator) {
-            return reply(`🌸 Only my ANNU DON Warits can use this!👑💖`);
+            return reply(`🌸 Only my 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 Warits can use this!👑💖`);
         }
 
         const status = args[0]?.toLowerCase();
@@ -36,7 +36,7 @@ waqar({
                 ['📌', 'To Enable', '.anticall on'],
                 ['📌', 'To Disable', '.anticall off'],
                 ['💡', 'Note', 'All incoming calls will be rejected'],
-                ['👑', 'By', 'ANNU DON']
+                ['👑', 'By', '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍']
             ]));
         }
 
@@ -86,7 +86,7 @@ waqar({
             ['💖', 'Enable', '.anticall on'],
             ['💖', 'Disable', '.anticall off'],
             ['📊', 'Status', '.anticall status'],
-            ['👑', 'By', 'ANNU DON']
+            ['👑', 'By', '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍']
         ]));
 
     } catch (error) {

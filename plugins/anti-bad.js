@@ -1,6 +1,6 @@
 // ============================================
-// 🌸 ANTI-BAD WORD - ANNU DONI (FIXED)
-// 👑 Developer: ANNU DON
+// 🌸 ANTI-BAD WORD - 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍I (FIXED)
+// 👑 Developer: 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 // 🔥 Simple Detection - No userConfig
 // ============================================
 
@@ -36,7 +36,7 @@ function girlBox(title, rows) {
 ${body}
 ╰────────────────────○
 
-> 🦋⃟ ANNU DON𝙄 🦋⃟‌💙࿐
+> 🦋⃟ 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍𝙄 🦋⃟‌💙࿐
 `;
 }
 

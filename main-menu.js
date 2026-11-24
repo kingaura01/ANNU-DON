@@ -1,5 +1,5 @@
 // ============================================
-// ANNU DON - TAP TO SELECT MENU
+// 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 - TAP TO SELECT MENU
 // 👑 Single Select + Image + Text
 // 💖 Boys Power Mode: ON
 // ============================================
@@ -105,8 +105,8 @@ waqar({
         const totalCommands = commands.length;
         const uptime = runtime(process.uptime());
         const memory = (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2);
-        const botName = config.BOT_NAME || "ANNU DON";
-        const ownerName = config.OWNER_NAME || 'ANNU DON';
+        const botName = config.BOT_NAME || "𝐀𝐍𝐍𝐔 𝐃𝐎𝐍";
+        const ownerName = config.OWNER_NAME || '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍';
         const prefix = config.PREFIX || ".";
         const pushName = pushname || 'User';
         const pakTime = moment().tz('Asia/Karachi').format('hh:mm:ss A');
@@ -120,7 +120,7 @@ waqar({
         // ── Build Menu Text ────────────────────────────────────
         const headerText = `
 ╭───────────────────◇
-│ ANNU DON
+│ 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 │㋡━━━━━━━━━━━━━━━━㋡
 ││♡⪼ 👤 User: ${pushName}
 ││♡⪼ 👑 Owner: ${ownerName}
@@ -144,7 +144,7 @@ waqar({
             isForwarded: true,
             forwardedNewsletterMessageInfo: {
                 newsletterJid: '120363431096532056@newsletter',
-                newsletterName: 'ANNU DON',
+                newsletterName: '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍',
                 serverMessageId: 143
             }
         };
@@ -211,8 +211,8 @@ waqar({
                                     { title: '💓 Alive / Status', description: 'Open interactive bot status', id: 'alive' },
                                     { title: '⚡ Ping Test', description: 'Check bot response speed', id: 'ping' },
                                     { title: '📚 All Commands', description: 'Show every available command', id: 'allcmds' },
-                                    { title: '👑 Owner Info', description: 'Show ANNU DON contact', id: 'ownerinfo' },
-                                    { title: '📢 My Channel / JID', description: 'Resolve and follow ANNU DON channel', id: 'mychannel' },
+                                    { title: '👑 Owner Info', description: 'Show 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 contact', id: 'ownerinfo' },
+                                    { title: '📢 My Channel / JID', description: 'Resolve and follow 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 channel', id: 'mychannel' },
                                     { title: '🕐 Pakistan Time', description: 'Show current date and time', id: 'now' },
                                     { title: '🛡️ Anti-Delete', description: 'Check or control deleted-message saver', id: 'antidelete' },
                                     { title: '🌸 Auto React', description: 'Check auto-reaction settings', id: 'autoreact' },
@@ -286,16 +286,16 @@ waqar({
         try {
             const fallbackMenu = `
 ╭────────────────────◇
-│ ANNU DON
+│ 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 │  ✿━━━━━━━━━━━━━━━✿
-│  ✿ 🤖 Bot: ${config.BOT_NAME || 'ANNU DON'}
-│  ✿ 👑 Owner: ${config.OWNER_NAME || 'ANNU DON'}
+│  ✿ 🤖 Bot: ${config.BOT_NAME || '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍'}
+│  ✿ 👑 Owner: ${config.OWNER_NAME || '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍'}
 │  ✿ 📊 Commands: ${commands.length}
 │  ✿ ⏱️ Uptime: ${runtime(process.uptime())}
 │  ✿ 📌 Prefix: ${config.PREFIX || '.'}
 ╰────────────────────○
 
-> ANNU DON`;
+> 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍`;
             await reply(fallbackMenu);
         } catch (fallbackError) {
             reply(`🌸 Error loading menu: ${error.message} 💕`);
@@ -331,7 +331,7 @@ waqar({
 │  ✿ .setprefix [char]
 │  ✿ .setmenupic [url/reply]
 ╰────────────────────○
-> ANNU DON
+> 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
     `.trim();
     
     await conn.sendMessage(from, {
@@ -376,7 +376,7 @@ waqar({
 │  ✿ .antilink on/off
 │  ✿ .antitag on/kick/off
 ╰────────────────────○
-> ANNU DON
+> 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
     `.trim();
     
     await conn.sendMessage(from, {
@@ -405,7 +405,7 @@ waqar({
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ .asmaulhusna [1-20]
 ╰────────────────────○
-> ANNU DON
+> 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
     `.trim();
     
     await conn.sendMessage(from, {
@@ -436,7 +436,7 @@ waqar({
 │  ✿ .1917 [text]
 │  ✿ .fancy [text]
 ╰────────────────────○
-> ANNU DON
+> 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
     `.trim();
     
     await conn.sendMessage(from, {
@@ -483,7 +483,7 @@ waqar({
 │  ✿ .weather [city]
 │  ✿ .sticker (reply to image)
 ╰────────────────────○
-> ANNU DON
+> 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
     `.trim();
     
     await conn.sendMessage(from, {
@@ -520,7 +520,7 @@ waqar({
 │  ✿ .calc [expression]
 │  ✿ .enc [javascript code]
 ╰────────────────────○
-> ANNU DON
+> 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
     `.trim();
     
     await conn.sendMessage(from, {
@@ -558,7 +558,7 @@ waqar({
 │  ✿ .alwaysonline on/off
 │  ✿ .autoread on/off
 ╰────────────────────○
-> ANNU DON
+> 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
     `.trim();
     
     await conn.sendMessage(from, {
@@ -591,7 +591,7 @@ waqar({
 │  ✿ .left (leave group)
 │  ✿ .alive2
 ╰────────────────────○
-> ANNU DON
+> 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
     `.trim();
     
     await conn.sendMessage(from, {
@@ -626,7 +626,7 @@ waqar({
 │  ✿ .aiart [prompt]
 │  ✿ .text2img [prompt]
 ╰────────────────────○
-> ANNU DON
+> 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
     `.trim();
     
     await conn.sendMessage(from, {
@@ -659,7 +659,7 @@ waqar({
 │  ✿ .nowa [number]
 │  ✿ .truecaller [number]
 ╰────────────────────○
-> ANNU DON
+> 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
     `.trim();
     
     await conn.sendMessage(from, {
@@ -673,6 +673,6 @@ waqar({
     }, { quoted: mek });
 });
 
-console.log('ANNU DON - Tap to Select Menu with Image + Text Loaded! 💖');
+console.log('𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 - Tap to Select Menu with Image + Text Loaded! 💖');
 console.log('📌 Video URLs: ${VIDEO_URLS.length} | Audio URLs: ${AUDIO_URLS.length}');
 console.log('📌 Category images: ${Object.keys(CATEGORY_IMAGES).length}');

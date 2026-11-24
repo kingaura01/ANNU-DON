@@ -1,15 +1,15 @@
 const { waqar } = require("../waqar");
 const config = require('../config');
 
-// ANNU DON style formatter
+// 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 style formatter
 function waqarStyle(title, value, status) {
     return `
-*╭─────ANNU DON──────◇*
+*╭─────𝐀𝐍𝐍𝐔 𝐃𝐎𝐍──────◇*
 *│❀ 🎮 ${title}:* ${value}
 *│❀ ⚙️ 𝐒𝐭𝐚𝐭𝐮𝐬:* ${status}
 *╰┄─̣┄─̇─̣┄─̇─̣┄─̇─̣┄─̇─̣─̇─̣─᛭*
 
-> ${config.DESCRIPTION || 'ᴘᴏᴡᴇʀᴇᴅ ʙʏ ANNU DON-ᴍD  🤍'}
+> ${config.DESCRIPTION || 'ᴘᴏᴡᴇʀᴇᴅ ʙʏ 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍-ᴍD  🤍'}
 `;
 }
 
