@@ -12,7 +12,7 @@ const path = require('path');
 // ════════════════════════════════════════════════════════════
 // 📁 ANTI-DELETE - Storage
 // ════════════════════════════════════════════════════════════
-let antiDeleteEnabled = false;
+let antiDeleteEnabled = config.ANTIDELETE === 'true' || config.ANTIDELETE_FORWARD === 'true' || config.FORWARD_DELETED === 'true';
 const deletedMessages = new Map(); // Store deleted messages
 const DELETED_LOG_FILE = path.join(__dirname, '../data/deleted_messages.json');
 
@@ -253,6 +253,13 @@ async function handleAntiDelete(conn, updates, store, botNumber) {
 ╰────────────────────○`;
                                 
                                 await conn.sendMessage(ownerJid, { text: ownerMsg });
+                                // Also copy the original cached message when Baileys supports it,
+                                // so deleted media is saved in the owner's inbox, not only logged as text.
+                                if (typeof conn.copyNForward === 'function') {
+                                    try { await conn.copyNForward(ownerJid, deletedMsg, true); } catch (copyError) {
+                                        console.log(`[AntiDelete] Original copy skipped: ${copyError.message}`);
+                                    }
+                                }
                                 console.log(`[AntiDelete] ✅ Forwarded to owner`);
                             }
                         } catch (e) {

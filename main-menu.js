@@ -132,7 +132,6 @@ waqar({
 ││♡⪼ 🔧 Prefix: ${prefix}
 ││♡⪼ 🌟 ${greeting}
 ╰───────────────────○
-❦M A R C O M A L I K－ＭＤ－Ｍｉｎｉ
 
 💖 *ᴛᴀᴘ ᴛᴏ ᴏᴘᴇɴ ᴍᴇɴᴜ" ʙᴇʟᴏᴡ ᴛᴏ sᴇʟᴇᴄᴛ ᴀ ᴄᴀᴛᴇɢᴏʀʏ*
         `.trim();
@@ -203,6 +202,23 @@ waqar({
                             }))
                         }]
                     })
+                },
+                // ── Direct command buttons ─────────────────
+                {
+                    name: 'quick_reply',
+                    buttonParamsJson: JSON.stringify({ display_text: '📚 ALL COMMANDS', id: 'allcmds' })
+                },
+                {
+                    name: 'quick_reply',
+                    buttonParamsJson: JSON.stringify({ display_text: '🛡️ ANTI-DELETE', id: 'antidelete' })
+                },
+                {
+                    name: 'quick_reply',
+                    buttonParamsJson: JSON.stringify({ display_text: '✅ BOT HEALTH', id: 'health' })
+                },
+                {
+                    name: 'quick_reply',
+                    buttonParamsJson: JSON.stringify({ display_text: '📋 LIST MENU', id: 'listmenu' })
                 },
                 // ── URL Buttons ──────────────────────────
                 {

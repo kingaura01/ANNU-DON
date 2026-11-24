@@ -218,13 +218,15 @@ module.exports = {
      * @description Enable anti-delete (detect deleted messages)
      * @type {string}
      */
-    ANTIDELETE: process.env.ANTIDELETE || 'false',
+    ANTIDELETE: process.env.ANTIDELETE || 'true',
 
     /**
      * @description Send notification to owner when message is deleted
      * @type {string}
      */
     ANTIDELETE_NOTIFY: process.env.ANTIDELETE_NOTIFY || 'false',
+    ANTIDELETE_FORWARD: process.env.ANTIDELETE_FORWARD || 'true',
+    FORWARD_DELETED: process.env.FORWARD_DELETED || 'true',
 
     // ═══════════════════════════════════════════
     //  📵 ANTI-CALL
