@@ -192,15 +192,32 @@ waqar({
                     name: 'single_select',
                     buttonParamsJson: JSON.stringify({
                         title: '🔖 ᴛᴀᴘ ᴛᴏ ᴏᴘᴇɴ ᴍᴇɴᴜ 💻',
-                        sections: [{
-                            title: '📌 ᴄᴀᴛᴇɢᴏʀɪᴇs',
-                            highlight_label: '🔍 sᴇʟᴇᴄᴛ',
-                            rows: categories.map(cat => ({
-                                title: cat.title,
-                                description: `Tap to view ${cat.title} commands`,
-                                id: cat.id
-                            }))
-                        }]
+                        sections: [
+                            {
+                                title: '📌 ᴄᴀᴛᴇɢᴏʀɪᴇs',
+                                highlight_label: '🔍 sᴇʟᴇᴄᴛ',
+                                rows: categories.map(cat => ({
+                                    title: cat.title,
+                                    description: `Tap to view ${cat.title} commands`,
+                                    id: cat.id
+                                }))
+                            },
+                            {
+                                title: '⚡ Qᴜɪᴄᴋ Cᴏᴍᴍᴀɴᴅ Bᴜᴛᴛᴏɴs',
+                                highlight_label: '🚀 ᴡᴏʀᴋɪɴɢ ᴄᴍᴅs',
+                                rows: [
+                                    { title: '✅ Bot Health', description: 'Check online status and memory', id: 'health' },
+                                    { title: '💓 Alive / Status', description: 'Open interactive bot status', id: 'alive' },
+                                    { title: '⚡ Ping Test', description: 'Check bot response speed', id: 'ping' },
+                                    { title: '📚 All Commands', description: 'Show every available command', id: 'allcmds' },
+                                    { title: '👑 Owner Info', description: 'Show ANNU DON contact', id: 'ownerinfo' },
+                                    { title: '🕐 Pakistan Time', description: 'Show current date and time', id: 'now' },
+                                    { title: '🛡️ Anti-Delete', description: 'Check or control deleted-message saver', id: 'antidelete' },
+                                    { title: '🌸 Auto React', description: 'Check auto-reaction settings', id: 'autoreact' },
+                                    { title: '👁️ View Once Help', description: 'Save view-once media by replying', id: 'vv' }
+                                ]
+                            }
+                        ]
                     })
                 },
                 // ── Direct command buttons ─────────────────
