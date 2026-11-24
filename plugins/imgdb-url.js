@@ -185,7 +185,7 @@ waqar({
         captionText += `📁 *File:* ${fileName}\n`;
         captionText += `📦 *Size:* ${formatBytes(result.size || 0)}\n`;
         captionText += `🔗 *URL:* ${resultUrl}\n\n`;
-        captionText += `> *© Uploaded by §࿐ 𝗛𝗔𝗙𝗜𝗭 𝗪𝗔𝗤𝗔𝗥 𝗔𝗧𝗧𝗔𝗥𝗜 𝗤𝗔𝗗𝗥𝗜 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🍸*`;
+        captionText += `> *© Uploaded by §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 🍸*`;
 
         // ── Send with buttons ──
         await sendButtons(conn, from, {

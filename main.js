@@ -1,5 +1,5 @@
 // ============================================
-// 🌸 §࿐ 𝗛𝗔𝗙𝗜𝗭 𝗪𝗔𝗤𝗔𝗥 𝗔𝗧𝗧𝗔𝗥𝗜 𝗤𝗔𝗗𝗥𝗜 ♞ᴮᴼˢˢ MD MINI - FULL FIXED MAIN.JS
+// 🌸 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ MD MINI - FULL FIXED MAIN.JS
 // 👑 Developer: ᴍᴀʀᴄᴏ ᴍᴀʟɪᴋ-ᴍᴅ
 // 🔥 Reply System + React API + All Features
 // ============================================
@@ -42,7 +42,7 @@ const {
 } = require('./lib/autoReactVote');
 
 // ============================================
-// 🌸 §࿐ 𝗛𝗔𝗙𝗜𝗭 𝗪𝗔𝗤𝗔𝗥 𝗔𝗧𝗧𝗔𝗥𝗜 𝗤𝗔𝗗𝗥𝗜 ♞ᴮᴼˢˢ MD-MINI MAIN.JS
+// 🌸 §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ MD-MINI MAIN.JS
 // 👑 Developer: Marco ANNU DON-ᴍᴅ
 // ============================================
 
@@ -76,7 +76,7 @@ const axios = require('axios');
 const moment = require('moment-timezone');
 const chalk = require('chalk');
 
-// ========== IMPORT §࿐ 𝗛𝗔𝗙𝗜𝗭 𝗪𝗔𝗤𝗔𝗥 𝗔𝗧𝗧𝗔𝗥𝗜 𝗤𝗔𝗗𝗥𝗜 ♞ᴮᴼˢˢ MD FEATURES ==========
+// ========== IMPORT §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ MD FEATURES ==========
 const GroupEvents = require('./lib/groupevents');
 const { PresenceControl, BotActivityFilter } = require('./data/presence');
 const { getPrefix } = require('./lib/prefix');
@@ -94,7 +94,7 @@ if (!GITHUB_TOKEN || !GITHUB_REPO) {
 // ========== SETTINGS.JS SE VALUES ==========
 const prefix = config.PREFIX || '.';
 const mode = config.MODE || config.WORK_TYPE || 'public';
-const BOT_NAME = config.BOT_NAME || '💕⃝🕊️ §࿐ 𝗛𝗔𝗙𝗜𝗭 𝗪𝗔𝗤𝗔𝗥 𝗔𝗧𝗧𝗔𝗥𝗜 𝗤𝗔𝗗𝗥𝗜 ♞ᴮᴼˢˢ 𝗠𝗗 💕⃝🕊️';
+const BOT_NAME = config.BOT_NAME || '💕⃝🕊️ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 💕⃝🕊️';
 const OWNER_NAME = config.OWNER_NAME || 'ANNU DON';
 const OWNER_NUMBER = config.OWNER_NUMBER || ['923235605702'];
 
@@ -300,7 +300,7 @@ function getConnectionStatus(number) {
 
 function waqarLog(message, type = 'info') {
     const icons = { info: '📝', success: '✅', error: '❌', warning: '⚠️', debug: '🐛' };
-    console.log(`${icons[type] || '📝'} [§࿐ 𝗛𝗔𝗙𝗜𝗭 𝗪𝗔𝗤𝗔𝗥 𝗔𝗧𝗧𝗔𝗥𝗜 𝗤𝗔𝗗𝗥𝗜 ♞ᴮᴼˢˢ MD-MINI] ${new Date().toISOString()}: ${message}`);
+    console.log(`${icons[type] || '📝'} [§࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ MD-MINI] ${new Date().toISOString()}: ${message}`);
 }
 //=======ANTICALL-SYSTEM=======
 async function setupCallHandlers(socket, number) {
@@ -778,7 +778,7 @@ async function waqarPair(number, res = null) {
                 }
                 
                 const connectedMsg = `╭────────────────────◇
-│ 💕⃝🕊️ §࿐ 𝗛𝗔𝗙𝗜𝗭 𝗪𝗔𝗤𝗔𝗥 𝗔𝗧𝗧𝗔𝗥𝗜 𝗤𝗔𝗗𝗥𝗜 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
+│ 💕⃝🕊️ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💕⃝🕊️
 │  ✿━━━━━━━━━━━━━━━✿
 │✦ *${BOT_NAME}*
 │✦ *${prefix}menu* to see all commands 💫
@@ -788,7 +788,7 @@ async function waqarPair(number, res = null) {
 │✦ 📢 Dev: Aʀꜱʟᴀɴ-ᴍD
 │✦ ${new Date().toLocaleString('en-PK', { timeZone: 'Asia/Karachi' })}
 ╰────────────────────○
-> *🦋⃟ §࿐ 𝗛𝗔𝗙𝗜𝗭 𝗪𝗔𝗤𝗔𝗥 𝗔𝗧𝗧𝗔𝗥𝗜 𝗤𝗔𝗗𝗥𝗜 ♞ᴮᴼˢˢ 𝙈𝙄𝙉𝙄 🦋⃟‌💙࿐*`;
+> *🦋⃟ §࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ 𝙈𝙄𝙉𝙄 🦋⃟‌💙࿐*`;
 
                 try {
                     await conn.sendMessage(userJid, {
@@ -1201,7 +1201,7 @@ async function waqarPair(number, res = null) {
             }
         });
     } catch (err) {
-        waqarLog(`§࿐ 𝗛𝗔𝗙𝗜𝗭 𝗪𝗔𝗤𝗔𝗥 𝗔𝗧𝗧𝗔𝗥𝗜 𝗤𝗔𝗗𝗥𝗜 ♞ᴮᴼˢˢ MD-MINI Pair error: ${err.message}`, 'error');
+        waqarLog(`§࿐ 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 ♞ᴮᴼˢˢ MD-MINI Pair error: ${err.message}`, 'error');
         if (res && !res.headersSent) return res.json({ error: 'Internal Server Error', details: err.message });
     } finally {
         if (connectionLockKey) global[connectionLockKey] = false;

@@ -185,7 +185,7 @@ async (conn, mek, m, { from, reply, text, pushname }) => {
 │  ✿ 🎬 ${selectedMovie.title.substring(0, 40)}
 │  ✿ 💾 ${fileSize} MB
 │  ✿ 📄 Sent as Document
-│  ✿ 👑 By 𝗪𝗔𝗤𝗔𝗥 𝗔𝗧𝗧𝗔𝗥𝗜 𝗤𝗔𝗗𝗥𝗜 
+│  ✿ 👑 By 𝗔𝗡𝗡𝗨 𝗗𝗢𝗡 
 ╰═══✿══════════════╝
 
 🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 §࿐ ANNU DON ♞ᴮᴼˢˢ 𝗠𝗗 𝗠𝗶𝗻𝗶 💖`;
