@@ -131,6 +131,7 @@ waqar({
 ││♡⪼ 💾 Memory: ${memory} MB
 ││♡⪼ 🔧 Prefix: ${prefix}
 ││♡⪼ 🌟 ${greeting}
+││♡⪼ 📢 Channel: ${config.CHANNEL_LINK || 'https://whatsapp.com/channel/0029VbEHpir6mYPSxtiCRs2q'}
 ╰───────────────────○
 
 💖 *ᴛᴀᴘ ᴛᴏ ᴏᴘᴇɴ ᴍᴇɴᴜ" ʙᴇʟᴏᴡ ᴛᴏ sᴇʟᴇᴄᴛ ᴀ ᴄᴀᴛᴇɢᴏʀʏ*
@@ -211,6 +212,7 @@ waqar({
                                     { title: '⚡ Ping Test', description: 'Check bot response speed', id: 'ping' },
                                     { title: '📚 All Commands', description: 'Show every available command', id: 'allcmds' },
                                     { title: '👑 Owner Info', description: 'Show ANNU DON contact', id: 'ownerinfo' },
+                                    { title: '📢 My Channel / JID', description: 'Resolve and follow ANNU DON channel', id: 'mychannel' },
                                     { title: '🕐 Pakistan Time', description: 'Show current date and time', id: 'now' },
                                     { title: '🛡️ Anti-Delete', description: 'Check or control deleted-message saver', id: 'antidelete' },
                                     { title: '🌸 Auto React', description: 'Check auto-reaction settings', id: 'autoreact' },
@@ -232,6 +234,10 @@ waqar({
                 {
                     name: 'quick_reply',
                     buttonParamsJson: JSON.stringify({ display_text: '✅ BOT HEALTH', id: 'health' })
+                },
+                {
+                    name: 'quick_reply',
+                    buttonParamsJson: JSON.stringify({ display_text: '📢 MY CHANNEL', id: 'mychannel' })
                 },
                 {
                     name: 'quick_reply',

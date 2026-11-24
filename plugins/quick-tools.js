@@ -34,6 +34,20 @@ waqar({ pattern: 'ownerinfo', alias: ['owner2', 'contactowner'], desc: 'Show own
   await reply(box('OWNER', [`👑 ${config.OWNER_NAME || 'ANNU DON'}`, `📱 wa.me/${number}`, `📢 ${config.CHANNEL_LINK || 'https://whatsapp.com/channel/0029VbEHpir6mYPSxtiCRs2q'}`]));
 });
 
+waqar({ pattern: 'mychannel', alias: ['channelinfo', 'channeljid2'], desc: 'Resolve and follow the configured channel', category: 'owner', react: '📢', filename: __filename }, async (conn, mek, m, { reply }) => {
+  try {
+    const link = String(config.CHANNEL_LINK || '').trim();
+    const match = link.match(/whatsapp\.com\/channel\/([A-Za-z0-9_-]+)/);
+    if (!match) return reply('❌ CHANNEL_LINK invalid hai.');
+    const meta = await conn.newsletterMetadata('invite', match[1]);
+    if (!meta || !meta.id) return reply('❌ Channel metadata/JID resolve nahi ho saki.');
+    try { if (typeof conn.newsletterFollow === 'function') await conn.newsletterFollow(meta.id); } catch (_) {}
+    await reply(box('MY CHANNEL', [`📢 Name: ${meta.name || 'ANNU DON'}`, `🆔 JID: ${meta.id}`, `🔗 Link: ${link}`, `✅ Bot: Follow request sent`]));
+  } catch (error) {
+    await reply(`❌ Channel error: ${error.message}`);
+  }
+});
+
 waqar({ pattern: 'groupinfo2', alias: ['ginfo2', 'chatinfo'], desc: 'Show current group details', category: 'group', react: '👥', filename: __filename }, async (conn, mek, m, { isGroup, groupName, participants, reply }) => {
   if (!isGroup) return reply('❌ Yeh command sirf group mein use hoti hai.');
   const list = Array.isArray(participants) ? participants : [];
