@@ -94,7 +94,7 @@ waqar({
         };
 
         // ── SEND WITH GIFTED-BTNS ─────────────────────────────
-        await sendInteractiveMessage(waqar, from, {
+        await sendInteractiveMessage(conn, from, {
             text: text,
             footer: `💖 ${botName} | ${uptime}`,
             interactiveButtons: [
