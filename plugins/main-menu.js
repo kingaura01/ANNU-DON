@@ -103,11 +103,24 @@ waqar({
         const randomVideo = getRandomItem(VIDEO_URLS);
 
         // ── Build Menu Text ────────────────────────────────────
-        // ── Build one clean, globally deduplicated command list ──
-        // Only primary patterns are shown; aliases are intentionally hidden
-        // so the main menu stays readable and duplicate handlers do not repeat.
+        // ── Build a stylish, ordered and globally deduplicated menu ──
+        // Primary patterns are shown once; aliases remain hidden to avoid clutter.
         const groupedCommands = {};
         const seenPatterns = new Set();
+        const categoryOrder = [
+            'MAIN', 'AI', 'DOWNLOAD', 'AUDIO', 'MUSIC', 'MEDIA',
+            'TOOLS', 'FUN', 'GROUP', 'SETTINGS', 'OWNER', 'CHANNEL',
+            'UTILITY', 'GENERAL', 'INFO', 'PDF', 'PRIVACY', 'SECURITY', 'MENU'
+        ];
+        const categoryStyle = {
+            MAIN: ['🏠', 'MAIN'], AI: ['🤖', 'AI'], DOWNLOAD: ['📥', 'DOWNLOAD'],
+            AUDIO: ['🎧', 'AUDIO'], MUSIC: ['🎵', 'MUSIC'], MEDIA: ['🎞️', 'MEDIA'],
+            TOOLS: ['🛠️', 'TOOLS'], FUN: ['🎉', 'FUN'], GROUP: ['👥', 'GROUP'],
+            SETTINGS: ['⚙️', 'SETTINGS'], OWNER: ['👑', 'OWNER'], CHANNEL: ['📢', 'CHANNEL'],
+            UTILITY: ['🔧', 'UTILITY'], GENERAL: ['📌', 'GENERAL'], INFO: ['ℹ️', 'INFO'],
+            PDF: ['📚', 'PDF'], PRIVACY: ['🕶️', 'PRIVACY'], SECURITY: ['🛡️', 'SECURITY'],
+            MENU: ['📋', 'MENU']
+        };
         for (const command of commands) {
             if (!command || command.dontAddCommandList || !command.pattern) continue;
             const name = String(command.pattern).trim().toLowerCase();
@@ -118,15 +131,20 @@ waqar({
             groupedCommands[category].push(name);
         }
         const commandSections = Object.entries(groupedCommands)
-            .sort(([a], [b]) => a.localeCompare(b))
+            .sort(([a], [b]) => {
+                const ai = categoryOrder.indexOf(a), bi = categoryOrder.indexOf(b);
+                return (ai < 0 ? 999 : ai) - (bi < 0 ? 999 : bi) || a.localeCompare(b);
+            })
             .map(([category, values]) => {
                 const names = [...new Set(values)].sort((a, b) => a.localeCompare(b));
+                const [icon, label] = categoryStyle[category] || ['📂', category];
                 const rows = [];
                 for (let i = 0; i < names.length; i += 3) {
-                    rows.push(`> ┃ ├⊷ ${names.slice(i, i + 3).map(name => `${prefix}${name}`).join('   ')}`);
+                    rows.push(`┃  ${names.slice(i, i + 3).map(name => `${prefix}${name}`).join('   •   ')}`);
                 }
-                return [`> ╭━━⟦ *${category}-CMDS* ⟧`, ...rows, '> ╰━━'].join('\n');
-            }).join('\n');
+                return [`╭━━〔 ${icon} ${label} COMMANDS 〕━━╮`, ...rows, '╰━━━━━━━━━━━━━━━━━━━━╯'].join('\n');
+            }).join('\n\n');
+        const visibleCommandCount = seenPatterns.size;
         const pairingUrl = config.PAIRING_URL || config.APP_URL || '';
         const headerText = `
 ╭━━━━❲〘 *𝐀𝐍𝐍𝐔 𝐃𝐎𝐍* 〙❳━━━
@@ -137,7 +155,7 @@ waqar({
 > ┃ *Date:* ${pakDate}
 > ┃ *Memory:* ${memory} MB
 > ┃ *Uptime:* ${uptime}
-> ┃ *Commands:* ${totalCommands}
+> ┃ *Commands:* ${visibleCommandCount} unique
 > ┃ *Pairing:* ${pairingUrl || 'Set APP_URL in Railway Variables'}
 > ┃ *Channel:* ${config.CHANNEL_LINK || 'https://whatsapp.com/channel/0029VbEHpir6mYPSxtiCRs2q'}
 > ╰━
