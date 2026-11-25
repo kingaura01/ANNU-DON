@@ -118,35 +118,44 @@ waqar({
         const randomAudio = null;
 
         // ── Build Menu Text ────────────────────────────────────
+        // ── Build full categorized command list dynamically ─────
+        const groupedCommands = {};
+        for (const command of commands) {
+            if (!command || command.dontAddCommandList || !command.pattern) continue;
+            const category = String(command.category || 'utility').toUpperCase();
+            if (!groupedCommands[category]) groupedCommands[category] = new Set();
+            groupedCommands[category].add(String(command.pattern));
+        }
+        const commandSections = Object.entries(groupedCommands)
+            .sort(([a], [b]) => a.localeCompare(b))
+            .map(([category, values]) => {
+                const names = [...values].sort();
+                const rows = [];
+                for (let i = 0; i < names.length; i += 3) {
+                    rows.push(`> ┃ ├⊷ ${names.slice(i, i + 3).map(name => `${prefix}${name}`).join('   ')}`);
+                }
+                return [`> ╭━━⟦ *${category}-CMDS* ⟧`, ...rows, '> ╰━━'].join('\n');
+            }).join('\n');
+        const pairingUrl = config.PAIRING_URL || config.APP_URL || '';
         const headerText = `
-╭───────────────────◇
-│ 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
-│㋡━━━━━━━━━━━━━━━━㋡
-││♡⪼ 👤 User: ${pushName}
-││♡⪼ 👑 Owner: ${ownerName}
-││♡⪼ ⏰ Time: ${pakTime}
-││♡⪼ 📅 ${pakDate}
-││♡⪼ ⏳ ${uptime}
-││♡⪼ 📊 Commands: ${totalCommands}
-││♡⪼ 💾 Memory: ${memory} MB
-││♡⪼ 🔧 Prefix: ${prefix}
-││♡⪼ 🌟 ${greeting}
-││♡⪼ 📢 Channel: ${config.CHANNEL_LINK || 'https://whatsapp.com/channel/0029VbEHpir6mYPSxtiCRs2q'}
-╰───────────────────○
+╭━━━━❲〘 *𝐀𝐍𝐍𝐔 𝐃𝐎𝐍* 〙❳━━━
+> ╭━━━❪ 𝐌𝐄𝐍𝐔 ❫━━━─
+> ┃ *Prefix:* [ ${prefix} ]
+> ┃ *Mode:* ${(config.MODE || 'public').toUpperCase()}
+> ┃ *Time:* ${pakTime}
+> ┃ *Date:* ${pakDate}
+> ┃ *Memory:* ${memory} MB
+> ┃ *Uptime:* ${uptime}
+> ┃ *Commands:* ${totalCommands}
+> ┃ *Pairing:* ${pairingUrl || 'Set APP_URL in Railway Variables'}
+> ┃ *Channel:* ${config.CHANNEL_LINK || 'https://whatsapp.com/channel/0029VbEHpir6mYPSxtiCRs2q'}
+> ╰━
+╰━━━━━━━❮ ◈ ❯━━━━━━
 
-📚 *COMMAND LIST*
-├─ .ping       ├─ .alive       ├─ .health
-├─ .allcmds    ├─ .ownerinfo   ├─ .mychannel
-├─ .antidelete ├─ .autoreact   ├─ .vv
-├─ .now        ├─ .myid        ├─ .chatid
-├─ .say text   ├─ .choose      ├─ .coin / .roll
+${commandSections}
 
-📂 *CATEGORIES*
-├─ Bot Settings   ├─ Group Tools   ├─ Downloader
-├─ Utility         ├─ Owner         ├─ AI / PDF
-
-📢 *CHANNEL:* ${config.CHANNEL_LINK || 'https://whatsapp.com/channel/0029VbEHpir6mYPSxtiCRs2q'}
-👇 *Neeche list button se category ya command select karein.*
+> _Powered by 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍_
+> _Select a category below for interactive buttons._
         `.trim();
 
         // ── Context Info ───────────────────────────────────────
@@ -256,6 +265,13 @@ waqar({
                     buttonParamsJson: JSON.stringify({ display_text: '📋 LIST MENU', id: 'listmenu' })
                 },
                 // ── URL Buttons ──────────────────────────
+                ...(pairingUrl ? [{
+                    name: 'cta_url',
+                    buttonParamsJson: JSON.stringify({
+                        display_text: '🔗 PAIRING SITE',
+                        url: pairingUrl
+                    })
+                }] : []),
                 {
                     name: 'cta_url',
                     buttonParamsJson: JSON.stringify({
