@@ -114,8 +114,8 @@ waqar({
         const greeting = getGreeting();
 
         // ── Select Random Video & Audio ──────────────────────
-        const randomVideo = getRandomItem(VIDEO_URLS);
-        const randomAudio = getRandomItem(AUDIO_URLS);
+        const randomVideo = null;
+        const randomAudio = null;
 
         // ── Build Menu Text ────────────────────────────────────
         const headerText = `
@@ -134,7 +134,19 @@ waqar({
 ││♡⪼ 📢 Channel: ${config.CHANNEL_LINK || 'https://whatsapp.com/channel/0029VbEHpir6mYPSxtiCRs2q'}
 ╰───────────────────○
 
-💖 *ᴛᴀᴘ ᴛᴏ ᴏᴘᴇɴ ᴍᴇɴᴜ" ʙᴇʟᴏᴡ ᴛᴏ sᴇʟᴇᴄᴛ ᴀ ᴄᴀᴛᴇɢᴏʀʏ*
+📚 *COMMAND LIST*
+├─ .ping       ├─ .alive       ├─ .health
+├─ .allcmds    ├─ .ownerinfo   ├─ .mychannel
+├─ .antidelete ├─ .autoreact   ├─ .vv
+├─ .now        ├─ .myid        ├─ .chatid
+├─ .say text   ├─ .choose      ├─ .coin / .roll
+
+📂 *CATEGORIES*
+├─ Bot Settings   ├─ Group Tools   ├─ Downloader
+├─ Utility         ├─ Owner         ├─ AI / PDF
+
+📢 *CHANNEL:* ${config.CHANNEL_LINK || 'https://whatsapp.com/channel/0029VbEHpir6mYPSxtiCRs2q'}
+👇 *Neeche list button se category ya command select karein.*
         `.trim();
 
         // ── Context Info ───────────────────────────────────────
