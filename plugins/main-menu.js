@@ -114,27 +114,48 @@ waqar({
         const greeting = getGreeting();
 
         // ── Select Random Video & Audio ──────────────────────
-        const randomVideo = getRandomItem(VIDEO_URLS);
-        const randomAudio = getRandomItem(AUDIO_URLS);
+        const randomVideo = null;
+        const randomAudio = null;
 
         // ── Build Menu Text ────────────────────────────────────
+        // ── Build full categorized command list dynamically ─────
+        const groupedCommands = {};
+        for (const command of commands) {
+            if (!command || command.dontAddCommandList || !command.pattern) continue;
+            const category = String(command.category || 'utility').toUpperCase();
+            if (!groupedCommands[category]) groupedCommands[category] = new Set();
+            groupedCommands[category].add(String(command.pattern));
+        }
+        const commandSections = Object.entries(groupedCommands)
+            .sort(([a], [b]) => a.localeCompare(b))
+            .map(([category, values]) => {
+                const names = [...values].sort();
+                const rows = [];
+                for (let i = 0; i < names.length; i += 3) {
+                    rows.push(`> ┃ ├⊷ ${names.slice(i, i + 3).map(name => `${prefix}${name}`).join('   ')}`);
+                }
+                return [`> ╭━━⟦ *${category}-CMDS* ⟧`, ...rows, '> ╰━━'].join('\n');
+            }).join('\n');
+        const pairingUrl = config.PAIRING_URL || config.APP_URL || '';
         const headerText = `
-╭───────────────────◇
-│ 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
-│㋡━━━━━━━━━━━━━━━━㋡
-││♡⪼ 👤 User: ${pushName}
-││♡⪼ 👑 Owner: ${ownerName}
-││♡⪼ ⏰ Time: ${pakTime}
-││♡⪼ 📅 ${pakDate}
-││♡⪼ ⏳ ${uptime}
-││♡⪼ 📊 Commands: ${totalCommands}
-││♡⪼ 💾 Memory: ${memory} MB
-││♡⪼ 🔧 Prefix: ${prefix}
-││♡⪼ 🌟 ${greeting}
-╰───────────────────○
-❦M A R C O M A L I K－ＭＤ－Ｍｉｎｉ
+╭━━━━❲〘 *𝐀𝐍𝐍𝐔 𝐃𝐎𝐍* 〙❳━━━
+> ╭━━━❪ 𝐌𝐄𝐍𝐔 ❫━━━─
+> ┃ *Prefix:* [ ${prefix} ]
+> ┃ *Mode:* ${(config.MODE || 'public').toUpperCase()}
+> ┃ *Time:* ${pakTime}
+> ┃ *Date:* ${pakDate}
+> ┃ *Memory:* ${memory} MB
+> ┃ *Uptime:* ${uptime}
+> ┃ *Commands:* ${totalCommands}
+> ┃ *Pairing:* ${pairingUrl || 'Set APP_URL in Railway Variables'}
+> ┃ *Channel:* ${config.CHANNEL_LINK || 'https://whatsapp.com/channel/0029VbEHpir6mYPSxtiCRs2q'}
+> ╰━
+╰━━━━━━━❮ ◈ ❯━━━━━━
 
-💖 *ᴛᴀᴘ ᴛᴏ ᴏᴘᴇɴ ᴍᴇɴᴜ" ʙᴇʟᴏᴡ ᴛᴏ sᴇʟᴇᴄᴛ ᴀ ᴄᴀᴛᴇɢᴏʀʏ*
+${commandSections}
+
+> _Powered by 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍_
+> _Select a category below for interactive buttons._
         `.trim();
 
         // ── Context Info ───────────────────────────────────────
@@ -193,18 +214,64 @@ waqar({
                     name: 'single_select',
                     buttonParamsJson: JSON.stringify({
                         title: '🔖 ᴛᴀᴘ ᴛᴏ ᴏᴘᴇɴ ᴍᴇɴᴜ 💻',
-                        sections: [{
-                            title: '📌 ᴄᴀᴛᴇɢᴏʀɪᴇs',
-                            highlight_label: '🔍 sᴇʟᴇᴄᴛ',
-                            rows: categories.map(cat => ({
-                                title: cat.title,
-                                description: `Tap to view ${cat.title} commands`,
-                                id: cat.id
-                            }))
-                        }]
+                        sections: [
+                            {
+                                title: '📌 ᴄᴀᴛᴇɢᴏʀɪᴇs',
+                                highlight_label: '🔍 sᴇʟᴇᴄᴛ',
+                                rows: categories.map(cat => ({
+                                    title: cat.title,
+                                    description: `Tap to view ${cat.title} commands`,
+                                    id: cat.id
+                                }))
+                            },
+                            {
+                                title: '⚡ Qᴜɪᴄᴋ Cᴏᴍᴍᴀɴᴅ Bᴜᴛᴛᴏɴs',
+                                highlight_label: '🚀 ᴡᴏʀᴋɪɴɢ ᴄᴍᴅs',
+                                rows: [
+                                    { title: '✅ Bot Health', description: 'Check online status and memory', id: 'health' },
+                                    { title: '💓 Alive / Status', description: 'Open interactive bot status', id: 'alive' },
+                                    { title: '⚡ Ping Test', description: 'Check bot response speed', id: 'ping' },
+                                    { title: '📚 All Commands', description: 'Show every available command', id: 'allcmds' },
+                                    { title: '👑 Owner Info', description: 'Show 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 contact', id: 'ownerinfo' },
+                                    { title: '📢 My Channel / JID', description: 'Resolve and follow 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 channel', id: 'mychannel' },
+                                    { title: '🕐 Pakistan Time', description: 'Show current date and time', id: 'now' },
+                                    { title: '🛡️ Anti-Delete', description: 'Check or control deleted-message saver', id: 'antidelete' },
+                                    { title: '🌸 Auto React', description: 'Check auto-reaction settings', id: 'autoreact' },
+                                    { title: '👁️ View Once Help', description: 'Save view-once media by replying', id: 'vv' }
+                                ]
+                            }
+                        ]
                     })
                 },
+                // ── Direct command buttons ─────────────────
+                {
+                    name: 'quick_reply',
+                    buttonParamsJson: JSON.stringify({ display_text: '📚 ALL COMMANDS', id: 'allcmds' })
+                },
+                {
+                    name: 'quick_reply',
+                    buttonParamsJson: JSON.stringify({ display_text: '🛡️ ANTI-DELETE', id: 'antidelete' })
+                },
+                {
+                    name: 'quick_reply',
+                    buttonParamsJson: JSON.stringify({ display_text: '✅ BOT HEALTH', id: 'health' })
+                },
+                {
+                    name: 'quick_reply',
+                    buttonParamsJson: JSON.stringify({ display_text: '📢 MY CHANNEL', id: 'mychannel' })
+                },
+                {
+                    name: 'quick_reply',
+                    buttonParamsJson: JSON.stringify({ display_text: '📋 LIST MENU', id: 'listmenu' })
+                },
                 // ── URL Buttons ──────────────────────────
+                ...(pairingUrl ? [{
+                    name: 'cta_url',
+                    buttonParamsJson: JSON.stringify({
+                        display_text: '🔗 PAIRING SITE',
+                        url: pairingUrl
+                    })
+                }] : []),
                 {
                     name: 'cta_url',
                     buttonParamsJson: JSON.stringify({
