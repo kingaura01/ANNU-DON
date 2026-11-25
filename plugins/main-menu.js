@@ -168,7 +168,7 @@ waqar({
 ${commandSections}
 
 > _Powered by 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍_
-> _Select a category below for interactive buttons._
+> _Category menus: .menu_ai • .menu_group • .menu_settings_
         `.trim();
 
         // ── Context Info ───────────────────────────────────────
