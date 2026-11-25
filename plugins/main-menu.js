@@ -103,18 +103,24 @@ waqar({
         const randomVideo = getRandomItem(VIDEO_URLS);
 
         // ── Build Menu Text ────────────────────────────────────
-        // ── Build full categorized command list dynamically ─────
+        // ── Build one clean, globally deduplicated command list ──
+        // Only primary patterns are shown; aliases are intentionally hidden
+        // so the main menu stays readable and duplicate handlers do not repeat.
         const groupedCommands = {};
+        const seenPatterns = new Set();
         for (const command of commands) {
             if (!command || command.dontAddCommandList || !command.pattern) continue;
-            const category = String(command.category || 'utility').toUpperCase();
-            if (!groupedCommands[category]) groupedCommands[category] = new Set();
-            groupedCommands[category].add(String(command.pattern));
+            const name = String(command.pattern).trim().toLowerCase();
+            if (!name || seenPatterns.has(name)) continue;
+            seenPatterns.add(name);
+            const category = String(command.category || 'utility').trim().toUpperCase();
+            if (!groupedCommands[category]) groupedCommands[category] = [];
+            groupedCommands[category].push(name);
         }
         const commandSections = Object.entries(groupedCommands)
             .sort(([a], [b]) => a.localeCompare(b))
             .map(([category, values]) => {
-                const names = [...values].sort();
+                const names = [...new Set(values)].sort((a, b) => a.localeCompare(b));
                 const rows = [];
                 for (let i = 0; i < names.length; i += 3) {
                     rows.push(`> ┃ ├⊷ ${names.slice(i, i + 3).map(name => `${prefix}${name}`).join('   ')}`);
