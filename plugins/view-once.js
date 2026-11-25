@@ -1,487 +1,170 @@
 // ============================================
-// 🌸 VIEW ONCE PLUGIN - 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 (FINAL)
-// 👑 Developer: ᴍᴀʀᴄᴏ ᴍᴀʟɪᴋ-ᴍᴅ
-// 🔥 Fixed: Unsupported media type error
+// 🌸 VIEW ONCE PLUGIN - 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
+// Reliable image/video/audio retrieval + optional auto trigger
 // ============================================
 
+const { downloadContentFromMessage } = require('@whiskeysockets/baileys');
 const { fakevCard } = require('../lib/fakevCard');
 const { waqar } = require('../waqar');
 const config = require('../settings');
 
-// ============================================
-// 🦁 BOYS THEME KEYWORDS
-// ============================================
 const positiveKeywords = [
-  "🌸", "💖", "✨", "🎀", "💕", "💝", "🌺", "🦋", "🫅", "💗",
-  "nice", "good", "cute", "beautiful", "gorgeous", "lovely",
-  "wow", "super", "amazing", "𝐀𝐍𝐍𝐔 𝐃𝐎𝐍", "𝐀𝐍𝐍𝐔 𝐃𝐎𝐍", "😍", "🥰",
-  "🌝", "🥵", "💋", "👍", "🌚", "😩"
+  '🌸', '💖', '✨', '🎀', '💕', '💝', '🌺', '🦋', '🫅', '💗',
+  'nice', 'good', 'cute', 'beautiful', 'gorgeous', 'lovely', 'wow',
+  'super', 'amazing', '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍', '😍', '🥰', '🌝', '🥵', '💋', '👍', '🌚', '😩'
 ];
 
-// ============================================
-// 🔥 VIEW ONCE HANDLER (FULLY FIXED)
-// ============================================
-
-async function handleViewOnce(conn, mek, m, context) {
-    try {
-        const { from, reply, quoted, isReply, repliedType, sender } = context;
-
-        // ============================================
-        // 🔥 CHECK REPLY
-        // ============================================
-
-        let viewOnceContent = null;
-        let isViewOnce = false;
-        let buffer = null;
-        let mtype = null;
-        let originalCaption = '';
-        let mimetype = '';
-        let ptt = false;
-
-        // ── Get quoted message ──
-        const quotedMsg = quoted?.msg || 
-                          quoted || 
-                          mek?.quoted || 
-                          mek?.message?.extendedTextMessage?.contextInfo?.quotedMessage;
-
-        if (!quotedMsg) {
-            return reply(`🌸 Please reply to a *view once* image/video/audio message.\n\n*Use:* .vv [reply]`);
-        }
-
-        // ── Check if view once ──
-        if (quotedMsg.viewOnce) {
+function unwrapViewOnce(input) {
+    let current = input?.message || input;
+    let isViewOnce = false;
+    for (let i = 0; i < 4 && current; i++) {
+        if (current.viewOnceMessage?.message) {
             isViewOnce = true;
-            viewOnceContent = quotedMsg;
-        } else if (quotedMsg.viewOnceMessage) {
+            current = current.viewOnceMessage.message;
+        } else if (current.viewOnceMessageV2?.message) {
             isViewOnce = true;
-            viewOnceContent = quotedMsg.viewOnceMessage.message;
-        } else if (quotedMsg.viewOnceMessageV2) {
+            current = current.viewOnceMessageV2.message;
+        } else if (current.viewOnceMessageV2Extension?.message) {
             isViewOnce = true;
-            viewOnceContent = quotedMsg.viewOnceMessageV2.message;
-        } else if (quotedMsg.viewOnceMessageV2Extension) {
-            isViewOnce = true;
-            viewOnceContent = quotedMsg.viewOnceMessageV2Extension.message;
-        } else if (quotedMsg.imageMessage?.viewOnce) {
-            isViewOnce = true;
-            viewOnceContent = quotedMsg.imageMessage;
-        } else if (quotedMsg.videoMessage?.viewOnce) {
-            isViewOnce = true;
-            viewOnceContent = quotedMsg.videoMessage;
-        }
-
-        if (!isViewOnce || !viewOnceContent) {
-            return reply(`🌸 Please reply to a *view once* image/video/audio message! 💕`);
-        }
-
-        // ── Get caption ──
-        if (viewOnceContent.imageMessage) {
-            originalCaption = viewOnceContent.imageMessage.caption || '';
-            mimetype = viewOnceContent.imageMessage.mimetype || 'image/jpeg';
-            mtype = 'image';
-        } else if (viewOnceContent.videoMessage) {
-            originalCaption = viewOnceContent.videoMessage.caption || '';
-            mimetype = viewOnceContent.videoMessage.mimetype || 'video/mp4';
-            mtype = 'video';
-        } else if (viewOnceContent.audioMessage) {
-            mimetype = viewOnceContent.audioMessage.mimetype || 'audio/mpeg';
-            ptt = viewOnceContent.audioMessage.ptt || false;
-            mtype = 'audio';
+            current = current.viewOnceMessageV2Extension.message;
         } else {
-            // Try to detect from content
-            if (viewOnceContent.mimetype) {
-                if (viewOnceContent.mimetype.startsWith('image')) {
-                    mtype = 'image';
-                } else if (viewOnceContent.mimetype.startsWith('video')) {
-                    mtype = 'video';
-                } else if (viewOnceContent.mimetype.startsWith('audio')) {
-                    mtype = 'audio';
-                }
-            }
+            break;
         }
-
-        // ── If still no mtype ──
-        if (!mtype) {
-            return reply(`🌸 Unsupported media type! Please reply to image/video/audio view once. 💕`);
-        }
-
-        // ── Download ──
-        try {
-            let msgToDownload = viewOnceContent;
-            
-            // ── Handle different view once formats ──
-            if (viewOnceContent.imageMessage) {
-                msgToDownload = viewOnceContent.imageMessage;
-            } else if (viewOnceContent.videoMessage) {
-                msgToDownload = viewOnceContent.videoMessage;
-            } else if (viewOnceContent.audioMessage) {
-                msgToDownload = viewOnceContent.audioMessage;
-            }
-
-            const stream = await downloadContentFromMessage(msgToDownload, mtype);
-            let chunks = [];
-            for await (const chunk of stream) {
-                chunks.push(chunk);
-            }
-            buffer = Buffer.concat(chunks);
-
-        } catch (e) {
-            console.error('[ViewOnce] Download error:', e.message);
-            
-            // ── Fallback: Try quoted.download() ──
-            try {
-                if (typeof quoted?.download === 'function') {
-                    buffer = await quoted.download();
-                } else if (typeof mek?.quoted?.download === 'function') {
-                    buffer = await mek.quoted.download();
-                }
-            } catch (e2) {
-                console.error('[ViewOnce] Fallback download error:', e2.message);
-            }
-        }
-
-        if (!buffer || buffer.length === 0) {
-            return reply('❌ Failed to download media. Please try again.');
-        }
-
-        // ── Send processing reaction ──
-        await conn.sendMessage(from, { react: { text: '🌸', key: mek.key } });
-
-        const DESCRIPTION = config.DESCRIPTION || "🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 💖";
-
-        // ── Build caption ──
-        let captionText = `🌸 *View Once Retrieved*\n\n`;
-
-        if (originalCaption) {
-            captionText += `📝 *Caption:* ${originalCaption}\n`;
-        }
-
-        captionText += `📁 *Type:* ${mtype.charAt(0).toUpperCase() + mtype.slice(1)}\n`;
-        captionText += `📦 *Size:* ${formatBytes(buffer.length)}\n\n`;
-        captionText += `> *© ${DESCRIPTION}*`;
-
-        let messageContent = {};
-        
-        if (mtype === 'image') {
-            messageContent = {
-                image: buffer,
-                caption: captionText,
-                mimetype: mimetype || 'image/jpeg',
-                contextInfo: {
-                    forwardingScore: 999,
-                    isForwarded: true,
-                    forwardedNewsletterMessageInfo: {
-                        newsletterJid: '120363433260974040@newsletter',
-                        newsletterName: '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍',
-                        serverMessageId: 143
-                    }
-                }
-            };
-        } else if (mtype === 'video') {
-            messageContent = {
-                video: buffer,
-                caption: captionText,
-                mimetype: mimetype || 'video/mp4',
-                contextInfo: {
-                    forwardingScore: 999,
-                    isForwarded: true,
-                    forwardedNewsletterMessageInfo: {
-                        newsletterJid: '120363433260974040@newsletter',
-                        newsletterName: '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍',
-                        serverMessageId: 143
-                    }
-                }
-            };
-        } else if (mtype === 'audio') {
-            messageContent = {
-                audio: buffer,
-                mimetype: mimetype || 'audio/mpeg',
-                ptt: ptt
-            };
-        } else {
-            return reply(`🌸 Unsupported media type: ${mtype} 💕`);
-        }
-
-        // ── Send to DM ──
-        await conn.sendMessage(sender, messageContent, { quoted: fakevCard });
-
-        await conn.sendMessage(from, { react: { text: '💖', key: mek.key } });
-
-    } catch (error) {
-        console.error('[ViewOnce] Error:', error);
-        await context.reply(`❌ Error: ${error.message || error}`);
-        await conn.sendMessage(from, { react: { text: '❌', key: mek.key } });
     }
+    if (current?.imageMessage?.viewOnce || current?.videoMessage?.viewOnce || current?.audioMessage?.viewOnce) {
+        isViewOnce = true;
+    }
+    return { content: current, isViewOnce };
+}
+
+function getMedia(content) {
+    if (!content) return null;
+    if (content.imageMessage) return { type: 'image', message: content.imageMessage };
+    if (content.videoMessage) return { type: 'video', message: content.videoMessage };
+    if (content.audioMessage) return { type: 'audio', message: content.audioMessage };
+    if (content.documentMessage) return { type: 'document', message: content.documentMessage };
+    if (content.mimetype) {
+        const type = String(content.mimetype).split('/')[0];
+        if (['image', 'video', 'audio', 'document'].includes(type)) return { type, message: content };
+    }
+    return null;
+}
+
+async function downloadMedia(media, quoted) {
+    try {
+        const stream = await downloadContentFromMessage(media.message, media.type);
+        const chunks = [];
+        for await (const chunk of stream) chunks.push(chunk);
+        const buffer = Buffer.concat(chunks);
+        if (buffer.length) return buffer;
+    } catch (error) {
+        console.error('[ViewOnce] Direct download error:', error.message);
+    }
+    if (typeof quoted?.download === 'function') {
+        try { return await quoted.download(); } catch (error) {
+            console.error('[ViewOnce] Quoted download error:', error.message);
+        }
+    }
+    return null;
 }
 
 function formatBytes(bytes) {
-    if (bytes === 0) return '0 Bytes';
+    if (!bytes) return '0 Bytes';
     const k = 1024;
     const sizes = ['Bytes', 'KB', 'MB', 'GB'];
-    const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+    const i = Math.min(Math.floor(Math.log(bytes) / Math.log(k)), sizes.length - 1);
+    return `${parseFloat((bytes / Math.pow(k, i)).toFixed(2))} ${sizes[i]}`;
 }
 
-// ============================================
-// 🌸 AUTO VIEW ONCE (Without Prefix)
-// ============================================
-waqar({
-  'on': "body"
-}, async (conn, mek, m, {
-  from,
-  body,
-  isOwner,
-  isCreator,
-  reply,
-  sender,
-  isReply,
-  quoted,
-  quotedMessage,
-  repliedType
-}) => {
-  try {
-    if (!isOwner && !isCreator) return;
+async function handleViewOnce(conn, mek, m, context) {
+    const { from, reply, quoted, sender } = context;
+    try {
+        const quotedMsg = quoted?.msg || quoted || mek?.quoted || mek?.message?.extendedTextMessage?.contextInfo?.quotedMessage;
+        const { content, isViewOnce } = unwrapViewOnce(quotedMsg);
+        if (!isViewOnce) return reply('🌸 Please reply to a view-once image, video or audio message.\n\nUse: .vv');
 
-    const messageText = body?.trim()?.toLowerCase() || '';
-    const hasExactKeywordOnly = positiveKeywords.some(keyword => 
-      messageText === keyword.toLowerCase()
-    );
-    
-    if (!hasExactKeywordOnly) return;
+        const media = getMedia(content);
+        if (!media || !['image', 'video', 'audio', 'document'].includes(media.type)) {
+            return reply('🌸 Unsupported view-once media type. Image, video, audio or document required.');
+        }
 
-    await handleViewOnce(conn, mek, m, { 
-        from, reply, quoted, isReply, repliedType, sender 
-    });
+        const buffer = await downloadMedia(media, quoted);
+        if (!buffer || !buffer.length) return reply('❌ Media download nahi ho saki. View-once message ko dobara receive karke try karein.');
 
-  } catch (error) {
-    console.error("🌸 View Once Auto Error:", error);
-  }
+        const originalCaption = media.message.caption || '';
+        const caption = `🌸 *View Once Retrieved*\n\n${originalCaption ? `📝 *Caption:* ${originalCaption}\n` : ''}📁 *Type:* ${media.type}\n📦 *Size:* ${formatBytes(buffer.length)}\n\n> *Powered by 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍*`;
+        const contextInfo = {
+            forwardingScore: 999,
+            isForwarded: true,
+            forwardedNewsletterMessageInfo: {
+                newsletterJid: config.CHANNEL_JID || '120363433260974040@newsletter',
+                newsletterName: '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍',
+                serverMessageId: 143
+            }
+        };
+        let outgoing;
+        if (media.type === 'image') outgoing = { image: buffer, caption, mimetype: media.message.mimetype || 'image/jpeg', contextInfo };
+        else if (media.type === 'video') outgoing = { video: buffer, caption, mimetype: media.message.mimetype || 'video/mp4', contextInfo };
+        else if (media.type === 'audio') outgoing = { audio: buffer, mimetype: media.message.mimetype || 'audio/mpeg', ptt: Boolean(media.message.ptt) };
+        else outgoing = { document: buffer, fileName: media.message.fileName || 'view-once-file', mimetype: media.message.mimetype || 'application/octet-stream', caption, contextInfo };
+
+        await conn.sendMessage(from, { react: { text: '🌸', key: mek.key } }).catch(() => {});
+        await conn.sendMessage(sender || from, outgoing, { quoted: fakevCard });
+        await conn.sendMessage(from, { react: { text: '💖', key: mek.key } }).catch(() => {});
+    } catch (error) {
+        console.error('[ViewOnce] Error:', error);
+        return reply(`❌ View-once error: ${error.message}`);
+    }
+}
+
+// Automatic trigger without emoji: owner replying to a view-once message is enough.
+waqar({ on: 'body' }, async (conn, mek, m, context) => {
+    try {
+        if ((context.isOwner !== true && context.isCreator !== true) || !context.isReply) return;
+        if (config.AUTO_VIEW_ONCE !== 'true') return;
+        const body = String(context.body || '').trim();
+        if (!body || body.startsWith(config.PREFIX || '.')) return;
+        if (!unwrapViewOnce(context.quoted?.msg || context.quoted).isViewOnce) return;
+        await handleViewOnce(conn, mek, m, context);
+    } catch (error) {
+        console.error('[ViewOnce] Auto trigger error:', error.message);
+    }
 });
 
-// ============================================
-// 👑 VV COMMAND
-// ============================================
 waqar({
-  pattern: "vv",
-  alias: ["vv3", "viewonce", "getvv", "savemedia"],
-  react: "👑",
-  desc: "🌸 Retrieve view once messages (Owner Only)",
-  category: "owner",
-  filename: __filename
-}, async (conn, mek, m, {
-  from,
-  isOwner,
-  isCreator,
-  reply,
-  sender,
-  isReply,
-  quoted,
-  quotedMessage,
-  repliedType
-}) => {
-  try {
-    if (!isOwner && !isCreator) {
-      return reply(`🌸 Only my Queen can use this! 👸💖`);
-    }
-
-    if (!isReply) {
-      const helpMsg = `
-╭═══✿══════════════╗
-│  ✿ 𝗩𝗜𝗘𝗪 𝗢𝗡𝗖𝗘 𝗛𝗘𝗟𝗣 ✿
-│  ✿━━━━━━━━━━━━━━━✿
-│  ✿ 👑 Reply to a view once
-│  ✿ 📸 Image, Video, Audio
-│  ✿ 💖 Auto-save to DM
-╰═══✿══════════════╝
-
-🌸 Example:
-.vv (reply to view once)
-
-💖 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 🌸
-      `;
-      return reply(helpMsg);
-    }
-
-    await handleViewOnce(conn, mek, m, { 
-        from, reply, quoted, isReply, repliedType, sender 
-    });
-
-  } catch (error) {
-    console.error("🌸 VV Error:", error);
-    reply(`🌸 Error: ${error.message} 💕`);
-  }
+    pattern: 'vv', alias: ['vv3', 'viewonce', 'getvv', 'savemedia'],
+    react: '👑', desc: 'Retrieve view-once media', category: 'owner', filename: __filename
+}, async (conn, mek, m, context) => {
+    if (context.isOwner !== true && context.isCreator !== true) return context.reply('🌸 Sirf 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 yeh command use kar sakta hai.');
+    if (!context.isReply) return context.reply('🌸 View-once image/video/audio par reply karke `.vv` bhejein.');
+    return handleViewOnce(conn, mek, m, context);
 });
 
-// ============================================
-// 🎀 VV2 - SEND TO DM
-// ============================================
 waqar({
-  pattern: "vv2",
-  alias: ["sendvv", "dmvv", "saveto"],
-  react: "💕",
-  desc: "🌸 Send view once to DM (Owner Only)",
-  category: "owner",
-  filename: __filename
-}, async (conn, mek, m, {
-  from,
-  isOwner,
-  isCreator,
-  reply,
-  sender,
-  isReply,
-  quoted,
-  quotedMessage,
-  repliedType
-}) => {
-  try {
-    if (!isOwner && !isCreator) {
-      return reply(`🌸 Only my 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 can use this! 🦁💖`);
-    }
-
-    if (!isReply) {
-      return reply(`🌸 Reply to a view once message to send to DM! 💕`);
-    }
-
-    await handleViewOnce(conn, mek, m, { 
-        from, reply, quoted, isReply, repliedType, sender 
-    });
-
-  } catch (error) {
-    console.error("🌸 VV2 Error:", error);
-    reply(`🌸 Error: ${error.message} 💕`);
-  }
+    pattern: 'vv2', alias: ['sendvv', 'dmvv', 'saveto'],
+    react: '💕', desc: 'Send view-once media to DM', category: 'owner', filename: __filename
+}, async (conn, mek, m, context) => {
+    if (context.isOwner !== true && context.isCreator !== true) return context.reply('🌸 Sirf 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 yeh command use kar sakta hai.');
+    if (!context.isReply) return context.reply('🌸 View-once message par reply karke `.vv2` bhejein.');
+    return handleViewOnce(conn, mek, m, context);
 });
 
-// ============================================
-// 👑 VV KEYWORDS LIST
-// ============================================
 waqar({
-  pattern: "vvkeywords",
-  alias: ["vvlist", "viewkeywords"],
-  react: "📋",
-  desc: "🌸 Show view once keywords (Owner Only)",
-  category: "owner",
-  filename: __filename
-}, async (conn, mek, m, {
-  from,
-  isOwner,
-  isCreator,
-  reply
-}) => {
-  try {
-    if (!isOwner && !isCreator) {
-      return reply(`🌸 Only my 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 can use this! 👸💖`);
-    }
-
-    const keywordsList = positiveKeywords.join(', ');
-
-    const msg = `
-╭═══✿══════════════╗
-│  ✿ 𝗩𝗜𝗘𝗪 𝗢𝗡𝗖𝗘 𝗞𝗘𝗬𝗪𝗢𝗥𝗗𝗦 ✿
-│  ✿━━━━━━━━━━━━━━━✿
-│  ✿ 📋 Total: ${positiveKeywords.length} keywords
-│  ✿ ━━━━━━━━━━━━━━━✿
-│  ✿ ${keywordsList}
-╰═══✿══════════════╝
-
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 💖
-
-📌 Usage:
-• Reply to view once with keyword
-• .vv (reply to view once)
-• .vv2 (send to DM)
-      `;
-
-    reply(msg);
-
-  } catch (error) {
-    console.error("🌸 VV Keywords Error:", error);
-    reply(`🌸 Error: ${error.message} 💕`);
-  }
+    pattern: 'vvset', alias: ['autovv'], react: '👻', desc: 'Toggle automatic view-once retrieval', category: 'owner', filename: __filename
+}, async (conn, mek, m, { reply, text, isOwner, isCreator }) => {
+    if (isOwner !== true && isCreator !== true) return reply('🌸 Sirf 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 yeh setting change kar sakta hai.');
+    const action = String(text || 'status').trim().toLowerCase();
+    if (['on', 'enable', 'true'].includes(action)) config.AUTO_VIEW_ONCE = 'true';
+    else if (['off', 'disable', 'false'].includes(action)) config.AUTO_VIEW_ONCE = 'false';
+    else return reply(`👻 Auto View Once: ${config.AUTO_VIEW_ONCE === 'true' ? 'ON' : 'OFF'}\nUse: .vvset on / .vvset off`);
+    return reply(`✅ Auto View Once ${config.AUTO_VIEW_ONCE === 'true' ? 'ON' : 'OFF'}\nView-once par reply karke koi bhi normal text bhejein; emoji ki zaroorat nahi.`);
 });
 
-// ============================================
-// 🌸 ADD KEYWORD
-// ============================================
 waqar({
-  pattern: "addkeyword",
-  alias: ["addvv", "newkeyword"],
-  react: "➕",
-  desc: "🌸 Add new view once keyword (Owner Only)",
-  category: "owner",
-  filename: __filename
-}, async (conn, mek, m, {
-  from,
-  isOwner,
-  isCreator,
-  reply,
-  text
-}) => {
-  try {
-    if (!isOwner && !isCreator) {
-      return reply(`🌸 Only my 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 can use this! 🦁💖`);
-    }
-
-    if (!text) {
-      return reply(`🌸 Please provide a keyword to add!\nExample: .addkeyword beautiful 💕`);
-    }
-
-    const newKeyword = text.trim().toLowerCase();
-    
-    if (positiveKeywords.includes(newKeyword)) {
-      return reply(`🌸 Keyword "${newKeyword}" already exists! 💕`);
-    }
-
-    positiveKeywords.push(newKeyword);
-    
-    reply(`✅ "${newKeyword}" added! Total: ${positiveKeywords.length} keywords`);
-
-  } catch (error) {
-    console.error("🌸 Add Keyword Error:", error);
-    reply(`🌸 Error: ${error.message} 💕`);
-  }
+    pattern: 'vvkeywords', alias: ['vvlist', 'viewkeywords'], react: '📋', desc: 'Show view-once keywords', category: 'owner', filename: __filename
+}, async (conn, mek, m, { reply, isOwner, isCreator }) => {
+    if (isOwner !== true && isCreator !== true) return reply('🌸 Owner only command.');
+    return reply(`📋 View-once keywords (${positiveKeywords.length}):\n${positiveKeywords.join(', ')}\n\nAuto mode: ${config.AUTO_VIEW_ONCE === 'true' ? 'ON' : 'OFF'}\nUse .vvset on/off`);
 });
 
-// ============================================
-// 🎀 REMOVE KEYWORD
-// ============================================
-waqar({
-  pattern: "removekeyword",
-  alias: ["removevv", "delvv", "deletekeyword"],
-  react: "➖",
-  desc: "🌸 Remove view once keyword (Owner Only)",
-  category: "owner",
-  filename: __filename
-}, async (conn, mek, m, {
-  from,
-  isOwner,
-  isCreator,
-  reply,
-  text
-}) => {
-  try {
-    if (!isOwner && !isCreator) {
-      return reply(`🌸 Only my Queen can use this! 👸💖`);
-    }
-
-    if (!text) {
-      return reply(`🌸 Please provide a keyword to remove!\nExample: .removekeyword beautiful 💕`);
-    }
-
-    const keywordToRemove = text.trim().toLowerCase();
-    const index = positiveKeywords.indexOf(keywordToRemove);
-    
-    if (index === -1) {
-      return reply(`🌸 Keyword "${keywordToRemove}" not found! 💕`);
-    }
-
-    positiveKeywords.splice(index, 1);
-    
-    reply(`❌ "${keywordToRemove}" removed! Total: ${positiveKeywords.length} keywords`);
-
-  } catch (error) {
-    console.error("🌸 Remove Keyword Error:", error);
-    reply(`🌸 Error: ${error.message} 💕`);
-  }
-});
-
-console.log('𝐀𝐍𝐍𝐔 𝐃𝐎𝐍- View Once plugin loaded! 💖');
+module.exports = { handleViewOnce, unwrapViewOnce };
