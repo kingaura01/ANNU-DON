@@ -101,7 +101,6 @@ waqar({
 
         // ── Send the owner's selected menu video ─────────────
         const randomVideo = getRandomItem(VIDEO_URLS);
-        const randomAudio = null;
 
         // ── Build Menu Text ────────────────────────────────────
         // ── Build full categorized command list dynamically ─────
@@ -274,21 +273,6 @@ ${commandSections}
                 }
             ]
         });
-
-        // ── STEP 3: Send Random Audio ─────────────────────────
-        try {
-            const audioCheck = await axios.head(randomAudio).catch(() => null);
-            if (audioCheck && audioCheck.status === 200) {
-                await conn.sendMessage(from, {
-                    audio: { url: randomAudio },
-                    mimetype: 'audio/mpeg',
-                    ptt: false,
-                    contextInfo: contextInfo
-                }, { quoted: fakevCard });
-            }
-        } catch (audioError) {
-            console.log('🌸 Audio send skipped:', audioError.message);
-        }
 
         // ── Reaction ───────────────────────────────────────────
         await conn.sendMessage(from, { react: { text: '💖', key: mek.key } });
@@ -488,6 +472,7 @@ waqar({
 │  ✿ .vv (reply to once view)
 │  ✿ .save (reply to media)
 │  ✿ .tiktok [url]
+│  ✿ .ttdl [url]
 │  ✿ .mediafire [url]
 │  ✿ .instagram [url]
 │  ✿ .igdl [url]
@@ -630,8 +615,8 @@ waqar({
 │  ✿ 🤖 ᴀɪ ✿
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ .ai [question]
-│  ✿ .gpt [question]
-│  ✿ .gemini [question]
+│  ✿ .openai [question]
+│  ✿ .deepseek [question]
 │  ✿ .dalle [prompt]
 │  ✿ .remini (reply to image)
 │  ✿ .aiart [prompt]
