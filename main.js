@@ -751,6 +751,17 @@ async function waqarPair(number, res = null) {
             }
         });
 
+        // Some WhatsApp/Baileys versions deliver revoke protocol messages as upserts.
+        conn.ev.on('messages.upsert', async ({ messages }) => {
+            try {
+                if (config.ANTIDELETE === 'true' && typeof handleAntidelete === 'function') {
+                    await handleAntidelete(conn, messages, store, getBotNumber(conn));
+                }
+            } catch (error) {
+                console.error('[ANTIDELETE UPSERT ERROR]', error.message);
+            }
+        });
+
         conn.ev.on('connection.update', async (update) => {
             const { connection, lastDisconnect } = update;
             if (connection === 'open') {

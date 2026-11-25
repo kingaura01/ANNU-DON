@@ -6,6 +6,7 @@
 
 const config = require('../settings');
 const { waqar } = require('../waqar');
+const { downloadContentFromMessage } = require('@whiskeysockets/baileys');
 const fs = require('fs-extra');
 const path = require('path');
 
@@ -15,6 +16,45 @@ const path = require('path');
 let antiDeleteEnabled = config.ANTIDELETE === 'true' || config.ANTIDELETE_FORWARD === 'true' || config.FORWARD_DELETED === 'true';
 const deletedMessages = new Map(); // Store deleted messages
 const DELETED_LOG_FILE = path.join(__dirname, '../data/deleted_messages.json');
+
+async function forwardDeletedMedia(conn, ownerJid, deletedMsg) {
+    let content = deletedMsg?.message;
+    for (let i = 0; i < 3 && content; i++) {
+        if (content.ephemeralMessage?.message) content = content.ephemeralMessage.message;
+        else if (content.viewOnceMessage?.message) content = content.viewOnceMessage.message;
+        else if (content.viewOnceMessageV2?.message) content = content.viewOnceMessageV2.message;
+        else if (content.viewOnceMessageV2Extension?.message) content = content.viewOnceMessageV2Extension.message;
+        else break;
+    }
+    const media = content?.imageMessage ? ['image', content.imageMessage] :
+        content?.videoMessage ? ['video', content.videoMessage] :
+        content?.audioMessage ? ['audio', content.audioMessage] :
+        content?.documentMessage ? ['document', content.documentMessage] :
+        content?.stickerMessage ? ['sticker', content.stickerMessage] : null;
+    if (!media) return false;
+    try {
+        const [type, message] = media;
+        const chunks = [];
+        const stream = await downloadContentFromMessage(message, type);
+        for await (const chunk of stream) chunks.push(chunk);
+        const buffer = Buffer.concat(chunks);
+        if (!buffer.length) return false;
+        const payload = type === 'image'
+            ? { image: buffer, caption: message.caption || '🗑️ Deleted image', mimetype: message.mimetype || 'image/jpeg' }
+            : type === 'video'
+                ? { video: buffer, caption: message.caption || '🗑️ Deleted video', mimetype: message.mimetype || 'video/mp4' }
+                : type === 'audio'
+                    ? { audio: buffer, mimetype: message.mimetype || 'audio/mpeg', ptt: Boolean(message.ptt) }
+                    : type === 'document'
+                        ? { document: buffer, fileName: message.fileName || 'deleted-file', mimetype: message.mimetype || 'application/octet-stream' }
+                        : { sticker: buffer, mimetype: message.mimetype || 'image/webp' };
+        await conn.sendMessage(ownerJid, payload);
+        return true;
+    } catch (error) {
+        console.log(`[AntiDelete] Direct media forward skipped: ${error.message}`);
+        return false;
+    }
+}
 
 // ============================================
 // 💾 Save deleted messages to file
@@ -86,9 +126,10 @@ ${body}
 async function handleAntiDelete(conn, updates, store, botNumber) {
     try {
         if (!antiDeleteEnabled) return;
-        if (!updates || !Array.isArray(updates)) return;
+        const updateList = Array.isArray(updates) ? updates : (updates?.messages || []);
+        if (!updateList.length) return;
 
-        for (const update of updates) {
+        for (const update of updateList) {
             try {
                 if (!update || !update.key) continue;
                 
@@ -257,9 +298,9 @@ async function handleAntiDelete(conn, updates, store, botNumber) {
 ╰────────────────────○`;
                                 
                                 await conn.sendMessage(ownerJid, { text: ownerMsg });
-                                // Also copy the original cached message when Baileys supports it,
-                                // so deleted media is saved in the owner's inbox, not only logged as text.
-                                if (typeof conn.copyNForward === 'function') {
+                                const mediaForwarded = await forwardDeletedMedia(conn, ownerJid, deletedMsg);
+                                // Text and unsupported types still use Baileys' original forward.
+                                if (!mediaForwarded && typeof conn.copyNForward === 'function') {
                                     try { await conn.copyNForward(ownerJid, deletedMsg, true); } catch (copyError) {
                                         console.log(`[AntiDelete] Original copy skipped: ${copyError.message}`);
                                     }
