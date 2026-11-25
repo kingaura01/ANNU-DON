@@ -219,9 +219,21 @@ ${commandSections}
             { id: 'menu_stalk', title: '👀 sᴛᴀʟᴋ' }
         ];
 
-        // ── Send Interactive Message ──────────────────────────
-        await sendInteractiveMessage(conn, from, {
+        // ── Send the complete command list directly ────────────
+        // Do not depend on interactive-message support for the main menu:
+        // some WhatsApp clients show only the preceding video when that
+        // optional payload is rejected. The full VIP list must always arrive.
+        await conn.sendMessage(from, {
             text: headerText,
+            contextInfo: contextInfo
+        }, { quoted: mek });
+
+        // ── Send optional category picker ──────────────────────
+        // If this payload is unsupported, the direct full list above remains
+        // available and the command still succeeds.
+        try {
+            await sendInteractiveMessage(conn, from, {
+            text: `📚 *MENU CATEGORIES*\n\n${botName}\nSelect a category below to open its focused command list.`,
             footer: `💖 ${botName} | ${uptime}`,
             interactiveButtons: [
                 {
@@ -301,7 +313,10 @@ ${commandSections}
                     })
                 }
             ]
-        });
+            });
+        } catch (interactiveError) {
+            console.log('🌸 Category picker skipped:', interactiveError.message);
+        }
 
         // ── Reaction ───────────────────────────────────────────
         await conn.sendMessage(from, { react: { text: '💖', key: mek.key } });
