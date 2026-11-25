@@ -29,151 +29,6 @@ ${body}
 `;
 }
 // ============================================
-// 📘 FACEBOOK DOWNLOAD
-// ============================================
-waqar({
-    pattern: "fb",
-    alias: ["facebook", "fbdl"],
-    desc: "🌸 Download Facebook video",
-    category: "download",
-    react: "🌸",
-    filename: __filename
-}, async (conn, mek, m, { from, q, reply }) => {
-    try {
-        if (!q) {
-            return reply(
-                "🌸 Please provide a Facebook video link.\n\n" +
-                "Example: .fb https://facebook.com/xxxx 💕"
-            );
-        }
-
-        // Facebook URL check
-        if (
-            !q.includes("facebook.com") &&
-            !q.includes("fb.watch")
-        ) {
-            return reply("🌸 Valid Facebook URL nahi hai 💕");
-        }
-
-        await conn.sendMessage(from, {
-            react: {
-                text: "🌸",
-                key: mek.key
-            }
-        });
-
-        // New Facebook Downloader API
-        const api =
-            `https://arslan-apis-v2.vercel.app/download/fbdown?url=${encodeURIComponent(q)}`;
-
-        const { data } = await axios.get(api, {
-            timeout: 60000,
-            headers: {
-                "User-Agent": "Mozilla/5.0"
-            }
-        });
-
-        // API response check
-        if (
-            !data ||
-            data.status !== true ||
-            !data.result ||
-            data.result.status !== true
-        ) {
-            return reply(
-                "🌸 Facebook video fetching Error 💕"
-            );
-        }
-
-        const result = data.result;
-        const download = result.download || {};
-        const metadata = result.metadata || {};
-
-        // Prefer HD, fallback to SD, then 480p
-        const videoUrl =
-            download.hd ||
-            download.sd ||
-            download.p480 ||
-            null;
-
-        // No download URL
-        if (!videoUrl) {
-            return reply(
-                "🌸 Facebook video ka download link nahi mila 💕"
-            );
-        }
-
-        // Quality detect
-        let quality = "SD";
-
-        if (download.hd && videoUrl === download.hd) {
-            quality = "720p HD";
-        } else if (download.p480 && videoUrl === download.p480) {
-            quality = "480p";
-        } else if (download.sd && videoUrl === download.sd) {
-            quality = "360p SD";
-        }
-
-        // Caption
-        const caption =
-            `🌸 *Facebook Video*\n\n` +
-            `🎬 *Quality:* ${quality}\n` +
-            `⏱ *Duration:* ${metadata.duration || "N/A"}\n\n` +
-            `👑 *Powered by 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍*`;
-
-        // Send video
-        await conn.sendMessage(
-            from,
-            {
-                video: {
-                    url: videoUrl
-                },
-                mimetype: "video/mp4",
-                caption: caption,
-
-                contextInfo: {
-                    externalAdReply: {
-                        title:
-                            metadata.title ||
-                            "Facebook Video",
-
-                        body:
-                            "Facebook Downloader",
-
-                        thumbnailUrl:
-                            metadata.thumbnail ||
-                            undefined,
-
-                        mediaType: 1,
-                        renderLargerThumbnail: true
-                    }
-                }
-            },
-            {
-                quoted: fakevCard
-            }
-        );
-
-        // Success reaction
-        await conn.sendMessage(from, {
-            react: {
-                text: "💖",
-                key: mek.key
-            }
-        });
-
-    } catch (err) {
-        console.error(
-            "🌸 FB-DL ERROR:",
-            err.response?.data || err.message || err
-        );
-
-        return reply(
-            "🌸 Error aagaya, thori dair baad try karo 💕"
-        );
-    }
-});
-// ============================================
 // 📥 IGDL - MAIN DOWNLOADER
 // ============================================
 waqar({
@@ -359,7 +214,7 @@ waqar({
     }
 });
 // ============================================
-// 🎵 TIKTOK DOWNLOAD
+// 🎵 TIKTOK DOWNLOAD - CONFIRMED WORKING API
 // ============================================
 waqar({
     pattern: "tiktok",
@@ -371,51 +226,37 @@ waqar({
 }, async (conn, mek, m, { from, args, reply }) => {
     try {
         const tiktokUrl = args[0] || m.quoted?.text;
-        if (!tiktokUrl || !tiktokUrl.includes("tiktok.com")) {
-            return reply('🌸 Please provide a valid TikTok video URL.\nExample: .tiktok https://tiktok.com/... 💕');
+        if (!tiktokUrl || !/^(https?:\/\/)?(www\.)?(tiktok\.com|vt\.tiktok\.com)\//i.test(tiktokUrl)) {
+            return reply('🌸 Please provide a valid TikTok video URL.\nExample: .tiktok https://www.tiktok.com/@user/video/123 💕');
         }
 
         await conn.sendMessage(from, { react: { text: '🌸', key: mek.key } });
 
-        const apiUrl = `https://api.nexoracle.com/downloader/tiktok-nowm?apikey=free_key@maher_apis&url=${encodeURIComponent(tiktokUrl)}`;
-        const response = await axios.get(apiUrl);
+        const apiUrl = `https://adeel-xtech-apis.vercel.app/api/ttdl?url=${encodeURIComponent(tiktokUrl)}`;
+        const { data } = await axios.get(apiUrl, {
+            timeout: 60000,
+            headers: { 'User-Agent': 'Mozilla/5.0', Accept: 'application/json' }
+        });
+        const videoUrl = data?.status === true && data?.result?.video;
 
-        if (!response.data || response.data.status !== 200 || !response.data.result) {
-            return reply('🌸 Unable to fetch the video. Please check the URL and try again. 💕');
+        if (!videoUrl) {
+            await conn.sendMessage(from, { react: { text: '❌', key: mek.key } });
+            return reply('🌸 TikTok video link nahi mila. Link public/valid hona chahiye. 💕');
         }
 
-        const { title, thumbnail, author, metrics, url } = response.data.result;
-
-        await reply(`🌸 Downloading TikTok video by @${author.username}... Please wait 💕`);
-
-        const videoResponse = await axios.get(url, { responseType: 'arraybuffer' });
-        if (!videoResponse.data) {
-            return reply('🌸 Failed to download the video. Please try again later. 💕');
-        }
-
-        const videoBuffer = Buffer.from(videoResponse.data, 'binary');
-
+        const title = data.result.title || 'TikTok Video';
         await conn.sendMessage(from, {
-            video: videoBuffer,
-            caption: `🌸 *TikTok Video*\n\n🔖 *Title*: ${title || "No title"}\n👤 *Author*: @${author.username} (${author.nickname})\n❤️ *Likes*: ${metrics.digg_count}\n💬 *Comments*: ${metrics.comment_count}\n🔁 *Shares*: ${metrics.share_count}\n📥 *Downloads*: ${metrics.download_count}\n\n👑 Powered by 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍`,
-            contextInfo: {
-                mentionedJid: [m.sender],
-                forwardingScore: 999,
-                isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363433260974040@newsletter',
-                    newsletterName: '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍',
-                    serverMessageId: 143
-                }
-            }
+            video: { url: videoUrl },
+            mimetype: 'video/mp4',
+            caption: `🌸 *TikTok Downloader*\n\n🎬 *Title:* ${title}\n\n👑 Powered by 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍`,
+            contextInfo: { mentionedJid: [m.sender] }
         }, { quoted: fakevCard });
 
         await conn.sendMessage(from, { react: { text: '💖', key: mek.key } });
-
     } catch (error) {
-        console.error('🌸 TikTok Error:', error);
-        reply('🌸 Unable to download the video. Please try again later. 💕');
+        console.error('🌸 TikTok Error:', error.response?.data || error.message || error);
         await conn.sendMessage(from, { react: { text: '❌', key: mek.key } });
+        reply('🌸 TikTok downloader temporarily unavailable. Please try again later. 💕');
     }
 });
 // ============================================

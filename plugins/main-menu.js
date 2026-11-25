@@ -487,8 +487,6 @@ waqar({
 │  ✿ .getpp [number]
 │  ✿ .vv (reply to once view)
 │  ✿ .save (reply to media)
-│  ✿ .facebook [url]
-│  ✿ .fb [url]
 │  ✿ .tiktok [url]
 │  ✿ .mediafire [url]
 │  ✿ .instagram [url]
@@ -524,7 +522,6 @@ waqar({
 ╭────────────────────◇
 │  ✿ 🛠 ᴜᴛɪʟɪᴛʏ ✿
 │  ✿━━━━━━━━━━━━━━━✿
-│  ✿ .simdata [number]
 │  ✿ .time
 │  ✿ .repo
 │  ✿ .owner
