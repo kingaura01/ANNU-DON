@@ -87,7 +87,7 @@ waqar({
             forwardingScore: 999,
             isForwarded: true,
             forwardedNewsletterMessageInfo: {
-                newsletterJid: '120363431096532056@newsletter',
+                newsletterJid: '120363433260974040@newsletter',
                 newsletterName: '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍',
                 serverMessageId: 143
             }

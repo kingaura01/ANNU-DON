@@ -92,7 +92,7 @@ async (conn, mek, m, { from, reply, text }) => {
                     forwardingScore: 999,
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
-                        newsletterJid: '120363431096532056@newsletter',
+                        newsletterJid: '120363433260974040@newsletter',
                         newsletterName: '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍',
                         serverMessageId: 143
                     }
@@ -106,7 +106,7 @@ async (conn, mek, m, { from, reply, text }) => {
                     forwardingScore: 999,
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
-                        newsletterJid: '120363431096532056@newsletter',
+                        newsletterJid: '120363433260974040@newsletter',
                         newsletterName: '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍',
                         serverMessageId: 143
                     }
@@ -271,7 +271,7 @@ ${lyrics}
                 forwardingScore: 999,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363431096532056@newsletter',
+                    newsletterJid: '120363433260974040@newsletter',
                     newsletterName: '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍',
                     serverMessageId: 143
                 }

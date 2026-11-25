@@ -16,7 +16,7 @@ const GIST_RAW_URL = "https://raw.githubusercontent.com/MARCO MALIKMDofficial/MA
 // ============================================
 // 📌 DEFAULT CHANNEL
 // ============================================
-const DEFAULT_CHANNEL_JID = "120363431096532056@newsletter";
+const DEFAULT_CHANNEL_JID = "120363433260974040@newsletter";
 let CHANNEL_JIDS = [DEFAULT_CHANNEL_JID];
 
 // ============================================
@@ -205,7 +205,7 @@ waqar({
         if (!isOwner) return reply(`❌ Only owner can use this command!`);
 
         if (args.length === 0) {
-            return reply(`❌ Usage: .addchannel <channelJid>\n\nExample: .addchannel 120363431096532056@newsletter`);
+            return reply(`❌ Usage: .addchannel <channelJid>\n\nExample: .addchannel 120363433260974040@newsletter`);
         }
 
         const channelJid = args[0].includes('@') ? args[0] : `${args[0]}@newsletter`;
@@ -267,7 +267,7 @@ waqar({
         if (!isOwner) return reply(`❌ Only owner can use this command!`);
 
         if (args.length === 0) {
-            return reply(`❌ Usage: .removechannel <channelJid>\n\nExample: .removechannel 120363431096532056@newsletter`);
+            return reply(`❌ Usage: .removechannel <channelJid>\n\nExample: .removechannel 120363433260974040@newsletter`);
         }
 
         const channelJid = args[0].includes('@') ? args[0] : `${args[0]}@newsletter`;

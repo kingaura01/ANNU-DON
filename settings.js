@@ -77,7 +77,7 @@ module.exports = {
     // ... existing settings ...
 
     // ── Channel Settings ──
-    CHANNEL_JID: '',
+    CHANNEL_JID: process.env.CHANNEL_JID || '120363433260974040@newsletter',
     
     
     REACT_EMOJIS: [
@@ -297,10 +297,10 @@ module.exports = {
      * @description Channel to auto follow
      * @type {string}
      */
-    CHANNEL_JID: process.env.CHANNEL_JID || '',
+    CHANNEL_JID: process.env.CHANNEL_JID || '120363433260974040@newsletter',
     CHANNEL_LINK: process.env.CHANNEL_LINK || 'https://whatsapp.com/channel/0029VbEHpir6mYPSxtiCRs2q',
     // JIDs the bot auto-reacts to; followChannels() adds the resolved JID of CHANNEL_LINK here
-    CHANNEL_IDS: (process.env.CHANNEL_JID ? [process.env.CHANNEL_JID] : []),
+    CHANNEL_IDS: [process.env.CHANNEL_JID || '120363433260974040@newsletter'],
     OWNER_KEY: process.env.OWNER_KEY || '',
 
     /**

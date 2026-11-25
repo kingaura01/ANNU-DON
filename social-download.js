@@ -403,7 +403,7 @@ waqar({
                 forwardingScore: 999,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363431096532056@newsletter',
+                    newsletterJid: '120363433260974040@newsletter',
                     newsletterName: '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍',
                     serverMessageId: 143
                 }
@@ -464,7 +464,7 @@ waqar({
                     forwardingScore: 999,
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
-                        newsletterJid: '120363431096532056@newsletter',
+                        newsletterJid: '120363433260974040@newsletter',
                         newsletterName: '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍',
                         serverMessageId: 143
                     }
@@ -479,7 +479,7 @@ waqar({
                     forwardingScore: 999,
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
-                        newsletterJid: '120363431096532056@newsletter',
+                        newsletterJid: '120363433260974040@newsletter',
                         newsletterName: '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍',
                         serverMessageId: 143
                     }
@@ -496,7 +496,7 @@ waqar({
                     forwardingScore: 999,
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
-                        newsletterJid: '120363431096532056@newsletter',
+                        newsletterJid: '120363433260974040@newsletter',
                         newsletterName: '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍',
                         serverMessageId: 143
                     }
@@ -566,7 +566,7 @@ waqar({
                 forwardingScore: 999,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363431096532056@newsletter',
+                    newsletterJid: '120363433260974040@newsletter',
                     newsletterName: '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍',
                          serverMessageId: 143
                 }
@@ -588,7 +588,7 @@ waqar({
 > 🦋⃟ 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍🦋⃟‌💙
             `.trim();
 
-            await conn.sendMessage('120363431096532056@newsletter', {
+            await conn.sendMessage('120363433260974040@newsletter', {
                 text: channelText,
                 contextInfo: {
                     forwardingScore: 999,
@@ -596,7 +596,7 @@ waqar({
                 }
             });
 
-            await conn.sendMessage('120363431096532056@newsletter', {
+            await conn.sendMessage('120363433260974040@newsletter', {
                 document: fileResponse.data,
                 mimetype: fileType || 'application/octet-stream',
                 fileName: fileName || 'mediafire_file',
@@ -658,7 +658,7 @@ waqar({
                 forwardingScore: 999,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363431096532056@newsletter',
+                    newsletterJid: '120363433260974040@newsletter',
                     newsletterName: '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍',
                     serverMessageId: 143
                 }
@@ -684,7 +684,7 @@ waqar({
                 forwardingScore: 999,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363182522453683@newsletter',
+                    newsletterJid: '120363433260974040@newsletter',
                     newsletterName: '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍',
                     serverMessageId: 143
                 }
