@@ -49,7 +49,7 @@ async function PresenceControl(conn, update) {
         }
         
         // Auto online
-        if (userConfig.AUTO_ONLINE === 'true' || config.AUTO_ONLINE === 'true') {
+        if (config.GHOST_MODE !== 'true' && (userConfig.AUTO_ONLINE === 'true' || config.AUTO_ONLINE === 'true')) {
             try {
                 await conn.sendPresenceUpdate('available', id);
             } catch (e) {}
@@ -68,6 +68,12 @@ async function BotActivityFilter(conn) {
     try {
         if (!conn) return;
         
+        // Ghost mode must stay unavailable even if another feature requests online status.
+        if (config.GHOST_MODE === 'true') {
+            try { await conn.sendPresenceUpdate('unavailable'); } catch (e) {}
+            return;
+        }
+
         // Set bot online status
         if (config.BOT_ONLINE === 'true') {
             try {

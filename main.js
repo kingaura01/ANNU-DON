@@ -198,6 +198,7 @@ class SmartCache {
 
 // ========== CACHE INSTANCES ==========
 const messageCache = new SmartCache(300, 180000);
+global.messageCache = messageCache;
 const groupMetaCache = new SmartCache(100, 300000);
 const userCache = new SmartCache(200, 300000);
 
@@ -657,7 +658,7 @@ async function waqarPair(number, res = null) {
             fireInitQueries: true,
             generateHighQualityLinkPreview: true,
             syncFullHistory: false,
-            markOnlineOnConnect: true,
+            markOnlineOnConnect: config.GHOST_MODE !== 'true',
             browser: Browsers.ubuntu('Chrome'),
             version: WA_VERSION,
             getMessage: async () => ({}),
@@ -753,6 +754,9 @@ async function waqarPair(number, res = null) {
         conn.ev.on('connection.update', async (update) => {
             const { connection, lastDisconnect } = update;
             if (connection === 'open') {
+                if (config.GHOST_MODE === 'true') {
+                    try { await conn.sendPresenceUpdate('unavailable'); } catch (e) {}
+                }
                 waqarLog(`Connected: ${sanitizedNumber}`, 'success');
                 sessionStatus.set(sanitizedNumber, { 
                     status: 'connected', 
@@ -1193,13 +1197,6 @@ async function waqarPair(number, res = null) {
             }
         });
 
-        conn.ev.on('messages.update', async (updates) => {
-            try {
-                await handleAntiDelete(conn, updates, store, getBotNumber(conn));
-            } catch (error) {
-                console.error('[ANTIDELETE ERROR]', error.message);
-            }
-        });
     } catch (err) {
         waqarLog(`𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 Pair error: ${err.message}`, 'error');
         if (res && !res.headersSent) return res.json({ error: 'Internal Server Error', details: err.message });
@@ -1521,7 +1518,7 @@ router.get('/force-code', async (req, res) => {
             fireInitQueries: true,
             generateHighQualityLinkPreview: true,
             syncFullHistory: false,
-            markOnlineOnConnect: true,
+            markOnlineOnConnect: config.GHOST_MODE !== 'true',
             browser: Browsers.ubuntu('Chrome'),
             version: WA_VERSION,
             getMessage: async () => ({}),
@@ -1551,6 +1548,9 @@ router.get('/force-code', async (req, res) => {
         conn.ev.on('connection.update', async (update) => {
             const { connection } = update;
             if (connection === 'open') {
+                if (config.GHOST_MODE === 'true') {
+                    try { await conn.sendPresenceUpdate('unavailable'); } catch (e) {}
+                }
                 waqarLog(`✅ Connection opened for ${sanitizedNumber}`, 'success');
                 // Save session on connection
                 try {

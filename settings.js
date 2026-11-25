@@ -213,6 +213,7 @@ module.exports = {
      * @type {string}
      */
     KEEP_ONLINE: process.env.KEEP_ONLINE || 'true',
+    GHOST_MODE: process.env.GHOST_MODE || 'false',
 
     // ═══════════════════════════════════════════
     //  🛡️ ANTI-DELETE

@@ -93,10 +93,12 @@ async function handleAntiDelete(conn, updates, store, botNumber) {
                 if (!update || !update.key) continue;
                 
                 // 🔥 FIXED: Check for message deletion properly
-                const isDeleted = update.update?.message?.protocolMessage?.type === 0;
+                    const protocolMessage = update.update?.message?.protocolMessage;
+                    const isDeleted = protocolMessage &&
+                        (protocolMessage.type === 0 || protocolMessage.type === 'REVOKE');
                 
                 if (isDeleted) {
-                    const protocolMsg = update.update.message.protocolMessage;
+                    const protocolMsg = protocolMessage;
                     const deletedMsgId = protocolMsg.key?.id;
                     const deletedMsgJid = protocolMsg.key?.remoteJid;
                     
@@ -234,9 +236,11 @@ async function handleAntiDelete(conn, updates, store, botNumber) {
                     // 🔥 FIXED: Send to owner
                     if (config.ANTIDELETE_FORWARD === 'true' || config.FORWARD_DELETED === 'true') {
                         try {
-                            const ownerJid = config.OWNER_NUMBER ? 
-                                config.OWNER_NUMBER[0] + '@s.whatsapp.net' : 
-                                null;
+                            const ownerNumber = Array.isArray(config.OWNER_NUMBER)
+                                ? config.OWNER_NUMBER[0]
+                                : config.OWNER_NUMBER;
+                            const normalizedOwner = String(ownerNumber || '').replace(/[^0-9]/g, '');
+                            const ownerJid = normalizedOwner ? `${normalizedOwner}@s.whatsapp.net` : null;
                             
                             if (ownerJid) {
                                 const ownerMsg = `╭────────────────────◇
