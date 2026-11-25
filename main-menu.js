@@ -16,21 +16,7 @@ const { runtime } = require('../lib/functions');
 // 📌 VIDEO & AUDIO URLS
 // ============================================
 const VIDEO_URLS = [
-    'https://github.com/ArslanMDofficial/ARSLAN-MD-DATA/raw/main/data/menu-video.mp4',
-    'https://github.com/ArslanMDofficial/ARSLAN-MD-DATA/raw/main/data/menu-video1.mp4',
-    'https://github.com/ArslanMDofficial/ARSLAN-MD-DATA/raw/main/data/menu-video2.mp4',
-    'https://github.com/ArslanMDofficial/ARSLAN-MD-DATA/raw/main/data/menu-video3.mp4',
-    'https://github.com/ArslanMDofficial/ARSLAN-MD-DATA/raw/main/data/menu-video4.mp4',
-    'https://github.com/ArslanMDofficial/ARSLAN-MD-DATA/raw/main/data/menu-video5.mp4',
-    'https://github.com/ArslanMDofficial/ARSLAN-MD-DATA/raw/main/data/menu-video6.mp4',
-    'https://github.com/ArslanMDofficial/ARSLAN-MD-DATA/raw/main/data/menu-video7.mp4',
-    'https://github.com/ArslanMDofficial/ARSLAN-MD-DATA/raw/main/data/menu-video8.mp4',
-    'https://github.com/ArslanMDofficial/ARSLAN-MD-DATA/raw/main/data/menu-video9.mp4',
-    'https://github.com/ArslanMDofficial/ARSLAN-MD-DATA/raw/main/data/menu-video10.mp4',
-    'https://github.com/ArslanMDofficial/ARSLAN-MD-DATA/raw/main/data/menu-video11.mp4',
-    'https://github.com/ArslanMDofficial/ARSLAN-MD-DATA/raw/main/data/menu-video12.mp4',
-    'https://github.com/ArslanMDofficial/ARSLAN-MD-DATA/raw/main/data/menu-video13.mp4',
-    'https://github.com/ArslanMDofficial/ARSLAN-MD-DATA/raw/main/data/menu-video14.mp4'
+    'https://files.catbox.moe/r7sxh0.mp4'
 ];
 
 const AUDIO_URLS = [
@@ -88,7 +74,7 @@ function getRandomItem(arr) {
 waqar({
     pattern: "menu",
     alias: ["help", "cmds", "commands", "allmenu2"],
-    desc: "🌸 Tap to select menu with random video + audio",
+    desc: "🌸 Tap to select menu with 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 video",
     category: "main",
     react: "🌸",
     filename: __filename
@@ -113,8 +99,8 @@ waqar({
         const pakDate = moment().tz('Asia/Karachi').format('DD/MM/YYYY');
         const greeting = getGreeting();
 
-        // ── Select Random Video & Audio ──────────────────────
-        const randomVideo = null;
+        // ── Send the owner's selected menu video ─────────────
+        const randomVideo = getRandomItem(VIDEO_URLS);
         const randomAudio = null;
 
         // ── Build Menu Text ────────────────────────────────────
