@@ -15,23 +15,32 @@ const positiveKeywords = [
 ];
 
 function unwrapViewOnce(input) {
+    // `quoted` can be the bot wrapper ({ message }) or raw quotedMessage.
     let current = input?.message || input;
     let isViewOnce = false;
-    for (let i = 0; i < 4 && current; i++) {
-        if (current.viewOnceMessage?.message) {
+    for (let i = 0; i < 8 && current; i++) {
+        const wrapper = current.viewOnceMessage ||
+            current.viewOnceMessageV2 ||
+            current.viewOnceMessageV2Extension;
+        if (wrapper?.message) {
             isViewOnce = true;
-            current = current.viewOnceMessage.message;
-        } else if (current.viewOnceMessageV2?.message) {
-            isViewOnce = true;
-            current = current.viewOnceMessageV2.message;
-        } else if (current.viewOnceMessageV2Extension?.message) {
-            isViewOnce = true;
-            current = current.viewOnceMessageV2Extension.message;
-        } else {
-            break;
+            current = wrapper.message;
+            continue;
         }
+        // View-once media is often nested inside an ephemeral message.
+        if (current.ephemeralMessage?.message) {
+            current = current.ephemeralMessage.message;
+            continue;
+        }
+        if (current.documentWithCaptionMessage?.message) {
+            current = current.documentWithCaptionMessage.message;
+            continue;
+        }
+        break;
     }
-    if (current?.imageMessage?.viewOnce || current?.videoMessage?.viewOnce || current?.audioMessage?.viewOnce) {
+    const media = current || {};
+    if (media.imageMessage?.viewOnce || media.videoMessage?.viewOnce ||
+        media.audioMessage?.viewOnce || media.documentMessage?.viewOnce) {
         isViewOnce = true;
     }
     return { content: current, isViewOnce };
@@ -80,6 +89,7 @@ async function handleViewOnce(conn, mek, m, context) {
     const { from, reply, quoted, sender } = context;
     try {
         const quotedMsg = quoted?.msg || quoted || mek?.quoted || mek?.message?.extendedTextMessage?.contextInfo?.quotedMessage;
+        if (!quotedMsg) return reply('🌸 View-once message par reply karke `.vv` bhejein.');
         const { content, isViewOnce } = unwrapViewOnce(quotedMsg);
         if (!isViewOnce) return reply('🌸 Please reply to a view-once image, video or audio message.\n\nUse: .vv');
 
@@ -109,7 +119,7 @@ async function handleViewOnce(conn, mek, m, context) {
         else outgoing = { document: buffer, fileName: media.message.fileName || 'view-once-file', mimetype: media.message.mimetype || 'application/octet-stream', caption, contextInfo };
 
         await conn.sendMessage(from, { react: { text: '🌸', key: mek.key } }).catch(() => {});
-        await conn.sendMessage(sender || from, outgoing, { quoted: fakevCard });
+        await conn.sendMessage(sender || m?.sender || from, outgoing, { quoted: fakevCard });
         await conn.sendMessage(from, { react: { text: '💖', key: mek.key } }).catch(() => {});
     } catch (error) {
         console.error('[ViewOnce] Error:', error);
