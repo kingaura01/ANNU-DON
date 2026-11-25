@@ -1,32 +1,25 @@
 // ============================================
 // 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 - VIDEO DOWNLOADER
-// 👑 Developer: 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
-// 💖 Boys Power Mode: ON
-// 📌 Multi-API video downloader with trim support
+// Uses yt-dlp with FFmpeg to avoid stale third-party download URLs.
 // ============================================
 
 const { waqar } = require('../waqar');
-const config = require('../config');
-const axios = require('axios');
 const yts = require('yt-search');
 const ffmpeg = require('fluent-ffmpeg');
-const ffmpegPath = require('ffmpeg-static');
+const ffmpegPath = process.env.FFMPEG_PATH || require('ffmpeg-static');
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 const { fakevCard } = require('../lib/fakevCard');
+const { isYouTubeUrl, downloadYouTubeMedia, cleanupDownloadedMedia } = require('../lib/youtubeDownloader');
 
-// ============ FFMPEG PATH SET ============
 ffmpeg.setFfmpegPath(ffmpegPath);
 
-// ============ TEMP DIRECTORY ============
 const tempDir = path.join(__dirname, '../temp');
 if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir, { recursive: true });
 
-// ============================================
-// 🦁 BOYS STYLE FORMATTER
-// ============================================
 function girlBox(title, rows) {
-    const body = rows.map(([emoji, label, value]) => 
+    const body = rows.map(([emoji, label, value]) =>
         `│  ✿ ${emoji} ${label}: ${value || ''}`
     ).join('\n');
     return `
@@ -40,78 +33,24 @@ ${body}
 `;
 }
 
-// ============ APIs (MULTIPLE FALLBACKS) ============
-const APIS = {
-    mainApi: async (url, type) => {
-        try {
-            const endpoint = type === 'video' ? 'ytmp4' : 'ytmp3';
-            const response = await axios.get(`https://arslan-apis-v2.vercel.app/download/${endpoint}`, {
-                params: { url: url },
-                timeout: 30000
-            });
-            if (response.data?.status === true && response.data?.result?.download?.url) {
-                return {
-                    success: true,
-                    downloadUrl: response.data.result.download.url,
-                    title: response.data.result.metadata?.title || '🌸 Media',
-                    quality: response.data.result.metadata?.quality || (type === 'video' ? '360p' : '128kbps')
-                };
-            }
-            return { success: false };
-        } catch (e) {
-            return { success: false };
-        }
-    },
-    eliteProTech: async (url, type) => {
-        try {
-            const format = type === 'video' ? 'mp4' : 'mp3';
-            const response = await axios.get(`https://eliteprotech-apis.zone.id/ytdown`, {
-                params: { url: url, format: format },
-                timeout: 30000
-            });
-            if (response.data?.success && response.data?.downloadURL) {
-                return {
-                    success: true,
-                    downloadUrl: response.data.downloadURL,
-                    title: response.data.title || '🌸 Media',
-                    quality: type === 'video' ? '720p' : '320kbps'
-                };
-            }
-            return { success: false };
-        } catch (e) {
-            return { success: false };
-        }
-    },
-    gifted: async (url, type) => {
-        try {
-            const endpoint = type === 'video' ? 'ytmp4v2' : 'ytmp3v2';
-            const response = await axios.get(`https://api.giftedtech.co.ke/api/download/${endpoint}`, {
-                params: { apikey: 'gifted', url: url },
-                timeout: 30000
-            });
-            if (response.data?.success && response.data?.result?.download_url) {
-                return {
-                    success: true,
-                    downloadUrl: response.data.result.download_url,
-                    title: response.data.result.title || '🌸 Media',
-                    quality: response.data.result.quality || (type === 'video' ? '720p' : '320kbps')
-                };
-            }
-            return { success: false };
-        } catch (e) {
-            return { success: false };
-        }
-    }
-};
-
-// ============ SEARCH VIDEO ============
 async function searchVideo(query) {
     const search = await yts(query);
-    if (!search.videos || search.videos.length === 0) throw new Error("🌸 No results found! 💕");
+    if (!search?.videos?.length) throw new Error('No YouTube results found.');
     return search.videos[0];
 }
 
-// ============ FFMPEG TRIM FUNCTION ============
+async function getVideoDetails(url) {
+    try {
+        const parsed = new URL(url);
+        const videoId = parsed.searchParams.get('v') || parsed.pathname.split('/').filter(Boolean).pop();
+        if (videoId) {
+            const details = await yts({ videoId });
+            if (details?.title) return details;
+        }
+    } catch (_) {}
+    return null;
+}
+
 async function trimVideo(inputPath, outputPath, start, duration) {
     return new Promise((resolve, reject) => {
         ffmpeg(inputPath)
@@ -124,21 +63,19 @@ async function trimVideo(inputPath, outputPath, start, duration) {
     });
 }
 
-// ============================================
-// 🎬 MAIN VIDEO COMMAND
-// ============================================
 waqar({
-    pattern: "video",
-    alias: ["ytv", "video3", "video2", "video4"],
-    desc: "🌸 Download YouTube video",
-    category: "download",
-    react: "🌸",
+    pattern: 'video',
+    alias: ['ytv', 'video3', 'video2', 'video4'],
+    desc: 'Download YouTube video',
+    category: 'download',
+    react: '🌸',
     filename: __filename
 }, async (conn, mek, m, { from, args, reply }) => {
+    let downloadedPath;
+    let trimmedPath;
     try {
         if (!args.length) {
-            const helpMsg = `
-╭═══✿══════════════╗
+            return reply(`╭═══✿══════════════╗
 │  ✿ 🎬 𝗩𝗜𝗗𝗘𝗢 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗𝗘𝗥 ✿
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ 📝 Usage: .video <name or link>
@@ -147,218 +84,146 @@ waqar({
 │  ✿ ✂️ Trim: .video <link> trim 00:00:10 00:00:30
 ╰═══✿══════════════╝
 
-🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 💖
-            `;
-            return reply(helpMsg);
+🌸 Powered by 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 💖`);
         }
 
-        let query = args.join(" ");
+        let query = args.join(' ');
         let trimStart = null;
         let trimDuration = null;
-        
-        // Check for trim command
-        if (args.includes("trim")) {
-            const trimIndex = args.indexOf("trim");
-            if (args.length > trimIndex + 2) {
-                trimStart = args[trimIndex + 1];
-                trimDuration = args[trimIndex + 2];
-                query = args.slice(0, trimIndex).join(" ");
+        const trimIndex = args.findIndex(arg => arg.toLowerCase() === 'trim');
+        if (trimIndex >= 0 && args.length > trimIndex + 2) {
+            trimStart = args[trimIndex + 1];
+            trimDuration = args[trimIndex + 2];
+            query = args.slice(0, trimIndex).join(' ');
+        }
+
+        if (!query) return reply('Please provide a YouTube name or link.');
+        await conn.sendMessage(from, { react: { text: '🌸', key: mek.key } });
+
+        let video;
+        let videoUrl;
+        if (isYouTubeUrl(query)) {
+            videoUrl = query;
+            video = await getVideoDetails(videoUrl);
+        } else {
+            video = await searchVideo(query);
+            videoUrl = video.url;
+        }
+
+        const videoTitle = video?.title || 'YouTube Video';
+        const videoThumb = video?.thumbnail;
+        const videoDuration = video?.timestamp || 'Unknown';
+        const videoViews = video?.views || 'N/A';
+
+        if (videoThumb) {
+            try {
+                await conn.sendMessage(from, {
+                    image: { url: videoThumb },
+                    caption: girlBox('🎬 VIDEO INFO', [
+                        ['🎬', 'Title', videoTitle.slice(0, 60) + (videoTitle.length > 60 ? '...' : '')],
+                        ['⏱️', 'Duration', videoDuration],
+                        ['👁️', 'Views', videoViews],
+                        ['⏳', 'Status', 'Processing...']
+                    ])
+                }, { quoted: fakevCard });
+            } catch (imageError) {
+                console.warn('Video thumbnail could not be sent:', imageError.message);
             }
         }
 
-        await conn.sendMessage(from, { react: { text: "🌸", key: mek.key } });
+        downloadedPath = await downloadYouTubeMedia(videoUrl, 'video');
+        let sendPath = downloadedPath;
+        let caption;
 
-        // Get video URL and info
-        let videoUrl, videoTitle, videoThumb, videoDuration, videoViews;
-        
-        if (query.includes('youtube.com') || query.includes('youtu.be')) {
-            videoUrl = query;
-            try {
-                const videoId = videoUrl.match(/(?:youtu\.be\/|v=)([a-zA-Z0-9_-]{11})/)?.[1];
-                if (videoId) {
-                    const search = await yts({ videoId });
-                    if (search) {
-                        videoTitle = search.title;
-                        videoThumb = search.thumbnail;
-                        videoDuration = search.timestamp;
-                        videoViews = search.views;
-                    }
-                }
-            } catch(e) {}
-        } else {
-            const searchResult = await searchVideo(query);
-            videoUrl = searchResult.url;
-            videoTitle = searchResult.title;
-            videoThumb = searchResult.thumbnail;
-            videoDuration = searchResult.timestamp;
-            videoViews = searchResult.views;
-        }
-
-        if (!videoTitle) videoTitle = "🌸 Video";
-
-        // ============ SEND THUMBNAIL WITH GIRL STYLE ============
-        if (videoThumb) {
-            const thumbnailCaption = boyBox('🎬 VIDEO INFO', [
-                ['🎬', 'Title', videoTitle.substring(0, 60) + (videoTitle.length > 60 ? '...' : '')],
-                ['⏱️', 'Duration', videoDuration || 'Unknown'],
-                ['👁️', 'Views', videoViews || 'N/A'],
-                ['⏳', 'Status', 'Processing...']
-            ]);
-            await conn.sendMessage(from, {
-                image: { url: videoThumb },
-                caption: thumbnailCaption
-            }, { quoted: fakevCard });
-        }
-
-        // Try APIs in order
-        let result = null;
-        for (const [name, apiFn] of Object.entries(APIS)) {
-            try {
-                console.log(`🌸 [VIDEO] Trying ${name}...`);
-                result = await apiFn(videoUrl, 'video');
-                if (result.success && result.downloadUrl) {
-                    console.log(`🌸 [VIDEO] ✅ ${name} success`);
-                    break;
-                }
-            } catch(e) {}
-        }
-
-        if (!result || !result.downloadUrl) throw new Error("🌸 All APIs failed! 💕");
-
-        let finalVideoUrl = result.downloadUrl;
-        let finalTitle = result.title || videoTitle;
-        
-        // If trim requested, download and process with ffmpeg
         if (trimStart && trimDuration) {
-            await conn.sendMessage(from, { react: { text: "✂️", key: mek.key } });
-            
-            const tempInput = path.join(tempDir, `input_${Date.now()}.mp4`);
-            const tempOutput = path.join(tempDir, `output_${Date.now()}.mp4`);
-            
-            const writer = fs.createWriteStream(tempInput);
-            const response = await axios({ url: finalVideoUrl, method: 'GET', responseType: 'stream' });
-            response.data.pipe(writer);
-            
-            await new Promise((resolve, reject) => {
-                writer.on('finish', resolve);
-                writer.on('error', reject);
-            });
-            
-            await trimVideo(tempInput, tempOutput, trimStart, trimDuration);
-            
-            const caption = girlBox('✂️ TRIMMED VIDEO', [
-                ['🎬', 'Title', finalTitle.substring(0, 60) + (finalTitle.length > 60 ? '...' : '')],
+            await conn.sendMessage(from, { react: { text: '✂️', key: mek.key } });
+            trimmedPath = path.join(tempDir, `trimmed-${crypto.randomUUID()}.mp4`);
+            await trimVideo(downloadedPath, trimmedPath, trimStart, trimDuration);
+            sendPath = trimmedPath;
+            caption = girlBox('✂️ TRIMMED VIDEO', [
+                ['🎬', 'Title', videoTitle.slice(0, 60) + (videoTitle.length > 60 ? '...' : '')],
                 ['✂️', 'Trim', `${trimStart} to ${trimDuration}`],
-                ['🎚️', 'Quality', result.quality || 'HD'],
-                ['⏱️', 'Duration', videoDuration || 'Unknown'],
+                ['🎚️', 'Quality', 'Up to 720p'],
+                ['⏱️', 'Duration', videoDuration],
                 ['✅', 'Status', 'Done!']
             ]);
-
-            await conn.sendMessage(from, {
-                video: { url: tempOutput },
-                mimetype: 'video/mp4',
-                caption: caption
-            }, { quoted: fakevCard });
-            
-            // Cleanup
-            fs.unlinkSync(tempInput);
-            fs.unlinkSync(tempOutput);
         } else {
-            const caption = girlBox('🎬 VIDEO', [
-                ['🎬', 'Title', finalTitle.substring(0, 60) + (finalTitle.length > 60 ? '...' : '')],
-                ['🎚️', 'Quality', result.quality || 'HD'],
-                ['⏱️', 'Duration', videoDuration || 'Unknown'],
-                ['👁️', 'Views', videoViews || 'N/A'],
+            caption = girlBox('🎬 VIDEO', [
+                ['🎬', 'Title', videoTitle.slice(0, 60) + (videoTitle.length > 60 ? '...' : '')],
+                ['🎚️', 'Quality', 'Up to 720p'],
+                ['⏱️', 'Duration', videoDuration],
+                ['👁️', 'Views', videoViews],
                 ['✅', 'Status', 'Downloaded!']
             ]);
-
-            await conn.sendMessage(from, {
-                video: { url: finalVideoUrl },
-                mimetype: 'video/mp4',
-                caption: caption
-            }, { quoted: fakevCard });
         }
 
-        await conn.sendMessage(from, { react: { text: "💖", key: mek.key } });
-
+        await conn.sendMessage(from, {
+            video: fs.readFileSync(sendPath),
+            mimetype: 'video/mp4',
+            caption
+        }, { quoted: fakevCard });
+        await conn.sendMessage(from, { react: { text: '💖', key: mek.key } });
     } catch (err) {
-        console.error('🌸 Video Error:', err);
-        const errorMsg = girlBox('❌ VIDEO ERROR', [
+        console.error('Video Error:', err);
+        reply(girlBox('❌ VIDEO ERROR', [
             ['❌', 'Error', err.message || 'Download failed'],
             ['🔄', 'Status', 'Please try again']
-        ]);
-        reply(errorMsg);
-        await conn.sendMessage(from, { react: { text: "❌", key: mek.key } });
+        ]));
+        try { await conn.sendMessage(from, { react: { text: '❌', key: mek.key } }); } catch (_) {}
+    } finally {
+        cleanupDownloadedMedia(downloadedPath);
+        cleanupDownloadedMedia(trimmedPath);
     }
 });
 
-// ============================================
-// 📄 VIDEO AS DOCUMENT
-// ============================================
 waqar({
-    pattern: "videodoc",
-    alias: ["vdoc", "docvideo"],
-    desc: "🌸 Download video as document file",
-    category: "download",
-    react: "🌸",
+    pattern: 'videodoc',
+    alias: ['vdoc', 'docvideo'],
+    desc: 'Download video as a document file',
+    category: 'download',
+    react: '🌸',
     filename: __filename
 }, async (conn, mek, m, { from, args, reply }) => {
+    let downloadedPath;
     try {
-        if (!args.length) {
-            return reply(`🌸 Provide song name or link!\nExample: .vdoc Imagine Dragons Believer 💕`);
-        }
-        
-        let query = args.join(" ");
-        await conn.sendMessage(from, { react: { text: "🌸", key: mek.key } });
+        const query = args.join(' ').trim();
+        if (!query) return reply('Provide a YouTube video name or link.\nExample: .vdoc Big Buck Bunny');
+        await conn.sendMessage(from, { react: { text: '🌸', key: mek.key } });
 
-        let videoUrl, videoTitle;
-        if (query.includes('youtube.com') || query.includes('youtu.be')) {
+        let video;
+        let videoUrl;
+        if (isYouTubeUrl(query)) {
             videoUrl = query;
+            video = await getVideoDetails(videoUrl);
         } else {
-            const searchResult = await searchVideo(query);
-            videoUrl = searchResult.url;
-            videoTitle = searchResult.title;
+            video = await searchVideo(query);
+            videoUrl = video.url;
         }
 
-        let result = null;
-        for (const [name, apiFn] of Object.entries(APIS)) {
-            try {
-                result = await apiFn(videoUrl, 'video');
-                if (result.success && result.downloadUrl) break;
-            } catch(e) {}
-        }
-        
-        if (!result || !result.downloadUrl) throw new Error("🌸 Download failed! 💕");
-
-        const finalTitle = result.title || videoTitle || '🌸 video';
-        const safeFileName = finalTitle.replace(/[^\w\s-]/g, '').substring(0, 50);
-        
-        const { data: videoBuffer } = await axios.get(result.downloadUrl, { responseType: 'arraybuffer' });
-
-        const caption = girlBox('📄 VIDEO DOCUMENT', [
-            ['🎬', 'Title', finalTitle.substring(0, 60) + (finalTitle.length > 60 ? '...' : '')],
-            ['🎚️', 'Quality', result.quality || 'HD'],
-            ['✅', 'Status', 'Downloaded!']
-        ]);
-        
+        downloadedPath = await downloadYouTubeMedia(videoUrl, 'video');
+        const title = video?.title || 'YouTube video';
+        const safeFileName = title.replace(/[^\w\s-]/g, '').trim().slice(0, 50) || 'video';
         await conn.sendMessage(from, {
-            document: Buffer.from(videoBuffer),
+            document: fs.readFileSync(downloadedPath),
             mimetype: 'video/mp4',
             fileName: `${safeFileName}.mp4`,
-            caption: caption
+            caption: girlBox('📄 VIDEO DOCUMENT', [
+                ['🎬', 'Title', title.slice(0, 60) + (title.length > 60 ? '...' : '')],
+                ['🎚️', 'Quality', 'Up to 720p'],
+                ['✅', 'Status', 'Downloaded!']
+            ])
         }, { quoted: fakevCard });
-
-        await conn.sendMessage(from, { react: { text: "💖", key: mek.key } });
-
+        await conn.sendMessage(from, { react: { text: '💖', key: mek.key } });
     } catch (err) {
-        console.error('🌸 Video Doc Error:', err);
-        const errorMsg = boyBox('❌ DOC ERROR', [
+        console.error('Video Doc Error:', err);
+        reply(girlBox('❌ DOC ERROR', [
             ['❌', 'Error', err.message || 'Download failed'],
             ['🔄', 'Status', 'Please try again']
-        ]);
-        reply(errorMsg);
-        await conn.sendMessage(from, { react: { text: "❌", key: mek.key } });
+        ]));
+        try { await conn.sendMessage(from, { react: { text: '❌', key: mek.key } }); } catch (_) {}
+    } finally {
+        cleanupDownloadedMedia(downloadedPath);
     }
 });
 
-console.log('𝐀𝐍𝐍𝐔 𝐃𝐎𝐍- Video plugin loaded! 💖');
+console.log('𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 video plugin loaded.');
