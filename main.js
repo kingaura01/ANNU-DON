@@ -785,7 +785,7 @@ async function waqarPair(number, res = null) {
 │✦ Prefix: ${prefix} 
 │✦ Mode:〔${mode}〕
 │✦ 📁 Session: Secure
-│✦ 📢 Dev: Aʀꜱʟᴀɴ-ᴍD
+│✦ 📢 Dev: 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
 │✦ ${new Date().toLocaleString('en-PK', { timeZone: 'Asia/Karachi' })}
 ╰────────────────────○
 > *𝐀𝐍𝐍𝐔 𝐃𝐎𝐍*`;
