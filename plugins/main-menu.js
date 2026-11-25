@@ -137,12 +137,17 @@ waqar({
             })
             .map(([category, values]) => {
                 const names = [...new Set(values)].sort((a, b) => a.localeCompare(b));
-                const [icon, label] = categoryStyle[category] || ['📂', category];
-                const rows = [];
-                for (let i = 0; i < names.length; i += 3) {
-                    rows.push(`┃  ${names.slice(i, i + 3).map(name => `${prefix}${name}`).join('   •   ')}`);
-                }
-                return [`╭━━〔 ${icon} ${label} COMMANDS 〕━━╮`, ...rows, '╰━━━━━━━━━━━━━━━━━━━━╯'].join('\n');
+                const [, label] = categoryStyle[category] || ['📂', category];
+                // Keep commands on separate rows so the list is easy to scan,
+                // copy and use, matching the user's VIP menu reference.
+                const rows = names.map(name => `> ├⊷ ${prefix}${name}`);
+                return [
+                    `╭━━⟦ *${label}-CMDS* ⟧`,
+                    '> ╭━',
+                    ...rows,
+                    '> ╰━',
+                    '╰━━'
+                ].join('\n');
             }).join('\n\n');
         const visibleCommandCount = seenPatterns.size;
         const pairingUrl = config.PAIRING_URL || config.APP_URL || '';
