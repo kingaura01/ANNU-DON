@@ -5,7 +5,6 @@
 // ============================================
 
 const { waqar, commands } = require('../waqar');
-const { sendInteractiveMessage } = require('gifted-btns');
 const moment = require('moment-timezone');
 const config = require('../config');
 const axios = require('axios');
@@ -228,95 +227,10 @@ ${commandSections}
             contextInfo: contextInfo
         }, { quoted: mek });
 
-        // ── Send optional category picker ──────────────────────
-        // If this payload is unsupported, the direct full list above remains
-        // available and the command still succeeds.
-        try {
-            await sendInteractiveMessage(conn, from, {
-            text: `📚 *MENU CATEGORIES*\n\n${botName}\nSelect a category below to open its focused command list.`,
-            footer: `💖 ${botName} | ${uptime}`,
-            interactiveButtons: [
-                {
-                    name: 'single_select',
-                    buttonParamsJson: JSON.stringify({
-                        title: '🔖 ᴛᴀᴘ ᴛᴏ ᴏᴘᴇɴ ᴍᴇɴᴜ 💻',
-                        sections: [
-                            {
-                                title: '📌 ᴄᴀᴛᴇɢᴏʀɪᴇs',
-                                highlight_label: '🔍 sᴇʟᴇᴄᴛ',
-                                rows: categories.map(cat => ({
-                                    title: cat.title,
-                                    description: `Tap to view ${cat.title} commands`,
-                                    id: cat.id
-                                }))
-                            },
-                            {
-                                title: '⚡ Qᴜɪᴄᴋ Cᴏᴍᴍᴀɴᴅ Bᴜᴛᴛᴏɴs',
-                                highlight_label: '🚀 ᴡᴏʀᴋɪɴɢ ᴄᴍᴅs',
-                                rows: [
-                                    { title: '✅ Bot Health', description: 'Check online status and memory', id: 'health' },
-                                    { title: '💓 Alive / Status', description: 'Open interactive bot status', id: 'alive' },
-                                    { title: '⚡ Ping Test', description: 'Check bot response speed', id: 'ping' },
-                                    { title: '📚 All Commands', description: 'Show every available command', id: 'allcmds' },
-                                    { title: '👑 Owner Info', description: 'Show 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 contact', id: 'ownerinfo' },
-                                    { title: '📢 My Channel / JID', description: 'Resolve and follow 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 channel', id: 'mychannel' },
-                                    { title: '🕐 Pakistan Time', description: 'Show current date and time', id: 'now' },
-                                    { title: '🛡️ Anti-Delete', description: 'Check or control deleted-message saver', id: 'antidelete' },
-                                    { title: '🌸 Auto React', description: 'Check auto-reaction settings', id: 'autoreact' },
-                                    { title: '👁️ View Once Help', description: 'Save view-once media by replying', id: 'vv' }
-                                ]
-                            }
-                        ]
-                    })
-                },
-                // ── Direct command buttons ─────────────────
-                {
-                    name: 'quick_reply',
-                    buttonParamsJson: JSON.stringify({ display_text: '📚 ALL COMMANDS', id: 'allcmds' })
-                },
-                {
-                    name: 'quick_reply',
-                    buttonParamsJson: JSON.stringify({ display_text: '🛡️ ANTI-DELETE', id: 'antidelete' })
-                },
-                {
-                    name: 'quick_reply',
-                    buttonParamsJson: JSON.stringify({ display_text: '✅ BOT HEALTH', id: 'health' })
-                },
-                {
-                    name: 'quick_reply',
-                    buttonParamsJson: JSON.stringify({ display_text: '📢 MY CHANNEL', id: 'mychannel' })
-                },
-                {
-                    name: 'quick_reply',
-                    buttonParamsJson: JSON.stringify({ display_text: '📋 LIST MENU', id: 'listmenu' })
-                },
-                // ── URL Buttons ──────────────────────────
-                ...(pairingUrl ? [{
-                    name: 'cta_url',
-                    buttonParamsJson: JSON.stringify({
-                        display_text: '🔗 PAIRING SITE',
-                        url: pairingUrl
-                    })
-                }] : []),
-                {
-                    name: 'cta_url',
-                    buttonParamsJson: JSON.stringify({
-                        display_text: '🎀 🄲🄷🄰🄽🄽🄴🄻 ✌︎㋡',
-                        url: config.CHANNEL_LINK || 'https://whatsapp.com/channel/0029VbEHpir6mYPSxtiCRs2q'
-                    })
-                },
-                {
-                    name: 'cta_url',
-                    buttonParamsJson: JSON.stringify({
-                        display_text: '👑 🄾🅆🄽🄴🅁 ✌︎㋡',
-                        url: config.OWNER_LINK || 'https://wa.me/923235605702'
-                    })
-                }
-            ]
-            });
-        } catch (interactiveError) {
-            console.log('🌸 Category picker skipped:', interactiveError.message);
-        }
+        // Interactive buttons were intentionally removed from this command.
+        // WhatsApp rejects the old mixed payload when its list rows/buttons
+        // exceed client limits. Category menus remain available as direct
+        // commands such as .menu_ai, .menu_group and .menu_settings.
 
         // ── Reaction ───────────────────────────────────────────
         await conn.sendMessage(from, { react: { text: '💖', key: mek.key } });
