@@ -23,8 +23,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-            padding: 20px;
+            background:
+                radial-gradient(circle at 12% 8%, rgba(124, 58, 237, 0.25), transparent 34%),
+                radial-gradient(circle at 88% 92%, rgba(236, 72, 153, 0.20), transparent 36%),
+                #070711;
+            padding: 24px;
             overflow-x: hidden;
         }
 
@@ -70,20 +73,44 @@
             z-index: 1;
             width: 100%;
             max-width: 480px;
-            background: rgba(255, 255, 255, 0.05);
+            background: linear-gradient(160deg, rgba(19, 19, 39, 0.88), rgba(8, 8, 17, 0.82));
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
             border-radius: 30px;
             padding: 40px 30px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.11);
+            box-shadow: 0 32px 90px rgba(0, 0, 0, 0.62), 0 0 0 1px rgba(124, 58, 237, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.08);
             transition: all 0.3s ease;
+        }
+
+        /* ========== HEADER ========== */
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 6px 12px;
+            border: 1px solid rgba(167, 139, 250, 0.20);
+            border-radius: 999px;
+            color: rgba(238, 242, 255, 0.62);
+            background: rgba(124, 58, 237, 0.09);
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+        }
+
+        .eyebrow .live-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #34d399;
+            box-shadow: 0 0 14px rgba(52, 211, 153, 0.75);
         }
 
         /* ========== HEADER ========== */
         .header {
             text-align: center;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
         }
 
         .header .logo {
@@ -337,6 +364,14 @@
             font-size: 18px;
         }
 
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-10px); }
             to { opacity: 1; transform: translateY(0); }
@@ -513,10 +548,11 @@
 
         <!-- ========== HEADER ========== -->
         <div class="header">
+            <div class="eyebrow"><span class="live-dot"></span> Secure WhatsApp pairing console</div>
             <span class="logo">🌸</span>
             <h1>𝐀𝐍𝐍𝐔 𝐃𝐎𝐍</h1>
             <p>Pair your WhatsApp with the bot</p>
-            <span class="badge"><i class="fas fa-bolt"></i> Fast & Secure</span>
+            <span class="badge"><i class="fas fa-shield-halved"></i> Fast & Secure</span>
         </div>
 
         <!-- ========== FORM ========== -->
@@ -532,6 +568,9 @@
                         id="numberInput"
                         placeholder="3XXXXXXXXX"
                         maxlength="10"
+                        inputmode="numeric"
+                        autocomplete="tel-national"
+                        aria-label="WhatsApp local number"
                         autofocus
                         required
                     />
@@ -541,6 +580,9 @@
                 </div>
                 <div style="color: rgba(255,255,255,0.3); font-size: 11px; margin-top: 6px;">
                     <i class="fas fa-info-circle"></i> Enter number without country code (e.g., 3237045919)
+                </div>
+                <div style="color: rgba(255,255,255,0.34); font-size: 11px; margin-top: 10px; text-align: center;">
+                    <i class="fas fa-lock"></i> Your pairing session is handled securely
                 </div>
             </div>
 
