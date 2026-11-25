@@ -10,8 +10,16 @@ const { sendInteractiveMessage } = require('gifted-btns');
 const axios = require("axios");
 const cheerio = require("cheerio");
 const { URL } = require("url");
-const sharp = require("sharp");
 const config = require('../config');
+
+// Thumbnail processing is optional. Keep the movie command available even
+// when a deployment skips native sharp install scripts.
+let sharp = null;
+try {
+    sharp = require("sharp");
+} catch (error) {
+    console.warn(`[Movies] Optional sharp thumbnail support unavailable: ${error.message}`);
+}
 
 // ============================================
 // 📌 CONFIG
@@ -23,7 +31,7 @@ let isDownloading = false;
 // 📌 HELPERS
 // ============================================
 async function getThumbnailBuffer(url) {
-    if (!url) return null;
+    if (!url || !sharp) return null;
     try {
         const { data } = await axios.get(url, { responseType: "arraybuffer" });
         return await sharp(data).resize(300, 300).jpeg({ quality: 80 }).toBuffer();
