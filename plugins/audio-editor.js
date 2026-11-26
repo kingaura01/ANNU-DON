@@ -5,6 +5,7 @@
 
 const { fakevCard } = require('../lib/fakevCard');
 const { waqar } = require('../waqar');
+const { downloadContentFromMessage } = require('@whiskeysockets/baileys');
 const audioEditor = require('../data/audioeditor');
 
 async function handleAudioEffect(conn, mek, m, { from, reply, effect, emoji, name }) {

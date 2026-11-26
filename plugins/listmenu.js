@@ -6,7 +6,14 @@
 // ============================================
 
 const { waqar } = require('../waqar');
-const { sendButtons } = require('gifted-btns');
+
+// Interactive button payloads are rejected by some current WhatsApp clients.
+// Keep menus reliable by sending their headings/content as a normal text message.
+async function sendButtons(conn, to, payload) {
+    const parts = [payload.title, payload.text].filter(value => typeof value === 'string' && value.trim());
+    parts.push('Use the commands shown above; type .listmenu to return.');
+    return conn.sendMessage(to, { text: parts.join('\n\n') });
+}
 
 waqar({
     pattern: "listmenu",
@@ -25,7 +32,9 @@ async (conn, mek, m, { from, reply, pushname }) => {
 │  ✿━━━━━━━━━━━━━━━✿
 │  ✿ 👋 Hello ${pushname || 'king'}! 🫅🦁
 │  ✿ 💖 Welcome to 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 
-│  ✿ 🎀 Click a button below to explore
+│  ✿ 🎀 Use a command below to explore
+│  ✿ 📥 .download-menu  🎀 .media-menu  👑 .fun-menu
+│  ✿ 🛡️ .group-menu  ⚙️ .utility-menu  🔒 .owner-menu
 ╰═══✿══════════════╝
 
 🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 💖

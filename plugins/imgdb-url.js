@@ -6,15 +6,15 @@
 
 const axios = require("axios");
 const FormData = require('form-data');
+const { downloadContentFromMessage } = require('@whiskeysockets/baileys');
 const { waqar } = require("../waqar");
-const { sendButtons } = require('gifted-btns');
 
 const IMGBB_API_KEY = process.env.IMGBB_API_KEY || '';
 const IMGBB_API_URL = 'https://api.imgbb.com/1/upload';
 
 waqar({
     'pattern': "tourl",
-    'alias': ["imgtourl", "imgurl", "url", "geturl", "upload"],
+    'alias': ["imgtourl", "imgurl", "geturl"],
     'react': '🖼️',
     'desc': "Convert image to ImgBB URL with caption",
     'category': "utility",
@@ -187,27 +187,8 @@ waqar({
         captionText += `🔗 *URL:* ${resultUrl}\n\n`;
         captionText += `> *© Uploaded by 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 🍸*`;
 
-        // ── Send with buttons ──
-        await sendButtons(conn, from, {
-            title: '',
-            text: captionText,
-            buttons: [
-                {
-                    name: 'cta_copy',
-                    buttonParamsJson: JSON.stringify({
-                        display_text: '📋 Copy URL',
-                        copy_code: resultUrl
-                    })
-                },
-                {
-                    name: 'cta_url',
-                    buttonParamsJson: JSON.stringify({
-                        display_text: '🌐 Open Link',
-                        url: resultUrl
-                    })
-                }
-            ]
-        });
+        // Keep the returned URL in plain text instead of relying on interactive buttons.
+        await conn.sendMessage(from, { text: captionText });
 
     } catch (error) {
         console.error('[tourl] Error:', error);

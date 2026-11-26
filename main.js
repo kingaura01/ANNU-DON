@@ -329,7 +329,7 @@ const pluginFiles = fs.readdirSync(pluginsDir).filter(f => f.endsWith('.js'));
 waqarLog(`Loading ${pluginFiles.length} plugins...`, 'info');
 for (const file of pluginFiles) {
     try { require(path.join(pluginsDir, file)); }
-    catch (e) { waqarLog(`Failed to load plugin ${file}: ${e.message}`, 'error'); }
+    catch (e) { waqarLog(`Failed to load plugin ${file}: ${e.stack || e.message}`, 'error'); }
 }
 
 // ========== EXTRACT MESSAGE BODY ==========

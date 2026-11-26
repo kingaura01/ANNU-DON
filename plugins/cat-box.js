@@ -5,12 +5,9 @@
 // ============================================
 
 const { waqar } = require('../waqar');
-const { sendInteractiveMessage } = require('gifted-btns');
 const axios = require('axios');
-const fs = require('fs');
 const path = require('path');
 const FormData = require('form-data');
-const config = require('../settings');
 
 // ============================================
 // 📌 API BASE URL
@@ -52,7 +49,6 @@ waqar({
     isReply, 
     quoted, 
     repliedType, 
-    sender,
     text 
 }) => {
     try {
@@ -176,8 +172,8 @@ waqar({
 
             const uploadUrl = data.url;
 
-            // ── Send success with buttons ──
-            const caption = boyBox('📤 UPLOAD SUCCESSFUL', [
+            // ── Send success with the direct URL (no button payload) ──
+            const caption = girlBox('📤 UPLOAD SUCCESSFUL', [
                 ['✅', 'Status', 'Uploaded successfully'],
                 ['📁', 'File', fileName],
                 ['📦', 'Size', `${(buffer.length / 1024).toFixed(2)} KB`],
@@ -185,33 +181,7 @@ waqar({
                 ['🔗', 'URL', uploadUrl]
             ]);
 
-            await sendInteractiveMessage(conn, from, {
-                text: caption,
-                footer: `💖 ${config.BOT_NAME || '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍'}`,
-                interactiveButtons: [
-                    {
-                        name: 'cta_copy',
-                        buttonParamsJson: JSON.stringify({
-                            display_text: '📋 Copy URL',
-                            copy_code: uploadUrl
-                        })
-                    },
-                    {
-                        name: 'cta_url',
-                        buttonParamsJson: JSON.stringify({
-                            display_text: '🌐 Open Link',
-                            url: uploadUrl
-                        })
-                    },
-                    {
-                        name: 'quick_reply',
-                        buttonParamsJson: JSON.stringify({
-                            display_text: '🔄 Upload Again',
-                            id: `.upload ${fileName}`
-                        })
-                    }
-                ]
-            });
+            await conn.sendMessage(from, { text: caption });
 
             // ── Update wait message ──
             try {
@@ -257,10 +227,10 @@ waqar({
     category: "utility",
     react: "🔗",
     filename: __filename
-}, async (conn, mek, m, { from, text, reply, sender }) => {
+}, async (conn, mek, m, { from, text, reply }) => {
     try {
         if (!text) {
-            return reply(boyBox('🔗 UPLOAD FROM URL', [
+            return reply(girlBox('🔗 UPLOAD FROM URL', [
                 ['📌', 'Usage', '.uploadurl <file_url>'],
                 ['💖', 'Example', '.uploadurl https://example.com/image.jpg'],
                 ['💖', 'Example 2', '.uploadurl https://example.com/video.mp4'],
@@ -320,29 +290,12 @@ waqar({
         const uploadUrl = data.url;
 
         // ── Send success ──
-        await sendInteractiveMessage(conn, from, {
+        await conn.sendMessage(from, {
             text: girlBox('📤 UPLOAD SUCCESSFUL', [
                 ['✅', 'Status', 'Uploaded successfully'],
                 ['🔗', 'URL', uploadUrl],
                 ['📤', 'Host', data.provider || 'catbox.moe']
-            ]),
-            footer: `💖 ${config.BOT_NAME || '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍'}`,
-            interactiveButtons: [
-                {
-                    name: 'cta_copy',
-                    buttonParamsJson: JSON.stringify({
-                        display_text: '📋 Copy URL',
-                        copy_code: uploadUrl
-                    })
-                },
-                {
-                    name: 'cta_url',
-                    buttonParamsJson: JSON.stringify({
-                        display_text: '🌐 Open Link',
-                        url: uploadUrl
-                    })
-                }
-            ]
+            ])
         });
 
         await conn.sendMessage(from, { react: { text: '💖', key: mek.key } });

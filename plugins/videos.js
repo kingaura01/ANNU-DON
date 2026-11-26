@@ -129,7 +129,7 @@ async function trimVideo(inputPath, outputPath, start, duration) {
 // ============================================
 waqar({
     pattern: "video",
-    alias: ["ytv", "video3", "video2", "video4"],
+    alias: ["yt", "ytv", "video3", "video2", "video4"],
     desc: "🌸 Download YouTube video",
     category: "download",
     react: "🌸",
@@ -198,7 +198,7 @@ waqar({
 
         // ============ SEND THUMBNAIL WITH GIRL STYLE ============
         if (videoThumb) {
-            const thumbnailCaption = boyBox('🎬 VIDEO INFO', [
+            const thumbnailCaption = girlBox('🎬 VIDEO INFO', [
                 ['🎬', 'Title', videoTitle.substring(0, 60) + (videoTitle.length > 60 ? '...' : '')],
                 ['⏱️', 'Duration', videoDuration || 'Unknown'],
                 ['👁️', 'Views', videoViews || 'N/A'],
@@ -352,7 +352,7 @@ waqar({
 
     } catch (err) {
         console.error('🌸 Video Doc Error:', err);
-        const errorMsg = boyBox('❌ DOC ERROR', [
+        const errorMsg = girlBox('❌ DOC ERROR', [
             ['❌', 'Error', err.message || 'Download failed'],
             ['🔄', 'Status', 'Please try again']
         ]);

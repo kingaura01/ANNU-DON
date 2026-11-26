@@ -14,6 +14,47 @@ const config = require('../config');
 // ============================================
 const API_URL = 'https://arslan-apis.zone.id/download/mfire';
 
+// ============================================
+// 📘 FACEBOOK VIDEO DOWNLOAD
+// ============================================
+waqar({
+    pattern: 'fb',
+    alias: ['facebook', 'fbdl'],
+    desc: 'Download a public Facebook video',
+    category: 'download',
+    react: '🌸',
+    filename: __filename
+}, async (conn, mek, m, { from, q, reply }) => {
+    const url = q || m.quoted?.text || '';
+    if (!/^(https?:\/\/)?(www\.)?(facebook\.com|fb\.watch)\//i.test(url)) {
+        return reply('🌸 Please provide a valid public Facebook video link.\nExample: .fb https://facebook.com/...');
+    }
+
+    try {
+        await conn.sendMessage(from, { react: { text: '⏳', key: mek.key } }).catch(() => {});
+        const { data } = await axios.get(
+            `https://arslan-apis-v2.vercel.app/download/fbdown?url=${encodeURIComponent(url)}`,
+            { timeout: 60000, headers: { 'User-Agent': 'Mozilla/5.0' } }
+        );
+        const result = data?.result;
+        const download = result?.download || {};
+        const videoUrl = download.hd || download.sd || download.p480;
+        if (data?.status !== true || result?.status !== true || !videoUrl) {
+            return reply('🌸 Facebook video fetch nahi ho saka. Link public ho aur dobara try karein.');
+        }
+
+        await conn.sendMessage(from, {
+            video: { url: videoUrl },
+            mimetype: 'video/mp4',
+            caption: `🌸 *Facebook Video*\n\n🎬 ${result.metadata?.title || 'Video'}\n👑 Powered by 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍`
+        }, { quoted: fakevCard });
+        await conn.sendMessage(from, { react: { text: '✅', key: mek.key } }).catch(() => {});
+    } catch (error) {
+        console.error('[Facebook download] Error:', error.response?.data || error.message);
+        return reply('🌸 Facebook downloader temporarily unavailable. Please try again later.');
+    }
+});
+
 function boyBox(title, rows) {
     const body = rows.map(([emoji, label, value]) => 
         `│  ✿ ${emoji} ${label}: ${value || ''}`
