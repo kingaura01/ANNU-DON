@@ -179,7 +179,7 @@ ${commandSections}
         try {
             await conn.sendMessage(from, {
                 image: { url: imageUrl },
-                caption: `🌸 *${botName}*\n\n👋 Welcome ${pushName || 'User'}!\n📚 Tap the menu below to browse commands.`,
+                caption: headerText,
                 contextInfo
             }, { quoted: fakevCard });
         } catch (imageError) {
@@ -203,7 +203,7 @@ ${commandSections}
 
         // ── Send Interactive Message ──────────────────────────
         await sendInteractiveMessage(conn, from, {
-            text: headerText,
+            text: `🌸 *${botName}*\n\n📌 Tap below to open menu categories and quick actions.`,
             footer: `💖 ${botName} | ${uptime}`,
             interactiveButtons: [
                 {

@@ -214,7 +214,7 @@ ${commandSections}
         try {
             await conn.sendMessage(from, {
                 image: { url: imageUrl },
-                caption: `🌸 *${botName}*\n\n👋 Welcome ${pushName || 'User'}!\n📚 Tap the menu below to browse commands.`,
+                caption: headerText,
                 contextInfo
             }, { quoted: fakevCard });
         } catch (imageError) {
@@ -236,14 +236,8 @@ ${commandSections}
             { id: 'menu_stalk', title: '👀 sᴛᴀʟᴋ' }
         ];
 
-        // ── Send the complete command list directly ────────────
-        // Do not depend on interactive-message support for the main menu:
-        // some WhatsApp clients show only the preceding video when that
-        // optional payload is rejected. The full VIP list must always arrive.
-        await conn.sendMessage(from, {
-            text: headerText,
-            contextInfo: contextInfo
-        }, { quoted: mek });
+        // The full command list is already attached as the image caption,
+        // matching the classic image-first WhatsApp menu layout.
 
         // Interactive buttons were intentionally removed from this command.
         // WhatsApp rejects the old mixed payload when its list rows/buttons
