@@ -1,0 +1,8 @@
+[phases.setup]
+nixPkgs = ["...", "deno", "ffmpeg"]
+
+[phases.install]
+cmds = [
+  "...",
+  "mkdir -p /app/bin && curl -fsSL https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /app/bin/yt-dlp && chmod 755 /app/bin/yt-dlp"
+]

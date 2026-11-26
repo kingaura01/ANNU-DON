@@ -15,34 +15,20 @@ const positiveKeywords = [
 ];
 
 function unwrapViewOnce(input) {
-    // `quoted` can be the bot wrapper ({ message }) or raw quotedMessage.
     let current = input?.message || input;
     let isViewOnce = false;
     for (let i = 0; i < 8 && current; i++) {
-        const wrapper = current.viewOnceMessage ||
-            current.viewOnceMessageV2 ||
+        const viewOnce = current.viewOnceMessage || current.viewOnceMessageV2 ||
             current.viewOnceMessageV2Extension;
-        if (wrapper?.message) {
-            isViewOnce = true;
-            current = wrapper.message;
-            continue;
-        }
-        // View-once media is often nested inside an ephemeral message.
-        if (current.ephemeralMessage?.message) {
-            current = current.ephemeralMessage.message;
-            continue;
-        }
-        if (current.documentWithCaptionMessage?.message) {
-            current = current.documentWithCaptionMessage.message;
-            continue;
-        }
-        break;
+        const nested = viewOnce?.message || current.ephemeralMessage?.message ||
+            current.documentWithCaptionMessage?.message || current.message;
+        if (!nested || nested === current) break;
+        if (viewOnce?.message) isViewOnce = true;
+        current = nested;
     }
     const media = current || {};
     if (media.imageMessage?.viewOnce || media.videoMessage?.viewOnce ||
-        media.audioMessage?.viewOnce || media.documentMessage?.viewOnce) {
-        isViewOnce = true;
-    }
+        media.audioMessage?.viewOnce || media.documentMessage?.viewOnce) isViewOnce = true;
     return { content: current, isViewOnce };
 }
 
