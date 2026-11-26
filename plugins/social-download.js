@@ -583,7 +583,7 @@ waqar({
 });
 waqar({
     pattern: "pindl",
-    alias: ["pinterestdl", "pin", "pins", "pindownload"],
+    alias: ["pinterestdl", "pinterest", "pin", "pins", "pindownload"],
     desc: "🌸 Download media from Pinterest",
     category: "download",
     react: "🌸",

@@ -5,6 +5,7 @@
 // ============================================
 
 const axios = require('axios');
+const yts = require('yt-search');
 const { waqar } = require('../waqar');
 
 const BASE_URL = 'https://apis-bj-dev.vercel.app';
@@ -75,6 +76,17 @@ function findMediaUrl(value) {
     return null;
 }
 
+function collectUrls(value, urls = []) {
+    if (urls.length >= 12 || value === null || value === undefined) return urls;
+    if (typeof value === 'string') {
+        const matches = value.match(/https?:\/\/[^\s"'<>]+/gi) || [];
+        for (const url of matches) if (!urls.includes(url)) urls.push(url.replace(/[),]}]+$/, ''));
+        return urls;
+    }
+    if (typeof value === 'object') for (const item of Object.values(value)) collectUrls(item, urls);
+    return urls;
+}
+
 function prettyResponse(data) {
     if (typeof data === 'string') return data;
     const result = data?.result ?? data?.data ?? data?.response ?? data;
@@ -104,6 +116,14 @@ for (const definition of definitions) {
         filename: __filename
     }, async (conn, mek, m, { from, q, reply }) => {
         try {
+            if (definition.path === '/search/youtube' && !API_KEY) {
+                if (!q) return reply(`📌 Usage: \`${definition.usage}\``);
+                const search = await yts(String(q).trim());
+                const videos = (search.videos || []).slice(0, 5);
+                if (!videos.length) return reply('❌ YouTube پر کوئی result نہیں ملا۔');
+                const text = videos.map((video, index) => `${index + 1}. ${video.title}\n⏱️ ${video.timestamp || 'N/A'}\n🔗 ${video.url}`).join('\n\n');
+                return reply(`🔎 *YouTube Search*\n\n${text}`);
+            }
             if (definition.path !== '/system/stats' && !API_KEY) {
                 return reply('🔑 BJ-Dev API key is not configured. Add `BJ_DEV_API_KEY` in Railway Variables, then restart the bot.');
             }
@@ -115,6 +135,22 @@ for (const definition of definitions) {
             if (response.status === 401 || response.status === 403) return reply('❌ BJ-Dev API key is invalid or rejected. Check `BJ_DEV_API_KEY`.');
             if (response.status >= 400) return reply(`❌ BJ-Dev API returned HTTP ${response.status}. Please try again later.`);
             const data = response.data;
+            if (data?.status === false || data?.success === false) {
+                return reply(`❌ ${data?.message || data?.error || data?.result?.message || 'BJ-Dev API did not return a result.'}`);
+            }
+            const urls = collectUrls(data);
+            if (definition.path === '/downloaders/ytmp3' && urls[0]) {
+                return conn.sendMessage(from, { audio: { url: urls[0] }, mimetype: 'audio/mpeg', ptt: false }, { quoted: mek });
+            }
+            if (definition.path === '/media/tts-pro' && urls[0]) {
+                return conn.sendMessage(from, { audio: { url: urls[0] }, mimetype: 'audio/mpeg', ptt: true }, { quoted: mek });
+            }
+            if (definition.path === '/search/pinterest' && urls.length) {
+                for (const imageUrl of urls.slice(0, 5)) {
+                    await conn.sendMessage(from, { image: { url: imageUrl }, caption: '📌 Pinterest result\n> Powered by 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍' }, { quoted: mek });
+                }
+                return;
+            }
             const mediaUrl = findMediaUrl(data);
             const lowerPath = definition.path.toLowerCase();
             if (mediaUrl && (lowerPath.includes('screenshot') || lowerPath.includes('image-generator') || lowerPath.includes('dynamic-qr') || lowerPath.includes('emojimix'))) {

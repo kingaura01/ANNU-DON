@@ -84,15 +84,35 @@ async (conn, mek, m, { from, reply, text, pushname }) => {
         }, { quoted: fakevCard });
 
         // ✅ STEP 2: Download Audio via API
-        const apiUrl = `${BASE}/download/ytmp3?url=${encodeURIComponent(videoUrl)}`;
-        const { data } = await axios.get(apiUrl, { timeout: 60000 });
+        let downloadUrl;
+        try {
+            const apiUrl = `${BASE}/download/ytmp3?url=${encodeURIComponent(videoUrl)}`;
+            const { data } = await axios.get(apiUrl, { timeout: 60000 });
+            downloadUrl = data?.result?.download_url ||
+                data?.result?.downloadUrl || data?.result?.url || data?.url ||
+                data?.link || data?.result?.download?.url;
+        } catch (primaryError) {
+            console.log('Primary MP3 API failed, trying BJ-Dev fallback');
+        }
 
-        const downloadUrl = data?.result?.download_url || 
-                           data?.result?.downloadUrl || 
-                           data?.result?.url || 
-                           data?.url || 
-                           data?.link || 
-                           data?.result?.download?.url;
+        if (!downloadUrl && process.env.BJ_DEV_API_KEY) {
+            const { data } = await axios.get('https://apis-bj-dev.vercel.app/downloaders/ytmp3', {
+                params: { apikey: process.env.BJ_DEV_API_KEY, query: videoUrl, limit: '1' },
+                headers: { 'x-apikey': process.env.BJ_DEV_API_KEY },
+                timeout: 60000
+            });
+            const findUrl = value => {
+                if (typeof value === 'string' && /^https?:\/\//i.test(value)) return value;
+                if (value && typeof value === 'object') {
+                    for (const item of Object.values(value)) {
+                        const found = findUrl(item);
+                        if (found) return found;
+                    }
+                }
+                return null;
+            };
+            downloadUrl = findUrl(data?.result || data?.data || data);
+        }
 
         if (!downloadUrl) {
             throw new Error('🌸 Could not retrieve download link. Please try again! 💕');
