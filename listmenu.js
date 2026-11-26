@@ -337,8 +337,7 @@ async (conn, mek, m, { from, reply }) => {
 │  ✿ 🎵 .lyrics - Song Lyrics
 │  ✿ 🌤️ .weather - Weather Info
 │  ✿ 🆔 .jid - Get Chat JID
-│  ✿ 👁️ .ss - Visible status auto-view
-│  ✿ 💾 .save on/off - Save visibly viewed statuses to bot chat
+│  ✿ 💾 .ss - Status Saver
 │  ✿ 👑 .vv - View Once Saver
 │  ✿ 🔑 .pair - Pairing Code
 ╰═══✿══════════════╝

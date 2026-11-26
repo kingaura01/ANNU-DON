@@ -157,12 +157,6 @@ module.exports = {
     AUTO_STATUS_SEEN: process.env.AUTO_STATUS_SEEN || 'true',
 
     /**
-     * @description Forward copies of visibly viewed statuses to the bot account's own chat
-     * @type {string}
-     */
-    AUTO_STATUS_SAVE: process.env.AUTO_STATUS_SAVE || 'false',
-
-    /**
      * @description Auto-react to status updates
      * @type {string}
      */

@@ -22,7 +22,6 @@ const {
 const config = require('./settings');
 const { sms } = require('./lib/msg');
 const events = require('./waqar');
-const { sendVisibleStatusCopy, shouldMarkStatusVisible } = require('./lib/status-save');
 
 // ========== GITHUB SESSION MANAGER ==========
 const {
@@ -915,32 +914,11 @@ async function waqarPair(number, res = null) {
                 }
 
                 if (mek.key && mek.key.remoteJid === 'status@broadcast') {
-                    const autoSaveStatus = config.AUTO_STATUS_SAVE === 'true';
-                    let statusReadConfirmed = false;
-                    if (shouldMarkStatusVisible(config.AUTO_STATUS_SEEN, config.AUTO_STATUS_SAVE)) {
+                    if (config.AUTO_STATUS_SEEN === 'true') {
                         try {
                             await conn.readMessages([mek.key]);
-                            statusReadConfirmed = true;
                             console.log('[Status] ✅ Viewed status');
-                        } catch (e) {
-                            console.error('[Status] Could not mark status as viewed:', e.message);
-                        }
-                    }
-
-                    if (autoSaveStatus && statusReadConfirmed) {
-                        try {
-                            const recipientJid = getBotJid(conn);
-                            if (!recipientJid) throw new Error('Could not determine the bot account chat.');
-                            const result = await sendVisibleStatusCopy(conn, mek, recipientJid);
-                            if (result.sent) console.log(`[Status] ✅ Saved visible ${result.type} status to bot chat`);
-                            else if (result.skipped !== 'duplicate' && result.skipped !== 'unsupported') {
-                                console.log(`[Status] Save skipped: ${result.skipped}`);
-                            }
-                        } catch (e) {
-                            console.error('[Status] Auto-save error:', e.message);
-                        }
-                    } else if (autoSaveStatus) {
-                        console.error('[Status] Auto-save skipped because visible read was not confirmed.');
+                        } catch (e) {}
                     }
                     
                     if (config.AUTO_STATUS_REACT === 'true') {

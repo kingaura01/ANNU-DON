@@ -184,9 +184,6 @@ waqar({
     const key = option === "view" ? "AUTO_STATUS_SEEN" : "AUTO_STATUS_REACT";
     config[key] = status === "on" ? "true" : "false";
     const label = option === "view" ? "Auto status view" : "Auto status react";
-    if (option === "view" && status === "off" && config.AUTO_STATUS_SAVE === "true") {
-        return reply("✅ Auto-view OFF. Note: `.save on` still marks saved statuses visibly viewed; use `.save off` as well to stop status saving/views.");
-    }
     return reply(`✅ ${label} ${status.toUpperCase()}`);
 });
 
@@ -206,9 +203,7 @@ waqar({
     config.AUTO_STATUS_SEEN = status === "on" ? "true" : "false";
     return reply(status === "on"
         ? "✅ Visible auto-view ON. Status owners may see that the bot viewed their status."
-        : config.AUTO_STATUS_SAVE === "true"
-            ? "✅ Auto-view OFF. Note: `.save on` still marks saved statuses visibly viewed; use `.save off` as well to stop status saving/views."
-            : "✅ Auto-view OFF. The bot will stop automatically viewing statuses.");
+        : "✅ Auto-view OFF. The bot will stop automatically viewing statuses.");
 });
 
 // ============================================
@@ -403,7 +398,6 @@ waqar({
 │  ✿ 🟢 Always Online: ${config.ALWAYS_ONLINE || 'off'}
 │  ✿ 🎙️ Auto Recording: ${config.AUTO_RECORDING || 'off'}
 │  ✿ 👁️ Auto Seen: ${config.AUTO_STATUS_SEEN || 'off'}
-│  ✿ 💾 Status Auto-Save: ${config.AUTO_STATUS_SAVE || 'off'}
 │  ✿ ❤️ Status React: ${config.AUTO_STATUS_REACT || 'off'}
 │  ✿ 📖 Auto Read: ${config.READ_MESSAGE || 'off'}
 │  ✿ 🚫 Anti Bad Word: ${config.ANTI_BAD_WORD || 'off'}
