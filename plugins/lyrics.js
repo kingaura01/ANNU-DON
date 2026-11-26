@@ -12,6 +12,36 @@ const { fakevCard } = require('../lib/fakevCard');
 // API Base URL
 const API_BASE = 'https://discardapi.dpdns.org/api/music/lyrics';
 
+async function fetchLyrics(song) {
+    try {
+        const { data } = await axios.get('https://lrclib.net/api/search', {
+            params: { q: song },
+            timeout: 20000,
+            headers: { 'User-Agent': 'ANNU-DON WhatsApp Bot/1.0' }
+        });
+        const match = (Array.isArray(data) ? data : []).find(item => item?.plainLyrics && !item?.instrumental);
+        if (match) {
+            return {
+                title: match.trackName || match.name || song,
+                artist: match.artistName || 'Unknown Artist',
+                lyrics: match.plainLyrics,
+                image: null,
+                url: `https://lrclib.net/track/${match.id}`
+            };
+        }
+    } catch (error) {
+        console.log('LRCLIB lyrics provider failed, trying secondary provider');
+    }
+
+    const { data } = await axios.get(API_BASE, {
+        params: { apikey: 'qasim', song },
+        timeout: 20000
+    });
+    const message = data?.result?.message;
+    if (!message?.lyrics) throw new Error('Lyrics not found');
+    return message;
+}
+
 waqar({
     pattern: "lyrics",
     alias: ["lyric", "songlyrics", "getlyrics", "lirik", "songtext"],
@@ -51,16 +81,7 @@ async (conn, mek, m, { from, reply, text }) => {
         });
 
         // ✅ STEP 1: Fetch lyrics from API
-        const apiUrl = `${API_BASE}?apikey=qasim&song=${encodeURIComponent(text)}`;
-        const { data } = await axios.get(apiUrl, { timeout: 15000 });
-
-        // Check if lyrics found
-        const messageData = data?.result?.message;
-        if (!messageData?.lyrics) {
-            return reply(`🌸 Sorry, I couldn't find any lyrics for "${text}". 💕`);
-        }
-
-        const { artist, lyrics, image, title, url } = messageData;
+        const { artist, lyrics, image, title, url } = await fetchLyrics(text);
 
         // ✅ STEP 2: Clean and format lyrics
         const maxChars = 4000;
@@ -158,15 +179,7 @@ async (conn, mek, m, { from, reply, text }) => {
             react: { text: "🎵", key: mek.key }
         });
 
-        const apiUrl = `${API_BASE}?apikey=qasim&song=${encodeURIComponent(text)}`;
-        const { data } = await axios.get(apiUrl, { timeout: 15000 });
-
-        const messageData = data?.result?.message;
-        if (!messageData?.lyrics) {
-            return reply(`🌸 No lyrics found for "${text}". 💕`);
-        }
-
-        const { artist, lyrics, image, title } = messageData;
+        const { artist, lyrics, image, title } = await fetchLyrics(text);
 
         const maxChars = 2000;
         const lyricsOutput = lyrics.length > maxChars 
@@ -224,15 +237,7 @@ async (conn, mek, m, { from, reply, text }) => {
             react: { text: "📄", key: mek.key }
         });
 
-        const apiUrl = `${API_BASE}?apikey=qasim&song=${encodeURIComponent(text)}`;
-        const { data } = await axios.get(apiUrl, { timeout: 15000 });
-
-        const messageData = data?.result?.message;
-        if (!messageData?.lyrics) {
-            return reply(`🌸 No lyrics found for "${text}". 💕`);
-        }
-
-        const { artist, lyrics, title } = messageData;
+        const { artist, lyrics, title } = await fetchLyrics(text);
 
         const docContent = `
 🌸 LYRICS - ${title || 'Unknown Song'}
