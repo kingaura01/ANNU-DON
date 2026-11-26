@@ -194,6 +194,7 @@ async (conn, mek, m, { from, reply }) => {
 │  ✿ 🎙️ .toptt - Video to Voice
 │  ✿ 🎨 .togif - Video to GIF
 │  ✿ ✂️ .splitstatus - Split replied video into status clips
+│  ✿ 💾 .save - DM yourself a copy of replied normal media
 │  ✿ 🖼️ .s2i - Sticker to Image
 ╰═══✿══════════════╝
 
