@@ -67,6 +67,60 @@ function getRandomItem(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
 }
 
+function normalizeCommandName(value) {
+    return String(value || '')
+        .trim()
+        .replace(/^\.+/, '')
+        .split(/\s+/)[0]
+        .replace(/\?+$/, '')
+        .toLowerCase();
+}
+
+function buildCommandSections(commandRegistry, prefix) {
+    const groupedCommands = new Map();
+    const seenNames = new Set();
+    const categoryOrder = [
+        'DOWNLOAD', 'AI', 'MUSIC', 'AUDIO', 'MEDIA', 'TEXT', 'FUN', 'TOOLS',
+        'UTILITY', 'GROUP', 'SECURITY', 'SETTINGS', 'OWNER', 'CHANNEL',
+        'INFO', 'GENERAL', 'PDF', 'PRIVACY', 'MAIN', 'MENU'
+    ];
+    const categoryLabels = { DOWNLOAD: 'DOWNLOADS' };
+
+    for (const command of commandRegistry) {
+        if (!command || command.dontAddCommandList || !command.pattern) continue;
+        const category = String(command.category || 'utility').trim().toUpperCase();
+        for (const value of [command.pattern, ...(Array.isArray(command.alias) ? command.alias : [])]) {
+            const name = normalizeCommandName(value);
+            if (!name || seenNames.has(name)) continue;
+            seenNames.add(name);
+            if (!groupedCommands.has(category)) groupedCommands.set(category, []);
+            groupedCommands.get(category).push(name);
+        }
+    }
+
+    const commandSections = [...groupedCommands.entries()]
+        .sort(([a], [b]) => {
+            const ai = categoryOrder.indexOf(a);
+            const bi = categoryOrder.indexOf(b);
+            return (ai < 0 ? 999 : ai) - (bi < 0 ? 999 : bi) || a.localeCompare(b);
+        })
+        .map(([category, names]) => {
+            const label = categoryLabels[category] || category;
+            const rows = [...names].sort((a, b) => a.localeCompare(b)).map(name => `│  │● ${prefix}${name}`);
+            return [
+                `╭──⟦ *${label}-CMDS* ⟧`,
+                '│',
+                '│  ┌',
+                ...rows,
+                '│  └',
+                '╰──'
+            ].join('\n');
+        })
+        .join('\n\n');
+
+    return { commandSections, visibleCommandCount: seenNames.size };
+}
+
 // ============================================
 // 🎬 MAIN MENU (Random Video + Audio)
 // ============================================
@@ -101,54 +155,8 @@ waqar({
         // ── Send the owner's selected menu video ─────────────
         const randomVideo = getRandomItem(VIDEO_URLS);
 
-        // ── Build Menu Text ────────────────────────────────────
-        // ── Build a stylish, ordered and globally deduplicated menu ──
-        // Primary patterns are shown once; aliases remain hidden to avoid clutter.
-        const groupedCommands = {};
-        const seenPatterns = new Set();
-        const categoryOrder = [
-            'MAIN', 'AI', 'DOWNLOAD', 'AUDIO', 'MUSIC', 'MEDIA',
-            'TOOLS', 'FUN', 'GROUP', 'SETTINGS', 'OWNER', 'CHANNEL',
-            'UTILITY', 'GENERAL', 'INFO', 'PDF', 'PRIVACY', 'SECURITY', 'MENU'
-        ];
-        const categoryStyle = {
-            MAIN: ['🏠', 'MAIN'], AI: ['🤖', 'AI'], DOWNLOAD: ['📥', 'DOWNLOAD'],
-            AUDIO: ['🎧', 'AUDIO'], MUSIC: ['🎵', 'MUSIC'], MEDIA: ['🎞️', 'MEDIA'],
-            TOOLS: ['🛠️', 'TOOLS'], FUN: ['🎉', 'FUN'], GROUP: ['👥', 'GROUP'],
-            SETTINGS: ['⚙️', 'SETTINGS'], OWNER: ['👑', 'OWNER'], CHANNEL: ['📢', 'CHANNEL'],
-            UTILITY: ['🔧', 'UTILITY'], GENERAL: ['📌', 'GENERAL'], INFO: ['ℹ️', 'INFO'],
-            PDF: ['📚', 'PDF'], PRIVACY: ['🕶️', 'PRIVACY'], SECURITY: ['🛡️', 'SECURITY'],
-            MENU: ['📋', 'MENU']
-        };
-        for (const command of commands) {
-            if (!command || command.dontAddCommandList || !command.pattern) continue;
-            const name = String(command.pattern).trim().toLowerCase();
-            if (!name || seenPatterns.has(name)) continue;
-            seenPatterns.add(name);
-            const category = String(command.category || 'utility').trim().toUpperCase();
-            if (!groupedCommands[category]) groupedCommands[category] = [];
-            groupedCommands[category].push(name);
-        }
-        const commandSections = Object.entries(groupedCommands)
-            .sort(([a], [b]) => {
-                const ai = categoryOrder.indexOf(a), bi = categoryOrder.indexOf(b);
-                return (ai < 0 ? 999 : ai) - (bi < 0 ? 999 : bi) || a.localeCompare(b);
-            })
-            .map(([category, values]) => {
-                const names = [...new Set(values)].sort((a, b) => a.localeCompare(b));
-                const [, label] = categoryStyle[category] || ['📂', category];
-                // Keep commands on separate rows so the list is easy to scan,
-                // copy and use, matching the user's VIP menu reference.
-                const rows = names.map(name => `> ├⊷ ${prefix}${name}`);
-                return [
-                    `╭━━⟦ *${label}-CMDS* ⟧`,
-                    '> ╭━',
-                    ...rows,
-                    '> ╰━',
-                    '╰━━'
-                ].join('\n');
-            }).join('\n\n');
-        const visibleCommandCount = seenPatterns.size;
+        // ── Build a complete categorized command-and-alias list ──
+        const { commandSections, visibleCommandCount } = buildCommandSections(commands, prefix);
         const pairingUrl = config.PAIRING_URL || config.APP_URL || '';
         const headerText = `
 ╭━━━━❲〘 *𝐀𝐍𝐍𝐔 𝐃𝐎𝐍* 〙❳━━━
@@ -159,7 +167,7 @@ waqar({
 > ┃ *Date:* ${pakDate}
 > ┃ *Memory:* ${memory} MB
 > ┃ *Uptime:* ${uptime}
-> ┃ *Commands:* ${visibleCommandCount} unique
+> ┃ *Command names:* ${visibleCommandCount} (commands + aliases)
 > ┃ *Pairing:* ${pairingUrl || 'Set APP_URL in Railway Variables'}
 > ┃ *Channel:* ${config.CHANNEL_LINK || 'https://whatsapp.com/channel/0029VbEHpir6mYPSxtiCRs2q'}
 > ╰━
@@ -168,7 +176,7 @@ waqar({
 ${commandSections}
 
 > _Powered by 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍_
-> _Category menus: .menu_ai • .menu_group • .menu_settings_
+> _All registered command names and aliases are listed above._
         `.trim();
 
         // ── Context Info ───────────────────────────────────────
@@ -632,3 +640,5 @@ waqar({
 console.log('𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 - Tap to Select Menu with Image + Text Loaded! 💖');
 console.log('📌 Video URLs: ${VIDEO_URLS.length} | Audio URLs: ${AUDIO_URLS.length}');
 console.log('📌 Category images: ${Object.keys(CATEGORY_IMAGES).length}');
+
+module.exports = { buildCommandSections, normalizeCommandName };
