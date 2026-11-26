@@ -77,6 +77,28 @@ async function downloadMedia(media, quoted) {
     return null;
 }
 
+function getQuotedSender(mek, quoted) {
+    const message = mek?.message || {};
+    const contextInfo = message.extendedTextMessage?.contextInfo ||
+        message.imageMessage?.contextInfo ||
+        message.videoMessage?.contextInfo ||
+        message.audioMessage?.contextInfo ||
+        message.documentMessage?.contextInfo;
+    const quotedMessage = quoted?.msg || quoted;
+    return contextInfo?.participant || quotedMessage?.key?.participant ||
+        quotedMessage?.participant || quotedMessage?.sender || '';
+}
+
+function normalizeJid(jid) {
+    return String(jid || '').trim().toLowerCase().replace(/:\d+(?=@)/, '');
+}
+
+function isOwnMediaReply(mek, quoted, sender) {
+    const quotedSender = normalizeJid(getQuotedSender(mek, quoted));
+    const currentSender = normalizeJid(sender);
+    return Boolean(quotedSender && currentSender && quotedSender === currentSender);
+}
+
 function formatBytes(bytes) {
     if (!bytes) return '0 Bytes';
     const k = 1024;
@@ -90,6 +112,9 @@ async function handleViewOnce(conn, mek, m, context) {
     try {
         const quotedMsg = quoted?.msg || quoted || mek?.quoted || mek?.message?.extendedTextMessage?.contextInfo?.quotedMessage;
         if (!quotedMsg) return reply('🌸 View-once message par reply karke `.vv` bhejein.');
+        if (!isOwnMediaReply(mek, quoted, sender)) {
+            return reply('🔒 `.vv` sirf aapke apne bheje hue view-once media ke liye available hai.');
+        }
         const { content, isViewOnce } = unwrapViewOnce(quotedMsg);
         if (!isViewOnce) return reply('🌸 Please reply to a view-once image, video or audio message.\n\nUse: .vv');
 
@@ -177,4 +202,4 @@ waqar({
     return reply(`📋 View-once keywords (${positiveKeywords.length}):\n${positiveKeywords.join(', ')}\n\nAuto mode: ${config.AUTO_VIEW_ONCE === 'true' ? 'ON' : 'OFF'}\nUse .vvset on/off`);
 });
 
-module.exports = { handleViewOnce, unwrapViewOnce };
+module.exports = { handleViewOnce, unwrapViewOnce, isOwnMediaReply };
