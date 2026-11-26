@@ -185,6 +185,7 @@ async (conn, mek, m, { from, reply }) => {
 │  ✿ 🎙️ .toptt - Video to Voice
 │  ✿ 🎨 .togif - Video to GIF
 │  ✿ 🖼️ .s2i - Sticker to Image
+│  ✿ 📺 .drama - Official Pakistani drama episodes
 ╰═══✿══════════════╝
 
 🌸 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 💖`;
