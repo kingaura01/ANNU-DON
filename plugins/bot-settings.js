@@ -157,6 +157,37 @@ waqar({
 });
 
 // ============================================
+// 👁️❤️ COMBINED STATUS AUTOMATION
+// ============================================
+waqar({
+    pattern: "autostatus",
+    desc: "🌸 Enable/disable visible auto-view or auto-react for statuses",
+    category: "settings",
+    react: "👁️",
+    filename: __filename
+}, async (conn, mek, m, { args, isOwner, reply }) => {
+    if (!isOwner) return reply("🌸 *Access Denied!* 💕");
+
+    const option = String(args[0] || "").toLowerCase();
+    const status = String(args[1] || "").toLowerCase();
+    if (!option && !status) {
+        return reply(
+            `👁️ Auto-view: ${config.AUTO_STATUS_SEEN === "true" ? "ON" : "OFF"}\n` +
+            `❤️ Auto-react: ${config.AUTO_STATUS_REACT === "true" ? "ON" : "OFF"}\n\n` +
+            "Use: .autostatus view on/off\nUse: .autostatus react on/off"
+        );
+    }
+    if (!["view", "react"].includes(option) || !["on", "off"].includes(status)) {
+        return reply("Usage: .autostatus view on/off  or  .autostatus react on/off");
+    }
+
+    const key = option === "view" ? "AUTO_STATUS_SEEN" : "AUTO_STATUS_REACT";
+    config[key] = status === "on" ? "true" : "false";
+    const label = option === "view" ? "Auto status view" : "Auto status react";
+    return reply(`✅ ${label} ${status.toUpperCase()}`);
+});
+
+// ============================================
 // 📖 AUTO READ
 // ============================================
 waqar({
