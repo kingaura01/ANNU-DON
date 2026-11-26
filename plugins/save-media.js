@@ -3,6 +3,7 @@
 // ============================================
 
 const { waqar } = require('../waqar');
+const config = require('../settings');
 
 const MAX_MEDIA_BYTES = 64 * 1024 * 1024;
 const MEDIA_KEYS = ['imageMessage', 'videoMessage', 'audioMessage', 'documentMessage', 'stickerMessage'];
@@ -66,10 +67,24 @@ waqar({
     category: 'media',
     react: '💾',
     filename: __filename
-}, async (conn, mek, m, { from, sender, reply, isReply, quoted }) => {
+}, async (conn, mek, m, { from, sender, reply, isReply, quoted, args, isOwner }) => {
     try {
+        const action = String(args?.[0] || '').toLowerCase();
+        if (action === 'on' || action === 'off') {
+            if (!isOwner) return reply('🔒 Sirf bot owner `.save on/off` use kar sakta hai.');
+            config.AUTO_STATUS_SAVE = action === 'on' ? 'true' : 'false';
+            if (action === 'on') config.AUTO_STATUS_SEEN = 'true';
+            return reply(action === 'on'
+                ? '✅ Status auto-save ON. Aane wale statuses pehle visibly viewed honge, phir supported copy bot account ke apne chat mein bheji jayegi.'
+                : '✅ Status auto-save OFF. `.ss`/`.autostatus view` ki auto-view setting alag se control hoti hai.');
+        }
+
         if (!isReply || !quoted) {
-            return reply('💾 Kisi normal photo/video/audio/document par reply karke `.save` bhejein. Copy aapke private chat mein bheji jayegi.');
+            const status = config.AUTO_STATUS_SAVE === 'true' ? 'ON' : 'OFF';
+            return reply(`💾 Status auto-save: *${status}*\n`.concat(
+                'Statuses ke liye `.save on/off` (sirf bot owner). Is mode mein status visible/read mark hota hai aur copy bot account ke apne chat mein aati hai.\n',
+                'Normal photo/video/audio/document ki copy ke liye us par reply karke `.save` bhejein.'
+            ));
         }
 
         const item = inspectQuotedMedia(quoted);

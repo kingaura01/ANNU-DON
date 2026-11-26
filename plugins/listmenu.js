@@ -194,7 +194,7 @@ async (conn, mek, m, { from, reply }) => {
 │  ✿ 🎙️ .toptt - Video to Voice
 │  ✿ 🎨 .togif - Video to GIF
 │  ✿ ✂️ .splitstatus - Split replied video into status clips
-│  ✿ 💾 .save - DM yourself a copy of replied normal media
+│  ✿ 💾 .save - Copy replied normal media / .save on/off status auto-save
 │  ✿ 🖼️ .s2i - Sticker to Image
 ╰═══✿══════════════╝
 
@@ -349,7 +349,8 @@ async (conn, mek, m, { from, reply }) => {
 │  ✿ 🎨 .tx - Text font styles
 │  ✿ 🌤️ .weather - Weather Info
 │  ✿ 🆔 .jid - Get Chat JID
-│  ✿ 💾 .ss - Status Saver
+│  ✿ 👁️ .ss - Visible status auto-view
+│  ✿ 💾 .save on/off - Save visibly viewed statuses to bot chat
 │  ✿ 👑 .vv - View Once Saver
 │  ✿ 🔑 .pair - Pairing Code
 ╰═══✿══════════════╝
