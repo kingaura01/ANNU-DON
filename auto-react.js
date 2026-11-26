@@ -52,7 +52,7 @@ waqar({
     filename: __filename
 }, async (conn, mek, m, { from, args, isOwner, isCreator, reply }) => {
     try {
-        if (!isOwner && !isCreator) return reply(`🌸 Only my waqar writes can use this! 👑💖`);
+        if (!isOwner && !isCreator) return reply(`🌸 Only my 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 writes can use this! 👑💖`);
 
         const config = loadConfig();
         const action = (args[0] || '').toLowerCase();

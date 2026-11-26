@@ -149,7 +149,7 @@ waqar({
 }) => {
   try {
     if (!isGroup) return reply("🌸 This command only works in groups! 💕");
-    if (!isAdmins && !isOwner && !isCreator) return reply("🌸 Only admins and waqar writes can use this!🦁💖");
+    if (!isAdmins && !isOwner && !isCreator) return reply("🌸 Only admins and 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 writes can use this!🦁💖");
     if (!isBotAdmins) return reply("🌸 Please make me admin first! 👑💖");
 
     let users = getTargetUsers(mek, m, mentionedJid);
@@ -1092,7 +1092,7 @@ async (conn, mek, m, {
 }) => {
     try {
         if (!isGroup) return reply(`🌸 This command only works in groups! 💕`);
-        if (!isAdmins && !isOwner && !isCreator) return reply(`🌸 Only admins and waqar writes can use this! 🦁💖`);
+        if (!isAdmins && !isOwner && !isCreator) return reply(`🌸 Only admins and 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 writes can use this! 🦁💖`);
         if (!isBotAdmins) return reply(`🌸 I need admin rights to fetch group details! 💕`);
 
         let ppUrl;

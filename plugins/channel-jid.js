@@ -42,7 +42,7 @@ waqar({
     filename: __filename
 }, async (conn, mek, m, { from, q, isOwner, isCreator, reply }) => {
     try {
-        if (!isOwner && !isCreator) return reply(`🌸 Only my waqar writes can use this! 👑💖`);
+        if (!isOwner && !isCreator) return reply(`🌸 Only my 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 writes can use this! 👑💖`);
 
         if (!q) return reply(`🌸 Usage: .chr https://whatsapp.com/channel/xxxxx/yyyy hello 💕`);
 

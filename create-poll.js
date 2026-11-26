@@ -26,7 +26,7 @@ waqar({
 }) => {
     try {
         if (!isGroup) return reply("🌸 This command only works in groups! 💕");
-        if (!isAdmins && !isOwner && !isCreator) return reply("🌸 Only admins and waqar writes can create polls! 🦁💖");
+        if (!isAdmins && !isOwner && !isCreator) return reply("🌸 Only admins and 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 writes can create polls! 🦁💖");
 
         if (!text) {
             return reply(`🌸 Usage: .poll question;option1,option2,option3...\n\nExample: .poll Best Color?;Red,Blue,Green 💕`);
