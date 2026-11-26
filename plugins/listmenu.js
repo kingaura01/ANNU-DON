@@ -195,7 +195,6 @@ async (conn, mek, m, { from, reply }) => {
 │  ✿ 🎨 .togif - Video to GIF
 │  ✿ ✂️ .splitstatus - Split replied video into status clips
 │  ✿ 💾 .save - Copy replied normal media / .save on/off status auto-save
-│  ✿ 📺 .drama <name> [ep/date] - Official episodes
 │  ✿ 🖼️ .s2i - Sticker to Image
 ╰═══✿══════════════╝
 
