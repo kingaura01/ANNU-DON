@@ -187,25 +187,6 @@ waqar({
     return reply(`✅ ${label} ${status.toUpperCase()}`);
 });
 
-waqar({
-    pattern: "ss",
-    desc: "🌸 Toggle visible automatic status viewing",
-    category: "settings",
-    react: "👁️",
-    filename: __filename
-}, async (conn, mek, m, { args, isOwner, reply }) => {
-    if (!isOwner) return reply("🌸 *Access Denied!* 💕");
-
-    const status = String(args[0] || "").toLowerCase();
-    if (!["on", "off"].includes(status)) {
-        return reply(`Usage: .ss on/off\nCurrent: ${config.AUTO_STATUS_SEEN === "true" ? "ON" : "OFF"}`);
-    }
-    config.AUTO_STATUS_SEEN = status === "on" ? "true" : "false";
-    return reply(status === "on"
-        ? "✅ Visible auto-view ON. Status owners may see that the bot viewed their status."
-        : "✅ Auto-view OFF. The bot will stop automatically viewing statuses.");
-});
-
 // ============================================
 // 📖 AUTO READ
 // ============================================
