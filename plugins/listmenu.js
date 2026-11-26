@@ -193,6 +193,7 @@ async (conn, mek, m, { from, reply }) => {
 │  ✿ 🎵 .tomp3 - Video to MP3
 │  ✿ 🎙️ .toptt - Video to Voice
 │  ✿ 🎨 .togif - Video to GIF
+│  ✿ ✂️ .splitstatus - Split replied video into status clips
 │  ✿ 🖼️ .s2i - Sticker to Image
 ╰═══✿══════════════╝
 
@@ -344,6 +345,7 @@ async (conn, mek, m, { from, reply }) => {
 │  ✿ ⏳ .uptime - Bot Uptime
 │  ✿ 📸 .getpp - Get Profile Pic
 │  ✿ 🎵 .lyrics - Song Lyrics
+│  ✿ 🎨 .tx - Text font styles
 │  ✿ 🌤️ .weather - Weather Info
 │  ✿ 🆔 .jid - Get Chat JID
 │  ✿ 💾 .ss - Status Saver

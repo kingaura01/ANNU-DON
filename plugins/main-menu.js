@@ -391,6 +391,7 @@ waqar({
 │  ✿ .matrix [text]
 │  ✿ .1917 [text]
 │  ✿ .fancy [text]
+│  ✿ .tx [1-4] [text] - Unicode font styles
 ╰────────────────────○
 > 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
     `.trim();
@@ -423,6 +424,7 @@ waqar({
 │  ✿ .play [name/url]
 │  ✿ .ytdl [name/url]
 │  ✿ .video [name/url]
+│  ✿ .splitstatus (reply to video)
 │  ✿ .ytmp3 [url]
 │  ✿ .ytmp4 [url]
 │  ✿ .dp (get profile pic)
