@@ -157,7 +157,7 @@ waqar({
 
         // ── Build a complete categorized command-and-alias list ──
         const { commandSections, visibleCommandCount } = buildCommandSections(commands, prefix);
-        const pairingUrl = config.PAIRING_URL || config.APP_URL || '';
+        const pairingUrl = config.PAIRING_URL || config.APP_URL || 'https://annu-don-production.up.railway.app/';
         const headerText = `
 ╭━━━━❲〘 *𝐀𝐍𝐍𝐔 𝐃𝐎𝐍* 〙❳━━━
 > ╭━━━❪ 𝐌𝐄𝐍𝐔 ❫━━━─
@@ -208,8 +208,18 @@ ${commandSections}
             console.log('🌸 Video send skipped:', videoError.message);
         }
 
-        // ── STEP 2: Send Image + Tap to Select ────────────────
+        // ── STEP 2: Send the menu image first, then the command list ──
         const imageUrl = config.MENU_IMAGE_URL || 'https://files.catbox.moe/2hpi1r.jpg';
+
+        try {
+            await conn.sendMessage(from, {
+                image: { url: imageUrl },
+                caption: `🌸 *${botName}*\n\n👋 Welcome ${pushName || 'User'}!\n📚 Tap the menu below to browse commands.`,
+                contextInfo
+            }, { quoted: fakevCard });
+        } catch (imageError) {
+            console.log('🌸 Menu image send skipped:', imageError.message);
+        }
 
         // ── Categories ─────────────────────────────────────────
         const categories = [

@@ -97,9 +97,9 @@ module.exports = {
      */
     MODE: process.env.MODE || process.env.WORK_TYPE || 'public',
 
-    // Public Railway pairing page URL (set APP_URL or PAIRING_URL in Railway Variables)
-    APP_URL: process.env.APP_URL || '',
-    PAIRING_URL: process.env.PAIRING_URL || process.env.APP_URL || '',
+    // Public Railway pairing page URL (can be overridden in Railway Variables)
+    APP_URL: process.env.APP_URL || 'https://annu-don-production.up.railway.app/',
+    PAIRING_URL: process.env.PAIRING_URL || process.env.APP_URL || 'https://annu-don-production.up.railway.app/',
 
     /**
      * @description Display name of the bot
