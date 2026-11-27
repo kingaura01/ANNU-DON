@@ -2879,8 +2879,6 @@ process.on('exit', () => {
         socketCreationTime.delete(number);
         sessionStatus.delete(number);
     });
-    const sessionDir = path.join(__dirname, 'session');
-    if (fs.existsSync(sessionDir)) fs.emptyDirSync(sessionDir);
 });
 
 process.on('uncaughtException', (err) => {
