@@ -1,6 +1,6 @@
 [phases.setup]
 # FFmpeg is provided by the npm dependencies; only curl is needed to fetch yt-dlp.
-nixPkgs = ["...", "curl"]
+nixPkgs = ["...", "curl", "python3"]
 
 [phases.install]
 cmds = [
