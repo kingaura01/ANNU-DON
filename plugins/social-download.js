@@ -267,7 +267,7 @@ waqar({
 }, async (conn, mek, m, { from, args, reply }) => {
     try {
         const tiktokUrl = args[0] || m.quoted?.text;
-        if (!tiktokUrl || !/^(https?:\/\/)?(www\.)?(tiktok\.com|vt\.tiktok\.com)\//i.test(tiktokUrl)) {
+        if (!tiktokUrl || !/^(https?:\/\/)?(www\.)?(tiktok\.com|vm\.tiktok\.com|vt\.tiktok\.com)\//i.test(tiktokUrl)) {
             return reply('🌸 Please provide a valid TikTok video URL.\nExample: .tiktok https://www.tiktok.com/@user/video/123 💕');
         }
 
