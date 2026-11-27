@@ -5,9 +5,8 @@
 // ============================================
 
 const { waqar } = require('../waqar');
-const { boyBox, boyHelp, boyError, girlSuccess } = require('../lib/style');
+const { girlBox, girlHelp, girlError } = require('../lib/style');
 const axios = require('axios');
-const config = require('../settings');
 
 // ============================================
 // 📌 CHANNEL REACT COMMAND
