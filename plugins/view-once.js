@@ -153,15 +153,6 @@ waqar({ on: 'body' }, async (conn, mek, m, context) => {
 });
 
 waqar({
-    pattern: 'vv', alias: ['vv3', 'viewonce', 'getvv', 'savemedia'],
-    react: '👑', desc: 'Retrieve view-once media', category: 'owner', filename: __filename
-}, async (conn, mek, m, context) => {
-    if (context.isOwner !== true && context.isCreator !== true) return context.reply('🌸 Sirf 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 yeh command use kar sakta hai.');
-    if (!context.isReply) return context.reply('🌸 View-once image/video/audio par reply karke `.vv` bhejein.');
-    return handleViewOnce(conn, mek, m, context);
-});
-
-waqar({
     pattern: 'vv2', alias: ['sendvv', 'dmvv', 'saveto'],
     react: '💕', desc: 'Send view-once media to DM', category: 'owner', filename: __filename
 }, async (conn, mek, m, context) => {
