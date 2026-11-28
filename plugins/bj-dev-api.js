@@ -28,7 +28,6 @@ const definitions = [
     { pattern: 'apk1', alias: ['bjapk1'], path: '/tools/apk-dl-v1', category: 'download', usage: '.apk1 app name', params: q => ({ query: q, limit: '1' }) },
     { pattern: 'apk2', alias: ['bjapk2'], path: '/tools/apk-dl-v2', category: 'download', usage: '.apk2 app name', params: q => ({ query: q }) },
     { pattern: 'zip', alias: ['bjzip'], path: '/tools/website-to-zip', category: 'tools', usage: '.zip https://example.com', params: q => ({ url: q }) },
-    { pattern: 'tts', alias: ['bjtts', 'sayv'], path: '/media/tts-pro', category: 'media', usage: '.tts hello | voice', params: q => { const [text, voice] = q.split('|').map(v => v.trim()); return { text, voice: voice || 'ChristopherMultilingual' }; } },
     { pattern: 'tempgmail', alias: ['bjtempgmail'], path: '/tools/temp-gmail', category: 'tools', usage: '.tempgmail', params: () => ({ action: 'create' }) },
     { pattern: 'tempmail', alias: ['bjtempmail'], path: '/tools/emailnator', category: 'tools', usage: '.tempmail', params: () => ({ action: 'create' }) },
     { pattern: 'screenshot', alias: ['bjscreenshot'], path: '/tools/screenshot', category: 'media', usage: '.screenshot https://example.com', params: q => ({ url: q }) },
