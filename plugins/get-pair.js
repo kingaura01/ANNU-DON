@@ -40,19 +40,18 @@ waqar({
         // ═══════════════════════════════════════════
 
         let isConnected = false;
-        let connectionTime = null;
-        let uptime = null;
 
         try {
             const statusRes = await axios.get(`${BASE}/pair-status?number=${number}`, {
                 timeout: 10000
             });
-            
-            if (!force && statusRes.data && statusRes.data.status === 'connected') {
-                isConnected = true;
-                connectionTime = statusRes.data.connectionTime || 'Unknown';
-                uptime = statusRes.data.uptime || '0';
-            }
+            const pairState = statusRes.data?.data || statusRes.data || {};
+            isConnected = !force && (
+                pairState.isActive === true ||
+                pairState.status === 'connected' ||
+                statusRes.data?.status === 'connected' ||
+                statusRes.data?.status === 'already_connected'
+            );
         } catch (e) {
             console.log('[Pair] Status check error:', e.message);
         }
@@ -67,9 +66,8 @@ waqar({
 │  ✿━━━━━━━━━━━━━━━✿
 │ ♡⪼ 📱 Number: ${number}
 │ ♡⪼ 🔗 Status: Connected
-│ ♡⪼ ⏰ Since: ${connectionTime}
-│ ♡⪼ ⏳ Uptime: ${uptime}s
-│ ♡⪼ 💡 Use "Disconnect" to reset
+│ ♡⪼ ✅ This number is already linked to the bot
+│ ♡⪼ 💡 No new pairing code is needed
 ╰────────────────────○
 
 💖 *Tap "Disconnect" to remove this session and pair again*`;
