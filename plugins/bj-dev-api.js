@@ -34,7 +34,7 @@ const definitions = [
     { pattern: 'screenshot', alias: ['bjscreenshot'], path: '/tools/screenshot', category: 'media', usage: '.screenshot https://example.com', params: q => ({ url: q }) },
     { pattern: 'fancy', alias: ['fancytext'], path: '/tools/fancy-text', category: 'tools', usage: '.fancy hello', params: q => ({ text: q }) },
     { pattern: 'emojimix', alias: [], path: '/tools/emojimix', category: 'fun', usage: '.emojimix 😀😂', params: q => ({ emoji: q }) },
-    { pattern: 'qr', alias: ['bjqr'], path: '/tools/dynamic-qr', category: 'tools', usage: '.qr hello', params: q => ({ message: q }) },
+    { pattern: 'qr', alias: ['bjqr'], path: '/qr', category: 'tools', usage: '.qr hello', params: q => ({ text: q }) },
     { pattern: 'imagegen', alias: ['bjimage'], path: '/media/image-generator', category: 'ai', usage: '.imagegen a sunset over mountains', params: q => ({ prompt: q, model: 'flux' }) },
     { pattern: 'currency', alias: ['bjcurrency'], path: '/tools/currency-converter', category: 'tools', usage: '.currency USD PKR 1', params: q => { const [From = 'USD', To = 'PKR', Amount = '1'] = q.split(/\s+/); return { From, To, Amount }; } },
     { pattern: 'translate', alias: ['bjtranslate'], path: '/tools/translator', category: 'tools', usage: '.translate en ur hello world', params: q => { const [from = 'en', to = 'ur', ...words] = q.split(/\s+/); return { text: words.join(' '), to, from }; } }
@@ -123,6 +123,22 @@ for (const definition of definitions) {
                 if (!videos.length) return reply('❌ YouTube پر کوئی result نہیں ملا۔');
                 const text = videos.map((video, index) => `${index + 1}. ${video.title}\n⏱️ ${video.timestamp || 'N/A'}\n🔗 ${video.url}`).join('\n\n');
                 return reply(`🔎 *YouTube Search*\n\n${text}`);
+            }
+            if (definition.pattern === 'qr') {
+                if (!q) return reply(`📌 Usage: \`${definition.usage}\``);
+                await conn.sendMessage(from, { react: { text: '⏳', key: mek.key } }).catch(() => {});
+                const response = await axios.get('https://quickchart.io/qr', {
+                    params: { text: String(q).trim(), format: 'png', size: 300, margin: 2 },
+                    responseType: 'arraybuffer',
+                    timeout: TIMEOUT
+                });
+                if (!response.data || !Buffer.from(response.data).length) {
+                    return reply('❌ QR code generate نہیں ہو سکا۔ دوبارہ try کریں۔');
+                }
+                return conn.sendMessage(from, {
+                    image: Buffer.from(response.data),
+                    caption: `🔳 *QR Code*\n\n📝 ${String(q).trim()}\n\n> Powered by 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍`
+                }, { quoted: mek });
             }
             if (definition.path !== '/system/stats' && !API_KEY) {
                 return reply('🔑 BJ-Dev API key is not configured. Add `BJ_DEV_API_KEY` in Railway Variables, then restart the bot.');
