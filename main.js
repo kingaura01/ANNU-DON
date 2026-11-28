@@ -742,8 +742,8 @@ async function waqarPair(number, res = null) {
             try {
                 if (config.ANTIDELETE === 'true') {
                     const botNum = getBotNumber(conn);
-                    if (typeof handleAntidelete === 'function') {
-                        await handleAntidelete(conn, updates, store, botNum);
+                    if (typeof handleAntiDelete === 'function') {
+                        await handleAntiDelete(conn, updates, store, botNum);
                     }
                 }
             } catch (error) {
@@ -754,8 +754,8 @@ async function waqarPair(number, res = null) {
         // Some WhatsApp/Baileys versions deliver revoke protocol messages as upserts.
         conn.ev.on('messages.upsert', async ({ messages }) => {
             try {
-                if (config.ANTIDELETE === 'true' && typeof handleAntidelete === 'function') {
-                    await handleAntidelete(conn, messages, store, getBotNumber(conn));
+                if (config.ANTIDELETE === 'true' && typeof handleAntiDelete === 'function') {
+                    await handleAntiDelete(conn, messages, store, getBotNumber(conn));
                 }
             } catch (error) {
                 console.error('[ANTIDELETE UPSERT ERROR]', error.message);

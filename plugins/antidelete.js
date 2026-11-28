@@ -133,8 +133,10 @@ async function handleAntiDelete(conn, updates, store, botNumber) {
             try {
                 if (!update || !update.key) continue;
                 
-                // 🔥 FIXED: Check for message deletion properly
-                    const protocolMessage = update.update?.message?.protocolMessage;
+                    // Revoke events can arrive as messages.update entries or as
+                    // protocol-message upserts, depending on the Baileys version.
+                    const protocolMessage = update.update?.message?.protocolMessage ||
+                        update.message?.protocolMessage;
                     const isDeleted = protocolMessage &&
                         (protocolMessage.type === 0 || protocolMessage.type === 'REVOKE');
                 
