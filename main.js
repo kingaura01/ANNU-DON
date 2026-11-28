@@ -1111,6 +1111,18 @@ async function waqarPair(number, res = null) {
                     if (mode === "groups" && !isGroup && !isOwner) return;
                 }
 
+                const beforeEvents = require("./waqar");
+                for (const registeredCommand of beforeEvents.commands) {
+                    const beforeHook = registeredCommand.function?.before;
+                    if (typeof beforeHook !== "function") continue;
+                    try {
+                        const handled = await beforeHook(m, { sock: conn, conn, from, sender, senderNumber, body, isCmd });
+                        if (handled) return;
+                    } catch (hookError) {
+                        console.error("[ ❌ ] Command before-hook error:", hookError.message);
+                    }
+                }
+
                 if (isCmd) {
                     const cmdName = body.slice(prefix.length).trim().split(" ")[0].toLowerCase();
                     const events = require("./waqar");
@@ -1130,6 +1142,7 @@ async function waqarPair(number, res = null) {
                             const text = args.join(" ");
 
                             const context = {
+                                prefix,
                                 from,
                                 body,
                                 isCmd,
