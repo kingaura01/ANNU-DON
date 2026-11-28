@@ -7,7 +7,7 @@ const fs = require('node:fs/promises');
 
 waqar({
   pattern: 'play',
-  alias: ['audio', 'mp3', 'gana', 'ytmp3', 'ytaudio', 'playaudio', 'music', 'melody'],
+  alias: ['song', 'audio', 'mp3', 'gana', 'ytmp3', 'ytaudio', 'playaudio', 'music', 'melody'],
   desc: 'Play or download YouTube audio',
   category: 'download',
   react: '🎵',
@@ -18,7 +18,6 @@ waqar({
 
   let localFile;
   try {
-    const status = await conn.sendMessage(mek.key.remoteJid, { text: `Searching for: ${query}` }, { quoted: mek });
     try {
       const result = await getJson('/api/v1/play', { query });
       localFile = await downloadJob(result.job_id, 'mp3');
@@ -29,9 +28,8 @@ waqar({
         fileName: `${title}.mp3`,
       }, { quoted: mek });
     } catch (apiError) {
-      console.warn(`[Play] API unavailable; trying existing downloader: ${apiError.message}`);
-      if (status?.key) await conn.sendMessage(mek.key.remoteJid, { text: 'Audio service failed; trying the built-in downloader…', edit: status.key }).catch(() => {});
-      await runYt(conn, mek, query, 'mp3');
+      console.warn(`[Play] API unavailable; trying the existing downloader: ${apiError.message}`);
+      await runYt(conn, mek, query, 'mp3', { silent: true });
     }
   } catch (error) {
     console.error('[Play] Error:', error.stack || error.message);

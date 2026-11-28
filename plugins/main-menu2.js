@@ -425,6 +425,9 @@ for (const cmd of commands) {
 }
 
 for (const [category, cmds] of categoryMap) {
+    // Reserve `.audio` for the song downloader; audio effects remain listed by `.audioeffects`.
+    if (category.toLowerCase() === 'audio') continue;
+
     const emoji = getCategoryIcon(category);
     const prefix = config.PREFIX || '.';
     const botName = config.BOT_NAME || '𝐀𝐍𝐍𝐔 𝐃𝐎𝐍';
