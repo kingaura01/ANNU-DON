@@ -76,8 +76,11 @@ deployment is running, remove old entries in *Linked Devices*, and request a fre
 | `IMGBB_API_KEY` | Required by `.tourl` image upload command |
 | `GITHUB_TOKEN` / `GITHUB_REPO` / `GITHUB_BRANCH` | Optional session backup |
 | `APP_URL`, `CHANNEL_LINK`, `OWNER_KEY` | Optional links and admin key |
+| `MEDIA_API_BASE` / `MEDIA_API_KEY` | Media API base/key for `.play`, `.video`, `.chreact`, and `.movie` |
 
 > Never commit `.env` or the `session/` folder.
+
+The media integration uses `.play` (also `.audio` / `.song`), `.video` (also `.ytdl`), owner-only `.chreact` (one reaction per request), and `.chreactweekly` (one reaction per new post for seven days when explicitly run). `.movie <title>` searches the Internet Archive public-domain/Creative Commons catalog; `.movieget <number>` sends an eligible MP4 up to 64 MB, otherwise it returns the Archive source page. Set `MEDIA_API_BASE` and `MEDIA_API_KEY` in Railway Variables if you need to override the defaults. YouTube downloads fall back to the existing local downloader if the API job fails.
 
 ## Deploy on Railway
 

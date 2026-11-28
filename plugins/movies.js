@@ -1,404 +1,93 @@
-// ============================================
-// 🎬 MP4MOVIEZ - TAP TO SELECT WITH INTERACTIVE BUTTONS
-// 👑 Developer: 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
-// 🔥 FIXED: LIST RESPONSE HANDLER
-// 💖 Search → Single Select → Details → Download
-// ============================================
+'use strict';
 
-const { waqar, commands } = require('../waqar');
-const { sendInteractiveMessage } = require('gifted-btns');
-const axios = require("axios");
-const cheerio = require("cheerio");
-const { URL } = require("url");
-const config = require('../config');
+const { waqar } = require('../waqar');
+const { getJson, downloadMovieFile } = require('../lib/media-api');
+const fs = require('node:fs/promises');
 
-// Thumbnail processing is optional. Keep the movie command available even
-// when a deployment skips native sharp install scripts.
-let sharp = null;
-try {
-    sharp = require("sharp");
-} catch (error) {
-    console.warn(`[Movies] Optional sharp thumbnail support unavailable: ${error.message}`);
+const MAX_MOVIE_BYTES = 64 * 1024 * 1024;
+const searchByChat = new Map();
+
+function cleanText(value, limit = 220) {
+  return String(value || '').replace(/[\r\n\t]+/g, ' ').trim().slice(0, limit);
 }
 
-// ============================================
-// 📌 CONFIG
-// ============================================
-const BASE_URL = "https://www.mp4moviez.ad";
-let isDownloading = false;
-
-// ============================================
-// 📌 HELPERS
-// ============================================
-async function getThumbnailBuffer(url) {
-    if (!url || !sharp) return null;
-    try {
-        const { data } = await axios.get(url, { responseType: "arraybuffer" });
-        return await sharp(data).resize(300, 300).jpeg({ quality: 80 }).toBuffer();
-    } catch {
-        return null;
-    }
-}
-
-// ============================================
-// 🎬 MAIN COMMAND - WITH INTERACTIVE BUTTONS
-// ============================================
 waqar({
-    pattern: "movie",
-    alias: ["mp4moviez", "film", "moviez", "mp4m", "searchmovie", "movies"],
-    desc: "🎬 Search and download movies from Mp4Moviez",
-    category: "download",
-    react: "🎬",
-    filename: __filename
-}, async (conn, mek, m, { from, args, reply, text, pushname }) => {
-    const query = text.trim();
-    if (!query) return reply("🔎 *Please provide a movie name!*\n\nExample: .movie Animal");
+  pattern: 'movie',
+  alias: ['movies', 'film', 'searchmovie'],
+  desc: 'Search public-domain and Creative Commons movies',
+  category: 'download',
+  react: '🎬',
+  filename: __filename,
+}, async (_conn, _mek, _m, { from, text, reply }) => {
+  const query = String(text || '').trim();
+  if (!query) return reply('Usage: .movie <title>\nChoose a result with .movieget <number>');
 
-    try {
-        // ── Reactions ──────────────────────────────────────────
-        const reactions = ['⏳', '🔄', '🔍'];
-        for (const emoji of reactions) {
-            await conn.sendMessage(from, { react: { text: emoji, key: mek.key } }).catch(() => {});
-            await new Promise(resolve => setTimeout(resolve, 200));
-        }
+  try {
+    const data = await getJson('/api/v1/movie2/search', { q: query, limit: 8 });
+    const results = Array.isArray(data.results) ? data.results : Array.isArray(data.entries) ? data.entries : [];
+    if (!results.length) return reply(`No public-domain/Creative Commons movies found for “${query}”. Try another title.`);
 
-        // ── 1. SEARCH PHASE ──
-        const SEARCH_URL = `${BASE_URL}/search/${encodeURIComponent(query)}.html`;
-        const { data } = await axios.get(SEARCH_URL, {
-            headers: { "User-Agent": "Mozilla/5.0" }
-        });
-
-        const $ = cheerio.load(data);
-        const results = [];
-
-        $("body > div").each((i, el) => {
-            const aTag = $(el).find("a").first();
-            const href = aTag.attr("href");
-            const title = aTag.find("div > div:nth-child(2)").text().trim();
-
-            if (href && title) {
-                results.push({
-                    title: title,
-                    link: new URL(href, BASE_URL).href
-                });
-            }
-        });
-
-        if (!results.length) {
-            await conn.sendMessage(from, { react: { text: '❌', key: mek.key } });
-            return reply("❌ No movies found. Please try different keywords.");
-        }
-
-        // ── 2. BUILD SEARCH SECTIONS ──
-        const sections = [];
-        const chunkSize = 5;
-        for (let i = 0; i < Math.min(results.length, 15); i += chunkSize) {
-            const chunk = results.slice(i, i + chunkSize);
-            sections.push({
-                title: `📽️ Movies ${i + 1}-${Math.min(i + chunkSize, results.length)}`,
-                rows: chunk.map((movie, idx) => ({
-                    title: movie.title.substring(0, 45) + (movie.title.length > 45 ? '...' : ''),
-                    description: `🎬 Tap to select`,
-                    id: `movie_${i + idx}`
-                }))
-            });
-        }
-
-        // ── 3. SEND SEARCH AS SINGLE SELECT ──
-        const searchText = `🎬 *MP4MOVIEZ SEARCH*\n\n🔎 *Results for:* ${query.toUpperCase()}\n📌 *Found:* ${results.length} movies\n\n💖 *Tap to select a movie from the list*`;
-
-        await sendInteractiveMessage(conn, from, {
-            text: searchText,
-            footer: `🎬 ${results.length} movies found | 💖 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍`,
-            interactiveButtons: [
-                {
-                    name: 'single_select',
-                    buttonParamsJson: JSON.stringify({
-                        title: '📽️ ᴛᴀᴘ ᴛᴏ sᴇʟᴇᴄᴛ ᴍᴏᴠɪᴇ 🎬',
-                        sections: sections
-                    })
-                },
-                {
-                    name: 'quick_reply',
-                    buttonParamsJson: JSON.stringify({
-                        display_text: '🔄 Search Again',
-                        id: `${config.PREFIX || '.'}movie ${query}`
-                    })
-                },
-                {
-                    name: 'quick_reply',
-                    buttonParamsJson: JSON.stringify({
-                        display_text: '📜 Menu',
-                        id: `${config.PREFIX || '.'}menu`
-                    })
-                },
-                {
-                    name: 'cta_url',
-                    buttonParamsJson: JSON.stringify({
-                        display_text: '🎀 CHANNEL',
-                        url: config.CHANNEL_LINK || 'https://whatsapp.com/channel/0029VbEHpir6mYPSxtiCRs2q'
-                    })
-                }
-            ]
-        });
-
-        // ── 4. FIXED: LISTENER FOR MOVIE SELECTION ──
-        const movieHandler = async (update) => {
-            try {
-                const incoming = update.messages?.[0];
-                if (!incoming?.message || incoming.key.remoteJid !== from) return;
-
-                const msg = incoming.message;
-                let selectedIndex = null;
-
-                // ── CHECK FOR LIST RESPONSE ──
-                if (msg.listResponseMessage?.singleSelectReply?.selectedRowId) {
-                    const id = msg.listResponseMessage.singleSelectReply.selectedRowId;
-                    console.log('[Movies] Selected ID:', id);
-                    if (id && id.startsWith('movie_')) {
-                        selectedIndex = parseInt(id.replace('movie_', ''));
-                    }
-                }
-                // ── CHECK FOR BUTTON RESPONSE ──
-                else if (msg.buttonsResponseMessage?.selectedButtonId) {
-                    const id = msg.buttonsResponseMessage.selectedButtonId;
-                    console.log('[Movies] Button ID:', id);
-                    if (id && id.startsWith('movie_')) {
-                        selectedIndex = parseInt(id.replace('movie_', ''));
-                    }
-                }
-                // ── CHECK FOR TEXT RESPONSE ──
-                else if (msg.extendedTextMessage?.text) {
-                    const text = msg.extendedTextMessage.text.trim();
-                    console.log('[Movies] Text:', text);
-                    if (text && text.startsWith('movie_')) {
-                        selectedIndex = parseInt(text.replace('movie_', ''));
-                    }
-                }
-
-                if (selectedIndex === null || !results[selectedIndex]) {
-                    console.log('[Movies] Invalid selection:', selectedIndex);
-                    return;
-                }
-
-                // Stop listener
-                conn.ev.off("messages.upsert", movieHandler);
-
-                await conn.sendMessage(from, { react: { text: "📑", key: incoming.key } });
-
-                // ── 5. GET MOVIE DETAILS ──
-                const selected = results[selectedIndex];
-                const { data: html } = await axios.get(selected.link, {
-                    headers: { "User-Agent": "Mozilla/5.0" }
-                });
-
-                const $$ = cheerio.load(html);
-                const movie = { title: $$("h1").first().text().trim() };
-
-                $$(".jatt, .jatt1").each((i, el) => {
-                    const label = $$(el).find("b").text().replace(":", "").trim().toLowerCase();
-                    const value = $$(el).find("div").last().text().trim().replace(/\s+/g, " ");
-
-                    if (label.includes("movie name")) movie.movieName = value;
-                    if (label.includes("genre")) movie.genre = value;
-                    if (label.includes("rating")) movie.rating = value;
-                    if (label.includes("release date")) movie.releaseDate = value;
-                });
-
-                const poster = $$(".posterss").attr("src");
-                movie.poster = poster ? new URL(poster, selected.link).href : null;
-
-                // ── 6. EXTRACT DOWNLOAD PAGE ──
-                let secondPage = null;
-                $$("body > div.mast > a").each((i, el) => {
-                    const href = $$(el).attr("href");
-                    if (href && href.includes(".html")) secondPage = new URL(href, selected.link).href;
-                });
-
-                const downloads = [];
-                if (secondPage) {
-                    const { data: page2 } = await axios.get(secondPage);
-                    const $$$ = cheerio.load(page2);
-
-                    $$$(".mast").each((i, el) => {
-                        const a = $$$(el).find("a");
-                        const href = a.attr("href");
-                        if (!href || !href.includes("dl.php")) return;
-
-                        const sizeMatch = $$$(el).text().match(/\[(.*?)\]/);
-                        downloads.push({
-                            title: a.text().trim(),
-                            link: new URL(href, BASE_URL).href,
-                            size: sizeMatch ? sizeMatch[1] : "Unknown"
-                        });
-                    });
-                }
-
-                if (!downloads.length) {
-                    await conn.sendMessage(from, { react: { text: '❌', key: incoming.key } });
-                    return reply("❌ No download links found for this movie.");
-                }
-
-                // ── 7. BUILD DOWNLOAD SECTIONS ──
-                const dlSections = [{
-                    title: '📥 Dᴏᴡɴʟᴏᴀᴅ Oᴘᴛɪᴏɴs',
-                    rows: downloads.slice(0, 10).map((d, i) => ({
-                        title: `${d.title.substring(0, 40)}${d.title.length > 40 ? '...' : ''}`,
-                        description: `📦 Size: ${d.size}`,
-                        id: `dl_${i}`
-                    }))
-                }];
-
-                // ── 8. BUILD DETAILS CAPTION ──
-                const infoCap = `🎬 *${movie.title.toUpperCase()}*\n━━━━━━━━━━━━━━━━━━\n⭐ *Rating:* ${movie.rating || "N/A"}\n🎭 *Genre:* ${movie.genre || "N/A"}\n📅 *Release:* ${movie.releaseDate || "N/A"}\n\n📥 *Tap to select quality from the list*`;
-
-                // ── 9. SEND MOVIE DETAILS WITH POSTER ──
-                await conn.sendMessage(from, {
-                    image: { url: movie.poster || "https://files.catbox.moe/2hpi1r.jpg" },
-                    caption: infoCap,
-                    contextInfo: {
-                        mentionedJid: [m.sender],
-                        forwardingScore: 999,
-                        isForwarded: true
-                    }
-                }, { quoted: incoming });
-
-                // ── 10. SEND DOWNLOAD AS SINGLE SELECT ──
-                await sendInteractiveMessage(conn, from, {
-                    text: `🎬 *${movie.title}*\n\n📥 *Select quality to download:*`,
-                    footer: `💖 ${downloads.length} qualities available`,
-                    interactiveButtons: [
-                        {
-                            name: 'single_select',
-                            buttonParamsJson: JSON.stringify({
-                                title: '📥 Tᴀᴘ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ 🎬',
-                                sections: dlSections
-                            })
-                        },
-                        {
-                            name: 'quick_reply',
-                            buttonParamsJson: JSON.stringify({
-                                display_text: '🔍 Search Again',
-                                id: `${config.PREFIX || '.'}movie`
-                            })
-                        },
-                        {
-                            name: 'quick_reply',
-                            buttonParamsJson: JSON.stringify({
-                                display_text: '📜 Menu',
-                                id: `${config.PREFIX || '.'}menu`
-                            })
-                        },
-                        {
-                            name: 'cta_url',
-                            buttonParamsJson: JSON.stringify({
-                                display_text: '🎀 CHANNEL',
-                                url: config.CHANNEL_LINK || 'https://whatsapp.com/channel/0029VbEHpir6mYPSxtiCRs2q'
-                            })
-                        }
-                    ]
-                });
-
-                // ── 11. FIXED: DOWNLOAD HANDLER ──
-                const dlHandler = async (dlUpdate) => {
-                    try {
-                        const dlIncoming = dlUpdate.messages?.[0];
-                        if (!dlIncoming?.message || dlIncoming.key.remoteJid !== from) return;
-
-                        if (isDownloading) {
-                            await conn.sendMessage(from, { 
-                                text: "⏳ Please wait, another download is active..."
-                            }, { quoted: dlIncoming });
-                            return;
-                        }
-
-                        const dlMsg = dlIncoming.message;
-                        let dlIndex = null;
-
-                        // ── CHECK FOR LIST RESPONSE ──
-                        if (dlMsg.listResponseMessage?.singleSelectReply?.selectedRowId) {
-                            const id = dlMsg.listResponseMessage.singleSelectReply.selectedRowId;
-                            console.log('[Movies] Download ID:', id);
-                            if (id && id.startsWith('dl_')) {
-                                dlIndex = parseInt(id.replace('dl_', ''));
-                            }
-                        }
-                        // ── CHECK FOR BUTTON RESPONSE ──
-                        else if (dlMsg.buttonsResponseMessage?.selectedButtonId) {
-                            const id = dlMsg.buttonsResponseMessage.selectedButtonId;
-                            if (id && id.startsWith('dl_')) {
-                                dlIndex = parseInt(id.replace('dl_', ''));
-                            }
-                        }
-                        // ── CHECK FOR TEXT RESPONSE ──
-                        else if (dlMsg.extendedTextMessage?.text) {
-                            const text = dlMsg.extendedTextMessage.text.trim();
-                            if (text && text.startsWith('dl_')) {
-                                dlIndex = parseInt(text.replace('dl_', ''));
-                            }
-                        }
-
-                        if (dlIndex === null || !downloads[dlIndex]) {
-                            console.log('[Movies] Invalid download selection:', dlIndex);
-                            return;
-                        }
-
-                        conn.ev.off("messages.upsert", dlHandler);
-                        isDownloading = true;
-
-                        await conn.sendMessage(from, { react: { text: "📥", key: dlIncoming.key } });
-
-                        try {
-                            const target = downloads[dlIndex];
-                            const thumbnail = await getThumbnailBuffer(movie.poster);
-
-                            await conn.sendMessage(from, {
-                                document: { url: target.link },
-                                mimetype: "video/mp4",
-                                fileName: `${movie.title || 'movie'}.mp4`,
-                                jpegThumbnail: thumbnail,
-                                caption: `✅ *${movie.title || 'Movie'}*\n📦 Size: ${target.size || 'Unknown'}\n\n💖 Powered by 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍`,
-                                contextInfo: {
-                                    mentionedJid: [m.sender],
-                                    forwardingScore: 999,
-                                    isForwarded: true
-                                }
-                            }, { quoted: dlIncoming });
-
-                            await conn.sendMessage(from, { react: { text: "✅", key: dlIncoming.key } });
-
-                        } catch (e) {
-                            console.error('🌸 Download Error:', e);
-                            await conn.sendMessage(from, {
-                                text: `❌ Download failed. Please try again.\n\nError: ${e.message}`
-                            }, { quoted: dlIncoming });
-                        } finally {
-                            isDownloading = false;
-                        }
-                    } catch (e) {
-                        console.error('[Movies] DL Handler Error:', e);
-                    }
-                };
-
-                conn.ev.on("messages.upsert", dlHandler);
-                setTimeout(() => conn.ev.off("messages.upsert", dlHandler), 600000);
-
-            } catch (e) {
-                console.error('[Movies] Movie Handler Error:', e);
-            }
-        };
-
-        conn.ev.on("messages.upsert", movieHandler);
-        setTimeout(() => conn.ev.off("messages.upsert", movieHandler), 300000);
-
-        // ── Final Reaction ──
-        await conn.sendMessage(from, { react: { text: "💖", key: mek.key } });
-
-    } catch (err) {
-        console.error('🌸 MP4Moviez Error:', err);
-        await conn.sendMessage(from, { react: { text: "❌", key: mek.key } });
-        reply(`❌ Error processing movie search.\n\n${err.message}`);
-    }
+    searchByChat.set(from, results);
+    const lines = results.map((item, index) => {
+      const year = item.year ? ` (${item.year})` : '';
+      return `${index + 1}. ${cleanText(item.title, 100)}${year}`;
+    });
+    return reply(`🎬 *Internet Archive search: ${cleanText(query, 100)}*\n\n${lines.join('\n')}\n\nUse .movieget <number> to inspect and get an eligible small MP4.\nOnly items with verified public-domain/Creative Commons rights are considered.`);
+  } catch (error) {
+    console.error('[Movie search] Error:', error.stack || error.message);
+    return reply(`Movie search failed: ${error.message}`);
+  }
 });
 
-console.log('🎬 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 - MP4Moviez Interactive Plugin Loaded! 💖');
+waqar({
+  pattern: 'movieget',
+  alias: ['moviedl'],
+  desc: 'Get a verified public-domain/Creative Commons movie',
+  category: 'download',
+  react: '📥',
+  filename: __filename,
+}, async (conn, mek, _m, { from, args, reply }) => {
+  const results = searchByChat.get(from);
+  const index = Number.parseInt(args?.[0], 10) - 1;
+  if (!results) return reply('Search first with .movie <title>.');
+  if (!Number.isInteger(index) || index < 0 || index >= results.length) return reply('Use .movieget <result number> from the latest movie search.');
+
+  let localFile;
+  try {
+    const chosen = results[index];
+    const data = await getJson(`/api/v1/movie2/qualities/${encodeURIComponent(chosen.id)}`);
+    const rights = String(data.rights || data.license || '');
+    const rightsVerified = data.rightsVerified === true || data.rights_verified === true;
+    const isAllowedLicense = /publicdomain|creativecommons\.org/i.test(rights);
+    const sourceUrl = chosen.detailsUrl || `https://archive.org/details/${encodeURIComponent(chosen.id)}`;
+
+    if (!rightsVerified || !isAllowedLicense) {
+      return reply(`This item did not return a verified public-domain/Creative Commons license, so I won't download it. Source: ${sourceUrl}`);
+    }
+
+    const formats = Array.isArray(data.qualities) ? data.qualities : Array.isArray(data.formats) ? data.formats : [];
+    const candidate = formats
+      .filter(item => item.downloadable !== false && /\.mp4$/i.test(String(item.name || item.format_id || item.formatId || '')))
+      .filter(item => Number(item.sizeBytes || item.filesize || item.filesize_approx || 0) > 0 && Number(item.sizeBytes || item.filesize || item.filesize_approx || 0) <= MAX_MOVIE_BYTES)
+      .sort((a, b) => Number(a.sizeBytes || a.filesize || 0) - Number(b.sizeBytes || b.filesize || 0))[0];
+
+    if (!candidate?.downloadPath) {
+      const sizes = formats.filter(item => /\.mp4$/i.test(String(item.name || item.format_id || ''))).map(item => item.size || '').filter(Boolean);
+      return reply(`✅ *${cleanText(chosen.title, 150)}*\nVerified license: ${rights}\nNo MP4 under 64 MB was available for sending in chat${sizes.length ? ` (available sizes: ${sizes.join(', ')})` : ''}.\nOpen the source page: ${sourceUrl}`);
+    }
+
+    localFile = await downloadMovieFile(candidate.downloadPath, MAX_MOVIE_BYTES);
+    const title = cleanText(chosen.title, 100).replace(/[\\/:*?"<>|]/g, '_') || 'public-domain-movie';
+    await conn.sendMessage(from, {
+      document: { url: localFile },
+      mimetype: 'video/mp4',
+      fileName: `${title}.mp4`,
+      caption: `🎬 ${title}\nLicense: ${rights}\nSource: Internet Archive`,
+    }, { quoted: mek });
+  } catch (error) {
+    console.error('[Movie download] Error:', error.stack || error.message);
+    await reply(`Movie retrieval failed: ${error.message}`);
+  } finally {
+    if (localFile) await fs.unlink(localFile).catch(() => {});
+  }
+});

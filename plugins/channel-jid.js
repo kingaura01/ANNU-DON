@@ -1,114 +1,121 @@
-// ============================================
-// 🌸 CHANNEL COMMANDS - 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
-// 👑 Developer: 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
-// 💖 Boys Power Mode: ON
-// ============================================
+'use strict';
 
 const { waqar } = require('../waqar');
+const { postJson } = require('../lib/media-api');
 
-function boyBox(title, rows) {
-    const body = rows.map(([emoji, label, value]) => 
-        `│  ✿ ${emoji} ${label}: ${value || ''}`
-    ).join('\n');
-    return `
-╭────────────────────◇
-│  ✿ ${title} ✿
-│  ✌︎㋡━━━━━━━━━✌︎㋡
-${body}
-╰────────────────────○
-
-> 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍
-`;
+function box(title, rows) {
+  const body = rows.map(([emoji, label, value]) => `│  ✿ ${emoji} ${label}: ${value || ''}`).join('\n');
+  return `╭────────────────────◇\n│  ✿ ${title} ✿\n│  ✌︎㋡━━━━━━━━━✌︎㋡\n${body}\n╰────────────────────○\n\n> 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍`;
 }
 
-// Stylized characters for channel reaction
 const stylizedChars = {
-    a: '🅰', b: '🅱', c: '🅲', d: '🅳', e: '🅴', f: '🅵',
-    g: '🅶', h: '🅷', i: '🅸', j: '🅹', k: '🅺', l: '🅻',
-    m: '🅼', n: '🅽', o: '🅾', p: '🅿', q: '🆀', r: '🆁',
-    s: '🆂', t: '🆃', u: '🆄', v: '🆅', w: '🆆', x: '🆇',
-    y: '🆈', z: '🆉',
-    '0': '⓿', '1': '❶', '2': '❷', '3': '❸', '4': '❹',
-    '5': '❺', '6': '❻', '7': '❼', '8': '❽', '9': '❾'
+  a: '🅰', b: '🅱', c: '🅲', d: '🅳', e: '🅴', f: '🅵', g: '🅶', h: '🅷', i: '🅸',
+  j: '🅹', k: '🅺', l: '🅻', m: '🅼', n: '🅽', o: '🅾', p: '🅿', q: '🆀', r: '🆁',
+  s: '🆂', t: '🆃', u: '🆄', v: '🆅', w: '🆆', x: '🆇', y: '🆈', z: '🆉',
+  '0': '⓿', '1': '❶', '2': '❷', '3': '❸', '4': '❹', '5': '❺', '6': '❻', '7': '❼', '8': '❽', '9': '❾',
 };
 
-// Channel React
 waqar({
-    pattern: "chreact",
-    alias: ["channelreact"],
-    desc: "🌸 React to channel message with stylized text",
-    category: "owner",
-    react: "🌸",
-    filename: __filename
-}, async (conn, mek, m, { from, q, isOwner, isCreator, reply }) => {
-    try {
-        if (!isOwner && !isCreator) return reply(`🌸 Only my 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 writes can use this! 👑💖`);
+  pattern: 'chreact',
+  alias: ['channelreact'],
+  desc: 'Send one reaction to a WhatsApp Channel post',
+  category: 'channel',
+  react: '🌸',
+  filename: __filename,
+}, async (_conn, _mek, _m, { text, isOwner, isCreator, reply }) => {
+  if (!isOwner && !isCreator) return reply('Only the bot owner can use this command.');
+  const input = String(text || '').trim();
+  const match = input.match(/https?:\/\/whatsapp\.com\/channel\/[^\s]+/i);
+  if (!match) return reply('Usage: .chreact <WhatsApp channel post link> [emoji]\nExample: .chreact https://whatsapp.com/channel/CODE/POST ❤️');
+  const url = match[0].replace(/[),.]+$/, '');
+  const emoji = input.slice(input.indexOf(match[0]) + match[0].length).trim().split(/\s+/)[0] || '❤️';
 
-        if (!q) return reply(`🌸 Usage: .chr https://whatsapp.com/channel/xxxxx/yyyy hello 💕`);
-
-        const [link, ...textParts] = q.split(' ');
-        if (!link.includes("whatsapp.com/channel/")) {
-            return reply("🌸 Invalid channel link! 💕");
-        }
-
-        const inputText = textParts.join(' ').toLowerCase();
-        if (!inputText) return reply("🌸 Please provide text to convert! 💕");
-
-        const emoji = inputText
-            .split('')
-            .map(char => char === ' ' ? '—' : stylizedChars[char] || char)
-            .join('');
-
-        const channelId = link.split('/')[4];
-        const messageId = link.split('/')[5];
-        if (!channelId || !messageId) return reply("🌸 Invalid link - missing IDs! 💕");
-
-        const channelMeta = await conn.newsletterMetadata("invite", channelId);
-        await conn.newsletterReactMessage(channelMeta.id, messageId, emoji);
-
-        reply(girlBox('🔤 CHANNEL REACTION', [
-            ['✅', 'Status', 'Reaction sent'],
-            ['📢', 'Channel', channelMeta.name],
-            ['🔤', 'Reaction', emoji]
-        ]));
-
-    } catch (e) {
-        console.error(e);
-        reply(`🌸 Error: ${e.message || "Failed to send reaction"} 💕`);
-    }
+  try {
+    const result = await postJson('/api/v1/chreact/single', { url, count: 1, emojis: emoji });
+    return reply(`✅ Reaction request completed.\nPost: ${url}\nEmoji: ${emoji}\n${result.message || result.statusMessage || ''}`.trim());
+  } catch (error) {
+    console.error('[Channel react] Error:', error.stack || error.message);
+    return reply(`Channel reaction failed: ${error.message}`);
+  }
 });
 
-// Channel ID
 waqar({
-    pattern: "cid",
-    alias: ["channelid", "cinfo"],
-    desc: "🌸 Get channel info from link",
-    category: "utility",
-    react: "🌸",
-    filename: __filename
-}, async (conn, mek, m, { from, q, reply }) => {
-    try {
-        if (!q) return reply(`🌸 Provide channel link!\nExample: .cid https://whatsapp.com/channel/xxxxx 💕`);
+  pattern: 'chr',
+  alias: ['channeltextreact'],
+  desc: 'Send a stylized text reaction to a channel post',
+  category: 'owner',
+  react: '🌸',
+  filename: __filename,
+}, async (conn, _mek, _m, { q, isOwner, isCreator, reply }) => {
+  if (!isOwner && !isCreator) return reply('Only the bot owner can use this command.');
+  const input = String(q || '').trim();
+  const match = input.match(/https?:\/\/whatsapp\.com\/channel\/([\w-]+)\/([\w-]+)/i);
+  if (!match) return reply('Usage: .chr <channel post link> <text>');
+  const text = input.slice(match.index + match[0].length).trim();
+  if (!text) return reply('Please provide the text to convert into stylized characters.');
+  const reaction = text.toLowerCase().split('').map(char => char === ' ' ? '—' : stylizedChars[char] || char).join('');
 
-        const match = q.match(/whatsapp\.com\/channel\/([\w-]+)/);
-        if (!match) return reply("🌸 Invalid channel link! 💕");
-
-        const inviteId = match[1];
-        const metadata = await conn.newsletterMetadata("invite", inviteId);
-
-        if (!metadata || !metadata.id) return reply("🌸 Channel not found! 💕");
-
-        reply(boyBox('📢 CHANNEL INFO', [
-            ['🆔', 'ID', metadata.id],
-            ['📌', 'Name', metadata.name],
-            ['👥', 'Followers', metadata.subscribers?.toLocaleString() || 'N/A'],
-            ['📅', 'Created', metadata.creation_time ? new Date(metadata.creation_time * 1000).toLocaleString() : 'Unknown']
-        ]));
-
-    } catch (error) {
-        console.error("🌸 Channel ID Error:", error);
-        reply(`🌸 Error: ${error.message} 💕`);
-    }
+  try {
+    const metadata = await conn.newsletterMetadata('invite', match[1]);
+    if (!metadata?.id) return reply('Channel not found.');
+    await conn.newsletterReactMessage(metadata.id, match[2], reaction);
+    return reply(box('CHANNEL TEXT REACTION', [
+      ['✅', 'Status', 'Reaction sent'],
+      ['📢', 'Channel', metadata.name],
+      ['🔤', 'Reaction', reaction],
+    ]));
+  } catch (error) {
+    console.error('[Channel text reaction] Error:', error.stack || error.message);
+    return reply(`Channel reaction failed: ${error.message}`);
+  }
 });
 
-console.log('𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 - Channel plugins loaded! 💖');
+waqar({
+  pattern: 'chreactweekly',
+  alias: ['weeklychreact'],
+  desc: 'Enable one automatic reaction per new channel post for seven days',
+  category: 'owner',
+  react: '📅',
+  filename: __filename,
+}, async (_conn, _mek, _m, { text, isOwner, isCreator, reply }) => {
+  if (!isOwner && !isCreator) return reply('Only the bot owner can use this command.');
+  const input = String(text || '').trim();
+  const match = input.match(/https?:\/\/whatsapp\.com\/channel\/[\w-]+/i);
+  if (!match) return reply('Usage: .chreactweekly <WhatsApp channel link> [emoji]');
+  const url = match[0].replace(/[),.]+$/, '');
+  const emoji = input.slice(input.indexOf(match[0]) + match[0].length).trim().split(/\s+/)[0] || '❤️';
+  try {
+    const result = await postJson('/api/v1/chreact/weekly', { url, count: 1, emojis: emoji });
+    return reply(`✅ Seven-day channel reaction request accepted.\nChannel: ${url}\nOne reaction per new post: ${emoji}\n${result.message || result.statusMessage || ''}`.trim());
+  } catch (error) {
+    console.error('[Weekly channel react] Error:', error.stack || error.message);
+    return reply(`Weekly channel reaction setup failed: ${error.message}`);
+  }
+});
+
+waqar({
+  pattern: 'cid',
+  alias: ['channelid', 'cinfo'],
+  desc: 'Get channel info from link',
+  category: 'utility',
+  react: '🌸',
+  filename: __filename,
+}, async (conn, _mek, _m, { q, reply }) => {
+  const match = String(q || '').match(/whatsapp\.com\/channel\/([\w-]+)/i);
+  if (!match) return reply('Provide a valid WhatsApp channel invite link.');
+  try {
+    const metadata = await conn.newsletterMetadata('invite', match[1]);
+    if (!metadata?.id) return reply('Channel not found.');
+    return reply(box('CHANNEL INFO', [
+      ['🆔', 'ID', metadata.id],
+      ['📌', 'Name', metadata.name],
+      ['👥', 'Followers', metadata.subscribers?.toLocaleString() || 'N/A'],
+      ['📅', 'Created', metadata.creation_time ? new Date(metadata.creation_time * 1000).toLocaleString() : 'Unknown'],
+    ]));
+  } catch (error) {
+    console.error('[Channel info] Error:', error.stack || error.message);
+    return reply(`Channel lookup failed: ${error.message}`);
+  }
+});
+
+console.log('ANNU-DON channel plugins loaded.');
