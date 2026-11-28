@@ -487,7 +487,7 @@ waqar({
 ╭────────────────────◇
 │  ✿ 📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ & ᴍᴇᴅɪᴀ ✿
 │  ✿━━━━━━━━━━━━━━━✿
-│  ✿ .song [name]
+│  ✿ .audio [name/url]
 │  ✿ .play [name/url]
 │  ✿ .ytdl [name/url]
 │  ✿ .video [name/url]

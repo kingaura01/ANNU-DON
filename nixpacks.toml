@@ -1,9 +1,9 @@
 [phases.setup]
-# FFmpeg is provided by the npm dependencies; only curl is needed to fetch yt-dlp.
-nixPkgs = ["...", "curl", "python3"]
+# The standalone Linux release bundles Python; ffmpeg is needed for audio extraction and video muxing.
+nixPkgs = ["...", "curl", "ffmpeg"]
 
 [phases.install]
 cmds = [
   "...",
-  "mkdir -p /app/bin && curl -fsSL https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /app/bin/yt-dlp && chmod 755 /app/bin/yt-dlp"
+  "mkdir -p /app/bin && case \"$(uname -m)\" in x86_64|amd64) asset=yt-dlp_linux ;; aarch64|arm64) asset=yt-dlp_linux_aarch64 ;; *) echo \"Unsupported architecture: $(uname -m)\" >&2; exit 1 ;; esac && curl -fsSL \"https://github.com/yt-dlp/yt-dlp/releases/latest/download/$asset\" -o /app/bin/yt-dlp && chmod 755 /app/bin/yt-dlp"
 ]

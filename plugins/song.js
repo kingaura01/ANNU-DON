@@ -7,7 +7,7 @@ const fs = require('node:fs/promises');
 
 waqar({
   pattern: 'play',
-  alias: ['audio', 'mp3', 'song', 'gana', 'ytmp3', 'ytaudio', 'playaudio', 'music', 'melody'],
+  alias: ['audio', 'mp3', 'gana', 'ytmp3', 'ytaudio', 'playaudio', 'music', 'melody'],
   desc: 'Play or download YouTube audio',
   category: 'download',
   react: '🎵',

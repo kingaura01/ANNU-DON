@@ -80,7 +80,7 @@ deployment is running, remove old entries in *Linked Devices*, and request a fre
 
 > Never commit `.env` or the `session/` folder.
 
-The media integration uses `.play` (also `.audio` / `.song`), `.video` (also `.ytdl`), owner-only `.chreact` (one reaction per request), and `.chreactweekly` (one reaction per new post for seven days when explicitly run). `.movie <title>` searches the Internet Archive public-domain/Creative Commons catalog; `.movieget <number>` sends an eligible MP4 up to 64 MB, otherwise it returns the Archive source page. Set `MEDIA_API_BASE` and `MEDIA_API_KEY` in Railway Variables if you need to override the defaults. YouTube downloads fall back to the existing local downloader if the API job fails.
+The media integration uses `.play` (also `.audio` / `.mp3`), `.video` (also `.ytdl`), owner-only `.chreact` (one reaction per request), and `.chreactweekly` (one reaction per new post for seven days when explicitly run). `.movie <title>` searches the Internet Archive public-domain/Creative Commons catalog; `.movieget <number>` sends an eligible MP4 up to 64 MB, otherwise it returns the Archive source page. Set `MEDIA_API_BASE` and `MEDIA_API_KEY` in Railway Variables if you need to override the defaults. YouTube downloads fall back to the architecture-matched standalone downloader if the API job fails.
 
 ## Deploy on Railway
 
