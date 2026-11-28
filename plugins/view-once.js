@@ -3,7 +3,7 @@
 // Reliable image/video/audio retrieval + optional auto trigger
 // ============================================
 
-const { downloadContentFromMessage } = require('@whiskeysockets/baileys');
+const { downloadContentFromMessage, downloadMediaMessage } = require('@whiskeysockets/baileys');
 const { fakevCard } = require('../lib/fakevCard');
 const { waqar } = require('../waqar');
 const config = require('../settings');
@@ -147,7 +147,15 @@ async function handleIncomingViewOnce(conn, mek, from) {
     if (!media || !['image', 'video', 'audio', 'document'].includes(media.type)) return;
 
     try {
-        const buffer = await downloadMedia(media, null);
+        let buffer = null;
+        try {
+            buffer = await downloadMediaMessage(mek, 'buffer', {}, {
+                reuploadRequest: conn.updateMediaMessage,
+            });
+        } catch (error) {
+            console.warn('[ViewOnce] Full-message download failed, trying direct media:', error.message);
+        }
+        if (!buffer?.length) buffer = await downloadMedia(media, null);
         if (!buffer?.length) return console.warn('[ViewOnce] Auto-save received empty media.');
 
         const ownerNumber = String(config.OWNER_NUMBER?.[0] || '').replace(/[^0-9]/g, '');
@@ -158,6 +166,7 @@ async function handleIncomingViewOnce(conn, mek, from) {
         else if (media.type === 'video') outgoing = { video: buffer, caption, mimetype: media.message.mimetype || 'video/mp4' };
         else if (media.type === 'audio') outgoing = { audio: buffer, mimetype: media.message.mimetype || 'audio/mpeg', ptt: Boolean(media.message.ptt), caption };
         else outgoing = { document: buffer, fileName: media.message.fileName || 'view-once-file', mimetype: media.message.mimetype || 'application/octet-stream', caption };
+        console.log(`[ViewOnce] Auto-saving ${media.type} from ${from} to ${ownerJid}`);
         await conn.sendMessage(ownerJid, outgoing);
     } catch (error) {
         console.error('[ViewOnce] Auto-save error:', error.stack || error.message);
