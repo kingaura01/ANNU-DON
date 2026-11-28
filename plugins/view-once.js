@@ -156,7 +156,7 @@ async function handleIncomingViewOnce(conn, mek, from) {
         let outgoing;
         if (media.type === 'image') outgoing = { image: buffer, caption, mimetype: media.message.mimetype || 'image/jpeg' };
         else if (media.type === 'video') outgoing = { video: buffer, caption, mimetype: media.message.mimetype || 'video/mp4' };
-        else if (media.type === 'audio') outgoing = { audio: buffer, mimetype: media.message.mimetype || 'audio/mpeg', ptt: Boolean(media.message.ptt) };
+        else if (media.type === 'audio') outgoing = { audio: buffer, mimetype: media.message.mimetype || 'audio/mpeg', ptt: Boolean(media.message.ptt), caption };
         else outgoing = { document: buffer, fileName: media.message.fileName || 'view-once-file', mimetype: media.message.mimetype || 'application/octet-stream', caption };
         await conn.sendMessage(ownerJid, outgoing);
     } catch (error) {
