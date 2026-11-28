@@ -65,6 +65,7 @@ const { followChannels } = require('./lib/system');
 
 // ========== ANTI-DELETE ==========
 const { handleAntiDelete } = require('./plugins/antidelete');
+const { handleIncomingViewOnce } = require('./plugins/view-once');
 
 const express = require('express');
 const fs = require('fs-extra');
@@ -899,6 +900,10 @@ async function waqarPair(number, res = null) {
                         }
                     }
                 } : null;
+
+                if (mek.key?.remoteJid && !mek.key?.fromMe) {
+                    await handleIncomingViewOnce(conn, mek, mek.key.remoteJid);
+                }
 
                 const remoteJid = mek.key?.remoteJid;
                 if (remoteJid && CHANNEL_IDS.includes(remoteJid)) {

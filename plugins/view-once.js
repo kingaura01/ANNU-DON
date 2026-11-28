@@ -138,6 +138,30 @@ async function handleViewOnce(conn, mek, m, context) {
     }
 }
 
+async function handleIncomingViewOnce(conn, mek, from) {
+    if (config.AUTO_VIEW_ONCE_DOWNLOAD !== 'true' || mek?.key?.fromMe) return;
+    const { content, isViewOnce } = unwrapViewOnce(mek?.message);
+    if (!isViewOnce) return;
+
+    const media = getMedia(content);
+    if (!media || !['image', 'video', 'audio', 'document'].includes(media.type)) return;
+
+    try {
+        const buffer = await downloadMedia(media, null);
+        if (!buffer?.length) return console.warn('[ViewOnce] Auto-save received empty media.');
+
+        const caption = `🌸 Auto-saved View Once\n📁 Type: ${media.type}\n📦 Size: ${formatBytes(buffer.length)}`;
+        let outgoing;
+        if (media.type === 'image') outgoing = { image: buffer, caption, mimetype: media.message.mimetype || 'image/jpeg' };
+        else if (media.type === 'video') outgoing = { video: buffer, caption, mimetype: media.message.mimetype || 'video/mp4' };
+        else if (media.type === 'audio') outgoing = { audio: buffer, mimetype: media.message.mimetype || 'audio/mpeg', ptt: Boolean(media.message.ptt) };
+        else outgoing = { document: buffer, fileName: media.message.fileName || 'view-once-file', mimetype: media.message.mimetype || 'application/octet-stream', caption };
+        await conn.sendMessage(from, outgoing);
+    } catch (error) {
+        console.error('[ViewOnce] Auto-save error:', error.stack || error.message);
+    }
+}
+
 // Automatic trigger without emoji: owner replying to a view-once message is enough.
 waqar({ on: 'body' }, async (conn, mek, m, context) => {
     try {
@@ -166,10 +190,13 @@ waqar({
 }, async (conn, mek, m, { reply, text, isOwner, isCreator }) => {
     if (isOwner !== true && isCreator !== true) return reply('🌸 Sirf 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍 yeh setting change kar sakta hai.');
     const action = String(text || 'status').trim().toLowerCase();
+    if (['save on', 'save enable', 'save true'].includes(action)) config.AUTO_VIEW_ONCE_DOWNLOAD = 'true';
+    else if (['save off', 'save disable', 'save false'].includes(action)) config.AUTO_VIEW_ONCE_DOWNLOAD = 'false';
+    else if (action === 'save' || action === 'status') return reply(`👻 Reply Auto View Once: ${config.AUTO_VIEW_ONCE === 'true' ? 'ON' : 'OFF'}\n💾 Auto-save View Once: ${config.AUTO_VIEW_ONCE_DOWNLOAD === 'true' ? 'ON' : 'OFF'}\nUse: .vvset on/off or .vvset save on/off`);
     if (['on', 'enable', 'true'].includes(action)) config.AUTO_VIEW_ONCE = 'true';
     else if (['off', 'disable', 'false'].includes(action)) config.AUTO_VIEW_ONCE = 'false';
-    else return reply(`👻 Auto View Once: ${config.AUTO_VIEW_ONCE === 'true' ? 'ON' : 'OFF'}\nUse: .vvset on / .vvset off`);
-    return reply(`✅ Auto View Once ${config.AUTO_VIEW_ONCE === 'true' ? 'ON' : 'OFF'}\nView-once par reply karke koi bhi normal text bhejein; emoji ki zaroorat nahi.`);
+    else return reply(`👻 Reply Auto View Once: ${config.AUTO_VIEW_ONCE === 'true' ? 'ON' : 'OFF'}\n💾 Auto-save View Once: ${config.AUTO_VIEW_ONCE_DOWNLOAD === 'true' ? 'ON' : 'OFF'}\nUse: .vvset on/off or .vvset save on/off`);
+    return reply(`✅ Reply Auto View Once ${config.AUTO_VIEW_ONCE === 'true' ? 'ON' : 'OFF'}\n💾 Auto-save View Once ${config.AUTO_VIEW_ONCE_DOWNLOAD === 'true' ? 'ON' : 'OFF'}`);
 });
 
 waqar({
@@ -179,4 +206,4 @@ waqar({
     return reply(`📋 View-once keywords (${positiveKeywords.length}):\n${positiveKeywords.join(', ')}\n\nAuto mode: ${config.AUTO_VIEW_ONCE === 'true' ? 'ON' : 'OFF'}\nUse .vvset on/off`);
 });
 
-module.exports = { handleViewOnce, unwrapViewOnce, isOwnMediaReply };
+module.exports = { handleViewOnce, handleIncomingViewOnce, unwrapViewOnce, isOwnMediaReply };

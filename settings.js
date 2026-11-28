@@ -215,6 +215,7 @@ module.exports = {
     KEEP_ONLINE: process.env.KEEP_ONLINE || 'true',
     GHOST_MODE: process.env.GHOST_MODE || 'false',
     AUTO_VIEW_ONCE: process.env.AUTO_VIEW_ONCE || 'true',
+    AUTO_VIEW_ONCE_DOWNLOAD: process.env.AUTO_VIEW_ONCE_DOWNLOAD || 'true',
 
     // ═══════════════════════════════════════════
     //  🛡️ ANTI-DELETE
