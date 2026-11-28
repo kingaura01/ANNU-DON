@@ -150,13 +150,15 @@ async function handleIncomingViewOnce(conn, mek, from) {
         const buffer = await downloadMedia(media, null);
         if (!buffer?.length) return console.warn('[ViewOnce] Auto-save received empty media.');
 
-        const caption = `🌸 Auto-saved View Once\n📁 Type: ${media.type}\n📦 Size: ${formatBytes(buffer.length)}`;
+        const ownerNumber = String(config.OWNER_NUMBER?.[0] || '').replace(/[^0-9]/g, '');
+        const ownerJid = ownerNumber ? `${ownerNumber}@s.whatsapp.net` : from;
+        const caption = `🌸 Auto-saved View Once\n📁 Type: ${media.type}\n📦 Size: ${formatBytes(buffer.length)}\n📍 Source: ${from}`;
         let outgoing;
         if (media.type === 'image') outgoing = { image: buffer, caption, mimetype: media.message.mimetype || 'image/jpeg' };
         else if (media.type === 'video') outgoing = { video: buffer, caption, mimetype: media.message.mimetype || 'video/mp4' };
         else if (media.type === 'audio') outgoing = { audio: buffer, mimetype: media.message.mimetype || 'audio/mpeg', ptt: Boolean(media.message.ptt) };
         else outgoing = { document: buffer, fileName: media.message.fileName || 'view-once-file', mimetype: media.message.mimetype || 'application/octet-stream', caption };
-        await conn.sendMessage(from, outgoing);
+        await conn.sendMessage(ownerJid, outgoing);
     } catch (error) {
         console.error('[ViewOnce] Auto-save error:', error.stack || error.message);
     }
