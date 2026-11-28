@@ -7,7 +7,9 @@
 const { waqar } = require('../waqar');
 const axios = require('axios');
 const { fakevCard } = require('../lib/fakevCard');
-const config = require('../config');
+const { getJson, downloadJob } = require('../lib/media-api');
+const fs = require('node:fs/promises');
+require('../config');
 
 // ============================================
 // 📌 API
@@ -30,28 +32,28 @@ waqar({
         return reply('🌸 Please provide a valid public Facebook video link.\nExample: .fb https://facebook.com/...');
     }
 
+    let localFile;
     try {
         await conn.sendMessage(from, { react: { text: '⏳', key: mek.key } }).catch(() => {});
-        const { data } = await axios.get(
-            `https://arslan-apis-v2.vercel.app/download/fbdown?url=${encodeURIComponent(url)}`,
-            { timeout: 60000, headers: { 'User-Agent': 'Mozilla/5.0' } }
-        );
-        const result = data?.result;
-        const download = result?.download || {};
-        const videoUrl = download.hd || download.sd || download.p480;
-        if (data?.status !== true || result?.status !== true || !videoUrl) {
-            return reply('🌸 Facebook video fetch nahi ho saka. Link public ho aur dobara try karein.');
-        }
+        const result = await getJson('/api/v1/video', { query: url });
+        localFile = await downloadJob(result.job_id, 'mp4');
+        const title = String(result.title || 'Facebook video')
+            .replace(/[\\/:*?"<>|]/g, '_')
+            .slice(0, 120);
 
         await conn.sendMessage(from, {
-            video: { url: videoUrl },
+            video: { url: localFile },
             mimetype: 'video/mp4',
-            caption: `🌸 *Facebook Video*\n\n🎬 ${result.metadata?.title || 'Video'}\n👑 Powered by 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍`
+            fileName: `${title}.mp4`,
+            caption: `🌸 *Facebook Video*\n\n🎬 ${title}\n👑 Powered by 𝐀𝐍𝐍𝐔 𝐃𝐎𝐍`
         }, { quoted: fakevCard });
         await conn.sendMessage(from, { react: { text: '✅', key: mek.key } }).catch(() => {});
     } catch (error) {
-        console.error('[Facebook download] Error:', error.response?.data || error.message);
-        return reply('🌸 Facebook downloader temporarily unavailable. Please try again later.');
+        console.error('[Facebook download] Error:', error.stack || error.message);
+        await conn.sendMessage(from, { react: { text: '❌', key: mek.key } }).catch(() => {});
+        return reply(`🌸 Facebook download failed: ${error.message}`);
+    } finally {
+        if (localFile) await fs.unlink(localFile).catch(() => {});
     }
 });
 
